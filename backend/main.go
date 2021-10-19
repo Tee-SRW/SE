@@ -1,7 +1,7 @@
 package main 
 
 import (
-	"../backend/server"
+	"se/server"
 )
 
 func main()  {
