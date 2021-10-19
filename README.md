@@ -1,2 +1,2 @@
-# Joppy-but-not-joppy
-for software engineer kmitl
+# SE
+Joppy project for software engineer kmitl year 3
