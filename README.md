@@ -1,2 +1,2 @@
 # SE
-Joppy project for software engineer kmitl year 3
+Joppy project for software engineer kmitl
