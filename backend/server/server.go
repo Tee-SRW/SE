@@ -1,15 +1,19 @@
-package server 
+package server
 
 import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
+	"net/http"
 
+	"github.com/gin-gonic/gin"
 )
-func IninServer(){
-	app := fiber.New()
-	app.Use(cors.New())
-	
- 	InitRoutes()
 
-    app.Listen(":3000")
+func server() {
+	r := gin.Default()
+
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "pong",
+		})
+	})
+	
+	r.Run("8080")
 }

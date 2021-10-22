@@ -1,4 +1,4 @@
-package main
+package database
 
 import (
 	"database/sql"
@@ -7,7 +7,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func main() {
+func Connectdata() {
 	fmt.Println("Go MySQL Tutorial")
 
 	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3307)/se")
