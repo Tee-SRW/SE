@@ -7,6 +7,7 @@ function SignUp() {
     <>
       <Signupform />
     </>
+    
   ); 
 }
 export default SignUp

@@ -1,38 +1,70 @@
-import React, { Component } from "react";
-import { Link } from 'react-router-dom';
-import './Loginform.css';
+import React  from "react";
+import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import "./Loginform.css";
+import { Container, Row, Col } from 'react-grid-system';
 
-export default class Login extends Component {
-    render() {
-        return (
-            <div className="outer">
-                <div className="inner">
-                    <form>
-                        <h3>Log in</h3>
-                        <div className="form-group">
-                            <label>Email</label>
-                            <input type="email" className="form-control" placeholder="email" />
-                        </div>
-
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input type="password" className="form-control" placeholder="password" />
-                        </div>
-
-                        <div className="form-group">
-                            <div className="custom-control custom-checkbox">
-                                <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                                <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                            </div>
-                        </div>
-
-                        <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-                        <p className="forgot-password text-right">
-                            Forgot <Link to='/'> <a href="#">password?</a> </Link>
-                        </p>
-                    </form>
-                </div>
+export default function Login()  {
+    return (
+      <div className="outer">
+        <div className="inner">
+          <form>
+            <h3>Log in</h3>
+            <div className="form-group">
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+              </Form.Group>
             </div>
-        );
-    }
-}
+
+            <div className="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                className="form-control"
+                placeholder="password"
+              />
+            </div>
+            <div className="form-group ">
+              <div className="custom-control custom-checkbox ">
+                <input
+                  type="checkbox"
+                  className="custom-control-input spacing2"
+                  id="customCheck1"
+                />
+                <label className="custom-control-label spacing" htmlFor="customCheck1">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <div className="d-grid gap-2">
+            <button type="submit" className="btn btn-dark btn-lg btn-block spacing">
+              Sign in
+            </button>
+            </div>
+            <Container>
+              <Row>
+                <Col>
+                <p className="haveaccount spacing">
+                Don’t have account{" "}
+              <Link to="/sign-up">
+                {" "}
+                <a href="#">  yet?</a>{" "}
+              </Link>
+            </p>
+            </Col>
+                <Col>
+                <p className="forgot-password spacing ">
+                Forgot{" "}
+              <Link to="/Forgetpassword">
+                {" "}
+                <a href="#"> password?</a>{" "}
+              </Link>
+            </p></Col>
+              </Row>
+            </Container>
+          </form>
+        </div>
+      </div>
+    );
+  }
