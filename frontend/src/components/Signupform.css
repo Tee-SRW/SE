@@ -76,7 +76,7 @@ html,
     color: #167bff;
 }
 
-.spacing {
+.spacing-top {
     margin-top: 10px;
 }
 
@@ -90,7 +90,7 @@ html,
     align-items: center;
 }
 
-.spacing2 {
+.spacing-right {
     margin-right: 5px;
 }
 
@@ -107,5 +107,5 @@ html,
 
 .pass-wrapper {
     position: relative;
-    margin-bottom: 14px;
+    
 }

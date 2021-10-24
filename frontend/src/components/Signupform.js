@@ -15,7 +15,7 @@ export default function SignUp() {
           <form>
             <h3>Register</h3>
 
-            <div className="form-group spacing">
+            <div className="form-group spacing-top">
               <label>First name</label>
               <input
                 type="text"
@@ -65,20 +65,19 @@ export default function SignUp() {
             <div className="form-group">
               <label>Phone Number</label>
               <input
-                type="tel"
+                type="number"
                 className="form-control"
                 placeholder="Phone Number"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               />
             </div>
             <div className="form-group ">
               <div className="custom-control custom-checkbox ">
                 <input
                   type="checkbox"
-                  className="custom-control-input spacing2"
+                  className="custom-control-input spacing-right"
                   id="customCheck1"
                 />
-                <label className="custom-control-label spacing" htmlFor="customCheck1">
+                <label className="custom-control-label spacing-top" htmlFor="customCheck1">
                 ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair
                 </label>
               </div>
@@ -86,7 +85,7 @@ export default function SignUp() {
             <div className="d-grid gap-2">
               <button
                 type="submit"
-                className="btn btn-dark btn-lg btn-block spacing"
+                className="btn btn-dark btn-lg btn-block spacing-top"
               >
                 Register
               </button>

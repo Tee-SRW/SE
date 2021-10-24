@@ -21,14 +21,14 @@ export default function Forgetpasswordform() {
             </Form.Group>
           </div>
           <div className="d-grid gap-2">
-            <button type="submit" className="btn btn-dark btn-lg btn-block spacing">
+            <button type="submit" className="btn btn-dark btn-lg btn-block spacing-top">
               Send
             </button>
             </div>
           <Container>
             <Row>
               <Col>
-                <p className="forgot-password text-center spacing ">
+                <p className="forgot-password text-center spacing-top ">
                   {" "}
                   <Link to="/login">
                     {" "}

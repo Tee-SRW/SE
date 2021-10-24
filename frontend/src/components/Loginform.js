@@ -29,23 +29,23 @@ export default function Login()  {
               <div className="custom-control custom-checkbox ">
                 <input
                   type="checkbox"
-                  className="custom-control-input spacing2"
+                  className="custom-control-input spacing-right"
                   id="customCheck1"
                 />
-                <label className="custom-control-label spacing" htmlFor="customCheck1">
+                <label className="custom-control-label spacing-top" htmlFor="customCheck1">
                   Remember me
                 </label>
               </div>
             </div>
             <div className="d-grid gap-2">
-            <button type="submit" className="btn btn-dark btn-lg btn-block spacing">
+            <button type="submit" className="btn btn-dark btn-lg btn-block spacing-top">
               Sign in
             </button>
             </div>
             <Container>
               <Row>
                 <Col>
-                <p className="haveaccount spacing">
+                <p className="haveaccount spacing-top">
                 Don’t have account{" "}
               <Link to="/sign-up">
                 {" "}
@@ -54,7 +54,7 @@ export default function Login()  {
             </p>
             </Col>
                 <Col>
-                <p className="forgot-password spacing ">
+                <p className="forgot-password spacing-top ">
                 Forgot{" "}
               <Link to="/Forgetpassword">
                 {" "}

@@ -23,7 +23,7 @@ export default function Resetpasswordform() {
             </Form.Group>
           </div>
           <div className="d-grid gap-2">
-            <button type="submit" className="btn btn-dark btn-lg btn-block spacing">
+            <button type="submit" className="btn btn-dark btn-lg btn-block spacing-top">
               Reset
             </button>
             </div>
