@@ -16,20 +16,11 @@ export default function SignUp() {
             <h3>Register</h3>
 
             <div className="form-group spacing">
-              <label>First name</label>
+              <label>Company name</label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="First name"
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Last name</label>
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Last name"
+                placeholder="company name"
               />
             </div>
 
@@ -41,6 +32,7 @@ export default function SignUp() {
                 placeholder="Email"
               />
             </div>
+
             <div className="pass-wrapper">
               <div className="form-group">
                 <label>Password</label>
@@ -54,6 +46,7 @@ export default function SignUp() {
                 </i>
               </div>
             </div>
+
             <div className="form-group">
               <label>Confirm Password</label>
               <input
@@ -62,15 +55,61 @@ export default function SignUp() {
                 placeholder="Confirm Password"
               />
             </div>
+
             <div className="form-group">
               <label>Phone Number</label>
               <input
-                type="tel"
+                type="PhoneNumber"
                 className="form-control"
                 placeholder="Phone Number"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               />
             </div>
+
+            <div className="form-group">
+              <label>Address</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Address"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Sub-district/ Sub-area</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Sub-district/ Sub-area"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>District / Area</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="District / Area"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Province</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Province"
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Postal Code</label>
+              <input
+                type="number"
+                className="form-control"
+                placeholder="Postal Code"
+              />
+            </div>
+
             <div className="form-group ">
               <div className="custom-control custom-checkbox ">
                 <input

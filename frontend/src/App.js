@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import SignUpCompany from './components/pages/SignUpCompany';
 import Login from './components/pages/Login';
 import Forgetpassword from './components/pages/Forgetpassword';
 import Resetpassword from './components/pages/Resetpassword';
@@ -21,6 +22,7 @@ function App() {
           <Route path='/products' component={Products} />
           <Route path='/Login' component={Login} />
           <Route path='/sign-up' component={SignUp} />
+          <Route path='/sign-up-company' component={SignUpCompany} />
           <Route path='/Forgetpassword' component={Forgetpassword} />
           <Route path='/Resetpassword' component={Resetpassword} />
         </Switch>
