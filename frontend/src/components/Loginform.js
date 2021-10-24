@@ -47,14 +47,14 @@ export default function Login()  {
                 <Col>
                 <p className="haveaccount spacing-top">
                 Don’t have account{" "}
-              <Link to="/sign-up">
+              <Link to="/ChooseCreate">
                 {" "}
                 <a href="#">  yet?</a>{" "}
               </Link>
             </p>
             </Col>
                 <Col>
-                <p className="forgot-password spacing-top ">
+                <p className="forgot-password spacing-top">
                 Forgot{" "}
               <Link to="/Forgetpassword">
                 {" "}

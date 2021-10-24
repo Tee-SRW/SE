@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../App.css';
-import ChooseCreateForm from '../ChooseCreateForm';
+import Choosecreateform from '../Choosecreateform';
 
 
 function ChooseCreate() {
     return (
         <>
-            <ChooseCreateForm />
+            <Choosecreateform />
         </>
     );
 }
