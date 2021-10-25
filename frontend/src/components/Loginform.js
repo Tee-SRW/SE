@@ -45,7 +45,7 @@ export default function Login()  {
             <Container>
               <Row>
                 <Col>
-                <p className="haveaccount spacing-top">
+                <p className="haveaccount spacing">
                 Don’t have account{" "}
               <Link to="/ChooseCreate">
                 {" "}
@@ -54,7 +54,7 @@ export default function Login()  {
             </p>
             </Col>
                 <Col>
-                <p className="forgot-password spacing-top">
+                <p className="forgot-password spacing">
                 Forgot{" "}
               <Link to="/Forgetpassword">
                 {" "}
