@@ -29,5 +29,3 @@ func Connectdata() {
 		fmt.Printf("id : %d Fname %s Lname %s\n ", id, Fname, Lname)
 	}
 }
-
-
