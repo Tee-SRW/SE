@@ -22,7 +22,7 @@ func PostUserData(firstname string,
 	email string,
 	password string,
 	phone string) {
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3306)/se")
+	db, err := sql.Open("mysql", "root:00001828@tcp(127.0.0.1:3306)/se")
 	// if there is an error opening the connection, handle it
 	if err != nil {
 		panic(err.Error())

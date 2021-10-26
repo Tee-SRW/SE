@@ -10,7 +10,7 @@ import (
 func Connectdata() {
 	fmt.Println("Go MySQL Tutorial")
 
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3307)/se")
+	db, err := sql.Open("mysql", "root:00001828@tcp(127.0.0.1:3306)/se")
 
 	if err != nil {
 		panic(err.Error())
