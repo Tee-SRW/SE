@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	// "net/http"
-	//  "backend/database"
+	 "backend/database"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	// "golang.org/x/text/number"
