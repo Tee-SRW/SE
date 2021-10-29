@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"database/sql"
-	"fmt"
+
+	// "fmt"
 	"se/dateset"
 	"se/model"
 
@@ -22,48 +22,24 @@ func (u UserController) CreateUser(c *gin.Context) {
 		// fmt.Println(e)
 		panic(e)
 	}
-	//this _, err is use for check UserModel struct == dateset.User struct ?
-	_, err := userModel.CreateUser(
-		user.Id,
+
+	a, err := userModel.CreateUser(
 		user.Firstname,
 		user.Lastname,
 		user.Email,
 		user.Password,
 		user.Phone)
 
-	if err != nil {
-		panic(err)
+	status := ""
+	if a == true {
+		status = "complete"
+	} else {
+		status = "Fail"
 	}
-	// if user.Email ==  `SELECT email FROM account;` {
-	// 	fmt.Print("Email not allow")
-	// }
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3307)/se")
-	// if there is an error opening the connection, handle it
-	if err != nil {
-		panic(err.Error())
-	}
-
-	rows, err := db.Query("SELECT email from user_account")
-	var email string
-
-	for rows.Next() {
-		rows.Scan(&email)
-		if user.Email == email {
-			fmt.Print("kuy")
-		}
-		// fmt.Printf("Got : email = %v",email)
-	}
-
-	model.PostUserData(
-		user.Firstname,
-		user.Lastname,
-		user.Email,
-		user.Password,
-		user.Phone)
 
 	if err != nil {
 		panic(err)
 	}
-	c.JSON(200, user)
+	c.JSON(200, status)
 
 }
