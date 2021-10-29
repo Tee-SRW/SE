@@ -43,16 +43,23 @@ func (u UserController) CreateUser(c *gin.Context) {
 		panic(err.Error())
 	}
 
-	rows, err := db.Query("SELECT email from user_account")
-	var email string
+	rows := db.QueryRow(`SELECT email from user_account WHERE email = ?`,user.Email,)
 
-	for rows.Next() {
-		rows.Scan(&email)
-		if user.Email == email {
-			fmt.Print("kuy")
-		}
-		// fmt.Printf("Got : email = %v",email)
+	err = rows.Scan(&user.Email)
+
+	if err != nil {
+		fmt.Println(err)
 	}
+
+	// var email string
+
+	// for rows.Next() {
+	// 	rows.Scan(&email)
+	// 	if user.Email == email {
+	// 		fmt.Print("kuy")
+	// 	}
+		// fmt.Printf("Got : email = %v",email)
+	// }
 
 	model.PostUserData(
 		user.Firstname,

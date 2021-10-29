@@ -17,6 +17,7 @@ func (u UserModel) CreateUser(id int,
 	check := true
 	return check, nil
 }
+
 func PostUserData(firstname string,
 	lastname string,
 	email string,
@@ -31,6 +32,7 @@ func PostUserData(firstname string,
 	if err != nil {
 		fmt.Print(err)
 	}
+	
 	_, err = stmt.Exec(
 		firstname,
 		lastname,
