@@ -56,12 +56,18 @@ func (u UserController) LoginUser(c *gin.Context) {
 		panic(e)
 	}
 
-	_, err := userModel.LoginUser(
-		user.Email,)
-
+	aa, err := userModel.LoginUser(
+		user.Email,user.Password)
+	
+	statuslogin := ""
+	if aa == "ถูกต้อง" {
+		statuslogin = "ถูกต้อง"
+	} else {
+		statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง"
+	}
 	if err != nil {
 		panic(err)
 	}
-	c.JSON(200, user.Email)
+	c.JSON(200,statuslogin )
 
 }

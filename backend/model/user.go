@@ -4,10 +4,11 @@ import (
 	"database/sql"
 	"fmt"
 	"se/database"
+	"strings"
 )
 
 type UserModel struct{}
-	
+
 func (u UserModel) CreateUser(firstname string,
 	lastname string,
 	email string,
@@ -22,15 +23,15 @@ func (u UserModel) CreateUser(firstname string,
 	if err != nil {
 		fmt.Print(err)
 	}
-	
+
 	_, err = stmt.Exec(
 		firstname,
 		lastname,
 		email,
 		password,
 		phone)
-		check := true 
-		
+	check := true
+
 	if err != nil {
 		check = false
 	}
@@ -39,20 +40,49 @@ func (u UserModel) CreateUser(firstname string,
 }
 
 func (u UserModel) LoginUser(email string,
-	) (bool, error) {
-		db := database.Connectdata()
-	rows, err := db.Query("select Email from user_account")
+	password string) (string, error) {
 
-	if err != nil {
-		fmt.Print(err)
+	db := database.Connectdata()
+
+	findemail := "@"
+	statuslogin := "ถูกต้อง"
+	if strings.Contains(email, findemail) {
+		rows, err := db.Query("select Email,Password from user_account")
+
+		if err != nil {
+			fmt.Print(err)
+		}
+
+		for rows.Next() {
+			var emaildb string
+			var passworddb string
+			err = rows.Scan(&emaildb, &passworddb)
+			if emaildb == email && passworddb == password {
+				return statuslogin, nil
+			}
+			statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง"
+			return statuslogin, nil
+
+		}
+
+	} else {
+
+		rows, err := db.Query("select Phone,Password from user_account")
+
+		if err != nil {
+			fmt.Print(err)
+		}
+
+		for rows.Next() {
+			var Phonedb string
+			var passworddb string
+			err = rows.Scan(&Phonedb, &passworddb)
+			if Phonedb == email && passworddb == password {
+				return statuslogin, nil
+			}
+		}
+		statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง"
+		return statuslogin, nil
 	}
-	for rows.Next() {
-		var email int
-		err = rows.Scan(&email)
-		fmt.Printf("email : %s ", email)
-	}
-	
-	fmt.Print(email)
-	check := true
-	return check,nil
+	return statuslogin, nil
 }
