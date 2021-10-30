@@ -7,25 +7,21 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func Connectdata() {
-	fmt.Println("Go MySQL Tutorial")
+const (
+	host     = "root"
+	port     = "127.0.0.1:3306"
+	password = "1234"
+	dbname   = "se"
+)
 
-	db, err := sql.Open("mysql", "root:00001828@tcp(127.0.0.1:3306)/se")
+func Connectdata() *sql.DB {
+	fmt.Println("Connecting database")
+	sqlinfo := fmt.Sprintf("%s:%s@tcp(%s)/%s", host, password, port, dbname)
+	db, err := sql.Open("mysql", sqlinfo)
 
 	if err != nil {
 		panic(err.Error())
-	}
 
-	defer db.Close()
-	rows, err := db.Query("select id,Fname,Lname from customer")
-	if err != nil {
-		fmt.Print(err)
 	}
-	for rows.Next() {
-		var id int
-		var Fname string
-		var Lname string
-		err = rows.Scan(&id, &Fname, &Lname)
-		fmt.Printf("id : %d Fname %s Lname %s\n ", id, Fname, Lname)
-	}
+	return db
 }
