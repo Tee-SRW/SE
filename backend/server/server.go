@@ -7,6 +7,6 @@ import (
 func IninServer() {
 
 	r := InitRouter()
-	r.Run(":8080")
+	r.Run("localhost:8080")
 
 }

@@ -3,6 +3,7 @@ package model
 import (
 	"database/sql"
 	"fmt"
+	"se/database"
 )
 
 type UserModel struct{}
@@ -37,21 +38,21 @@ func (u UserModel) CreateUser(firstname string,
 	return check, nil
 }
 
-func (u UserModel) LoginUser(username string,
+func (u UserModel) LoginUser(email string,
 	) (bool, error) {
-		//db := database.Connectdata()
-	// rows, err := db.Query("select Email from user_account")
+		db := database.Connectdata()
+	rows, err := db.Query("select Email from user_account")
 
-	// if err != nil {
-	// 	fmt.Print(err)
-	// }
-	// for rows.Next() {
-	// 	var email int
-	// 	err = rows.Scan(&email)
-	// 	fmt.Printf("email : %s ", email)
-	// }
+	if err != nil {
+		fmt.Print(err)
+	}
+	for rows.Next() {
+		var email int
+		err = rows.Scan(&email)
+		fmt.Printf("email : %s ", email)
+	}
 	
-	fmt.Print(username)
+	fmt.Print(email)
 	check := true
 	return check,nil
 }
