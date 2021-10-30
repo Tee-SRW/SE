@@ -18,7 +18,7 @@ func InitRouter() *gin.Engine {
 		})
 	})
 	r.POST("/createuser", userController.CreateUser)
-
+	r.GET("/login", userController.LoginUser)
 	return r
 }
 

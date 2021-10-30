@@ -3,6 +3,7 @@ package controller
 import (
 
 	// "fmt"
+	"fmt"
 	"se/dateset"
 	"se/model"
 
@@ -42,4 +43,31 @@ func (u UserController) CreateUser(c *gin.Context) {
 	}
 	c.JSON(200, status)
 
+}
+
+func (u UserController) LoginUser(c *gin.Context) {
+	var userModel model.UserModel
+	var user dateset.User
+
+	e := c.ShouldBind(&user)
+	
+	if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
+	fmt.Print(user.Email)
+
+	_, err := userModel.LoginUser(
+		user.Email)
+	// status := ""
+	// if a == true {
+	// 	status = "complete"
+	// } else {
+	// 	status = "Fail"
+	// }
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, user.Email)
 }
