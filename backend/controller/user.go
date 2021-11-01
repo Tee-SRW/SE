@@ -25,8 +25,8 @@ func (u UserController) CreateUser(c *gin.Context) {
 	}
 
 	a, err := userModel.CreateUser(
-		user.Firstname,
-		user.Lastname,
+		user.FirstName,
+		user.LastName,
 		user.Email,
 		user.Password,
 		user.Phone)

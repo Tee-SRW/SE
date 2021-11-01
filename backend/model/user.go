@@ -14,12 +14,12 @@ func (u UserModel) CreateUser(firstname string,
 	email string,
 	password string,
 	phone string) (bool, error) {
-	db, err := sql.Open("mysql", "root:root@tcp(127.0.0.1:3307)/se")
+	db, err := sql.Open("mysql", "BulueColour:00BulueColour00@tcp(127.0.0.1:3306)/se")
 	// if there is an error opening the connection, handle it
 	if err != nil {
 		panic(err.Error())
 	}
-	stmt, err := db.Prepare("insert into user_account(FirstName,LastName,Email,Password,Phone) values(?,?,?,?,?)")
+	stmt, err := db.Prepare("insert into account(FirstName,LastName,Email,Password,Phone) values(?,?,?,?,?)")
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -47,7 +47,7 @@ func (u UserModel) LoginUser(email string,
 	findemail := "@"
 	statuslogin := "ถูกต้อง"
 	if strings.Contains(email, findemail) {
-		rows, err := db.Query("select Email,Password from user_account")
+		rows, err := db.Query("select Email,Password from account")
 
 		if err != nil {
 			fmt.Print(err)
@@ -67,7 +67,7 @@ func (u UserModel) LoginUser(email string,
 
 	} else {
 
-		rows, err := db.Query("select Phone,Password from user_account")
+		rows, err := db.Query("select Phone,Password from account")
 
 		if err != nil {
 			fmt.Print(err)

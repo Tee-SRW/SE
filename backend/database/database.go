@@ -8,9 +8,9 @@ import (
 )
 
 const (
-	host     = "root"
+	host     = "127.0.0.1"
 	port     = "127.0.0.1:3306"
-	password = "1234"
+	password = "00BulueColour00"
 	dbname   = "se"
 )
 
