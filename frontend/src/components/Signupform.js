@@ -66,7 +66,19 @@ export default function SignUp() {
           <div className="form-group spacing-top">
             <label>เบอร์โทรศัพท์</label>
             <div className="form-group spacing-top">
-              <PhoneInput country="th" regions={"asia"} />
+            <PhoneInput
+            country = "th"
+            placeholder='xxx-xxx-xxxx'
+            inputStyle={{
+              width: '100%',
+              height: '35px',
+              fontSize: '15px',
+              paddingLeft: '48px',
+              borderRadius: '5px'
+            }}
+            disableCountryCode
+            disableDropdown
+          />
             </div>
           </div>
           <div className="form-group spacing-top">
