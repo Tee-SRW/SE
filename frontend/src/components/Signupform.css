@@ -107,5 +107,15 @@ html,
 
 .pass-wrapper {
     position: relative;
-    
+}
+
+.eyeicon2 {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+}
+
+.eyeicon2:hover {
+    color: #00fcb6;
+    cursor: pointer;
 }

@@ -9,22 +9,22 @@ export default function Resetpasswordform() {
     <div className="outer">
       <div className="inner">
         <form>
-          <h3>Reset Password</h3>
+          <h3>รีเซ็ตรหัสผ่าน</h3>
           <div className="form-group">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>New Password</Form.Label>
-              <Form.Control type="password" placeholder="New Password" />
+              <Form.Label>รหัสผ่านใหม่</Form.Label>
+              <Form.Control type="password" placeholder="รหัสผ่านใหม่" />
             </Form.Group>
           </div>
           <div className="form-group">
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Confirm New Password</Form.Label>
-              <Form.Control type="password" placeholder="Confirm New Password" />
+              <Form.Label>ยืนยันรหัสผ่านใหม่</Form.Label>
+              <Form.Control type="password" placeholder="ยืนยันรหัสผ่านใหม่" />
             </Form.Group>
           </div>
           <div className="d-grid gap-2">
             <button type="submit" className="btn btn-dark btn-lg btn-block spacing-top">
-              Reset
+              รีเซ็ต
             </button>
             </div>
         </form>

@@ -1,104 +1,99 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Signupform.css";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 export default function SignUp() {
-    const [passwordShown, setPasswordShown] = useState(false);
-    const togglePasswordVisiblity = () => {
-      setPasswordShown(passwordShown ? false : true);
-    };
-    return (
-      <div className="outer">
-        <div className="inner">
-          <form>
-            <h3>Register</h3>
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+  return (
+    <div className="outer">
+      <div className="inner">
+        <form>
+          <h3>สมัครสมาชิก</h3>
 
+          <div className="form-group spacing-top">
+            <label>ชื่อ</label>
+            <input
+              type="text"
+              className="form-control pacing-top"
+              placeholder="ชื่อ"
+            />
+          </div>
+
+          <div className="form-group spacing-top">
+            <label>นามสกุล</label>
+            <input
+              type="text"
+              className="form-control spacing-top"
+              placeholder="นามสกุล"
+            />
+          </div>
+
+          <div className="form-group spacing-top">
+            <label>อีเมล</label>
+            <input
+              type="email"
+              className="form-control spacing-top"
+              placeholder="อีเมล"
+            />
+          </div>
+          <div className="pass-wrapper">
             <div className="form-group spacing-top">
-              <label>First name</label>
+              <label>รหัสผ่าน</label>
               <input
-                type="text"
-                className="form-control"
-                placeholder="First name"
+                type={passwordShown ? "text" : "password"}
+                className="form-control "
+                placeholder="รหัสผ่าน"
               />
+              <i className="eyeicon" onClick={togglePasswordVisiblity}>
+                {eye}
+              </i>
             </div>
-
-            <div className="form-group">
-              <label>Last name</label>
+          </div>
+          <div className="form-group spacing-top">
+            <label>ยืนยันรหัสผ่าน</label>
+            <input
+              type={passwordShown ? "text" : "password"}
+              className="form-control "
+              placeholder="ยืนยันรหัสผ่าน"
+            />
+          </div>
+          <div className="form-group spacing-top">
+            <label>เบอร์โทรศัพท์</label>
+            <div className="form-group spacing-top">
+              <PhoneInput country="th" regions={"asia"} />
+            </div>
+          </div>
+          <div className="form-group spacing-top">
+            <div className="custom-control custom-checkbox ">
               <input
-                type="text"
-                className="form-control"
-                placeholder="Last name"
+                type="checkbox"
+                className="custom-control-input spacing-right"
+                id="customCheck1"
               />
-            </div>
-
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                className="form-control"
-                placeholder="Email"
-              />
-            </div>
-            <div className="pass-wrapper">
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type={passwordShown ? "text" : "password"}
-                  className="form-control"
-                  placeholder="Password"
-                />
-                <i className="eyeicon" onClick={togglePasswordVisiblity}>
-                  {eye}
-                </i>
-              </div>
-            </div>
-            <div className="form-group">
-              <label>Confirm Password</label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Confirm Password"
-              />
-            </div>
-            <div className="form-group">
-              <label>Phone Number</label>
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Phone Number"
-              />
-            </div>
-            <div className="form-group ">
-              <div className="custom-control custom-checkbox ">
-                <input
-                  type="checkbox"
-                  className="custom-control-input spacing-right"
-                  id="customCheck1"
-                />
-                <label className="custom-control-label spacing-top" htmlFor="customCheck1">
-                ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair
-                </label>
-              </div>
-            </div>
-            <div className="d-grid gap-2">
-              <button
-                type="submit"
-                className="btn btn-dark btn-lg btn-block spacing-top"
+              <label
+                className="custom-control-label spacing-top"
+                htmlFor="customCheck1"
               >
-                Register
-              </button>
+                ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair
+              </label>
             </div>
-            <p className="forgot-password text-center">
-              Have account{" "}
-              <Link to="/Login">
-                {" "}
-                <a href="#"> login?</a>{" "}
-              </Link>
-            </p>
-          </form>
-        </div>
+          </div>
+          <div className="d-grid gap-2 spacing-top">
+            <button
+              type="submit"
+              className="btn btn-dark btn-lg btn-block spacing-top"
+            >
+              สมัครสมาชิก
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
+}

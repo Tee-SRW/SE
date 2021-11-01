@@ -9,31 +9,31 @@ export default function Login()  {
       <div className="outer">
         <div className="inner">
           <form>
-            <h3>Log in</h3>
+            <h3>เข้าสู่ระบบ</h3>
             <div className="form-group">
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>อีเมล</Form.Label>
+                <Form.Control type="email" placeholder="อีเมล" />
               </Form.Group>
             </div>
 
-            <div className="form-group">
-              <label>Password</label>
+            <div className="form-group spacing-top">
+              <label>รหัสผ่าน</label>
               <input
                 type="password"
-                className="form-control"
-                placeholder="password"
+                className="form-control spacing-top"
+                placeholder="รหัสผ่าน"
               />
             </div>
-            <div className="form-group ">
-              <div className="custom-control custom-checkbox ">
+            <div className="form-group spacing-top ">
+              <div className="custom-control custom-checkbox spacing-top ">
                 <input
                   type="checkbox"
-                  className="custom-control-input spacing-right"
+                  className="custom-control-input spacing-right "
                   id="customCheck1"
                 />
                 <label className="custom-control-label spacing-top" htmlFor="customCheck1">
-                  Remember me
+                จดจำฉัน
                 </label>
               </div>
             </div>
@@ -45,20 +45,20 @@ export default function Login()  {
             <Container>
               <Row>
                 <Col>
-                <p className="haveaccount spacing">
-                Don’t have account{" "}
+                <p className="haveaccount spacing spacing-top">
+                ไม่มีบัญชี{" "}
               <Link to="/ChooseCreate">
                 {" "}
-                <a href="#">  yet?</a>{" "}
+                <a href="#">  ใช่ไหม?</a>{" "}
               </Link>
             </p>
             </Col>
                 <Col>
-                <p className="forgot-password spacing">
-                Forgot{" "}
+                <p className="forgot-password spacing spacing-top">
+                ลืม{" "}
               <Link to="/Forgetpassword">
                 {" "}
-                <a href="#"> password?</a>{" "}
+                <a href="#"> รหัสผ่าน?</a>{" "}
               </Link>
             </p></Col>
               </Row>
