@@ -10,7 +10,7 @@ export default function ChooseCreateForm() {
       <div className="outer">
         <div className="inner">
           <form>
-            <h3>Register</h3>
+            <h3>สมัครรับข้อมูล</h3>
 
             <div className="d-grid gap-2 spacing-top">
               <button
@@ -18,7 +18,7 @@ export default function ChooseCreateForm() {
                 className="btn btn-dark btn-lg btn-block spacing-top"
                 onClick={()=> history.push("/sign-up")}
               >
-                General
+                ผู้ใช้ทัวไป
               </button>
             </div>
 
@@ -28,17 +28,9 @@ export default function ChooseCreateForm() {
                 className="btn btn-dark btn-lg btn-block spacing-top"
                 onClick={()=> history.push("/sign-up-company")}
               >
-                Company
+                บริษัท
               </button>
             </div>
-
-            <p className="forgot-password text-center">
-              Have account{" "}
-              <Link to="/Login">
-                {" "}
-                <a href="#"> login?</a>{" "}
-              </Link>
-            </p>
           </form>
         </div>
       </div>
