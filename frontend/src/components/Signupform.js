@@ -68,7 +68,7 @@ export default function SignUp() {
             <div className="form-group spacing-top">
             <PhoneInput
             country = "th"
-            placeholder='xxx-xxx-xxxx'
+            placeholder='xxx-xxx-xxx-x'
             inputStyle={{
               width: '100%',
               height: '35px',
