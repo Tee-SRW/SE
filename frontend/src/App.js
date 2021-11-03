@@ -12,6 +12,8 @@ import SignUpcompany from './components/pages/SignUpcompany';
 import Login from './components/pages/Login';
 import Forgetpassword from './components/pages/Forgetpassword';
 import Resetpassword from './components/pages/Resetpassword';
+import Editprofile from './components/pages/Editprofile';
+import Profile from './components/pages/Profile';
 function App() {
   return (
     <>
@@ -27,6 +29,8 @@ function App() {
           <Route path='/sign-up-company' component={SignUpcompany} />
           <Route path='/Forgetpassword' component={Forgetpassword} />
           <Route path='/Resetpassword' component={Resetpassword} />
+          <Route path='/Editprofile' component={Editprofile} />
+          <Route path='/Profile' component={Profile} />
         </Switch>
       </Router>
     </>
