@@ -1,11 +1,12 @@
-.navbar {
+.navbarMy {
   background: linear-gradient(90deg, rgb(0, 202, 238) 0%, rgb(26, 23, 23) 100%);
+  width: 100%;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
 }
@@ -15,7 +16,7 @@
   justify-content: center;
   align-items: center;
   height: 80px;
-  max-width: 1500px;
+  width: 100%;
 }
 
 .navbar-logo {
@@ -35,12 +36,12 @@
 }
 
 .nav-menu {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
+  display: flex;
+  /*grid-template-columns: repeat(4, auto); */
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 60vw;
+  width: 100%;
   justify-content: end;
   margin-right: 2rem;
 }

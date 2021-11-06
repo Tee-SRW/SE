@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState}from 'react';
 import Navbar from './components/Navbar';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
@@ -15,10 +15,17 @@ import Resetpassword from './components/pages/Resetpassword';
 import Editprofile from './components/pages/Editprofile';
 import Profile from './components/pages/Profile';
 function App() {
+  const [loggedIn, setLoggedIn] = useState(
+    //Test
+    !true);
+
+    // initial value
+    //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar {...{loggedIn}}/>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />

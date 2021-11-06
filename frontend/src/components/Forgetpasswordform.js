@@ -6,14 +6,14 @@ import { Container, Row, Col } from "react-grid-system";
 
 export default function Forgetpasswordform() {
   return (
-    <div className="outer">
-      <div className="inner">
+    <div className="Forgetpasswordform-outer">
+      <div className="Forgetpasswordform-inner">
         <form>
           <h3>ลืมรหัสผ่าน</h3>
-          <div ClassName="dw">
-            ไม่ต้องกังวล! การรีเซ็ตรหัสผ่านของคุณเป็นเรื่องง่าย
+            <div className="text" >
+            <p>ไม่ต้องกังวล!</p> การรีเซ็ตรหัสผ่านของคุณเป็นเรื่องง่าย
             ป้อนที่อยู่อีเมลของคุณและเราจะส่งลิงก์เพื่อรีเซ็ตรหัสผ่านของคุณ
-          </div>
+            </div>
           <div className="form-group spacing-top">
             <Form.Group className="mb-3 spacing-top" controlId="formBasicEmail">
               <Form.Label>อีเมล</Form.Label>
@@ -29,10 +29,8 @@ export default function Forgetpasswordform() {
             <Row>
               <Col>
                 <p className="forgot-password text-center spacing-top ">
-                  {" "}
                   <Link to="/login">
-                    {" "}
-                    <a href="#"> Back to login</a>{" "}
+                    <a href="#">Back to login</a>
                   </Link>
                 </p>
               </Col>

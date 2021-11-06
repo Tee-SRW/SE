@@ -1,33 +1,17 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    font-weight: 400;
-    font-family: sans-serif;
-    background: #12c2e9;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.outer {
+.Loginform-outer {
     width: 100%;
     height: 100%;
+    margin-top: 130px;
 }
 
-.outer {
+.Loginform-outer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: left;
 }
 
-.inner {
+.Loginform-inner {
     width: 450px;
     margin: auto;
     background: #ffffff;
@@ -37,12 +21,12 @@ body {
     transition: all .3s;
 }
 
-.outer .form-control:focus {
+.Loginform-outer .form-control:focus {
     border-color: #167bff;
     box-shadow: none;
 }
 
-.outer h3 {
+.Loginform-outer h3 {
     text-align: center;
     margin: 0;
     line-height: 1;
@@ -66,9 +50,6 @@ body {
     color: #167bff;
 }
 
-.spacing-top {
-    margin-top: 10px;
-}
 
 .haveaccount {
     text-align: left;
@@ -78,6 +59,10 @@ body {
     margin: 0;
 }
 
-.spacimg2 {
+.spacing-top {
+    margin-top: 10px;
+}
+
+.spacimg-right {
     margin-right: 5px;
 }

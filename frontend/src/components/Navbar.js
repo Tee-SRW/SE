@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
+import Dropdown from 'react-dropdown';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar(props) {
+  
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -26,7 +28,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className='navbar'>
+      <nav className='navbarMy'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             JopMaiFair
@@ -38,47 +40,55 @@ function Navbar() {
           
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Services
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Products
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/Login'
-                className='nav-links '
-                onClick={closeMobileMenu}
-              >
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Sign Up
-              </Link>
-            </li>
+            {props.loggedIn ?
+              //---After Login Navbar---
+                <React.Fragment>
+                    <li className='nav-item'>
+                      <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                        สมัครเป็นฟรีแลนด์
+                      </Link>
+                    </li>
+                    <li className='nav-item'>
+                      <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                        Chat
+                      </Link>
+                    </li>
+                    <li className='nav-item'>
+                      <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                        Notification
+                      </Link>
+                    </li>
+                    <li className='nav-item'>
+                      <div className='nav-links'>
+                      dropdown?
+                      { /*Profile 
+                        Setting 
+                        Logout*/ }
+                      </div>
+                    </li>
+                </React.Fragment>
+
+                  : // Login true : false
+
+                //---Before Login Navbar---
+                <React.Fragment>
+                  <li className='nav-item'>
+                    <Link to='/Login' className='nav-links ' onClick={closeMobileMenu}>
+                      Login
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
+                      Sign Up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                      Sign Up
+                    </Link>
+                  </li>
+                </React.Fragment>
+            }   
           </ul>
         </div>
       </nav>

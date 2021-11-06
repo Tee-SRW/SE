@@ -6,8 +6,8 @@ import { Container, Row, Col } from "react-grid-system";
 
 export default function Resetpasswordform() {
   return (
-    <div className="outer">
-      <div className="inner">
+    <div className="Resetpasswordform-outer">
+      <div className="Resetpasswordform-inner">
         <form>
           <h3>รีเซ็ตรหัสผ่าน</h3>
           <div className="form-group">

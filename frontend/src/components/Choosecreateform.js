@@ -7,8 +7,8 @@ export default function ChooseCreateForm() {
     const history = useHistory();
 
     return (
-      <div className="outer">
-        <div className="inner">
+      <div className="Choosecreateform-outer">
+        <div className="Choosecreateform-inner">
           <form>
             <h3>สมัครรับข้อมูล</h3>
 

@@ -4,10 +4,10 @@ import Form from "react-bootstrap/Form";
 import "./Loginform.css";
 import { Container, Row, Col } from 'react-grid-system';
 
-export default function Login()  {
+export default function Loginform()  {
     return (
-      <div className="outer">
-        <div className="inner">
+      <div className="Loginform-outer">
+        <div className="Loginform-inner">
           <form>
             <h3>เข้าสู่ระบบ</h3>
             <div className="form-group">
@@ -45,22 +45,21 @@ export default function Login()  {
             <Container>
               <Row>
                 <Col>
-                <p className="haveaccount spacing spacing-top">
-                ไม่มีบัญชี{" "}
-              <Link to="/ChooseCreate">
-                {" "}
-                <a href="#">  ใช่ไหม?</a>{" "}
-              </Link>
-            </p>
-            </Col>
+                  <p className="haveaccount spacing spacing-top">
+                  ไม่มีบัญชี
+                  <Link to="/ChooseCreate">
+                    <a href="#">  ใช่ไหม?</a>
+                  </Link>
+                  </p>
+                </Col>
                 <Col>
-                <p className="forgot-password spacing spacing-top">
-                ลืม{" "}
-              <Link to="/Forgetpassword">
-                {" "}
-                <a href="#"> รหัสผ่าน?</a>{" "}
-              </Link>
-            </p></Col>
+                  <p className="forgot-password spacing-right spacing-top">
+                    ลืม
+                    <Link to="/Forgetpassword">
+                      <a href="#"> รหัสผ่าน?</a>
+                    </Link>
+                  </p>
+                </Col>
               </Row>
             </Container>
           </form>

@@ -13,8 +13,8 @@ export default function SignUp() {
     };
 
     return (
-      <div className="outer">
-        <div className="inner">
+      <div className="Signupcompanyform-outer">
+        <div className="Signupcompanyform-inner">
           <form>
             <h3>สร้างบัญชีบริษัท</h3>
 

@@ -11,8 +11,8 @@ export default function SignUp() {
     setPasswordShown(passwordShown ? false : true);
   };
   return (
-    <div className="outer">
-      <div className="inner">
+    <div className="Signupform-outer">
+      <div className="Signupform-inner">
         <form>
           <h3>สมัครสมาชิก</h3>
 

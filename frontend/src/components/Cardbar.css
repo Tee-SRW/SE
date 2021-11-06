@@ -1,0 +1,13 @@
+.cardbar {
+    padding: 4rem;
+    background: #fff;
+  }
+.cardbar-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: auto;
+    width: 90%;
+    margin: 0 auto;
+    background: #ffffff;
+  }
