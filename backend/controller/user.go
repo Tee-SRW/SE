@@ -24,50 +24,38 @@ func (u UserController) CreateUser(c *gin.Context) {
 		panic(e)
 	}
 
-	a, err := userModel.CreateUser(
+	status, err := userModel.CreateUser(
 		user.FirstName,
 		user.LastName,
 		user.Email,
 		user.Password,
 		user.Phone)
 
-	status := ""
-	if a == true {
-		status = "complete"
-	} else {
-		status = "Fail"
-	}
-
 	if err != nil {
 		panic(err)
 	}
 	c.JSON(200, status)
-
 }
 
 func (u UserController) LoginUser(c *gin.Context) {
 	var userModel model.UserModel
 	var user dateset.User
-	//var puser dateset.User
-
+	var uservalue dateset.LoginUser
 	e := c.ShouldBind(&user)
 	if e != nil {
 		// fmt.Println(e)
 		panic(e)
 	}
+	//
+	statuslogin, err := userModel.LoginUser(
+		user.Email, user.Password)
 
-	aa, err := userModel.LoginUser(
-		user.Email,user.Password)
-	
-	statuslogin := ""
-	if aa == "ถูกต้อง" {
-		statuslogin = "ถูกต้อง"
-	} else {
-		statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง"
-	}
+	// aa := [2]string{statuslogin, user.Email}
+	uservalue.UserName = user.Email;
+	uservalue.Status = statuslogin;
 	if err != nil {
 		panic(err)
 	}
-	c.JSON(200,statuslogin )
-
+	c.JSON(200, uservalue)
+	// gin.H{"message": "hey", "status": http.StatusOK}
 }

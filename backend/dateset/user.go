@@ -8,3 +8,8 @@ type User struct {
 	Password  string `json:"password"`
 	Phone     string `json:"phone"`
 }
+type LoginUser struct{
+    Status string `json:"status"`
+    UserName string `json:"username"`
+}
+
