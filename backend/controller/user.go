@@ -66,7 +66,12 @@ func (u UserController) Updateuser(c *gin.Context) {
 	var user dateset.User
 	 id := c.Param("id")
 	 idint, err := strconv.Atoi(id)
-
+	 e := c.ShouldBind(&user)
+	 if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
+	//
 	statusUpdateuser, err := userModel.Updateuser(
 		idint,
 		user.FirstName,
