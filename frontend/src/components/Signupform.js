@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import "./Signupform.css";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import InputMask from "react-input-mask";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
-export default function SignUp() {
+const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
+export default function SignUp(props) {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordShown2, setPasswordShown2] = useState(false);
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
+  };
+  const togglePasswordVisiblity2 = () => {
+    setPasswordShown2(passwordShown2 ? false : true);
   };
   return (
     <div className="Signupform-outer">
@@ -51,34 +55,33 @@ export default function SignUp() {
                 placeholder="รหัสผ่าน"
               />
               <i className="eyeicon" onClick={togglePasswordVisiblity}>
-                {eye}
+                {passwordShown ? eye : eye2}
+              </i>
+            </div>
+          </div>
+          <div className="pass-wrapper">
+            <div className="form-group spacing-top">
+              <label>ยืนยันรหัสผ่าน</label>
+              <input
+                type={passwordShown2 ? "text" : "password"}
+                className="form-control "
+                placeholder="ยืนยันรหัสผ่าน"
+              />
+              <i className="eyeicon2" onClick={togglePasswordVisiblity2}>
+                {passwordShown2 ? eye : eye2}
               </i>
             </div>
           </div>
           <div className="form-group spacing-top">
-            <label>ยืนยันรหัสผ่าน</label>
-            <input
-              type={passwordShown ? "text" : "password"}
-              className="form-control "
-              placeholder="ยืนยันรหัสผ่าน"
-            />
-          </div>
-          <div className="form-group spacing-top">
             <label>เบอร์โทรศัพท์</label>
             <div className="form-group spacing-top">
-            <PhoneInput
-            country = "th"
-            placeholder='xxx-xxx-xxx-x'
-            inputStyle={{
-              width: '100%',
-              height: '35px',
-              fontSize: '15px',
-              paddingLeft: '48px',
-              borderRadius: '5px'
-            }}
-            disableCountryCode
-            disableDropdown
-          />
+              <InputMask
+                className="form-control spacing-top"
+                placeholder="xxx-xxx-xxxx"
+                mask="999-999-9999"
+                onChange={props.onChange}
+                value={props.value}
+              />
             </div>
           </div>
           <div className="form-group spacing-top">

@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "./Forgetpasswordform.css";
-import { Container, Row, Col } from "react-grid-system";
 
 export default function Forgetpasswordform() {
   return (
@@ -10,10 +8,10 @@ export default function Forgetpasswordform() {
       <div className="Forgetpasswordform-inner">
         <form>
           <h3>ลืมรหัสผ่าน</h3>
-            <div className="text" >
+          <div className="text">
             <p>ไม่ต้องกังวล!</p> การรีเซ็ตรหัสผ่านของคุณเป็นเรื่องง่าย
             ป้อนที่อยู่อีเมลของคุณและเราจะส่งลิงก์เพื่อรีเซ็ตรหัสผ่านของคุณ
-            </div>
+          </div>
           <div className="form-group spacing-top">
             <Form.Group className="mb-3 spacing-top" controlId="formBasicEmail">
               <Form.Label>อีเมล</Form.Label>
@@ -21,21 +19,13 @@ export default function Forgetpasswordform() {
             </Form.Group>
           </div>
           <div className="d-grid gap-2">
-            <button type="submit" className="btn btn-dark btn-lg btn-block spacing-top">
+            <button
+              type="submit"
+              className="btn btn-dark btn-lg btn-block spacing-top"
+            >
               ส่ง
             </button>
-            </div>
-          <Container>
-            <Row>
-              <Col>
-                <p className="forgot-password text-center spacing-top ">
-                  <Link to="/login">
-                    <a href="#">Back to login</a>
-                  </Link>
-                </p>
-              </Col>
-            </Row>
-          </Container>
+          </div>
         </form>
       </div>
     </div>

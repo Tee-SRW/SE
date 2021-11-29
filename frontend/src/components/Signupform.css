@@ -65,6 +65,7 @@
 }
 
 .eyeicon {
+    margin: auto;
     position: absolute;
     top: 50%;
     right: 5%;
@@ -80,6 +81,7 @@
 }
 
 .eyeicon2 {
+    margin: auto;
     position: absolute;
     top: 50%;
     right: 5%;
