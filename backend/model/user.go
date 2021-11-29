@@ -83,3 +83,33 @@ func (u UserModel) LoginUser(email string,
 	}
 	return statuslogin, nil
 }
+
+func (u UserModel) Updateuser(idint int,
+	firstname string,
+	lastname string,
+	email string,
+	phone string,
+	) (string, error) {
+		db := database.Connectdata()
+		// rows, err := db.Query("select * from user_account where ID = ?;",id)
+		rows, err := db.Query("UPDATE user_account SET LastName = ? WHERE id = ?",lastname,idint)
+		
+		if err != nil {
+			fmt.Print(err)
+		}
+
+		// for rows.Next() {
+		// 	var FirstNamedb string
+		// 	var LastName string
+		// 	var Email string
+		// 	var Phone string
+		// 	err = rows.Scan(&FirstNamedb, &LastName, &Email, &Phone)
+		// 	FirstNamedb = firstname	
+		// }
+		
+
+		fmt.Print(rows)
+		fmt.Print(idint)
+		statusUpdateuser :=  "สำเร็จ"
+		return statusUpdateuser, nil
+	}

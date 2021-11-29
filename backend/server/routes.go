@@ -20,6 +20,7 @@ func InitRouter() *gin.Engine {
 	r.POST("/createuser", userController.CreateUser)
 	r.POST("/login", userController.LoginUser)
 	r.POST("/createcompuser", userController.CreateAccountCompary)
+	r.PUT("/user/:id",userController.Updateuser)
 	return r
 }
 

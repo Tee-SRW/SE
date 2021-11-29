@@ -9,6 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
+	"strconv"
 )
 
 type UserController struct{}
@@ -58,4 +59,23 @@ func (u UserController) LoginUser(c *gin.Context) {
 	}
 	c.JSON(200, uservalue)
 	// gin.H{"message": "hey", "status": http.StatusOK}
+}
+
+func (u UserController) Updateuser(c *gin.Context) {
+	var userModel model.UserModel
+	var user dateset.User
+	 id := c.Param("id")
+	 idint, err := strconv.Atoi(id)
+
+	statusUpdateuser, err := userModel.Updateuser(
+		idint,
+		user.FirstName,
+		user.LastName,
+		user.Email,
+		user.Phone)
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, statusUpdateuser)
 }
