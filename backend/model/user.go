@@ -16,7 +16,7 @@ func (u UserModel) CreateUser(firstname string,
 
 	db := database.Connectdata()
 
-	stmt, err := db.Prepare("insert into user_account(FirstName,LastName,Email,Password,Phone) values(?,?,?,?,?)")
+	stmt, err := db.Prepare("insert into user(FirstName,LastName,Email,Password,Phone) values(?,?,?,?,?)")
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -44,7 +44,7 @@ func (u UserModel) LoginUser(email string,
 	findemail := "@"
 	statuslogin := "ถูกต้อง"
 	if strings.Contains(email, findemail) {
-		rows, err := db.Query("select Email,Password from user_account WHERE Email=?", email)
+		rows, err := db.Query("select Email,Password from user WHERE Email=?", email)
 
 		if err != nil {
 			fmt.Print(err)
@@ -64,7 +64,7 @@ func (u UserModel) LoginUser(email string,
 
 	} else {
 
-		rows, err := db.Query("select Phone,Password from user_account")
+		rows, err := db.Query("select Phone,Password from user")
 
 		if err != nil {
 			fmt.Print(err)
