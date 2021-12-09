@@ -8,10 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type comparyController struct{}
+type companyController struct{}
 
-func (u UserController) CreateAccountCompary(c *gin.Context) {
-	var comparyModel model.ComparyModel
+func (u UserController) CreateAccountCompany(c *gin.Context) {
+	var comparyModel model.CompanyModel
 	var compary dateset.Company
 
 	e := c.ShouldBind(&compary)
@@ -20,7 +20,7 @@ func (u UserController) CreateAccountCompary(c *gin.Context) {
 		panic(e)
 	}
 
-	status, err := comparyModel.CreateAccountCompary(
+	status, err := comparyModel.CreateAccountCompany(
 		compary.CompanyName,
 		compary.CompanyEmail,
 		compary.CompanyPhone,

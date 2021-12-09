@@ -7,9 +7,9 @@ import (
 	// "strings"
 )
 
-type ComparyModel struct{}
+type CompanyModel struct{}
 
-func (u ComparyModel) CreateAccountCompary(companyname string ,
+func (u CompanyModel) CreateAccountCompany(companyname string ,
 companyemail string ,
 companyphone string ,
 address string ,
