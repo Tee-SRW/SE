@@ -1,9 +1,9 @@
 package model
 
 import (
-	"database/sql"
+	// "database/sql"
 	"fmt"
-	// "se/database"
+	"se/database"
 	// "strings"
 )
 
@@ -16,13 +16,12 @@ address string ,
 subdistrict string ,
 district string  ,
 province string ,
-postcode string ,) (bool,error)  {
-	db, err := sql.Open("mysql", "BulueColour:00BulueColour00@tcp(127.0.0.1:3306)/se")
+postcode string ,
+password string) (string, error)  {
 
-	if err!= nil {
-		panic(err.Error())
-	}
-	stmt, err := db.Prepare("insert into account_company(companyname, companyemail, companyphone, address, subdistrict, district, province, postcode) values(?,?,?,?,?,?,?,?)")
+	db := database.Connectdata()
+
+	stmt, err := db.Prepare("insert into company(CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, Password) values(?,?,?,?,?,?,?,?,?)")
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -35,11 +34,12 @@ postcode string ,) (bool,error)  {
 		subdistrict,
 		district,
 		province,
-		postcode)
-	check := true
+		postcode,
+		password)
+	check := "Complete"
 
 	if err != nil {
-		check = false
+		check = "Fail"
 	}
 
 	return check, nil

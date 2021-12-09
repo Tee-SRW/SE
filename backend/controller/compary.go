@@ -20,22 +20,16 @@ func (u UserController) CreateAccountCompary(c *gin.Context) {
 		panic(e)
 	}
 
-	a, err := comparyModel.CreateAccountCompary(
-		compary.Companyname,
-		compary.Companyemail,
-		compary.Companyphone,
+	status, err := comparyModel.CreateAccountCompary(
+		compary.CompanyName,
+		compary.CompanyEmail,
+		compary.CompanyPhone,
 		compary.Address,
 		compary.Subdistrict,
 		compary.District,
 		compary.Province,
-		compary.Postcode)
-
-	status := ""
-	if a == true {
-		status = "Complete!"
-	} else {
-		status = "Fail!"
-	}
+		compary.Postcode,
+		compary.Password)
 
 	if err != nil {
 		panic(err)
