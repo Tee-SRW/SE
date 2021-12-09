@@ -3,7 +3,7 @@ package dateset
 type Company struct {
 	ID           int    `json:"id"`
 	CompanyName  string `json:"companyname"`
-	CompanyEmail string `json:"compynyemail"`
+	CompanyEmail string `json:"companyemail"`
 	CompanyPhone string `json:"companyphone"`
 	Address      string `json:"address"`
 	Subdistrict  string `json:"subdistrict"`
