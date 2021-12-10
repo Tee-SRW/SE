@@ -37,32 +37,28 @@
     font-weight: 400;
 }
 
-.forgot-password,
-.forgot-password a {
-    text-align: right;
+.Loginhaveaccount {
+    text-align: left;
     font-size: 13px;
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-left: 0px;
     color: #7f7d7d;
     margin: 0;
 }
 
-.forgot-password a {
-    color: #167bff;
-}
-
-
-.haveaccount {
-    text-align: left;
+.Loginforgot-password,
+.Loginforgot-password a {
+    text-align: right;
     font-size: 13px;
     padding-top: 10px;
     color: #7f7d7d;
     margin: 0;
 }
 
-.spacing-top {
-    margin-top: 10px;
+.Loginforgot-password a {
+    color: #167bff;
 }
 
-.spacimg-right {
-    margin-right: 5px;
+.spacing-top10 {
+    margin-top: 10px;
 }

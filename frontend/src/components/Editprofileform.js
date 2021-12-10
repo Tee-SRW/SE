@@ -1,114 +1,94 @@
 import React, { useState } from "react";
-import "./Signupform.css";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
-
-
-const eye = <FontAwesomeIcon icon={faEye} />;
-
-export default function Editprofileform() {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => {
-    setPasswordShown(passwordShown ? false : true);
+import "./Editprofileform.css";
+import Form from "react-bootstrap/Form";
+import InputMask from "react-input-mask";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import Image from "react-bootstrap/Image";
+import { Container, Row, Col } from "react-grid-system";
+export default function SignUp(props) {
+  const [validated, setValidated] = useState(false);
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
   };
   return (
-    <div className="outer">
-      <div className="inner">
-        <form>
-          <h3>แก้ไขโปรไฟล์</h3>
-
-          <div className="form-group spacing-top">
-            <label>ชื่อ</label>
-            <input
-              type="text"
-              className="form-control pacing-top"
-              placeholder="ชื่อ"
-            />
-          </div>
-
-          <div className="form-group spacing-top">
-            <label>นามสกุล</label>
-            <input
-              type="text"
-              className="form-control spacing-top"
-              placeholder="นามสกุล"
-            />
-          </div>
-
-          <div className="form-group spacing-top">
-            <label>อีเมล</label>
-            <input
-              type="email"
-              className="form-control spacing-top"
-              placeholder="อีเมล"
-            />
-          </div>
-          <div className="pass-wrapper">
-            <div className="form-group spacing-top">
-              <label>รหัสผ่าน</label>
-              <input
-                type={passwordShown ? "text" : "password"}
-                className="form-control "
-                placeholder="รหัสผ่าน"
-              />
-              <i className="eyeicon" onClick={togglePasswordVisiblity}>
-                {eye}
-              </i>
-            </div>
-          </div>
-          <div className="form-group spacing-top">
-            <label>ยืนยันรหัสผ่าน</label>
-            <input
-              type={passwordShown ? "text" : "password"}
-              className="form-control "
-              placeholder="ยืนยันรหัสผ่าน"
-            />
-          </div>
-          <div className="form-group spacing-top">
-            <label>เบอร์โทรศัพท์</label>
-            <div className="form-group spacing-top">
-            <PhoneInput
-            country = "th"
-            placeholder='xxx-xxx-xxx-x'
-            inputStyle={{
-              width: '100%',
-              height: '35px',
-              fontSize: '15px',
-              paddingLeft: '48px',
-              borderRadius: '5px'
-            }}
-            disableCountryCode
-            disableDropdown
-          />
-            </div>
-          </div>
-          <div className="form-group spacing-top">
-            <div className="custom-control custom-checkbox ">
-              <input
-                type="checkbox"
-                className="custom-control-input spacing-right"
-                id="customCheck1"
-              />
-              <label
-                className="custom-control-label spacing-top"
-                htmlFor="customCheck1"
-              >
-                ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair
-              </label>
-            </div>
+    <div className="Editprofileform-outer">
+    <div className="Editprofileform-inner">
+      <h3>โปรไฟล์ของฉัน</h3>
+      <div className="spacing-left">
+            <img
+              src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+              className="img-fluid rounded-circle"
+              alt="Profile Admin"
+            ></img>
           </div>
           <div className="d-grid gap-2 spacing-top">
             <button
               type="submit"
-              className="btn btn-dark btn-lg btn-block spacing-top"
+              className="btn btn-dark btn-lg btn-block bottomprofile"
             >
-              สมัครสมาชิก
+              แก้ไขโปรไฟล์
             </button>
-          </div>
-        </form>
-      </div>
+            </div>
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>ชื่อ</Form.Label>
+            <Form.Control required type="text" placeholder="ชื่อ" />
+            <Form.Control.Feedback type="invalid">
+              กรุณาใส่ ชื่อ
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Label>นามสกุล</Form.Label>
+            <Form.Control required type="text" placeholder="นามสกุล" />
+            <Form.Control.Feedback type="invalid">
+              กรุณาใส่ นามสกุล
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+            <Form.Label>อีเมล</Form.Label>
+            <Form.Control required type="text" placeholder="อีเมล" />
+            <Form.Control.Feedback type="invalid">
+              กรุณาใส่ อีเมล
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+        <Row className="mb-3">
+            <Form.Group as={Col} md="3" controlId="validationCustom05">
+              <Form.Label>เบอร์โทรศัพท์</Form.Label>
+              <InputMask
+                required
+                className="form-control spacing-top"
+                placeholder="xxx-xxx-xxxx"
+                mask="999-999-9999"
+                onChange={props.onChange}
+                value={props.value}
+              />
+              <Form.Control.Feedback type="invalid">
+                กรุณาใส่ เบอร์โทรศัพท์
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Row>
+        <div className="d-grid gap-2">
+          <Button
+            type="submit"
+            className="btn btn-dark btn-lg btn-block spacing-top10"
+          >
+            บันทึก
+          </Button>
+        </div>
+      </Form>
     </div>
+  </div>
   );
 }
