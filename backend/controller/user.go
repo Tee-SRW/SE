@@ -7,9 +7,10 @@ import (
 	"se/dateset"
 	"se/model"
 
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
-	"strconv"
 )
 
 type UserController struct{}
@@ -48,12 +49,12 @@ func (u UserController) LoginUser(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statuslogin,  err := userModel.LoginUser(
+	statuslogin, err := userModel.LoginUser(
 		user.Email, user.Password)
 
 	// aa := [2]string{statuslogin, user.Email}
-	uservalue.UserName = user.Email;
-	uservalue.Status = statuslogin;
+	uservalue.UserName = user.Email
+	uservalue.Status = statuslogin
 	if err != nil {
 		panic(err)
 	}
@@ -64,10 +65,10 @@ func (u UserController) LoginUser(c *gin.Context) {
 func (u UserController) Updateuser(c *gin.Context) {
 	var userModel model.UserModel
 	var user dateset.User
-	 id := c.Param("id")
-	 idint, err := strconv.Atoi(id)
-	 e := c.ShouldBind(&user)
-	 if e != nil {
+	id := c.Param("id")
+	idint, err := strconv.Atoi(id)
+	e := c.ShouldBind(&user)
+	if e != nil {
 		// fmt.Println(e)
 		panic(e)
 	}
@@ -84,4 +85,23 @@ func (u UserController) Updateuser(c *gin.Context) {
 		panic(err)
 	}
 	c.JSON(200, statusUpdateuser)
+}
+func (u UserController) GetUpdateuser(c *gin.Context) {
+	var userModel model.UserModel
+	var uservalue dateset.GetUser
+	//var user dateset.User
+	id := c.Param("id")
+	idint, err := strconv.Atoi(id)
+	FirstName, LastName, Email, Phone := userModel.GetUpdateuser(
+		idint)
+	uservalue.FirstName = FirstName
+	uservalue.LastName = LastName
+	uservalue.Email = Email
+	uservalue.Phone = Phone
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, uservalue)
+
 }
