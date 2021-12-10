@@ -37,20 +37,22 @@ func (u UserModel) CreateUser(firstname string,
 }
 
 func (u UserModel) LoginUser(email string,
-	password string) (string, error) {
+	password string, id int) (string,int, error) {
 
 	db := database.Connectdata()
 
 	findemail := "@"
 	statuslogin := "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล"
+	var iddb int
 	if strings.Contains(email, findemail) {
 
 		var passworddb string
         err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
+	    err = db.QueryRow("select id from user WHERE Email=? union select id from company WHERE CompanyEmail=?", email, email).Scan(&iddb)
 
+		fmt.Print(iddb)
 		if err != nil {
 			fmt.Print(err)
-
 		}
 
 		fmt.Print(passworddb + " pass")
@@ -61,7 +63,7 @@ func (u UserModel) LoginUser(email string,
 	} else {
 		var passworddb string
 		err := db.QueryRow("select Password from user WHERE Phone=? union select Password from company WHERE CompanyPhone=?", email, email).Scan(&passworddb)
-
+		err = db.QueryRow("select id from user WHERE Phone=? union select id from company WHERE CompanyPhone=?", email, email).Scan(&iddb)
 		if err != nil {
 			fmt.Print(err)
 		}
@@ -71,21 +73,20 @@ func (u UserModel) LoginUser(email string,
 			statuslogin = "ถูกต้อง"
 		}
 	}
-	return statuslogin, nil
+	return statuslogin,iddb, nil
 }
 
 func (u UserModel) Updateuser(idint int,
 	firstname string,
 	lastname string,
 	email string,
-	password string,
 	phone string,
 ) (string, error) {
 	db := database.Connectdata()
 	// rows, err := db.Query("select * from user_account where ID = ?;",id)
 	fmt.Print(lastname)
 
-	_, err := db.Exec("UPDATE user SET FIrstName = ?, LastName = ?, Email = ?, Password = ?, Phone = ? WHERE id = ?", firstname, lastname, email, password, phone, idint)
+	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ? WHERE id = ?", firstname, lastname, email, phone, idint)
 
 	if err != nil {
 		fmt.Print(err)

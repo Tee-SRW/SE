@@ -49,11 +49,11 @@ func (u UserController) LoginUser(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statuslogin, err := userModel.LoginUser(
-		user.Email, user.Password)
+	statuslogin,id, err := userModel.LoginUser(
+		user.Email, user.Password, user.ID)
 
 	// aa := [2]string{statuslogin, user.Email}
-	uservalue.UserName = user.Email
+	uservalue.ID = id
 	uservalue.Status = statuslogin
 	if err != nil {
 		panic(err)
@@ -78,7 +78,6 @@ func (u UserController) Updateuser(c *gin.Context) {
 		user.FirstName,
 		user.LastName,
 		user.Email,
-		user.Password,
 		user.Phone)
 
 	if err != nil {

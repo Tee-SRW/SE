@@ -10,7 +10,7 @@ type User struct {
 }
 type LoginUser struct {
 	Status   string `json:"status"`
-	UserName string `json:"username"`
+	ID int `json:"id"`
 }
 type GetUser struct {
 	FirstName string `json:"firstname"`
