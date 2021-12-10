@@ -1,12 +1,12 @@
 package server
 
 import (
-	"se/controller"
 	"net/http"
+	"se/controller"
 
 	"github.com/gin-gonic/gin"
 )
-	
+
 func InitRouter() *gin.Engine {
 	userController := controller.UserController{}
 
@@ -20,7 +20,7 @@ func InitRouter() *gin.Engine {
 	r.POST("/createuser", userController.CreateUser)
 	r.POST("/login", userController.LoginUser)
 	r.POST("/createcompany", userController.CreateAccountCompany)
-	r.PUT("/user/:id",userController.Updateuser)
+	r.PUT("/user/:id", userController.Updateuser)
+	r.POST("/getuser/:id", userController.GetUpdateuser)
 	return r
 }
-
