@@ -48,7 +48,7 @@ func (u UserController) LoginUser(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statuslogin, err := userModel.LoginUser(
+	statuslogin,  err := userModel.LoginUser(
 		user.Email, user.Password)
 
 	// aa := [2]string{statuslogin, user.Email}
