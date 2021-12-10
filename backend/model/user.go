@@ -16,7 +16,7 @@ func (u UserModel) CreateUser(firstname string,
 
 	db := database.Connectdata()
 
-	stmt, err := db.Prepare("insert into user(FirstName,LastName,Email,Password,Phone) values(?,?,?,?,?)")
+	stmt, err := db.Prepare("insert into user (FirstName, LastName, Email, Password, Phone) values(?,?,?,?,?)")
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -88,13 +88,14 @@ func (u UserModel) Updateuser(idint int,
 	firstname string,
 	lastname string,
 	email string,
+	password string,
 	phone string,
 	) (string, error) {
 		db := database.Connectdata()
 		// rows, err := db.Query("select * from user_account where ID = ?;",id)
 		fmt.Print(lastname)
 		
-		_, err := db.Exec("UPDATE user_account SET LastName = ? WHERE id = ?",lastname,idint)
+		_, err := db.Exec("UPDATE user SET FIrstName = ?, LastName = ?, Email = ?, Password = ?, Phone = ? WHERE id = ?",firstname, lastname, email, password, phone, idint)
 		
 		if err != nil {
 			fmt.Print(err)

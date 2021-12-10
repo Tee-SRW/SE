@@ -77,6 +77,7 @@ func (u UserController) Updateuser(c *gin.Context) {
 		user.FirstName,
 		user.LastName,
 		user.Email,
+		user.Password,
 		user.Phone)
 
 	if err != nil {
