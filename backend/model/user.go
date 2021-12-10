@@ -42,44 +42,34 @@ func (u UserModel) LoginUser(email string,
 	db := database.Connectdata()
 
 	findemail := "@"
-	statuslogin := "ถูกต้อง"
+	statuslogin := "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล"
 	if strings.Contains(email, findemail) {
-		rows, err := db.Query("select Email,Password from user WHERE Email=?", email)
+		
+		var passworddb string
+        err := db.QueryRow("select Password from user WHERE Email=?", email).Scan(&passworddb)
 
-		if err != nil {
-			fmt.Print(err)
-		}
+        if err != nil {
+            fmt.Print(err)
 
-		for rows.Next() {
-			var emaildb string
-			var passworddb string
-			err = rows.Scan(&emaildb, &passworddb)
-			if emaildb == email && passworddb == password {
-				return statuslogin, nil
-			}
-			statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล"
-			return statuslogin, nil
+        }
 
-		}
+        fmt.Print(passworddb + " pass")
+        if passworddb == password {
+            statuslogin = "ถูกต้อง"
+        }
 
 	} else {
-
-		rows, err := db.Query("select Phone,Password from user")
+		var passworddb string
+		err := db.QueryRow("select Password from user WHERE Phone=?", email).Scan(&passworddb)
 
 		if err != nil {
 			fmt.Print(err)
 		}
 
-		for rows.Next() {
-			var Phonedb string
-			var passworddb string
-			err = rows.Scan(&Phonedb, &passworddb)
-			if Phonedb == email && passworddb == password {
-				return statuslogin, nil
-			}
-		}
-		statuslogin = "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องเบอร์"
-		return statuslogin, nil
+		fmt.Print(passworddb + " pass")
+        if passworddb == password {
+            statuslogin = "ถูกต้อง"
+        }
 	}
 	return statuslogin, nil
 }
