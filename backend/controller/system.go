@@ -1,34 +1,37 @@
 package controller
 
 import (
-	// "se/dateset"
+	"se/dateset"
 
-	// "se/model"
+	"se/model"
 
-	// "github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin"
 )
 
 type systemController struct{}
 
-// func (u UserController) GetWorkgraphic(c *gin.Context) {
-// 	var systemModel model.SystemModel	
-// 	var system dateset.System
+func (u UserController) GetWorkgraphic(c *gin.Context) {
+	var systemModel model.SystemModel	
+	var system dateset.System
+	var getwork dateset.Getwork
+	e := c.ShouldBind(&system)
+	if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
 
-// 	e := c.ShouldBind(&system)
-// 	if e != nil {
-// 		// fmt.Println(e)
-// 		panic(e)
-// 	}
+	Type_Work_Name, Price_Post_Work, Name_Work, FirstName, LastName, err := systemModel.GetWork(
+		system.Type_Work_ID ,
+		)
 
-// 	status, err := systemModel.GetWorkgraphic(
-// 		system.Work_Post_ID ,
-// 		system.User_ID,
-// 		system.Type_Work_Number,
-// 		system.Detail_Work,
-// 		)
-
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// 	c.JSON(200, status)
-// }
+		getwork.Type_Work_Name = Type_Work_Name
+		getwork.Price_Post_Work = Price_Post_Work
+		getwork.Name_Work = Name_Work
+		getwork.FirstName = FirstName
+		getwork.LastName = LastName
+		
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, getwork)
+}
