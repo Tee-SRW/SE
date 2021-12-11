@@ -9,8 +9,8 @@ import (
 
 const (
 	host     = "root"
-	port     = "127.0.0.1:3306"
-	password = "00001828"
+	port     = "203.170.190.226:3306"
+	password = "Joppy.inc123456789"
 	dbname   = "se"
 )
 

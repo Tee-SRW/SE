@@ -11,7 +11,7 @@ import (
 type companyController struct{}
 
 func (u UserController) CreateAccountCompany(c *gin.Context) {
-	var companyModel model.CompanyModel
+	var companyModel model.CompanyModel	
 	var company dateset.Company
 
 	e := c.ShouldBind(&company)
