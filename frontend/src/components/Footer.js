@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { Button } from './Button';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -16,13 +15,12 @@ function Footer() {
           </div>
           <div class='footer-link-items'>
             <h2>คำถามที่พบบ่าย</h2>
-            <Link to='/'>คำถาม1</Link>
-            <Link to='/'>คำถาม2</Link>
-            <Link to='/'>คำถาม3</Link>
+            <Link to='/'>1.โลโก้ เป็นตัวอะไร</Link>
+            <Link to='/'>2.โลมา ,มินิริว ,จิ้งจอก มันเป็นตัวอะไรครับ</Link>
+            <Link to='/'>3.ก๋วยเตี๋ยว กับข้าวมันไก่ เมื่อไรเขาจะรักผมครับ</Link>
           </div>
         </div>
         <div className='footer-link-wrapper'>
-          
           <div class='footer-link-items'>
             <h2>เกี่ยวกับเรา</h2>
             <Link to='/'>Design & graphic</Link>

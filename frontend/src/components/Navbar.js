@@ -52,8 +52,13 @@ function Navbar(props) {
       <nav className='navbarMy'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+            <img 
+              className='navbar-brand'
+              src='images/Job_mai_fair_logo.png'
+              alt='JobmaifairLogo'
+              width="60px" height="60px"
+            />
             JopMaiFair
-            <i class='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -70,17 +75,17 @@ function Navbar(props) {
                 </li>
                 <li className='nav-item'>
                   <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                    <i class="far fa-comment" />
+                    <i class="far fa-comment fa-2x" />
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                    <i class="far fa-bell" />
+                    <i class="far fa-bell fa-2x" />
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <div className='nav-links-none'>
-                    <i class="fas fa-grip-lines-vertical" />
+                    <i class="fas fa-grip-lines-vertical fa-2x" />
                   </div>
                 </li>
                 <li
@@ -88,7 +93,7 @@ function Navbar(props) {
                   onMouseLeave={onMouseLeave}
                 >
                   <div className='nav-links' onClick={handleClick} onClick={ToggleDropdown}>
-                    <i class="far fa-user" /><i className='fas fa-caret-down' />
+                    <i class="far fa-user fa-2x" /><i className='fas fa-caret-down fa-2x' />
                   </div>
                   {dropdown && <NavDropdown />}
                 </li>
@@ -104,12 +109,12 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/ChooseCreate' className='nav-links' onClick={closeMobileMenu}>
+                  <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
                     Sign Up
                   </Link>
                 </li>
                 <li>
-                  <Link to='/ChooseCreate' className='nav-links-mobile' onClick={closeMobileMenu}>
+                  <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
                     Sign Up
                   </Link>
                 </li>
