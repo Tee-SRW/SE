@@ -6,41 +6,7 @@ import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <div className='footer-container'>
-      <section className='footer-subscription'>
-        <p className='footer-subscription-heading'>
-          Join the Adventure newsletter to receive our best vacation deals
-        </p>
-        <p className='footer-subscription-text'>
-          You can unsubscribe at any time.
-        </p>
-        <div className='input-areas'>
-          <form>
-            <input
-              className='footer-input'
-              name='email'
-              type='email'
-              placeholder='Your Email'
-            />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
-          </form>
-        </div>
-      </section>
       <div class='footer-links'>
-        <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
-            <h2>เกี่ยวกับเรา</h2>
-            <Link to='/'>Design & graphic</Link>
-            <Link to='/'>การตลาด</Link>
-            <Link to='/'>Programming</Link>
-            <Link to='/'>Terms of Service</Link>
-          </div>
-          <div class='footer-link-items'>
-            <h2>Contact Us</h2>
-            <Link to='/'>Email</Link>
-            <Link to='/'>โทร</Link>
-            <Link to='/'>เวลาทำการ 00:00 - 00:01</Link>
-          </div>
-        </div>
         <div className='footer-link-wrapper'>
           <div class='footer-link-items'>
             <h2>หมวดหมู่ของงาน</h2>
@@ -55,17 +21,26 @@ function Footer() {
             <Link to='/'>คำถาม3</Link>
           </div>
         </div>
+        <div className='footer-link-wrapper'>
+          
+          <div class='footer-link-items'>
+            <h2>เกี่ยวกับเรา</h2>
+            <Link to='/'>Design & graphic</Link>
+            <Link to='/'>การตลาด</Link>
+            <Link to='/'>Programming</Link>
+          </div>
+          <div class='footer-link-items'>
+            <h2>ติดต่อเรา</h2>
+            <a>Email 62050230@kmitl.ac.th</a>
+            <a>โทร 099-297-9490</a>
+            <a>เวลาทำการ 09:00:00 - 09:00:01</a>
+          </div>
+        </div>
       </div>
       <section class='social-media'>
         <div class='social-media-wrap'>
           <div class='footer-logo'>
-            <Link to='/' className='social-logo'>
-              JobMaiFair
-              <i class='fab fa-typo3' />
-            </Link>
-          </div>
-          <small class='website-rights'>jopjop</small>
-          <div class='social-icons'>
+            <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
               to='/'
@@ -83,31 +58,32 @@ function Footer() {
               <i class='fab fa-instagram' />
             </Link>
             <Link
-              class='social-icon-link youtube'
+              class='social-icon-link email'
               to='/'
               target='_blank'
-              aria-label='Youtube'
+              aria-label='Email'
             >
-              <i class='fab fa-youtube' />
+              <i class="far fa-envelope" />
             </Link>
             <Link
-              class='social-icon-link twitter'
+              class='social-icon-link line'
               to='/'
               target='_blank'
-              aria-label='Twitter'
+              aria-label='Line'
             >
-              <i class='fab fa-twitter' />
+              <i class="fab fa-line" />
             </Link>
             <Link
-              class='social-icon-link twitter'
+              class='social-icon-link Call'
               to='/'
               target='_blank'
-              aria-label='LinkedIn'
+              aria-label='Call'
             >
-              <i class='fab fa-linkedin' />
+              <i class="fas fa-phone-alt" />
             </Link>
-            <large class='website-rights'>สงวนลิขสิทธิ์ ทำไม</large>
           </div>
+          </div>
+          <large class='website-rights'>สงวนลิขสิทธ์ Jop Tech Inc.</large>
         </div>
       </section>
     </div>
