@@ -11,7 +11,7 @@ import (
 
 type systemController struct{}
 
-func (u UserController) GetWorkgraphic(c *gin.Context) {
+func (u UserController) GetAllWork(c *gin.Context) {
 	systemModel := model.SystemModel{}
 	var typeworkid dateset.Typeworkid
 
