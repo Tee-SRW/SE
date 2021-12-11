@@ -17,6 +17,22 @@ function Navbar(props) {
     setDropdown(dropdown ? false : true);
   }
 
+  const onMouseEnter = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(true);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (window.innerWidth < 960) {
+      setDropdown(false);
+    } else {
+      setDropdown(false);
+    }
+  };
+
   const showButton = () => {
     if (window.innerWidth <= 960) {
       setButton(false);
@@ -54,19 +70,25 @@ function Navbar(props) {
                 </li>
                 <li className='nav-item'>
                   <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                    Chat
+                    <i class="far fa-comment" />
                   </Link>
                 </li>
                 <li className='nav-item'>
                   <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                    Notification
+                    <i class="far fa-bell" />
                   </Link>
+                </li>
+                <li className='nav-item'>
+                  <div className='nav-links-none'>
+                    <i class="fas fa-grip-lines-vertical" />
+                  </div>
                 </li>
                 <li
                   className='nav-item'
+                  onMouseLeave={onMouseLeave}
                 >
-                  <div className='nav-links' onClick={ToggleDropdown}>
-                    Config <i className='fas fa-caret-down' />
+                  <div className='nav-links' onClick={handleClick} onClick={ToggleDropdown}>
+                    <i class="far fa-user" /><i className='fas fa-caret-down' />
                   </div>
                   {dropdown && <NavDropdown />}
                 </li>

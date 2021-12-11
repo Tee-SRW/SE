@@ -1,25 +1,27 @@
-.Editprofileform-outer img {
+.EditprofileCompanyform-outer img {
     width: 150px;
     height: 150px;
     /* border-radius: 100px; */
-    margin: auto auto;
     flex-direction: 'column';
     justify-content: 'center';
     align-items: 'center';
     height: '100%';
 }
 
-.Editprofileform-outer {
-    display: flex;
+.EditprofileCompanyform-outer {
     width: 100%;
     height: 100%;
     margin-top: 130px;
+}
+
+.EditprofileCompanyform-outer {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: left;
 }
 
-.Editprofileform-inner {
+.EditprofileCompanyform-inner {
     width: 650px;
     margin: auto;
     background: #ffffff;
@@ -29,12 +31,12 @@
     transition: all .3s;
 }
 
-.Editprofileform-outer .form-control:focus {
+.EditprofileCompanyform-outer .form-control:focus {
     border-color: #167bff;
     box-shadow: none;
 }
 
-.Editprofileform-outer h3 {
+.EditprofileCompanyform-outer h3 {
     text-align: left;
     margin: 0;
     line-height: 1;

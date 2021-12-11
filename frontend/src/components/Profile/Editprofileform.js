@@ -6,7 +6,8 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
-export default function SignUp(props) {
+
+export default function Editprofileform(props) {
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;

@@ -18,7 +18,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
-export default function SignUp(props) {
+export default function Signupform(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,

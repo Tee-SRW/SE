@@ -1,0 +1,5 @@
+<div className="d-grid gap-2">
+    <button type="แก้ไขโปรไฟล์" className="btn btn-dark btn-lg btn-block bottomprofile spacing-top">
+      แก้ไขโปรไฟล์
+    </button>
+  </div>

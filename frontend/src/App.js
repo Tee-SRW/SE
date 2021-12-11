@@ -1,5 +1,6 @@
 import React , {useState}from 'react';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import Home from './components/pages/Home';
@@ -13,6 +14,7 @@ import Forgetpassword from './components/pages/Forgetpassword';
 import Resetpassword from './components/pages/Resetpassword';
 import Editprofile from './components/pages/Editprofile';
 import Profile from './components/pages/Profile';
+import EditprofileCompany from './components/pages/EditprofileCompany';
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
@@ -36,8 +38,11 @@ function App() {
           <Route path='/Resetpassword' component={Resetpassword} />
           <Route path='/Editprofile' component={Editprofile} />
           <Route path='/Profile' component={Profile} />
+          <Route path='/EditprofileCompany' component={EditprofileCompany} />
         </Switch>
+        <Footer />
       </Router>
+      
     </>
   );
 }

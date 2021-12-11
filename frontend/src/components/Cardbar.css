@@ -1,13 +1,64 @@
 .cardbar {
-    padding: 4rem;
-    background: #fff;
-  }
+  padding: 0rem;
+  background: #fff;
+}
 .cardbar-container {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    max-width: auto;
-    width: 90%;
-    margin: 0 auto;
-    background: #ffffff;
-  }
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: auto;
+  width: 90%;
+  margin: 0 auto;
+  background: #ffffff;
+}
+.btn-group{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.09), 0 6px 20px 0 rgba(0,0,0,0);
+}
+.btn-group .button {
+  background-color: #ffffff; 
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor:pointer;
+  font-size: 16px;
+}
+.btn-group .button:hover {
+  background-color: #CFE9F7;
+}
+
+.btn-group2{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.09), 0 6px 20px 0 rgba(0,0,0,0);
+  border-radius: 0px 0px 30px 30px;
+}
+.btn-group2 .button {
+  background-color: #ffffff; 
+  border: none;
+  color: rgb(0, 0, 0);
+  width: 50%;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor:pointer;
+  font-size: 16px;
+}
+.redius-L{
+  border-radius: 0px 0px 0px 30px;
+}
+.redius-R{
+  border-radius: 0px 0px 30px 0px;
+}
+.btn-group2 .button:hover {
+  background-color: #CFE9F7;
+}
+.btn-group2 .button:focus {
+  background-color: #49A9E1;
+  color: rgb(255, 255, 255);
+}
+
+.dropdown-menu{
+  grid-template-columns: repeat(2, auto); 
+}
