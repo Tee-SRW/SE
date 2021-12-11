@@ -15,7 +15,7 @@ function Cardbar() {
         <div className='cardbar'>
             <div className='cardbar-container'>
                 <div >
-                    <div className='btn-group '>      
+                    <div className='btn-carbar '>      
                         <button className='button'>
                             <h3>Graphic & Design</h3>
                         </button>
@@ -26,7 +26,7 @@ function Cardbar() {
                             <h3>Programming</h3>
                         </button>             
                     </div>
-                    <div className='btn-group2 '>
+                    <div className='btn-carbar2 '>
                         <button className='button redius-L'>
                             หาฟรีแลนซ์
                         </button>

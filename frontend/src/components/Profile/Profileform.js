@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Editprofileform.css";
+import "./Profileform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";

@@ -12,20 +12,20 @@ export default function ChooseCreateForm() {
           <form>
             <h3>สมัครรับข้อมูล</h3>
 
-            <div className="d-grid gap-2 spacing-top">
+            <div className="d-grid gap-2 btn-color spacing-top">
               <button
                 type="submit"
-                className="btn btn-dark btn-lg btn-block spacing-top"
+                className="btn btn-lg color2 shadow1 spacing-top"
                 onClick={()=> history.push("/sign-up")}
               >
-                ผู้ใช้ทัวไป
+                ผู้ใช้ทั่วไป
               </button>
             </div>
 
-            <div className="d-grid gap-2 spacing-top">
+            <div className="d-grid gap-2 btn-color spacing-top">
               <button
                 type="submit"
-                className="btn btn-dark btn-lg btn-block spacing-top"
+                className="btn btn-lg color2 shadow1 spacing-top"
                 onClick={()=> history.push("/sign-up-company")}
               >
                 บริษัท

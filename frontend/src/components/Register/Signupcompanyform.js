@@ -64,7 +64,11 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="6" controlId="validationCustom03">
               <Form.Label>รหัสผ่าน</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสผ่าน" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="รหัสผ่าน"
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่าน
               </Form.Control.Feedback>
@@ -74,7 +78,11 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="3" controlId="validationCustom04">
               <Form.Label>ยืนยันรหัสผ่าน</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสผ่าน" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="รหัสผ่าน"
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>
@@ -150,12 +158,13 @@ export default function Signupform(props) {
                 value={props.value}
               />
               <Form.Control.Feedback type="invalid">
-                กรุณาใส่ รหัสไปรษณีย์
+                กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
+
           <Row>
-            <Form.Group className="mb-3 boxinputAgreesucp">
+            <Form.Group className="mb-3 boxinputAgreeFl">
               <Form.Check
                 required
                 label="ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair"
@@ -165,7 +174,10 @@ export default function Signupform(props) {
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10">
+            <Button
+              type="submit"
+              className="btn btn-lg color spacing-top10"
+            >
               สมัครสมาชิก
             </Button>
           </div>
