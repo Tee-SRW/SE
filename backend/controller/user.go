@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"fmt"
+	//"fmt"
 
 	"se/dateset"
 	"se/model"
@@ -113,9 +113,9 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 		// fmt.Println(e)
 		panic(e)
 	}
-	fmt.Println("before =", user.WorkPostID)
+	//fmt.Println("before =", user.WorkPostID)
 	newWorkPostID, err := strconv.Atoi(user.WorkPostID)
-	fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
+	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
 	newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
 	newUserID, err := strconv.Atoi(user.UserID)
 	status, err := userModel.AddWorkFeelance(

@@ -124,7 +124,7 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 	DetailWork string,
 	PricePostWork string,
 	NameWork string) (string, error) {
-	fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, "desu")
+	//fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, "desu")
 	db := database.Connectdata()
 
 	stmt, err := db.Prepare("insert into work_post_freelance (Work_Post_ID, Type_Work_Number, User_ID, Detail_Work, Price_Post_Work,Name_Work) values(?,?,?,?,?,?)")
