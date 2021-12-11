@@ -15,6 +15,8 @@ import Resetpassword from './components/pages/Resetpassword';
 import Editprofile from './components/pages/Editprofile';
 import Profile from './components/pages/Profile';
 import EditprofileCompany from './components/pages/EditprofileCompany';
+import EditprofileFreelacne from './components/pages/EditprofileFreelance';
+import Freelance from './components/pages/Freelance';
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
@@ -38,7 +40,9 @@ function App() {
           <Route path='/Resetpassword' component={Resetpassword} />
           <Route path='/Editprofile' component={Editprofile} />
           <Route path='/Profile' component={Profile} />
+          <Route path='/Editprofilefreelance' component={EditprofileFreelacne} />
           <Route path='/EditprofileCompany' component={EditprofileCompany} />
+          <Route path='/Freelance' component={Freelance} />
         </Switch>
         <Footer />
       </Router>

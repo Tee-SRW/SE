@@ -21,17 +21,17 @@ export default function Editprofileform(props) {
     <div className="Editprofileform-outer">
     <div className="Editprofileform-inner">
       <h3>โปรไฟล์ของฉัน</h3>
-      <div className="spacing-left">
+      <div className="d-grid2">
             <img
               src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
               className="img-fluid rounded-circle"
               alt="Profile Admin"
             ></img>
           </div>
-          <div className="d-grid gap-2 spacing-top">
+          <div className="d-grid2 spacing-top">
             <button
               type="submit"
-              className="btn btn-dark btn-lg btn-block bottomprofile"
+              className="btn btn-dark btn-lg btn-block bottomprofileprofile"
             >
               แก้ไขโปรไฟล์
             </button>

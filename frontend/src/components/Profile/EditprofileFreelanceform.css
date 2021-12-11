@@ -1,4 +1,4 @@
-.Editprofileform-outer img {
+.EditprofileFreelanceform-outer img {
     width: 150px;
     height: 150px;
     /* flex-direction: 'column';
@@ -7,7 +7,7 @@
     height: '100%'; */
 }
 
-.Editprofileform-outer {
+.EditprofileFreelanceform-outer {
     /* display: box;
     justify-content: center;
     flex-direction: column; */
@@ -18,7 +18,7 @@
     margin-top: 130px;
 }
 
-.Editprofileform-inner {
+.EditprofileFreelanceform-inner {
     width: 650px;
     display: flex;
     margin: auto auto;
@@ -30,12 +30,12 @@
     transition: all .3s;
 }
 
-.Editprofileform-outer .form-control:focus {
+.EditprofileFreelanceform-outer .form-control:focus {
     border-color: #167bff;
     box-shadow: none;
 }
 
-.EEditprofileform-outer h3 {
+.EditprofileFreelanceform-outer h3 {
     align-self: flex-start;
     margin: 0;
     line-height: 1;
@@ -75,7 +75,7 @@
     text-align: right;
 }
 
-.bottomprofileprofile {
+.bottomprofilefreelance {
     font-size: 13px;
     width: 125px;
     height: 50px;
