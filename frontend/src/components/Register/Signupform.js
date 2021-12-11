@@ -121,18 +121,14 @@ export default function Signupform(props) {
             </Form.Group>
           </Row>
           <Row>
-            <div className="form-group">
-              <div className="custom-control custom-checkbox ">
-                <input
-                  type="checkbox"
-                  className="custom-control-input spacing-right "
-                  id="customCheck1"
-                />
-                <label className="custom-control-label " htmlFor="customCheck1">
-                  ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair
-                </label>
-              </div>
-            </div>
+            <Form.Group className="mb-3 boxinputAgreeFl">
+              <Form.Check
+                required
+                label="ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair"
+                feedback="คุณต้องยอมรับข้อตกลงและเงื่อนไขการใช้งาน JobMaiFair ก่อน"
+                feedbackType="invalid"
+              />
+            </Form.Group>
           </Row>
           <div className="d-grid gap-2">
             <Button

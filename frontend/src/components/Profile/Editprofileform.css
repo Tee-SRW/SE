@@ -35,7 +35,7 @@
     box-shadow: none;
 }
 
-.EEditprofileform-outer h3 {
+.Editprofileform-outer h3 {
     align-self: flex-start;
     margin: 0;
     line-height: 1;
@@ -92,8 +92,6 @@
 }
 
 .d-grid2 {
-    grid-gap: 0.5rem!important;
-    gap: 0.5rem!important;
     display: grid!important;
     justify-content: space-around;
 }

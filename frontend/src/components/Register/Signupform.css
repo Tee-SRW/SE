@@ -33,6 +33,11 @@
     padding-bottom: 20px;
 }
 
+.boxinputAgreesu {
+    margin-right: 5px;
+    margin-left: 15px;
+}
+
 .custom-control-label {
     font-weight: 400;
 }
