@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import Choosecreateform from '../Choosecreateform';
+import Choosecreateform from '../Register/Choosecreateform';
 
 
 function ChooseCreate() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import Forgetpasswordform from '../Forgetpasswordform';
+import Forgetpasswordform from '../Login/Forgetpasswordform';
 
 
 function Forgetpassword() {

@@ -1,17 +1,17 @@
-.Forgetpasswordform-outer {
+.Loginform-outer {
     width: 100%;
     height: 100%;
     margin-top: 130px;
 }
 
-.Forgetpasswordform-outer {
+.Loginform-outer {
     display: flex;
     justify-content: center;
     flex-direction: column;
     text-align: left;
 }
 
-.Forgetpasswordform-inner {
+.Loginform-inner {
     width: 450px;
     margin: auto;
     background: #ffffff;
@@ -21,12 +21,12 @@
     transition: all .3s;
 }
 
-.Forgetpasswordform-outer .form-control:focus {
+.Loginform-outer .form-control:focus {
     border-color: #167bff;
     box-shadow: none;
 }
 
-.Forgetpasswordform-outer h3 {
+.Loginform-outer h3 {
     text-align: center;
     margin: 0;
     line-height: 1;
@@ -37,42 +37,28 @@
     font-weight: 400;
 }
 
-.forgot-password,
-.forgot-password a {
-    text-align: right;
+.Loginhaveaccount {
+    text-align: left;
     font-size: 13px;
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-left: 0px;
     color: #7f7d7d;
     margin: 0;
 }
 
-.forgot-password a {
-    color: #167bff;
-}
-
-.spacing-top {
-    margin-top: 10px;
-}
-
-.haveaccount {
-    text-align: left;
+.Loginforgot-password,
+.Loginforgot-password a {
+    text-align: right;
     font-size: 13px;
     padding-top: 10px;
     color: #7f7d7d;
     margin: 0;
 }
 
-.spacing-right {
-    margin-right: 5px;
+.Loginforgot-password a {
+    color: #167bff;
 }
 
-.text {
-    text-align: 'center';
-    font-weight: 'bold';
-    font-size: 12;
-    width: 100%;
-
-}
-.text p{
-    color: red;
+.spacing-top10 {
+    margin-top: 10px;
 }

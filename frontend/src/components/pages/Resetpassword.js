@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import Resetpasswordform from '../Resetpasswordform';
+import Resetpasswordform from '../Login/Resetpasswordform';
 
 
 function Resetpassword() {

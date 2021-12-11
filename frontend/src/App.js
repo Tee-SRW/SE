@@ -5,7 +5,6 @@ import './App.css';
 import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Services from './components/pages/Services';
-import Products from './components/pages/Products';
 import ChooseCreate from './components/pages/ChooseCreate';
 import SignUp from './components/pages/SignUp';
 import SignUpcompany from './components/pages/SignUpcompany';
@@ -17,7 +16,7 @@ import Profile from './components/pages/Profile';
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
-    !true);
+    !false);
 
     // initial value
     //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
@@ -29,7 +28,6 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
-          <Route path='/products' component={Products} />
           <Route path='/ChooseCreate' component={ChooseCreate} />
           <Route path='/Login' component={Login} />
           <Route path='/sign-up' component={SignUp} />

@@ -8,6 +8,7 @@ video {
 
 .hero-container {
   /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
+  background: linear-gradient(90deg, #49A9E1 0%, #CFE9F7 100%);;
   height: 100vh;
   width: 100%;
   display: flex;

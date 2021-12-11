@@ -1,0 +1,81 @@
+.Editprofileform-outer img {
+    width: 150px;
+    height: 150px;
+    /* border-radius: 100px; */
+    flex-direction: 'column';
+    justify-content: 'center';
+    align-items: 'center';
+    height: '100%';
+}
+
+.Editprofileform-outer {
+    width: 100%;
+    height: 100%;
+    margin-top: 130px;
+}
+
+.Editprofileform-outer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+.Editprofileform-inner {
+    width: 650px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+    transition: all .3s;
+}
+
+.Editprofileform-outer .form-control:focus {
+    border-color: #167bff;
+    box-shadow: none;
+}
+
+.Editprofileform-outer h3 {
+    text-align: left;
+    margin: 0;
+    line-height: 1;
+    padding-bottom: 20px;
+}
+
+.custom-control-label {
+    font-weight: 400;
+}
+
+.spacing-top {
+    margin-top: 10px;
+}
+
+.spacing-right {
+    margin-right: 5px;
+}
+
+.pull-right {
+    text-align: right;
+}
+
+.spacing-left {
+    margin-left: 189px;
+}
+
+.bottomprofile {
+    font-size: 13px;
+    width: 125px;
+    height: 50px;
+    margin-left: 200px;
+}
+
+.bottomprofile2 {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 13px;
+    width: 80px;
+    height: 28px;
+    margin-left: 0px;
+    margin-top: 10px;
+}
