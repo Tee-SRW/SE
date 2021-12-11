@@ -1,8 +1,7 @@
 package controller
 
 import (
-
-	// "fmt"
+	//"fmt"
 
 	"se/dateset"
 	"se/model"
@@ -49,7 +48,7 @@ func (u UserController) LoginUser(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statuslogin,id, err := userModel.LoginUser(
+	statuslogin, id, err := userModel.LoginUser(
 		user.Email, user.Password, user.ID)
 
 	// aa := [2]string{statuslogin, user.Email}
@@ -103,4 +102,32 @@ func (u UserController) GetUpdateuser(c *gin.Context) {
 	}
 	c.JSON(200, uservalue)
 
+}
+func (u UserController) AddWorkFeelance(c *gin.Context) {
+	var userModel model.UserModel
+	var user dateset.AddWorkFeelance
+	//var puser dateset.User
+
+	e := c.ShouldBind(&user)
+	if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
+	//fmt.Println("before =", user.WorkPostID)
+	newWorkPostID, err := strconv.Atoi(user.WorkPostID)
+	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
+	newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
+	newUserID, err := strconv.Atoi(user.UserID)
+	status, err := userModel.AddWorkFeelance(
+		newWorkPostID,
+		newTypeWorkNumber,
+		newUserID,
+		user.DetailWork,
+		user.PricePostWork,
+		user.NameWork)
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, status)
 }

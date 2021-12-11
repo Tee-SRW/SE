@@ -22,6 +22,8 @@ func InitRouter() *gin.Engine {
 	r.POST("/createcompany", userController.CreateAccountCompany)
 	r.PUT("/user/:id", userController.Updateuser)
 	r.POST("/getuser/:id", userController.GetUpdateuser)
-	r.POST("/getallwork", userController.GetWorkgraphic)
+	r.POST("/getallwork", userController.GetAllWork)
+	// r.POST("/getworkgraphic/:id", userController.GetWorkgraphic)
+	r.POST("/addworkfeelance", userController.AddWorkFeelance)
 	return r
 }
