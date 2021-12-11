@@ -12,3 +12,15 @@ type Company struct {
 	Postcode     string `json:"postcode"`
 	Password 	 string `json:"password"`
 }
+
+type AddWorkCompany struct {
+	CompanyID 		string		`json:"companyid"`
+	TypeWorkNumber 	string		`json:"typeworknumber"`
+	NameWork 		string	`json:"namework"`
+	DetailWork 		string	`json:"detailwork"`
+	Position 		string	`json:"position"`
+	NumPerson 		string		`json:"numperson"`
+	PriceWorkMin 	string	`json:"priceworkmin"`
+	PriceWorkMax 	string	`json:"priceworkmax"`
+	Education 		string	`json::education"`
+}

@@ -44,3 +44,41 @@ password string) (string, error)  {
 
 	return check, nil
 }
+
+func (u CompanyModel) AddWorkCompany(
+	CompanyID int,
+	TypeWorkNumber int,
+	NameWork string,
+	DetailWork string,
+	Position string,
+	NumPerson int,
+	PriceWorkMin string,
+	PriceWorkMax string,
+	Education string) (string, error) {
+
+		db := database.Connectdata()
+
+		stmt, err := db.Prepare("insert into work_post_company (Company_ID, Type_Work_Number, Name_Work, Detail_Work, Position, Num_Person, Price_Work_Min, Price_Work_Max, Education) values (?,?,?,?,?,?,?,?,?)")
+		if err != nil {
+			fmt.Print(err)
+	}
+
+
+	_, err = stmt.Exec(
+		CompanyID,
+		TypeWorkNumber,
+		NameWork,
+		DetailWork,
+		Position,
+		NumPerson,
+		PriceWorkMin,
+		PriceWorkMax,
+		Education)
+	check := "Complete!"
+
+	if err != nil {
+		check = "Fail!"
+	}
+
+	return check, nil
+}
