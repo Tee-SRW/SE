@@ -37,7 +37,7 @@ func (u UserModel) CreateUser(firstname string,
 }
 
 func (u UserModel) LoginUser(email string,
-	password string, id int) (string,int, error) {
+	password string, id int) (string, int, error) {
 
 	db := database.Connectdata()
 
@@ -47,8 +47,8 @@ func (u UserModel) LoginUser(email string,
 	if strings.Contains(email, findemail) {
 
 		var passworddb string
-        err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
-	    err = db.QueryRow("select id from user WHERE Email=? union select id from company WHERE CompanyEmail=?", email, email).Scan(&iddb)
+		err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
+		err = db.QueryRow("select id from user WHERE Email=? union select id from company WHERE CompanyEmail=?", email, email).Scan(&iddb)
 
 		fmt.Print(iddb)
 		if err != nil {
@@ -73,7 +73,7 @@ func (u UserModel) LoginUser(email string,
 			statuslogin = "ถูกต้อง"
 		}
 	}
-	return statuslogin,iddb, nil
+	return statuslogin, iddb, nil
 }
 
 func (u UserModel) Updateuser(idint int,
@@ -117,4 +117,33 @@ func (u UserModel) GetUpdateuser(idint int) (string, string, string, string) {
 		fmt.Print(err)
 	}
 	return FirstName, LastName, Email, Phone
+}
+func (u UserModel) AddWorkFeelance(WorkPostID int,
+	TypeWorkNumber int,
+	UserID int,
+	DetailWork string,
+	PricePostWork string,
+	NameWork string) (string, error) {
+	fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, "desu")
+	db := database.Connectdata()
+
+	stmt, err := db.Prepare("insert into work_post_freelance (Work_Post_ID, Type_Work_Number, User_ID, Detail_Work, Price_Post_Work,Name_Work) values(?,?,?,?,?,?)")
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	_, err = stmt.Exec(
+		WorkPostID,
+		TypeWorkNumber,
+		UserID,
+		DetailWork,
+		PricePostWork,
+		NameWork)
+	check := "Complete!"
+
+	if err != nil {
+		check = "Fail"
+	}
+
+	return check, nil
 }
