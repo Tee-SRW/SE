@@ -63,7 +63,7 @@ func (u UserController) LoginUser(c *gin.Context) {
 
 func (u UserController) Updateuser(c *gin.Context) {
 	var userModel model.UserModel
-	var user dateset.User
+	var user dateset.UpdateUser
 	// id := c.Param("id")
 	// idint, err := strconv.Atoi(id)
 	e := c.ShouldBind(&user)
@@ -77,7 +77,8 @@ func (u UserController) Updateuser(c *gin.Context) {
 		user.FirstName,
 		user.LastName,
 		user.Email,
-		user.Phone)
+		user.Phone,
+		user.Profile_user)
 
 	if err != nil {
 		panic(err)
