@@ -109,12 +109,12 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/sign-up' className='nav-links' onClick={closeMobileMenu}>
+                  <Link to='/ChooseCreate' className='nav-links' onClick={closeMobileMenu}>
                     Sign Up
                   </Link>
                 </li>
                 <li>
-                  <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                  <Link to='/ChooseCreate' className='nav-links-mobile' onClick={closeMobileMenu}>
                     Sign Up
                   </Link>
                 </li>

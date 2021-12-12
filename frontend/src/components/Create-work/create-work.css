@@ -47,52 +47,17 @@
     font-size: 13px;
 }
 
-.boxinputAgreesu {
-    margin-right: 5px;
-    margin-left: 15px;
-}
-
-.custom-control-label {
-    font-weight: 400;
-}
-
-.forgot-password,
-.forgot-password a {
-    text-align: center;
-    font-size: 13px;
-    padding-top: 10px;
-    color: #7f7d7d;
-    margin: 0;
-}
-
-.forgot-password a {
-    color: #167bff;
-}
-
-.spacing-boxtotop {
-    margin-top: 20px;
-}
-
-.spacing-right {
-    margin-right: 5px;
-}
-
-.pull-right {
-    text-align: right;
-}
-
-.pass-wrapper {
-    position: relative;
-}
-
-.eyeicon2 {
-    margin: auto;
-    position: absolute;
-    top: 30%;
-    right: 5%;
-}
-
-.eyeicon2:hover {
-    color: #00fcb6;
-    cursor: pointer;
+.ddd{
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 0;
+    flex-shrink: 0;
+    
+    justify-content: flex-start;
 }

@@ -58,3 +58,9 @@
   background-color: #49A9E1;
   color: rgb(255, 255, 255);
 }
+.btn-color .right{
+  align-items: right;
+}
+.mr-0 {
+  margin-right: 0;
+}
