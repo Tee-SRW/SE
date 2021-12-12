@@ -58,7 +58,7 @@ function Navbar(props) {
               alt='JobmaifairLogo'
               width="60px" height="60px"
             />
-            JopMaiFair
+            JobMaiFair
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
