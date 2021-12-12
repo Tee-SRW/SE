@@ -4,10 +4,12 @@
     padding: 0;
     font-family: 'PT Sans', sans-serif;
 }
+body {
+    background: linear-gradient(to right,#CFE9F7 12.5%, #fff 12.5%, #fff 87.5%,#CFE9F7 87.5%);
+}
 
 .home,
-.services,
-.products {
+.services {
     display: flex;
     height: 100vh;
     align-items: center;
@@ -16,7 +18,7 @@
 }
 
 .services {
-    background-image: ('./public/images/img-2.jpg');
+    /*background-image: src='/public/images/img-2.jpg';*/
     background-color: black;
     background-position: center;
     background-size: cover;
@@ -25,14 +27,7 @@
     font-size: 100px;
 }
 
-.products {
-    background-color: black;
-    background-position: center;
-    background-size: fill;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-}
+
 
 .App {
     text-align: center;

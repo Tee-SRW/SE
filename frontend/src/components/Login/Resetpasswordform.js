@@ -38,10 +38,10 @@ export default function Resetpasswordform() {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 btn-color">
             <Button
               type="submit"
-              className="btn btn-dark btn-lg btn-block spacing-top10"
+              className="btn btn-lg color spacing-top10"
             >
               รีเซ็ตรหัสผ่าน
             </Button>

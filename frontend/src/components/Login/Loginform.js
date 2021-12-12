@@ -54,12 +54,12 @@ export default function Loginform() {
             </div>
           </div>
 
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 btn-color">
             <Button
               type="submit"
-              className="btn btn-dark btn-lg btn-block spacing-top10"
+              className="btn btn-lg color spacing-top10"
             >
-              Submit form
+              เข้าสู่ระบบ
             </Button>
           </div>
           

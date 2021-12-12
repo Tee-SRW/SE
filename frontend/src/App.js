@@ -17,10 +17,12 @@ import Profile from './components/pages/Profile';
 import EditprofileCompany from './components/pages/EditprofileCompany';
 import EditprofileFreelacne from './components/pages/EditprofileFreelance';
 import Freelance from './components/pages/Freelance';
+import CreateWorkFreeLance from './components/pages/CreateWorkFreeLance';
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
-    !false);
+    false);
 
     // initial value
     //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
@@ -43,6 +45,7 @@ function App() {
           <Route path='/Editprofilefreelance' component={EditprofileFreelacne} />
           <Route path='/EditprofileCompany' component={EditprofileCompany} />
           <Route path='/Freelance' component={Freelance} />
+          <Route path='/Createworkfreelance' component={CreateWorkFreeLance} />
         </Switch>
         <Footer />
       </Router>

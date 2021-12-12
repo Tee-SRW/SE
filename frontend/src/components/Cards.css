@@ -1,6 +1,6 @@
 .cards {
   padding: 4rem;
-  background: #fff;
+  background: none;
 }
 
 h1 {
@@ -11,10 +11,11 @@ h1 {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
+  max-width: 1600px;
   width: 90%;
   margin: 0 auto;
 }
+
 
 .cards__wrapper {
   position: relative;
@@ -25,11 +26,19 @@ h1 {
   margin-bottom: 24px;
 }
 
+.cards__items {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr); 
+  grid-gap: 20px;
+}
+
 .cards__item {
   display: flex;
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
+  background: #fff;
 }
 
 .cards__item__link {
@@ -46,7 +55,6 @@ h1 {
 
 .cards__item__pic-wrap {
   position: relative;
-  width: 100%;
   padding-top: 67%;
   overflow: hidden;
 }
@@ -77,9 +85,6 @@ h1 {
   width: 50px;
   height: 50px;
   display: block;
-  
-  background-Position: center;
-  background-Size: auto 80px;
 }
 
 .cards__item__img {
@@ -126,9 +131,7 @@ h1 {
 }
 
 @media only screen and (min-width: 1024px) {
-  .cards__items {
-    display: flex;
-  }
+
 }
 
 @media only screen and (max-width: 1024px) {

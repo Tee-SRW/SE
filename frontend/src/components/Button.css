@@ -41,3 +41,20 @@
   color: #242424;
   transition: 250ms;
 }
+.btn-color .color{
+  border: none;
+  color: #fff;
+  background-color: #49A9E1;
+}
+.btn-color .color2{
+  border: 5px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+}
+.btn-color .shadow1{
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0);
+}
+.btn-color .color2:hover {
+  background-color: #49A9E1;
+  color: rgb(255, 255, 255);
+}

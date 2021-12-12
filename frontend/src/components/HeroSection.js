@@ -6,11 +6,11 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <video src='/videos/video-1.mp4' autoPlay loop muted />
-      <h1>Job mai fair</h1>
-      <div className='hero-btns'>
-        
-      </div>
+      {/*<video src='/videos/video-1.mp4' autoPlay loop muted />*/}
+      <img 
+      className='JobBackground'
+      src='/images/Banner_final1920.png' 
+      />
     </div>
   );
 }
