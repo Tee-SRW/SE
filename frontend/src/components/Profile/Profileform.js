@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Profileform.css";
+import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
@@ -7,88 +8,21 @@ import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
 export default function Profileform(props) {
-  const [validated, setValidated] = useState(false);
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
-  };
   return (
-    <div className="Profileform-outer">
-      <div className="Profileform-inner">
-        <h3>โปรไฟล์ของฉัน</h3>
-        <div className="d-grid2">
-          <img
-            src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
-            className="img-fluid rounded-circle"
-            alt="Profile Admin"
-          ></img>
+    <Container className="Container-profile">
+      <div className="bgblock">
+        <div className="boardblock">
+          {/* <img
+          src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+          className="rounded-circle image "
+          alt="Profile Admin"
+        ></img> */}
         </div>
-        <div className="d-grid2 spacing-top">
-          <button
-            type="submit"
-            className="btn btn-dark btn-lg btn-block bottomprofileprofile"
-          >
-            แก้ไขโปรไฟล์
-          </button>
+        <div className="Profileform-inner">
+          <label className="profilebox">ช่องทางการติดต่อ</label>
+          <text>เบอร์โทรศัพท์</text>
         </div>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustom01">
-              <Form.Label>ชื่อ</Form.Label>
-              <Form.Control required type="text" placeholder="ชื่อ" />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ ชื่อ
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustom02">
-              <Form.Label>นามสกุล</Form.Label>
-              <Form.Control required type="text" placeholder="นามสกุล" />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ นามสกุล
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-              <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ อีเมล
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="3" controlId="validationCustom05">
-              <Form.Label>เบอร์โทรศัพท์</Form.Label>
-              <InputMask
-                required
-                className="form-control spacing-top"
-                placeholder="xxx-xxx-xxxx"
-                mask="999-999-9999"
-                onChange={props.onChange}
-                value={props.value}
-              />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ เบอร์โทรศัพท์
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
-          <div className="d-grid gap-2">
-            <Button
-              type="submit"
-              className="btn btn-dark btn-lg btn-block spacing-top10"
-            >
-              บันทึก
-            </Button>
-          </div>
-        </Form>
       </div>
-    </div>
+    </Container>
   );
 }
