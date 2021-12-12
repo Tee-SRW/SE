@@ -60,7 +60,7 @@ export default function CreateWorkFreelance(props) {
 
   return (
     <div className="create-work-outer">
-      <h3>สร้างงานของฉัน</h3>
+      <h3>ประกาศรับสมัครงาน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -99,6 +99,32 @@ export default function CreateWorkFreelance(props) {
               โปรดระบุ คำอธิบายเพื่มเติม
             </Form.Control.Feedback>
           </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+            <Form.Label>ตำแหน่ง</Form.Label>
+            <Form.Control required type="text" placeholder="ตำแหน่ง" />
+            <Form.Control.Feedback type="invalid">
+              โปรดระบุ ตำแหน่ง
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Row>
+
+        <Row className="mb-3">
+          <Col>
+            <Form.Group md="2" controlId="validationCustom04">
+              <Form.Label>จำนวน</Form.Label>
+
+              <Form.Control required type="text" placeholder="0.00" />
+              <Form.Control.Feedback type="invalid">
+                กรุณาใส่ ราคาเริ่มต้น
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col className="bath2bath" md="7">
+            <Form.Label>บาท</Form.Label>
+          </Col>
         </Row>
 
         <Row className="mb-3">
