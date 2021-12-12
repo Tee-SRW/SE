@@ -7,7 +7,7 @@
   flex-flow: column;
   align-items: center;
   max-width: auto;
-  width: 90%;
+  width: 480px;
   margin: 0 auto;
   background: none;
 }
@@ -32,10 +32,44 @@
   font-size: 16px;
 }
 
-.btn-group .button:focus {
+.btn-group .button:focus::after {
   background-color: #CFE9F7;
   color: #49A9E1;
 }
+
+.buttonJob {
+  width: 160px;
+  height: 120px;
+  background-color: #ffffff; 
+  border: none;
+  color: #49A9E1;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor:pointer;
+  font-size: 16px;
+}
+.HoldbuttonJob {
+  width: 160px;
+  height: 120px;
+  background-color: #CFE9F7;
+  border: none;
+  color: #49A9E1;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor:pointer;
+  font-size: 16px;
+}
+.buttonJob h3{
+  font-size: 18px;
+}
+.HoldbuttonJob h3{
+  font-size: 18px;
+}
+
 
 .btn-group .button:hover {
   background-color: #CFE9F7;
@@ -58,7 +92,7 @@
   font-size: 16px;
 }
 
-.btn-group2.Clicked {
+.Clicked-CardbarJob {
   display: none;
 }
 
@@ -72,6 +106,11 @@
   background-color: #CFE9F7;
 }
 .btn-group2 .button:focus {
+  background-color: #49A9E1;
+  color: rgb(255, 255, 255);
+}
+
+.HoldbuttonFW{
   background-color: #49A9E1;
   color: rgb(255, 255, 255);
 }
