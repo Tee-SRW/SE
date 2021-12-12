@@ -97,8 +97,8 @@ export default function CreateWorkFreelance(props) {
           <Form.Control type="file" multiple />
         </Form.Group>
 
-        <Row className="ddd">
-          <div className="gap-2 btn-color">
+
+          <Row className="gap-2 btn-color">
             <Col>
               <Button
                 className="btn color2 spacing-top10"
@@ -107,10 +107,7 @@ export default function CreateWorkFreelance(props) {
                 ยกเลิก
               </Button>
             </Col>
-          </div>
-
-          <div className="gap-2 btn-color">
-            <Col>
+            <Col className="create-work-freelance-buttonSave">
               <Button
                 type="submit"
                 className="btn color mr-0 spacing-top10"
@@ -118,8 +115,8 @@ export default function CreateWorkFreelance(props) {
                 บันทึก
               </Button>
             </Col>
-          </div>
-        </Row>
+          </Row>
+
 
       </Form>
     </div>
