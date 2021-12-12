@@ -13,6 +13,8 @@ function Cards() {
   const [clickGraphic, setClickGraphic] = useState(false);
   const [clickMarket, setClickMarket] = useState(false);
   const [clickProgramming, setClickProgramming] = useState(false);
+  const [clickFree, setClickFree] = useState(false);
+  const [clickWork, setClickWork] = useState(false);
   const [dropdownWork, setDropdownWork] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -24,20 +26,34 @@ function Cards() {
     setClickGraphic(!false);
     setClickMarket(false);
     setClickProgramming(false);
+    setClickFree(false);
+    setClickWork(false);
   }  
   const MarketButton = () => {
     setDropdownWork(true);
     setClickGraphic(false);
     setClickMarket(!false);
     setClickProgramming(false);
-
+    setClickFree(false);
+    setClickWork(false);
   }  
   const ProgrammingButton = () => {
     setDropdownWork(true);
     setClickGraphic(false);
     setClickMarket(false);
     setClickProgramming(true);
+    setClickFree(false);
+    setClickWork(false);
   }
+  const WorkButton = () => {
+    setClickWork(true);
+    setClickFree(false);
+  }
+  const FreeButton = () => {
+    setClickFree(true);
+    setClickWork(false);
+  }
+
 
 
   return (
@@ -69,10 +85,14 @@ function Cards() {
               </button>
             </div>
             <div className={dropdownWork ? 'btn-group2' : 'Clicked-CardbarJob'}>
-              <button className='button redius-L'>
+              <button className={clickFree ? 'HoldbuttonFW redius-L' : 'buttonFW redius-L'}
+                onClick={FreeButton}
+              >
                 หาฟรีแลนซ์
               </button>
-              <button className='button redius-R'>
+              <button className={clickWork ? 'HoldbuttonFW redius-R' : 'buttonFW redius-R'}
+                onClick={WorkButton}
+              >
                 หางาน
               </button>
             </div>
