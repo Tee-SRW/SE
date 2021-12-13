@@ -49,7 +49,7 @@ func (u UserModel) LoginUser(email string,
 
 		var passworddb string
 		err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
-		err = db.QueryRow("select id from user WHERE Email=? union select id from company WHERE CompanyEmail=?", email, email).Scan(&iddb)
+		// err = db.QueryRow("select id from user WHERE Email=? union select id from company WHERE CompanyEmail=?", email, email).Scan(&iddb)
 
 		fmt.Print(iddb)
 		if err != nil {
@@ -64,7 +64,7 @@ func (u UserModel) LoginUser(email string,
 	} else {
 		var passworddb string
 		err := db.QueryRow("select Password from user WHERE Phone=? union select Password from company WHERE CompanyPhone=?", email, email).Scan(&passworddb)
-		err = db.QueryRow("select id from user WHERE Phone=? union select id from company WHERE CompanyPhone=?", email, email).Scan(&iddb)
+		// err = db.QueryRow("select id from user WHERE Phone=? union select id from company WHERE CompanyPhone=?", email, email).Scan(&iddb)
 		if err != nil {
 			fmt.Print(err)
 		}

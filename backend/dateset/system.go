@@ -28,8 +28,12 @@ type Getworkpagehome struct {
 	Name_Work			string	`json:"name_work"`
 	FirstName	string 	`json:"firstName"`
 	LastName	string 	`json:"lastName"`
+	Image_Work_Post_Freelance string `json:"image_work_post_freelance"`
 }
 
 type Typeworkid struct {
 	Type_Work_ID	int 	`json:"type_work_id"`
 }
+
+
+

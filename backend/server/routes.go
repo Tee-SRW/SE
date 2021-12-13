@@ -26,5 +26,7 @@ func InitRouter() *gin.Engine {
 	// r.POST("/getworkgraphic/:id", userController.GetWorkgraphic)
 	r.POST("/addworkfeelance", userController.AddWorkFeelance)
 	r.POST("/addworkcompany", userController.AddWorkCompany)
+
+	r.PUT("/freelanceupdatepost", userController.Updatepost) //ยังไม่ทำ
 	return r
 }
