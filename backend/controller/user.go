@@ -119,7 +119,7 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 		// fmt.Println(e)
 		panic(e)
 	}
-	//fmt.Println("before =", user.WorkPostID)
+	//fmt.Println("before =", user.ImageWorkPostFeelance)
 	newWorkPostID, err := strconv.Atoi(user.WorkPostID)
 	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
 	newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
@@ -130,7 +130,8 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 		newUserID,
 		user.DetailWork,
 		user.PricePostWork,
-		user.NameWork)
+		user.NameWork,
+		user.ImageWorkPostFeelance)
 
 	if err != nil {
 		panic(err)
