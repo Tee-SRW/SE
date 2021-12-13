@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./create-work.css";
+import "../Create-work/create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function CreateWorkCompany(props) {
+export default function EditWorkCompany(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,
@@ -41,7 +41,7 @@ export default function CreateWorkCompany(props) {
   let url = ""
 
   const geturl = (e) => {
-      setSelectedImage(e.target.files[0]);
+    setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
     console.log(url);
   }
@@ -65,10 +65,9 @@ export default function CreateWorkCompany(props) {
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
         <Form.Select size="sm" as={Col} md="4" controlId="validationCustom01">
-          <option>----------------</option>
-          <option value="1">Graphic & Design</option>
-          <option value="2">Marketing</option>
-          <option value="3">Programming</option>
+          <option>Graphic & Design</option>
+          <option value="1">Marketing</option>
+          <option value="2">Programming</option>
           <Form.Control.Feedback type="invalid">
             กรุณาเลือก หมวดหมู่งาน
           </Form.Control.Feedback>
@@ -194,7 +193,7 @@ export default function CreateWorkCompany(props) {
 
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl}  />
+          <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">

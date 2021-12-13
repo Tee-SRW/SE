@@ -18,6 +18,9 @@ import EditprofileCompany from "./components/pages/EditprofileCompany";
 import EditprofileFreelacne from "./components/pages/EditprofileFreelance";
 import Freelance from "./components/pages/Freelance";
 import CreateWorkFreeLance from "./components/pages/CreateWorkFreeLance";
+import CreateWorkCompany from "./components/Create-work/create-work-company";
+import EditWorkFreelance from "./components/Work/Edit-work-freelance";
+import EditWorkCompany from "./components/Work/Edit-work-company";
 import Profilefreelance from "./components/pages/Profilefreelance"
 import Profilecompany from "./components/pages/Profilecompany"
 import WorkFreelance from './components/pages/WorkFreelance';
@@ -58,6 +61,18 @@ function App() {
             <Route
               path="/Createworkfreelance"
               component={CreateWorkFreeLance}
+            />
+            <Route
+              path="/CreateworkCompany"
+              component={CreateWorkCompany}
+            />
+            <Route
+              path="/EditWorkFreelance"
+              component={EditWorkFreelance}
+            />
+            <Route
+              path="/EditworkCompany"
+              component={EditWorkCompany}
             />
             <Route path="/Profilecompany" component={Profilecompany} />
             <Route path='/WorkFreelance' component={WorkFreelance} />
