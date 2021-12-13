@@ -62,9 +62,11 @@ type Getworkfreelance struct {
 	Email	string 	`json:"email"`
 	Phone	string 	`json:"phone"`
 }
+
 type Work_Post_ID struct {
 	Work_Post_ID	int		`json:"workpostid"`
 }
+
 type GetWorkCompany struct {
 	CompanyName			string		`json:"companyname"`
 	CompanyEmail		string		`json:"companyemail"`
@@ -77,6 +79,5 @@ type GetWorkCompany struct {
 	Education			string		`json:"education"`
 	Detail_Work			string		`json:"detailwork"`
 	Image_Work_Post_Company	string	`json:"imageworkpostcompany"`
-
 }
 
