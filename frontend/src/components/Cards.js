@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Cards.css';
 import './Cardbar.css';
 import CardItem from './CardItem';
-import { GraphicFree, GraphicWork, MarketFree, MarketWork, ProgrammingFree, ProgrammingWork } from './CardWorkandFreelance/Carddataset';
+import { Nothing, GraphicFree, GraphicWork, MarketFree, MarketWork, ProgrammingFree, ProgrammingWork } from './CardWorkandFreelance/Carddataset';
 
 function Cards() {
   const PathFreelance = ['GraphicFree', 'GraphicWork', 'MarketFree', 'MarketWork', 'ProgrammingFree', 'ProgrammingWork'];
@@ -23,7 +23,8 @@ function Cards() {
   }
   const GraphicButton = () => {
     setDropdownWork(true);
-    setClickGraphic(!false);
+    setClickGraphic(true);
+
     setClickMarket(false);
     setClickProgramming(false);
     setClickFree(false);
@@ -31,27 +32,56 @@ function Cards() {
   }  
   const MarketButton = () => {
     setDropdownWork(true);
+    setClickMarket(true);
+
     setClickGraphic(false);
-    setClickMarket(!false);
     setClickProgramming(false);
     setClickFree(false);
     setClickWork(false);
   }  
   const ProgrammingButton = () => {
     setDropdownWork(true);
+    setClickProgramming(true);
+
     setClickGraphic(false);
     setClickMarket(false);
-    setClickProgramming(true);
     setClickFree(false);
     setClickWork(false);
   }
   const WorkButton = () => {
-    setClickWork(true);
     setClickFree(false);
+    setClickWork(true);
   }
   const FreeButton = () => {
     setClickFree(true);
     setClickWork(false);
+  } 
+  const Content =()=> {
+    if(setClickGraphic(true)) {
+        if(setClickFree(true) && setClickWork(false)) {
+          return GraphicFree
+        }else if(setClickFree(false) && setClickWork(true)){ 
+          return GraphicWork
+        }else{
+          // nothing
+        }
+    }else if(setClickMarket(true)){
+        if(setClickFree(true) && setClickWork(false)) {
+          return MarketFree
+        }else if(setClickFree(false) && setClickWork(true)){ 
+          return MarketWork
+        }else{  
+          return Nothing
+        }
+    }else if(setClickProgramming(true)) {
+        if(setClickFree(true) && setClickWork(false)) {
+          return ProgrammingFree
+        }else if(setClickFree(false) && setClickWork(true)){ 
+          return ProgrammingWork
+        }else{  
+          return Nothing
+        }
+    }
   }
 
 
@@ -105,7 +135,7 @@ function Cards() {
         <div className='cards__container'>
           <div className='cards__wrapper'>
             <ul className='cards__items'>
-              {ProgrammingWork.map((Item, index) => {
+              {MarketWork.map((Item, index) => {
                 return (
                   <>
                     <li className='cards__item' key={index}>

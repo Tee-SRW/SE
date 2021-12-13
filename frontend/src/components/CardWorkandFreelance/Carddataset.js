@@ -1,3 +1,6 @@
+export const Nothing = [
+    {}
+];
 export const GraphicFree = [
     {
         srcwork:'images/img-8.jpg',
