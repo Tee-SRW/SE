@@ -26,3 +26,6 @@ type AddWorkFeelance struct {
 	PricePostWork  string `json:"pricepostwork"`
 	NameWork       string `json:"namework"`
 }
+type ID struct {
+	ID	int 	`json:"id"`
+}

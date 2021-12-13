@@ -87,19 +87,22 @@ func (u UserController) Updateuser(c *gin.Context) {
 func (u UserController) GetUpdateuser(c *gin.Context) {
 	var userModel model.UserModel
 	var uservalue dateset.GetUser
+	var id dateset.ID
 	//var user dateset.User
-	id := c.Param("id")
-	idint, err := strconv.Atoi(id)
+	e := c.ShouldBind(&id)
+
+	if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
+
 	FirstName, LastName, Email, Phone := userModel.GetUpdateuser(
-		idint)
+		id.ID)
 	uservalue.FirstName = FirstName
 	uservalue.LastName = LastName
 	uservalue.Email = Email
 	uservalue.Phone = Phone
 
-	if err != nil {
-		panic(err)
-	}
 	c.JSON(200, uservalue)
 
 }

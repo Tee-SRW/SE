@@ -25,7 +25,8 @@ func (u SystemModel) GetWork(Type_Work_ID dateset.Typeworkid ) ([]dateset.Getwor
 		for rows.Next() {
 			var work dateset.Getworkpagehome
 
-			if err := rows.Scan(&work.Type_Work_Name,&work.Price_Post_Work,&work.Name_Work,&work.FirstName,&work.LastName); err != nil{
+			if err := rows.Scan(&work.Type_Work_Name,&work.Price_Post_Work,&work.Name_Work,&work.FirstName,&work.LastName); 
+			err != nil{
 				return works,err
 			}
 
