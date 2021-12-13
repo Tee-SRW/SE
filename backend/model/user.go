@@ -108,18 +108,19 @@ func (u UserModel) Updateuser(idint int,
 	statusUpdateuser := "สำเร็จ"
 	return statusUpdateuser, nil
 }
-func (u UserModel) GetUpdateuser(id int) (string, string, string, string) {
+func (u UserModel) GetUpdateuser(id int) (string, string, string, string, string) {
 	fmt.Print(id)
 	db := database.Connectdata()
 	var FirstName string
 	var LastName string
 	var Email string
 	var Phone string
-	err := db.QueryRow("select FirstName,LastName,Email,Phone from user WHERE id = ?", id).Scan(&FirstName, &LastName, &Email, &Phone)
+	var Profile_user string
+	err := db.QueryRow("select FirstName,LastName,Email,Phone,Profile_user from user WHERE id = ?", id).Scan(&FirstName, &LastName, &Email, &Phone, &Profile_user)
 	if err != nil {
 		fmt.Print(err)
 	}
-	return FirstName, LastName, Email, Phone
+	return FirstName, LastName, Email, Phone, Profile_user
 }
 func (u UserModel) AddWorkFeelance(WorkPostID int,
 	TypeWorkNumber int,

@@ -97,12 +97,14 @@ func (u UserController) GetUpdateuser(c *gin.Context) {
 		panic(e)
 	}
 
-	FirstName, LastName, Email, Phone := userModel.GetUpdateuser(
+	FirstName, LastName, Email, Phone, Profile_user  := userModel.GetUpdateuser(
 		id.ID)
 	uservalue.FirstName = FirstName
 	uservalue.LastName = LastName
 	uservalue.Email = Email
 	uservalue.Phone = Phone
+	uservalue.Profile_user = Profile_user
+	
 
 	c.JSON(200, uservalue)
 

@@ -26,6 +26,7 @@ type GetUser struct {
 	LastName  string `json:"lastname"`
 	Email     string `json:"email"`
 	Phone     string `json:"phone"`
+	Profile_user string `json:"profile_user"`
 }
 type AddWorkFeelance struct {
 	WorkPostID     string `json:"workpostid"`
