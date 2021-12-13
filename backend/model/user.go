@@ -210,4 +210,33 @@ func (u UserModel) UpdateFreelance(
     return statusUpdateFreelance, nil
 }
 
+func (u UserModel) GetUpdatefreelance(id int) (string, string, string, string, string, string, string, string) {
+	fmt.Print(id)
+	db := database.Connectdata()
+	var FirstName string
+	var LastName string
+	var Email string
+	var Phone string
+	var Profile_user string
+	var Line string
+	var Facebook string
+	var Instagram string
+	err := db.QueryRow("select FirstName,LastName,Email,Phone,Profile_user,Line,Facebook,Instagram from user WHERE id = ?", id).Scan(&FirstName, &LastName, &Email, &Phone, &Profile_user, &Line, &Facebook, &Instagram)
+	if err != nil {
+		fmt.Print(err)
+	}
+	return FirstName, LastName, Email, Phone, Profile_user, Line, Facebook, Instagram
+}
+
+func (u CompanyModel) GetUpdatecompany(id int) (string,string,string,string,string,string,string,string,string) {
+    fmt.Print(id)
+    db := database.Connectdata()
+    var CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany string
+    err := db.QueryRow("SELECT CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, Profile_Company FROM company WHERE id = ?", id).Scan(&CompanyName, &CompanyEmail, &CompanyPhone, &Address, &Subdistrict, &District, &Province, &Postcode, &ProfileCompany)
+    if err != nil {
+        fmt.Print(err)
+    }
+    return CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany
+}
+
 

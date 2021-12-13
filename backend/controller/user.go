@@ -191,3 +191,57 @@ func (u UserController) Updatepostfreelance(c *gin.Context) {
 	}
 	c.JSON(200, statusUpdateuser)
 }
+
+func (u UserController) GetUpdatefreelance(c *gin.Context) {
+	var userModel model.UserModel
+	var uservalue dateset.GetFreelance
+	var id dateset.ID
+	//var user dateset.User
+	e := c.ShouldBind(&id)
+
+	if e != nil {
+		// fmt.Println(e)
+		panic(e)
+	}
+
+	FirstName, LastName, Email, Phone, Profile_user, Line, Facebook, Instagram  := userModel.GetUpdatefreelance(
+		id.ID)
+	uservalue.FirstName = FirstName
+	uservalue.LastName = LastName
+	uservalue.Email = Email
+	uservalue.Phone = Phone
+	uservalue.Profile_User = Profile_user
+	uservalue.Line = Line
+	uservalue.Facebook = Facebook
+	uservalue.Instagram = Instagram
+	
+	c.JSON(200, uservalue)
+
+}
+
+func (u UserController) GetUpdatecompany(c *gin.Context) {
+    var companyModel model.CompanyModel
+    var company dateset.GetCompany
+    var id dateset.ID
+
+    e := c.ShouldBind(&id)
+
+    if e != nil {
+        panic(e)
+    }
+
+    CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany := companyModel.GetUpdatecompany(
+        id.ID)
+        company.CompanyName = CompanyName
+        company.CompanyEmail = CompanyEmail
+        company.CompanyPhone = CompanyPhone
+        company.Address = Address
+        company.Subdistrict = Subdistrict
+        company.District = District
+        company.Province = Province
+        company.Postcode = Postcode
+        company.ProfileCompany = ProfileCompany
+
+        c.JSON(200, company)
+
+}
