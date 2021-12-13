@@ -19,7 +19,7 @@ func (u UserController) GetAllWork(c *gin.Context) {
 	}
 
 	if typeworkid.Select_ID == 1 {
-		works,err := systemModel.GetWorkfreelance(typeworkid)
+		works,err := systemModel.GetWorkAllfreelance(typeworkid)
 
 		if err != nil {
 			panic(err)
@@ -27,7 +27,7 @@ func (u UserController) GetAllWork(c *gin.Context) {
 		c.JSON(200, works)
 
 	} else {
-		works,err := systemModel.GetWorkcompany(typeworkid)
+		works,err := systemModel.GetWorkAllCompany(typeworkid)
 
 		if err != nil {
 			panic(err)
@@ -35,5 +35,23 @@ func (u UserController) GetAllWork(c *gin.Context) {
 		
 		c.JSON(200, works)
 	}
+}
+
+func (u UserController) GetWorkfreelance(c *gin.Context) {
+	systemModel := model.SystemModel{}
+	var workpostid dateset.Workpostid
+
+	e := c.ShouldBind(&workpostid)
+
+	if e != nil {
+		panic(e)
+	}
+
+		work,err := systemModel.GetWorkfreelance(workpostid)
+
+		if err != nil {
+			panic(err)
+		}
+		c.JSON(200, work)
 }
 

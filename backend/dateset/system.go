@@ -44,7 +44,21 @@ type Typeworkid struct {
 	Select_ID int `json:"select_id"`
 }
 
+type Workpostid struct {
+	Work_Post_Id	int 	`json:"work_post_id"`
+}
 
-
+type Getworkfreelance struct {
+	Price_Post_Work		int	`json:"price_post_work"`
+	Name_Work			string	`json:"name_work"`
+	Detail_Work			string 	`json:"detail_work"`
+	Type_Work_Name	string 	`json:"type_work_name"`
+	FirstName	string 	`json:"firstName"`
+	LastName	string 	`json:"lastName"`
+	Line	string 	`json:"line"`
+	Facebook	string 	`json:"facebook"`
+	Instagram	string 	`json:"instagram"`
+	Image_Work_Post_Freelance	string 	`json:"image_work_post_freelance"`
+}
 
 
