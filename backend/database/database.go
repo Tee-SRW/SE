@@ -8,7 +8,8 @@ import (
 
 const (
 	host     = "root"
-	port = "whitewolf.monster:3306"
+	// port = "whitewolf.monster:3306"
+	port = "203.170.190.226:3306"
 	password = "Joppy.inc123456789"
 	dbname   = "se"
 )
