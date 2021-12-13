@@ -66,6 +66,9 @@ type Work_Post_ID struct {
 	Work_Post_ID	int		`json:"workpostid"`
 }
 type GetWorkCompany struct {
+	CompanyName			string		`json:"companyname"`
+	CompanyEmail		string		`json:"companyemail"`
+	CompanyPhone		string		`json:"companyphone"`
 	Type_Work_Name		string		`json:"typenamework"`
 	Position			string		`json:"position"`
 	Num_Person			string		`json:"numperson"`
