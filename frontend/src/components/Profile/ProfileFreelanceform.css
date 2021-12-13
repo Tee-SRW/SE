@@ -195,11 +195,7 @@ html {
     font-weight: bold;
 }
 
-.font__topicf {
-    font-size: 28px;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: bold;
-}
+.font__topicf {}
 
 .font__midtext {
     display: flex;
