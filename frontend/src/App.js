@@ -18,18 +18,18 @@ import EditprofileCompany from "./components/pages/EditprofileCompany";
 import EditprofileFreelacne from "./components/pages/EditprofileFreelance";
 import Freelance from "./components/pages/Freelance";
 import CreateWorkFreeLance from "./components/pages/CreateWorkFreeLance";
-
+import WorkFreelance from './components/pages/WorkFreelance';
+import WorkCompany from './components/pages/WorkCompany';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
-    false
-  );
 
-  // initial value
-  //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
-
-  return (
+    !false);
+    
+      // initial value
+      //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+      return (
     <>
       <Router>
         <Navbar {...{ loggedIn }} />
@@ -55,6 +55,8 @@ function App() {
               path="/Createworkfreelance"
               component={CreateWorkFreeLance}
             />
+            <Route path='/WorkFreelance' component={WorkFreelance} />
+            <Route path='/WorkCompany' component={WorkCompany} />
           </Switch>
         </div>
         <Footer />
