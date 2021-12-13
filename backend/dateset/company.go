@@ -14,12 +14,13 @@ type Company struct {
 }
 
 type AddWorkCompany struct {
-	CompanyID            string `json:"companyid"`
-	TypeWorkNumber       string `json:"typeworknumber"`
+	WorkPostID			 int	`json:"workpostid"`
+	CompanyID            int 	`json:"companyid"`
+	TypeWorkNumber       int 	`json:"typeworknumber"`
 	NameWork             string `json:"namework"`
 	DetailWork           string `json:"detailwork"`
 	Position             string `json:"position"`
-	NumPerson            string `json:"numperson"`
+	NumPerson            int 	`json:"numperson"`
 	PriceWorkMin         string `json:"priceworkmin"`
 	PriceWorkMax         string `json:"priceworkmax"`
 	Education            string `json:"education"`

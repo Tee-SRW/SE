@@ -4,7 +4,7 @@ import (
 	"se/dateset"
 
 	"se/model"
-	"strconv"
+	// "strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -49,17 +49,13 @@ func (u UserController) AddWorkCompany(c *gin.Context) {
 		panic(e)
 	}
 
-	newCompanyID, err := strconv.Atoi(company.CompanyID)
-	newTypeWorkNumber, err := strconv.Atoi(company.TypeWorkNumber)
-	newNumPerson, err := strconv.Atoi(company.NumPerson)
-
 	status, err := companyModel.AddWorkCompany(
-		newCompanyID,
-		newTypeWorkNumber,
+		company.CompanyID,
+		company.TypeWorkNumber,
 		company.NameWork,
 		company.DetailWork,
 		company.Position,
-		newNumPerson,
+		company.NumPerson,
 		company.PriceWorkMin,
 		company.PriceWorkMax,
 		company.Education,
@@ -69,4 +65,33 @@ func (u UserController) AddWorkCompany(c *gin.Context) {
 		panic(err)
 	}
 	c.JSON(200, status)
+}
+
+func (u UserController) Updatepostcompany(c *gin.Context) {
+	var companyModel model.CompanyModel
+	var company dateset.AddWorkCompany
+
+	e := c.ShouldBind(&company)
+	if e != nil {
+		panic(e)
+	}
+
+	statusUpdatecompany, err := companyModel.Updatepostcompany(
+		company.WorkPostID,
+		company.CompanyID,
+		company.TypeWorkNumber,
+		company.NameWork,
+		company.DetailWork,
+		company.Position,
+		company.NumPerson,
+		company.PriceWorkMin,
+		company.PriceWorkMax,
+		company.Education,
+		company.ImageWorkPostCompany,
+	)
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, statusUpdatecompany)
 }
