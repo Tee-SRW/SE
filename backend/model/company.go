@@ -1,10 +1,8 @@
 package model
 
 import (
-	// "database/sql"
 	"fmt"
 	"se/database"
-	// "strings"
 )
 
 type CompanyModel struct{}
@@ -80,7 +78,6 @@ func (u CompanyModel) AddWorkCompany(
 	if err != nil {
 		check = "Fail!"
 	}
-
 	return check, nil
 }
 

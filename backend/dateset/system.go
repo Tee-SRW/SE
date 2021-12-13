@@ -22,7 +22,7 @@ type Getwork struct {
 	LastName	string 	`json:"lastName"`
 }
 
-type Getworkpagehome struct {
+type Getworkpagehomefreelance struct {
 	Type_Work_Name	string 	`json:"type_work_name"`
 	Price_Post_Work		int	`json:"price_post_work"`
 	Name_Work			string	`json:"name_work"`
@@ -31,9 +31,20 @@ type Getworkpagehome struct {
 	Image_Work_Post_Freelance string `json:"image_work_post_freelance"`
 }
 
+type Getworkpagehomecompany struct {
+	Type_Work_Name	string 	`json:"type_work_name"`
+	Price_Work_Min		string	`json:"price_work_min"`
+	Name_Work			string	`json:"name_work"`
+	Image_Work_Post_Company	string 	`json:"image_work_post_company"`
+	CompanyName	string 	`json:"companyname"`
+}
+
 type Typeworkid struct {
 	Type_Work_ID	int 	`json:"type_work_id"`
+	Select_ID int `json:"select_id"`
 }
+
+
 
 
 

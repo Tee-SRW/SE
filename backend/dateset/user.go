@@ -8,6 +8,7 @@ type User struct {
 	Password  string `json:"password"`
 	Phone     string `json:"phone"`
 }
+
 type UpdateUser struct {
 	ID           int    `json:"id"`
 	FirstName    string `json:"firstname"`
@@ -17,10 +18,12 @@ type UpdateUser struct {
 	Phone        string `json:"phone"`
 	Profile_user string `json:"profile_user"`
 }
+
 type LoginUser struct {
 	Status string `json:"status"`
 	ID     int    `json:"id"`
 }
+
 type GetUser struct {
 	FirstName string `json:"firstname"`
 	LastName  string `json:"lastname"`
@@ -28,6 +31,7 @@ type GetUser struct {
 	Phone     string `json:"phone"`
 	Profile_user string `json:"profile_user"`
 }
+
 type AddWorkFreelance struct {
 	WorkPostID            int `json:"workpostid"`
 	TypeWorkNumber        int `json:"typeWorknumber"`
@@ -37,9 +41,11 @@ type AddWorkFreelance struct {
 	NameWork              string `json:"namework"`
 	ImageWorkPostFreelance string `json:"imageworkpostfreelance"`
 }
+
 type ID struct {
 	ID	int 	`json:"id"`
 }
+
 type UpdateFreelance struct {
 	ID				int 		`json:"id"`
 	FirstName		string		`json:"firstname"`

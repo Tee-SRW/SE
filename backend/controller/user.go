@@ -1,13 +1,8 @@
 package controller
 
 import (
-	//"fmt"
-
 	"se/dateset"
 	"se/model"
-
-	// "strconv"
-
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -17,7 +12,6 @@ type UserController struct{}
 func (u UserController) CreateUser(c *gin.Context) {
 	var userModel model.UserModel
 	var user dateset.User
-	//var puser dateset.User
 
 	e := c.ShouldBind(&user)
 	if e != nil {
@@ -44,34 +38,29 @@ func (u UserController) LoginUser(c *gin.Context) {
 	var uservalue dateset.LoginUser
 	e := c.ShouldBind(&user)
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
-	//
+
 	statuslogin, id, err := userModel.LoginUser(
 		user.Email, user.Password, user.ID)
 
-	// aa := [2]string{statuslogin, user.Email}
 	uservalue.ID = id
 	uservalue.Status = statuslogin
 	if err != nil {
 		panic(err)
 	}
 	c.JSON(200, uservalue)
-	// gin.H{"message": "hey", "status": http.StatusOK}
 }
 
 func (u UserController) Updateuser(c *gin.Context) {
 	var userModel model.UserModel
 	var user dateset.UpdateUser
-	// id := c.Param("id")
-	// idint, err := strconv.Atoi(id)
+
 	e := c.ShouldBind(&user)
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
-	//
+
 	statusUpdateuser, err := userModel.Updateuser(
 		user.ID,
 		user.FirstName,
@@ -89,11 +78,10 @@ func (u UserController) GetUpdateuser(c *gin.Context) {
 	var userModel model.UserModel
 	var uservalue dateset.GetUser
 	var id dateset.ID
-	//var user dateset.User
+
 	e := c.ShouldBind(&id)
 
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
 
@@ -104,26 +92,18 @@ func (u UserController) GetUpdateuser(c *gin.Context) {
 	uservalue.Email = Email
 	uservalue.Phone = Phone
 	uservalue.Profile_user = Profile_user
-	
 
 	c.JSON(200, uservalue)
-
 }
 func (u UserController) AddWorkFreelance(c *gin.Context) {
 	var userModel model.UserModel
 	var user dateset.AddWorkFreelance
-	//var puser dateset.User
 
 	e := c.ShouldBind(&user)
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
-	//fmt.Println("before =", user.ImageWorkPostFreelance)
-	// newWorkPostID, err := strconv.Atoi(user.WorkPostID)
-	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
-	// newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
-	// newUserID, err := strconv.Atoi(user.UserID)
+
 	status, err := userModel.AddWorkFreelance(
 		user.WorkPostID,
 		user.TypeWorkNumber,
@@ -168,14 +148,12 @@ func (u UserController) UpdateFreelance(c *gin.Context) {
 func (u UserController) Updatepostfreelance(c *gin.Context) {
 	var userModel model.UserModel
 	var user1 dateset.AddWorkFreelance
-	// id := c.Param("id")
-	// idint, err := strconv.Atoi(id)
+
 	e := c.ShouldBind(&user1)
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
-	//
+
 	statusUpdateuser, err := userModel.Updatepostfreelance(
 		user1.WorkPostID,
 		user1.TypeWorkNumber,
@@ -196,11 +174,9 @@ func (u UserController) GetUpdatefreelance(c *gin.Context) {
 	var userModel model.UserModel
 	var uservalue dateset.GetFreelance
 	var id dateset.ID
-	//var user dateset.User
 	e := c.ShouldBind(&id)
 
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
 
@@ -243,5 +219,4 @@ func (u UserController) GetUpdatecompany(c *gin.Context) {
         company.ProfileCompany = ProfileCompany
 
         c.JSON(200, company)
-
 }

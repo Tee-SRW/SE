@@ -2,10 +2,7 @@ package controller
 
 import (
 	"se/dateset"
-
-
 	"se/model"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,14 +15,25 @@ func (u UserController) GetAllWork(c *gin.Context) {
 	e := c.ShouldBind(&typeworkid)
 
 	if e != nil {
-		// fmt.Println(e)
 		panic(e)
 	}
-	works,err := systemModel.GetWork(typeworkid)
-	
-	if err != nil {
-		panic(err)
+
+	if typeworkid.Select_ID == 1 {
+		works,err := systemModel.GetWorkfreelance(typeworkid)
+
+		if err != nil {
+			panic(err)
+		}
+		c.JSON(200, works)
+
+	} else {
+		works,err := systemModel.GetWorkcompany(typeworkid)
+
+		if err != nil {
+			panic(err)
+		}
+		
+		c.JSON(200, works)
 	}
-	c.JSON(200, works)
 }
 

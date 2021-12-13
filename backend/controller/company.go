@@ -2,10 +2,7 @@ package controller
 
 import (
 	"se/dateset"
-
 	"se/model"
-	// "strconv"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -41,7 +38,6 @@ func (u UserController) CreateAccountCompany(c *gin.Context) {
 func (u UserController) AddWorkCompany(c *gin.Context) {
 	var companyModel model.CompanyModel
 	var company dateset.AddWorkCompany
-	//var puser dateset.User
 
 	e := c.ShouldBind(&company)
 	if e != nil {
