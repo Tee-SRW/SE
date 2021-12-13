@@ -23,19 +23,19 @@ func InitRouter() *gin.Engine {
 	r.POST("/login", userController.LoginUser)
 
 	r.PUT("/updateuser", userController.Updateuser)
-	r.PUT("/updatefreelance",userController.UpdateFreelance)
-	
+	r.PUT("/updatefreelance", userController.UpdateFreelance)
+	r.PUT("/updatecompany", userController.Updatecompany)
 
 	r.POST("/getupdateuser", userController.GetUpdateuser)
 	r.POST("/getupdatefreelance", userController.GetUpdatefreelance)
-	r.POST("/getupdatecompany",userController.GetUpdatecompany)
+	r.POST("/getupdatecompany", userController.GetUpdatecompany)
 
 	r.POST("/getallwork", userController.GetAllWork)
 
 	r.POST("/addworkFreelance", userController.AddWorkFreelance)
 	r.POST("/addworkcompany", userController.AddWorkCompany)
-	
-	r.PUT("/updatepostcompany",userController.Updatepostcompany)
-	r.PUT("/updatepostfreelance", userController.Updatepostfreelance) 
+
+	r.PUT("/updatepostcompany", userController.Updatepostcompany)
+	r.PUT("/updatepostfreelance", userController.Updatepostfreelance)
 	return r
 }

@@ -80,7 +80,38 @@ func (u CompanyModel) AddWorkCompany(
 	}
 	return check, nil
 }
+func (u UserModel) Updatecompany(ID int,
+	CompanyName string,
+	CompanyEmail string,
+	CompanyPhone string,
+	Address string,
+	Subdistrict string,
+	District string,
+	Province string,
+	Postcode string,
+	ProfileCompany string) (string, error) {
 
+	db := database.Connectdata()
+
+	_, err := db.Exec("UPDATE company SET CompanyName = ?, CompanyEmail = ?, CompanyPhone = ?, Address = ?, Subdistrict = ?,District = ?,Province = ?,Postcode = ?,Profile_Company = ? WHERE id = ?", CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany, ID)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+	statusUpdateuser := "สำเร็จ"
+	return statusUpdateuser, nil
+}
+
+func (u CompanyModel) GetUpdatecompany(id int) (string, string, string, string, string, string, string, string, string) {
+	fmt.Print(id)
+	db := database.Connectdata()
+	var CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany string
+	err := db.QueryRow("SELECT CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, Profile_Company FROM company WHERE id = ?", id).Scan(&CompanyName, &CompanyEmail, &CompanyPhone, &Address, &Subdistrict, &District, &Province, &Postcode, &ProfileCompany)
+	if err != nil {
+		fmt.Print(err)
+	}
+	return CompanyName, CompanyEmail, CompanyPhone, Address, Subdistrict, District, Province, Postcode, ProfileCompany
+}
 func (u CompanyModel) Updatepostcompany(
 	workpostid int,
 	typeworknumber int,
@@ -91,14 +122,14 @@ func (u CompanyModel) Updatepostcompany(
 	priceworkmin string,
 	priceworkmax string,
 	education string,
-	imageworkpostcompany string,) (string, error) {
-		db := database.Connectdata()
+	imageworkpostcompany string) (string, error) {
+	db := database.Connectdata()
 
-		_, err := db.Exec("UPDATE work_post_company SET Type_Work_Number = ?, Name_Work = ?, Detail_Work = ?, Position = ?, Num_Person = ?, Price_Work_Min = ?, Price_Work_Max = ?, Education = ?, Image_Work_Post_Company = ? where Work_Post_ID = ?", typeworknumber, namework, detailwork, position, numperson, priceworkmin, priceworkmax, education, imageworkpostcompany, workpostid)
+	_, err := db.Exec("UPDATE work_post_company SET Type_Work_Number = ?, Name_Work = ?, Detail_Work = ?, Position = ?, Num_Person = ?, Price_Work_Min = ?, Price_Work_Max = ?, Education = ?, Image_Work_Post_Company = ? where Work_Post_ID = ?", typeworknumber, namework, detailwork, position, numperson, priceworkmin, priceworkmax, education, imageworkpostcompany, workpostid)
 
-		if err != nil {
-			fmt.Print(err)
-		}
-		statusUpdatecompany := "สำเร็จ"
-		return statusUpdatecompany, nil
+	if err != nil {
+		fmt.Print(err)
 	}
+	statusUpdatecompany := "สำเร็จ"
+	return statusUpdatecompany, nil
+}
