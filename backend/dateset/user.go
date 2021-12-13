@@ -28,14 +28,14 @@ type GetUser struct {
 	Phone     string `json:"phone"`
 	Profile_user string `json:"profile_user"`
 }
-type AddWorkFeelance struct {
+type AddWorkFreelance struct {
 	WorkPostID            int `json:"workpostid"`
 	TypeWorkNumber        int `json:"typeWorknumber"`
 	DetailWork            string `json:"detailwork"`
 	UserID                int `json:"userid"`
 	PricePostWork         string `json:"pricepostwork"`
 	NameWork              string `json:"namework"`
-	ImageWorkPostFeelance string `json:"imageworkpostfreelance"`
+	ImageWorkPostFreelance string `json:"imageworkpostfreelance"`
 }
 type ID struct {
 	ID	int 	`json:"id"`

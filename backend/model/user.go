@@ -122,14 +122,14 @@ func (u UserModel) GetUpdateuser(id int) (string, string, string, string, string
 	}
 	return FirstName, LastName, Email, Phone, Profile_user
 }
-func (u UserModel) AddWorkFeelance(WorkPostID int,
+func (u UserModel) AddWorkFreelance(WorkPostID int,
 	TypeWorkNumber int,
 	UserID int,
 	DetailWork string,
 	PricePostWork string,
 	NameWork string,
-	ImageWorkPostFeelance string) (string, error) {
-	//fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, ImageWorkPostFeelance, "desu")
+	ImageWorkPostFreelance string) (string, error) {
+	//fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, ImageWorkPostFreelance, "desu")
 	db := database.Connectdata()
 
 	stmt, err := db.Prepare("insert into work_post_freelance (Work_Post_ID, Type_Work_Number, User_ID, Detail_Work, Price_Post_Work,Name_Work,Image_Work_Post_Freelance) values(?,?,?,?,?,?,?)")
@@ -144,7 +144,7 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 		DetailWork,
 		PricePostWork,
 		NameWork,
-		ImageWorkPostFeelance)
+		ImageWorkPostFreelance)
 	check := "Complete!"
 
 	if err != nil {
@@ -166,7 +166,7 @@ func (u UserModel) Updatepost(workpostid int,
 	// rows, err := db.Query("select * from user_account where ID = ?;",id)
 	// fmt.Print(lastname)
 
-	_, err := db.Exec("UPDATE work_post_freelance SET Type_Work_Number = ?, Detail_Work = ?, Price_Post_Work = ?, Name_Work = ?, Image_Work_Post_Feelance = ? WHERE Work_Post_ID = ?", typeWorknumber, detailwork, pricepostwork, namework, imageworkpostfreelance, workpostid)
+	_, err := db.Exec("UPDATE work_post_freelance SET Type_Work_Number = ?, Detail_Work = ?, Price_Post_Work = ?, Name_Work = ?, Image_Work_Post_Freelance = ? WHERE Work_Post_ID = ?", typeWorknumber, detailwork, pricepostwork, namework, imageworkpostfreelance, workpostid)
 
 	if err != nil {
 		fmt.Print(err)

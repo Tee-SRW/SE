@@ -109,9 +109,9 @@ func (u UserController) GetUpdateuser(c *gin.Context) {
 	c.JSON(200, uservalue)
 
 }
-func (u UserController) AddWorkFeelance(c *gin.Context) {
+func (u UserController) AddWorkFreelance(c *gin.Context) {
 	var userModel model.UserModel
-	var user dateset.AddWorkFeelance
+	var user dateset.AddWorkFreelance
 	//var puser dateset.User
 
 	e := c.ShouldBind(&user)
@@ -119,19 +119,19 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 		// fmt.Println(e)
 		panic(e)
 	}
-	//fmt.Println("before =", user.ImageWorkPostFeelance)
+	//fmt.Println("before =", user.ImageWorkPostFreelance)
 	// newWorkPostID, err := strconv.Atoi(user.WorkPostID)
 	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
 	// newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
 	// newUserID, err := strconv.Atoi(user.UserID)
-	status, err := userModel.AddWorkFeelance(
+	status, err := userModel.AddWorkFreelance(
 		user.WorkPostID,
 		user.TypeWorkNumber,
 		user.UserID,
 		user.DetailWork,
 		user.PricePostWork,
 		user.NameWork,
-		user.ImageWorkPostFeelance)
+		user.ImageWorkPostFreelance)
 
 	if err != nil {
 		panic(err)
@@ -167,23 +167,23 @@ func (u UserController) UpdateFreelance(c *gin.Context) {
 }
 func (u UserController) Updatepost(c *gin.Context) {
 	var userModel model.UserModel
-	var user dateset.AddWorkFeelance
+	var user1 dateset.AddWorkFreelance
 	// id := c.Param("id")
 	// idint, err := strconv.Atoi(id)
-	e := c.ShouldBind(&user)
+	e := c.ShouldBind(&user1)
 	if e != nil {
 		// fmt.Println(e)
 		panic(e)
 	}
 	//
 	statusUpdateuser, err := userModel.Updatepost(
-		user.WorkPostID,
-		user.TypeWorkNumber,
-		user.DetailWork,
-		user.UserID,
-		user.PricePostWork,
-		user.NameWork,
-		user.ImageWorkPostFeelance,
+		user1.WorkPostID,
+		user1.TypeWorkNumber,
+		user1.DetailWork,
+		user1.UserID,
+		user1.PricePostWork,
+		user1.NameWork,
+		user1.ImageWorkPostFreelance,
 	)
 
 	if err != nil {

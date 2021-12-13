@@ -24,7 +24,7 @@ func InitRouter() *gin.Engine {
 	r.POST("/getuser", userController.GetUpdateuser)
 	r.POST("/getallwork", userController.GetAllWork)
 	// r.POST("/getworkgraphic/:id", userController.GetWorkgraphic)
-	r.POST("/addworkfeelance", userController.AddWorkFeelance)
+	r.POST("/addworkFreelance", userController.AddWorkFreelance)
 	r.POST("/addworkcompany", userController.AddWorkCompany)
 	r.PUT("/updatefreelance",userController.UpdateFreelance)
 	r.PUT("/freelanceupdatepost", userController.Updatepost) //ยังไม่ทำ
