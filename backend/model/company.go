@@ -86,7 +86,6 @@ func (u CompanyModel) AddWorkCompany(
 
 func (u CompanyModel) Updatepostcompany(
 	workpostid int,
-	companyid int,
 	typeworknumber int,
 	namework string,
 	detailwork string,
@@ -98,7 +97,7 @@ func (u CompanyModel) Updatepostcompany(
 	imageworkpostcompany string,) (string, error) {
 		db := database.Connectdata()
 
-		_, err := db.Exec("UPDATE work_post_company SET Company_ID = ?, Type_Work_Number = ?, Name_Work = ?, Detail_Work = ?, Position = ?, Num_Person = ?, Price_Work_Min = ?, Price_Work_Max = ?, Education = ?, Image_Work_Post_Company = ? where Work_Post_ID = ?", companyid, typeworknumber, namework, detailwork, position, numperson, priceworkmin, priceworkmax, education, imageworkpostcompany)
+		_, err := db.Exec("UPDATE work_post_company SET Type_Work_Number = ?, Name_Work = ?, Detail_Work = ?, Position = ?, Num_Person = ?, Price_Work_Min = ?, Price_Work_Max = ?, Education = ?, Image_Work_Post_Company = ? where Work_Post_ID = ?", typeworknumber, namework, detailwork, position, numperson, priceworkmin, priceworkmax, education, imageworkpostcompany, workpostid)
 
 		if err != nil {
 			fmt.Print(err)

@@ -78,7 +78,6 @@ func (u UserController) Updatepostcompany(c *gin.Context) {
 
 	statusUpdatecompany, err := companyModel.Updatepostcompany(
 		company.WorkPostID,
-		company.CompanyID,
 		company.TypeWorkNumber,
 		company.NameWork,
 		company.DetailWork,
