@@ -8,6 +8,15 @@ type User struct {
 	Password  string `json:"password"`
 	Phone     string `json:"phone"`
 }
+type UpdateUser struct {
+	ID			int		`json:"id"`
+	FirstName	string	`json:"firstname"`
+	LastName	string	`json:"lastname"`
+	Email		string	`json:"email"`
+	Password	string	`json:"password"`
+	Phone		string	`json:"phone"`
+	Profile_user string	`json:"profile_user"`
+}
 type LoginUser struct {
 	Status string `json:"status"`
 	ID     int    `json:"id"`

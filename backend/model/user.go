@@ -82,12 +82,13 @@ func (u UserModel) Updateuser(idint int,
 	lastname string,
 	email string,
 	phone string,
+	profile_user string,
 ) (string, error) {
 	db := database.Connectdata()
 	// rows, err := db.Query("select * from user_account where ID = ?;",id)
 	fmt.Print(lastname)
 
-	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ? WHERE id = ?", firstname, lastname, email, phone, idint)
+	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_user = ? WHERE id = ?", firstname, lastname, email, phone, profile_user, idint)
 
 	if err != nil {
 		fmt.Print(err)
