@@ -124,11 +124,12 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 	UserID int,
 	DetailWork string,
 	PricePostWork string,
-	NameWork string) (string, error) {
-	//fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, "desu")
+	NameWork string,
+	ImageWorkPostFeelance string) (string, error) {
+	//fmt.Print("xd= ", WorkPostID, " ", TypeWorkNumber, " ", UserID, " ", DetailWork, " ", PricePostWork, " ", NameWork, ImageWorkPostFeelance, "desu")
 	db := database.Connectdata()
 
-	stmt, err := db.Prepare("insert into work_post_freelance (Work_Post_ID, Type_Work_Number, User_ID, Detail_Work, Price_Post_Work,Name_Work) values(?,?,?,?,?,?)")
+	stmt, err := db.Prepare("insert into work_post_freelance (Work_Post_ID, Type_Work_Number, User_ID, Detail_Work, Price_Post_Work,Name_Work,Image_Work_Post_Freelance) values(?,?,?,?,?,?,?)")
 	if err != nil {
 		fmt.Print(err)
 	}
@@ -139,7 +140,8 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 		UserID,
 		DetailWork,
 		PricePostWork,
-		NameWork)
+		NameWork,
+		ImageWorkPostFeelance)
 	check := "Complete!"
 
 	if err != nil {

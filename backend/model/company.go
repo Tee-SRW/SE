@@ -9,15 +9,15 @@ import (
 
 type CompanyModel struct{}
 
-func (u CompanyModel) CreateAccountCompany(companyname string ,
-companyemail string ,
-companyphone string ,
-address string ,
-subdistrict string ,
-district string  ,
-province string ,
-postcode string ,
-password string) (string, error)  {
+func (u CompanyModel) CreateAccountCompany(companyname string,
+	companyemail string,
+	companyphone string,
+	address string,
+	subdistrict string,
+	district string,
+	province string,
+	postcode string,
+	password string) (string, error) {
 
 	db := database.Connectdata()
 
@@ -54,15 +54,15 @@ func (u CompanyModel) AddWorkCompany(
 	NumPerson int,
 	PriceWorkMin string,
 	PriceWorkMax string,
-	Education string) (string, error) {
+	Education string,
+	ImageWorkPostCompany string) (string, error) {
 
-		db := database.Connectdata()
+	db := database.Connectdata()
 
-		stmt, err := db.Prepare("insert into work_post_company (Company_ID, Type_Work_Number, Name_Work, Detail_Work, Position, Num_Person, Price_Work_Min, Price_Work_Max, Education) values (?,?,?,?,?,?,?,?,?)")
-		if err != nil {
-			fmt.Print(err)
+	stmt, err := db.Prepare("insert into work_post_company (Company_ID, Type_Work_Number, Name_Work, Detail_Work, Position, Num_Person, Price_Work_Min, Price_Work_Max, Education,Image_Work_Post_Company) values (?,?,?,?,?,?,?,?,?,?)")
+	if err != nil {
+		fmt.Print(err)
 	}
-
 
 	_, err = stmt.Exec(
 		CompanyID,
@@ -73,7 +73,8 @@ func (u CompanyModel) AddWorkCompany(
 		NumPerson,
 		PriceWorkMin,
 		PriceWorkMax,
-		Education)
+		Education,
+		ImageWorkPostCompany)
 	check := "Complete!"
 
 	if err != nil {

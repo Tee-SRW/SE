@@ -10,17 +10,18 @@ type Company struct {
 	District     string `json:"district"`
 	Province     string `json:"province"`
 	Postcode     string `json:"postcode"`
-	Password 	 string `json:"password"`
+	Password     string `json:"password"`
 }
 
 type AddWorkCompany struct {
-	CompanyID 		string		`json:"companyid"`
-	TypeWorkNumber 	string		`json:"typeworknumber"`
-	NameWork 		string	`json:"namework"`
-	DetailWork 		string	`json:"detailwork"`
-	Position 		string	`json:"position"`
-	NumPerson 		string		`json:"numperson"`
-	PriceWorkMin 	string	`json:"priceworkmin"`
-	PriceWorkMax 	string	`json:"priceworkmax"`
-	Education 		string	`json::education"`
+	CompanyID            string `json:"companyid"`
+	TypeWorkNumber       string `json:"typeworknumber"`
+	NameWork             string `json:"namework"`
+	DetailWork           string `json:"detailwork"`
+	Position             string `json:"position"`
+	NumPerson            string `json:"numperson"`
+	PriceWorkMin         string `json:"priceworkmin"`
+	PriceWorkMax         string `json:"priceworkmax"`
+	Education            string `json:"education"`
+	ImageWorkPostCompany string `json:"imageworkpostcompany"`
 }

@@ -12,7 +12,7 @@ import (
 type companyController struct{}
 
 func (u UserController) CreateAccountCompany(c *gin.Context) {
-	var companyModel model.CompanyModel	
+	var companyModel model.CompanyModel
 	var company dateset.Company
 
 	e := c.ShouldBind(&company)
@@ -62,10 +62,11 @@ func (u UserController) AddWorkCompany(c *gin.Context) {
 		newNumPerson,
 		company.PriceWorkMin,
 		company.PriceWorkMax,
-		company.Education)
-	
-		if err != nil {
-			panic(err)
-		}
-		c.JSON(200, status)
+		company.Education,
+		company.ImageWorkPostCompany)
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, status)
 }
