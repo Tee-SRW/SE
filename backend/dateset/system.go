@@ -59,6 +59,8 @@ type Getworkfreelance struct {
 	Facebook	string 	`json:"facebook"`
 	Instagram	string 	`json:"instagram"`
 	Image_Work_Post_Freelance	string 	`json:"image_work_post_freelance"`
+	Email	string 	`json:"email"`
+	Phone	string 	`json:"phone"`
 }
 
 

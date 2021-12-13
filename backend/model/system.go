@@ -62,7 +62,7 @@ func (u SystemModel) GetWorkfreelance(Type_Work_ID dateset.Workpostid ) ([]dates
 
 	db := database.Connectdata()
 
-		rows, err := db.Query("select Price_Post_Work, Name_Work, Detail_Work, Type_Work_Name, FirstName, LastName, Line, Facebook, Instagram, Image_Work_Post_Freelance from user,work_post_freelance,type_work WHERE User_ID=ID AND Type_Work_ID=Type_Work_Number AND Work_Post_ID = ?", Type_Work_ID.Work_Post_Id)
+		rows, err := db.Query("select Price_Post_Work, Name_Work, Detail_Work, Type_Work_Name, FirstName, LastName, Line, Facebook, Instagram, Image_Work_Post_Freelance, Email, Phone from user,work_post_freelance,type_work WHERE User_ID=ID AND Type_Work_ID=Type_Work_Number AND Work_Post_ID = ?", Type_Work_ID.Work_Post_Id)
 	
 		if err != nil{
 			return work_freelance,err
@@ -71,7 +71,7 @@ func (u SystemModel) GetWorkfreelance(Type_Work_ID dateset.Workpostid ) ([]dates
 		for rows.Next() {
 			var work dateset.Getworkfreelance
 
-			if err := rows.Scan(&work.Price_Post_Work, &work.Name_Work, &work.Detail_Work, &work.Type_Work_Name , &work.FirstName, &work.LastName, &work.Line, &work.Facebook, &work.Instagram, &work.Image_Work_Post_Freelance, ); 
+			if err := rows.Scan(&work.Price_Post_Work, &work.Name_Work, &work.Detail_Work, &work.Type_Work_Name , &work.FirstName, &work.LastName, &work.Line, &work.Facebook, &work.Instagram, &work.Image_Work_Post_Freelance, &work.Email, &work.Phone ); 
 			
 			err != nil{
 					return work_freelance,err
