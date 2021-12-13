@@ -138,3 +138,30 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 	}
 	c.JSON(200, status)
 }
+
+func (u UserController) UpdateFreelance(c *gin.Context) {
+	var userModel model.UserModel
+	var user dateset.UpdateFreelance
+
+	e := c.ShouldBind(&user)
+	if e != nil {
+		panic(e)
+	}
+		
+		statusUpdateFreelance, err := userModel.UpdateFreelance(
+		user.ID,
+		user.FirstName,
+		user.LastName,
+		user.Email,
+		user.Password,
+		user.Phone,
+		user.Profile_User,
+		user.Line,
+		user.Facebook,
+		user.Instagram)
+
+		if err != nil {
+			panic(err)
+		}
+		c.JSON(200, statusUpdateFreelance)
+}

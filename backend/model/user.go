@@ -153,3 +153,26 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 
 	return check, nil
 }
+
+func (u UserModel) UpdateFreelance(
+	id int,
+	firstname string,
+	lastname string,
+	email string,
+	password string,
+	phone string,
+	profileuser string,
+	line string,
+	facebook string,
+	instagram string,) (string, error) {
+	
+	db := database.Connectdata()
+
+	_, err := db.Exec("update user set FirstName = ?, LastName = ?, Email = ?, Password = ?, Phone = ?, Profile_User = ?, Line = ?, Facebook = ?, Instagram = ? where TypeNumber_User = 2 and ID = ?",firstname, lastname, email, password, phone, profileuser, line, facebook, instagram, id)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+	statusUpdateFreelance := "สำเร็จ"
+	return statusUpdateFreelance, nil
+}
