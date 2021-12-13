@@ -1,0 +1,16 @@
+FROM golang:1.17-alpine
+
+ADD . /usr/local/src/backend
+WORKDIR /usr/local/src/backend
+
+RUN mkdir /usr/backend_01
+
+# RUN go mod downlond
+
+RUN go build -o /runbackend
+
+EXPOSE 8080
+
+
+
+CMD ["/runbackend"]
