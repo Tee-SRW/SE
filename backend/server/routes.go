@@ -18,13 +18,26 @@ func InitRouter() *gin.Engine {
 		})
 	})
 	r.POST("/createuser", userController.CreateUser)
-	r.POST("/login", userController.LoginUser)
 	r.POST("/createcompany", userController.CreateAccountCompany)
-	r.PUT("/user", userController.Updateuser)
-	r.POST("/getuser", userController.GetUpdateuser)
+
+	r.POST("/login", userController.LoginUser)
+
+	r.PUT("/updateuser", userController.Updateuser)
+	r.PUT("/updatefreelance", userController.UpdateFreelance)
+	r.PUT("/updatecompany", userController.Updatecompany)
+
+	r.POST("/getupdateuser", userController.GetUpdateuser)
+	r.POST("/getupdatefreelance", userController.GetUpdatefreelance)
+	r.POST("/getupdatecompany", userController.GetUpdatecompany)
+
 	r.POST("/getallwork", userController.GetAllWork)
-	// r.POST("/getworkgraphic/:id", userController.GetWorkgraphic)
-	r.POST("/addworkfeelance", userController.AddWorkFeelance)
+	r.POST("/getworkfreelance", userController.GetWorkfreelance)
+	r.POST("/getworkcompany",userController.GetWorkcompany)
+
+	r.POST("/addworkFreelance", userController.AddWorkFreelance)
 	r.POST("/addworkcompany", userController.AddWorkCompany)
+
+	r.PUT("/updatepostcompany", userController.Updatepostcompany)
+	r.PUT("/updatepostfreelance", userController.Updatepostfreelance)
 	return r
 }

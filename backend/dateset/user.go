@@ -8,34 +8,64 @@ type User struct {
 	Password  string `json:"password"`
 	Phone     string `json:"phone"`
 }
+
 type UpdateUser struct {
-	ID			int		`json:"id"`
-	FirstName	string	`json:"firstname"`
-	LastName	string	`json:"lastname"`
-	Email		string	`json:"email"`
-	Password	string	`json:"password"`
-	Phone		string	`json:"phone"`
-	Profile_user string	`json:"profile_user"`
+	ID           int    `json:"id"`
+	FirstName    string `json:"firstname"`
+	LastName     string `json:"lastname"`
+	Email        string `json:"email"`
+	Password     string `json:"password"`
+	Phone        string `json:"phone"`
+	Profile_user string `json:"profile_user"`
 }
+
 type LoginUser struct {
 	Status string `json:"status"`
 	ID     int    `json:"id"`
 }
+
 type GetUser struct {
-	FirstName string `json:"firstname"`
-	LastName  string `json:"lastname"`
-	Email     string `json:"email"`
-	Phone     string `json:"phone"`
+	FirstName    string `json:"firstname"`
+	LastName     string `json:"lastname"`
+	Email        string `json:"email"`
+	Phone        string `json:"phone"`
 	Profile_user string `json:"profile_user"`
 }
-type AddWorkFeelance struct {
-	WorkPostID     string `json:"workpostid"`
-	TypeWorkNumber string `json:"typeWorknumber"`
-	DetailWork     string `json:"detailwork"`
-	UserID         string `json:"userid"`
-	PricePostWork  string `json:"pricepostwork"`
-	NameWork       string `json:"namework"`
+
+type AddWorkFreelance struct {
+	WorkPostID             int    `json:"workpostid"`
+	TypeWorkNumber         int    `json:"typeWorknumber"`
+	DetailWork             string `json:"detailwork"`
+	UserID                 int    `json:"userid"`
+	PricePostWork          string `json:"pricepostwork"`
+	NameWork               string `json:"namework"`
+	ImageWorkPostFreelance string `json:"imageworkpostfreelance"`
 }
+
 type ID struct {
-	ID	int 	`json:"id"`
+	ID int `json:"id"`
+}
+
+type UpdateFreelance struct {
+	ID           int    `json:"id"`
+	FirstName    string `json:"firstname"`
+	LastName     string `json:"lastname"`
+	Email        string `json:"email"`
+	Password     string `json:"password"`
+	Phone        string `json:"phone"`
+	Profile_User string `json:"profileuser"`
+	Line         string `json:"line"`
+	Facebook     string `json:"facebook"`
+	Instagram    string `json:"instagram"`
+}
+
+type GetFreelance struct {
+	FirstName    string `json:"firstname"`
+	LastName     string `json:"lastname"`
+	Email        string `json:"email"`
+	Phone        string `json:"phone"`
+	Profile_User string `json:"profileuser"`
+	Line         string `json:"line"`
+	Facebook     string `json:"facebook"`
+	Instagram    string `json:"instagram"`
 }
