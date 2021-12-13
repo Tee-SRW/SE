@@ -165,7 +165,7 @@ func (u UserController) UpdateFreelance(c *gin.Context) {
 		}
 		c.JSON(200, statusUpdateFreelance)
 }
-func (u UserController) Updatepost(c *gin.Context) {
+func (u UserController) Updatepostfreelance(c *gin.Context) {
 	var userModel model.UserModel
 	var user1 dateset.AddWorkFreelance
 	// id := c.Param("id")
@@ -176,7 +176,7 @@ func (u UserController) Updatepost(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statusUpdateuser, err := userModel.Updatepost(
+	statusUpdateuser, err := userModel.Updatepostfreelance(
 		user1.WorkPostID,
 		user1.TypeWorkNumber,
 		user1.DetailWork,

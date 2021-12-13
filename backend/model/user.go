@@ -154,7 +154,7 @@ func (u UserModel) AddWorkFreelance(WorkPostID int,
 	return check, nil
 }
 
-func (u UserModel) Updatepost(workpostid int,
+func (u UserModel) Updatepostfreelance(workpostid int,
 	typeWorknumber int,
 	detailwork string,
 	userid int,
