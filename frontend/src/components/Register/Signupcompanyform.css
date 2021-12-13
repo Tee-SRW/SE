@@ -1,12 +1,8 @@
 .Signupcompanyform-outer {
+    display: flex;    
     width: 100%;
     height: 100%;
-    margin-top: 130px;
-    margin-bottom: 130px;
-}
-
-.Signupcompanyform-outer {
-    display: flex;
+    min-height: 600px;
     justify-content: center;
     flex-direction: column;
     text-align: left;
