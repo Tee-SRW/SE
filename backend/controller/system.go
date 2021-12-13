@@ -55,3 +55,21 @@ func (u UserController) GetWorkfreelance(c *gin.Context) {
 		c.JSON(200, work)
 }
 
+func (u UserController) GetWorkcompany(c *gin.Context) {
+	systemModel := model.SystemModel{}
+	var workpostid dateset.Work_Post_ID
+
+	e := c.ShouldBind(&workpostid)
+
+	if e != nil {
+		panic(e)
+	}
+
+	work, err := systemModel.GetWorkcompany(workpostid)
+
+	if err != nil {
+		panic(err)
+	}
+	c.JSON(200, work)
+}
+

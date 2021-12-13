@@ -81,3 +81,26 @@ func (u SystemModel) GetWorkfreelance(Type_Work_ID dateset.Workpostid ) ([]dates
 		return work_freelance,nil
 }
 
+func (u SystemModel) GetWorkcompany(Type_Work_ID dateset.Work_Post_ID) ([]dateset.GetWorkCompany,error) {
+	var work_company []dateset.GetWorkCompany
+
+	db := database.Connectdata()
+
+		rows, err := db.Query("select Type_Work_Name, Position, Num_Person, Price_Work_Min, Price_Work_Max, Education, Detail_Work, Image_Work_Post_Company from work_post_company, type_work, company where Company_ID = ID and Type_Work_ID = Type_Work_Number and Work_Post_ID = ?",Type_Work_ID.Work_Post_ID)
+
+		if err != nil {
+			return work_company, err
+		}
+
+		for rows.Next() {
+			var work dateset.GetWorkCompany
+
+			if err := rows.Scan(&work.Type_Work_Name, &work.Position, &work.Num_Person, &work.Price_Work_Min, &work.Price_Work_Max, &work.Education, &work.Detail_Work, &work.Image_Work_Post_Company, );
+
+			err != nil {
+				return work_company, err
+			}
+			work_company = append(work_company, work)
+		}
+		return work_company, nil
+}

@@ -60,5 +60,18 @@ type Getworkfreelance struct {
 	Instagram	string 	`json:"instagram"`
 	Image_Work_Post_Freelance	string 	`json:"image_work_post_freelance"`
 }
+type Work_Post_ID struct {
+	Work_Post_ID	int		`json:"workpostid"`
+}
+type GetWorkCompany struct {
+	Type_Work_Name		string		`json:"typenamework"`
+	Position			string		`json:"position"`
+	Num_Person			string		`json:"numperson"`
+	Price_Work_Min		string		`json:"priceworkmin"`
+	Price_Work_Max		string		`json:"priceworkmax"`
+	Education			string		`json:"education"`
+	Detail_Work			string		`json:"detailwork"`
+	Image_Work_Post_Company	string	`json:"imageworkpostcompany"`
 
+}
 
