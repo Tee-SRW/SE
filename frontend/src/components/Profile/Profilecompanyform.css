@@ -13,13 +13,13 @@ html {
     background-size: cover;
 }
 
-.board__container {
+.board__container__company {
     display: flex;
     width: 100%;
-    height: 350px;
+    height: 300px;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: #6DBAE7;
     align-items: flex-start;
     align-content: space-around;
@@ -77,17 +77,30 @@ html {
     font-weight: bold;
 }
 
-.board__name {
+.board__name__company {
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;
     display: flex;
     justify-content: center;
     line-height: 2.4;
     align-items: center;
+    margin-right: 140px;
+    margin-left: 20px;
+}
+
+.board__check {
+    color: rgba(3, 4, 94, 1);
+    font-size: 24px;
+    font-family: 'PT Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2.4;
+    align-items: center;
 }
 
 .board__setting {
-    margin-top: 80px;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .board__box {
@@ -96,23 +109,25 @@ html {
     flex-direction: column;
     margin: top 80px;
     margin-bottom: 10px;
-    margin-right: 0px;
+    margin-right: 20px;
 }
 
-.board__head {
+.board__head__company {
     margin-top: 80px;
+    margin-left: 10px;
+    padding-right: 15px;
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;
     display: flex;
     line-height: 2.4;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
 }
 
 .board__last {
     margin-top: 80px;
-    margin-right: 80px;
+    margin-right: 130px;
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;
     display: flex;
@@ -147,11 +162,11 @@ html {
     justify-content: space-around;
 }
 
-.box__head__inner {
+.box__head__inner__company {
     display: flex;
     justify-content: flex-start;
     width: 300px;
-    height: 150px;
+    height: 250px;
     box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
     padding: 15px 15px 15px 15px;
     border-radius: 15px;
@@ -179,6 +194,12 @@ html {
 
 .font__topic {
     font-size: 32px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+.font__topicf {
+    font-size: 28px;
     font-family: 'PT Sans', sans-serif;
     font-weight: bold;
 }

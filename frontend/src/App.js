@@ -18,7 +18,8 @@ import EditprofileCompany from "./components/pages/EditprofileCompany";
 import EditprofileFreelacne from "./components/pages/EditprofileFreelance";
 import Freelance from "./components/pages/Freelance";
 import CreateWorkFreeLance from "./components/pages/CreateWorkFreeLance";
-
+import Profilefreelance from "./components/pages/Profilefreelance"
+import Profilecompany from "./components/pages/Profilecompany"
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
@@ -45,6 +46,7 @@ function App() {
             <Route path="/Resetpassword" component={Resetpassword} />
             <Route path="/Editprofile" component={Editprofile} />
             <Route path="/Profile" component={Profile} />
+            <Route path="/Profilefreelance" component={Profilefreelance} />
             <Route
               path="/Editprofilefreelance"
               component={EditprofileFreelacne}
@@ -55,6 +57,7 @@ function App() {
               path="/Createworkfreelance"
               component={CreateWorkFreeLance}
             />
+            <Route path="/Profilecompany" component={Profilecompany} />
           </Switch>
         </div>
         <Footer />

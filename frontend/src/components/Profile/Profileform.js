@@ -56,7 +56,7 @@ export default function Profileform(props) {
           </div>
           <h2 className="board__last">นามสกุลอะไรสักอย่าง</h2>
         </div>
-        <h3>งานของฉัน</h3>
+
         <div className="box_bg">
           <div className="box__head__inner">
             <label className="box__toptext">ช่องทางการติดต่อ</label>
@@ -75,7 +75,10 @@ export default function Profileform(props) {
               </label>
             </div>
           </div>
-          <div className="box__head__work"></div>
+          <div className="box__head__work">
+            <h3 className="font__topic">งานของฉัน</h3>
+            <h3 className="font__midtext">คุณไม่ได้ลงทะเบียนการเป็น “ฟรีแลนซ์” ไว้</h3>
+          </div>
         </div>
       </div>
     </Container>
