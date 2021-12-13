@@ -6,7 +6,7 @@ import (
 	"se/dateset"
 	"se/model"
 
-	"strconv"
+	// "strconv"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -120,14 +120,14 @@ func (u UserController) AddWorkFeelance(c *gin.Context) {
 		panic(e)
 	}
 	//fmt.Println("before =", user.ImageWorkPostFeelance)
-	newWorkPostID, err := strconv.Atoi(user.WorkPostID)
+	// newWorkPostID, err := strconv.Atoi(user.WorkPostID)
 	//fmt.Println("after =", newWorkPostID, "pri =", user.PricePostWork)
-	newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
-	newUserID, err := strconv.Atoi(user.UserID)
+	// newTypeWorkNumber, err := strconv.Atoi(user.TypeWorkNumber)
+	// newUserID, err := strconv.Atoi(user.UserID)
 	status, err := userModel.AddWorkFeelance(
-		newWorkPostID,
-		newTypeWorkNumber,
-		newUserID,
+		user.WorkPostID,
+		user.TypeWorkNumber,
+		user.UserID,
 		user.DetailWork,
 		user.PricePostWork,
 		user.NameWork,

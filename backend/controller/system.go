@@ -31,7 +31,7 @@ func (u UserController) GetAllWork(c *gin.Context) {
 
 func (u UserController) Updatepost(c *gin.Context) {
 	var userModel model.UserModel
-	var user dateset.UpdateUser
+	var user dateset.AddWorkFeelance
 	// id := c.Param("id")
 	// idint, err := strconv.Atoi(id)
 	e := c.ShouldBind(&user)
@@ -40,13 +40,15 @@ func (u UserController) Updatepost(c *gin.Context) {
 		panic(e)
 	}
 	//
-	statusUpdateuser, err := userModel.Updateuser(
-		user.ID,
-		user.FirstName,
-		user.LastName,
-		user.Email,
-		user.Phone,
-		user.Profile_user)
+	statusUpdateuser, err := userModel.Updatepost(
+		user.WorkPostID,
+		user.TypeWorkNumber,
+		user.DetailWork,
+		user.UserID,
+		user.PricePostWork,
+		user.NameWork,
+		user.ImageWorkPostFeelance,
+	)
 
 	if err != nil {
 		panic(err)

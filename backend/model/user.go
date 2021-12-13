@@ -153,3 +153,36 @@ func (u UserModel) AddWorkFeelance(WorkPostID int,
 
 	return check, nil
 }
+
+func (u UserModel) Updatepost(workpostid int,
+	typeWorknumber int,
+	detailwork string,
+	userid int,
+	pricepostwork string,
+	namework string,
+	imageworkpostfreelance string,
+) (string, error) {
+	db := database.Connectdata()
+	// rows, err := db.Query("select * from user_account where ID = ?;",id)
+	// fmt.Print(lastname)
+
+	_, err := db.Exec("UPDATE work_post_freelance SET Type_Work_Number = ?, Detail_Work = ?, Price_Post_Work = ?, Name_Work = ?, Image_Work_Post_Feelance = ? WHERE Work_Post_ID = ?", typeWorknumber, detailwork, pricepostwork, namework, imageworkpostfreelance, workpostid)
+
+	if err != nil {
+		fmt.Print(err)
+	}
+
+	// for rows.Next() {
+	// 	var FirstNamedb string
+	// 	var LastName string
+	// 	var Email string
+	// 	var Phone string
+	// 	err = rows.Scan(&FirstNamedb, &LastName, &Email, &Phone)
+	// 	FirstNamedb = firstname
+	// }
+
+	// fmt.Print(idint)
+	// fmt.Print(lastname)
+	statusUpdateuser := "สำเร็จ"
+	return statusUpdateuser, nil
+}

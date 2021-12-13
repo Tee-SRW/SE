@@ -29,10 +29,10 @@ type GetUser struct {
 	Profile_user string `json:"profile_user"`
 }
 type AddWorkFeelance struct {
-	WorkPostID            string `json:"workpostid"`
-	TypeWorkNumber        string `json:"typeWorknumber"`
+	WorkPostID            int `json:"workpostid"`
+	TypeWorkNumber        int `json:"typeWorknumber"`
 	DetailWork            string `json:"detailwork"`
-	UserID                string `json:"userid"`
+	UserID                int `json:"userid"`
 	PricePostWork         string `json:"pricepostwork"`
 	NameWork              string `json:"namework"`
 	ImageWorkPostFeelance string `json:"imageworkpostfreelance"`
