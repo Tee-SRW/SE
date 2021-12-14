@@ -5,7 +5,10 @@ WORKDIR /usr/local/src/backend
 
 RUN mkdir /usr/backend_01
 
-# RUN go mod downlond
+COPY go.mod go.sum ./
+RUN go mod download
+
+COPY . .
 
 RUN go build -o /runbackend
 

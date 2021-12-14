@@ -3,7 +3,7 @@ package server
 import (
 	"net/http"
 	"se/controller"
-
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -11,6 +11,10 @@ func InitRouter() *gin.Engine {
 	userController := controller.UserController{}
 
 	r := gin.Default()
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://localhost:3000"}
+	
+	r.Use(cors.New(config))
 
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
