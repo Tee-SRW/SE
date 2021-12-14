@@ -23,7 +23,7 @@ export default function EditprofileCompanyform(props) {
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="">
           <img
-            src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+            src=" "
             className="img-fluid rounded-circle"
             alt="Profile Admin"
           ></img>

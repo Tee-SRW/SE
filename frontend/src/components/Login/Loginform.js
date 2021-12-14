@@ -12,6 +12,19 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
 export default function Loginform() {
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+
+  function handleClickShowPassword() {
+    setValues({ ...values, showPassword: !values.showPassword });
+  }
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -23,22 +36,6 @@ export default function Loginform() {
     setValidated(true);
   };
 
-  const [values, setValues] = useState({
-    password: "",
-    showPassword: false,
-  });
-
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
 
   return (
     <div className="Loginform-outer">
@@ -57,24 +54,18 @@ export default function Loginform() {
           <Row ClassName="spacing-top10">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>รหัสผ่าน</Form.Label>
-              <Form.Control required 
-              type="password"
-              placeholder="รหัสผ่าน"
-              // type={values.showPassword ? "text" : "password"}
-              // placeholder="รหัสผ่าน"
-              // onChange={handlePasswordChange("password")}
-              // value={values.password}
-              // endAdornment={
-              //   <InputAdornment position="end">
-              //     <IconButton
-              //       onClick={handleClickShowPassword}
-              //       onMouseDown={handleMouseDownPassword}
-              //     >
-              //       {values.showPassword ? <Visibility /> : <VisibilityOff />}
-              //     </IconButton>
-              //   </InputAdornment>
-              // } 
-              />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values.showPassword ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                />
+                <IconButton onClick={handleClickShowPassword}>
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่าน
               </Form.Control.Feedback>

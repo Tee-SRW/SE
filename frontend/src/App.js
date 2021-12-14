@@ -30,7 +30,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
 
-    !false
+    false
   );
 
   // initial value
