@@ -5,28 +5,36 @@ import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import Input from "@material-ui/core/Input";
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
-  // const [values, setValues] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  const [values2, setValues2] = React.useState({
+    password2: "",
+    showPassword2: false,
+  });
 
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
+  function handleClickShowPassword() {
+    setValues({ ...values, showPassword: !values.showPassword });
+  }
+  function handleClickShowPassword2() {
+    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+  }
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -64,11 +72,18 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="6" controlId="validationCustom03">
               <Form.Label>รหัสผ่าน</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="รหัสผ่าน"
-              />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values.showPassword ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                />
+                <IconButton onClick={handleClickShowPassword}>
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่าน
               </Form.Control.Feedback>
@@ -78,11 +93,18 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="3" controlId="validationCustom04">
               <Form.Label>ยืนยันรหัสผ่าน</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="รหัสผ่าน"
-              />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values2.showPassword2 ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password2")}
+                  value={values2.password2}
+                />
+                <IconButton onClick={handleClickShowPassword2}>
+                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>
@@ -174,10 +196,7 @@ export default function Signupform(props) {
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button
-              type="submit"
-              className="btn btn-lg color spacing-top10"
-            >
+            <Button type="submit" className="btn btn-lg color spacing-top10">
               สมัครสมาชิก
             </Button>
           </div>

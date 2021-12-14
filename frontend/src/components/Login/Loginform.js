@@ -3,6 +3,10 @@ import style from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "./Loginform.css";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Container, Row, Col } from "react-grid-system";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
@@ -18,6 +22,24 @@ export default function Loginform() {
 
     setValidated(true);
   };
+
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   return (
     <div className="Loginform-outer">
       <div className="Loginform-inner">
@@ -28,17 +50,34 @@ export default function Loginform() {
               <Form.Label>อีเมล</Form.Label>
               <Form.Control required type="text" placeholder="อีเมล" />
               <Form.Control.Feedback type="invalid">
-              กรุณาใส่ อีเมล/เบอร์โทรศัพท์ 
-            </Form.Control.Feedback>
+                กรุณาใส่ อีเมล/เบอร์โทรศัพท์
+              </Form.Control.Feedback>
             </Form.Group>
           </Row>
           <Row ClassName="spacing-top10">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>รหัสผ่าน</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสผ่าน" />
+              <Form.Control required 
+              type="password"
+              placeholder="รหัสผ่าน"
+              // type={values.showPassword ? "text" : "password"}
+              // placeholder="รหัสผ่าน"
+              // onChange={handlePasswordChange("password")}
+              // value={values.password}
+              // endAdornment={
+              //   <InputAdornment position="end">
+              //     <IconButton
+              //       onClick={handleClickShowPassword}
+              //       onMouseDown={handleMouseDownPassword}
+              //     >
+              //       {values.showPassword ? <Visibility /> : <VisibilityOff />}
+              //     </IconButton>
+              //   </InputAdornment>
+              // } 
+              />
               <Form.Control.Feedback type="invalid">
-              กรุณาใส่ รหัสผ่าน 
-            </Form.Control.Feedback>
+                กรุณาใส่ รหัสผ่าน
+              </Form.Control.Feedback>
             </Form.Group>
           </Row>
           <div className="form-group spacing-top ">
@@ -48,39 +87,39 @@ export default function Loginform() {
                 className="custom-control-input spacing-right "
                 id="customCheck1"
               />
-              <label className="custom-control-label spacing-top" htmlFor="customCheck1">
-              จดจำฉัน
+              <label
+                className="custom-control-label spacing-top"
+                htmlFor="customCheck1"
+              >
+                จดจำฉัน
               </label>
             </div>
           </div>
 
           <div className="d-grid gap-2 btn-color">
-            <Button
-              type="submit"
-              className="btn btn-lg color spacing-top10"
-            >
+            <Button type="submit" className="btn btn-lg color spacing-top10">
               เข้าสู่ระบบ
             </Button>
           </div>
-          
-            <Row>
-              <Col>
-                <p className="Loginhaveaccount">
-                  ไม่มีบัญชี
-                  <Link to="/ChooseCreate">
-                    <a href="#"> ใช่ไหม?</a>
-                  </Link>
-                </p>
-              </Col>
-              <Col>
+
+          <Row>
+            <Col>
+              <p className="Loginhaveaccount">
+                ไม่มีบัญชี
+                <Link to="/ChooseCreate">
+                  <a href="#"> ใช่ไหม?</a>
+                </Link>
+              </p>
+            </Col>
+            <Col>
               <p className="Loginforgot-password">
                 ลืม
                 <Link to="/Forgetpassword">
                   <a href="#"> รหัสผ่าน?</a>
                 </Link>
-              </p></Col>
-            </Row>
-          
+              </p>
+            </Col>
+          </Row>
         </Form>
       </div>
     </div>

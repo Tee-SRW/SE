@@ -23,7 +23,7 @@ export default function Resetpasswordform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>รหัสผ่านใหม่</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสผ่านใหม่" />
+              <Form.Control required type="password" placeholder="รหัสผ่านใหม่" />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่านใหม่
               </Form.Control.Feedback>
@@ -32,7 +32,7 @@ export default function Resetpasswordform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>ยืนยันรหัสผ่านใหม่</Form.Label>
-              <Form.Control required type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
+              <Form.Control required type="password" placeholder="ยืนยันรหัสผ่านใหม่" />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่านใหม่
               </Form.Control.Feedback>

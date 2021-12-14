@@ -19,7 +19,7 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
-  // const [values, setValues] = React.useState({
+  // const [values, setValues] = useState({
   //   password: "",
   //   showPassword: false,
   // });
@@ -81,7 +81,7 @@ export default function Signupform(props) {
               <Form.Label>รหัสผ่าน</Form.Label>
               <Form.Control
                 required
-                type="text"
+                type="password"
                 placeholder="รหัสผ่าน"
                 
               />
@@ -96,7 +96,7 @@ export default function Signupform(props) {
               <Form.Label>ยืนยันรหัสผ่าน</Form.Label>
               <Form.Control
                 required
-                type="text"
+                type="password"
                 placeholder="รหัสผ่าน"
               />
               <Form.Control.Feedback type="invalid">
