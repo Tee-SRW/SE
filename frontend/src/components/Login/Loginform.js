@@ -13,6 +13,7 @@ import Button from "react-bootstrap/Button";
 
 export default function Loginform() {
   const [values, setValues] = React.useState({
+    email:"",
     password: "",
     showPassword: false,
   });
@@ -34,6 +35,8 @@ export default function Loginform() {
     }
 
     setValidated(true);
+    console.log(values.email);
+    console.log('password',values.password);
   };
 
 
@@ -45,7 +48,14 @@ export default function Loginform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control 
+                required 
+                type="text" 
+                placeholder="อีเมล"
+                name="email"
+                onChange={handlePasswordChange("email")}
+                value={values.email} 
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล/เบอร์โทรศัพท์
               </Form.Control.Feedback>
@@ -60,6 +70,7 @@ export default function Loginform() {
                   type={values.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
                   onChange={handlePasswordChange("password")}
+                  name='password'
                   value={values.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
