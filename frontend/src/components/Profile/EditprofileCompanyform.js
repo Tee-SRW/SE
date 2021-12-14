@@ -21,7 +21,7 @@ export default function EditprofileCompanyform(props) {
     <div className="EditprofileCompanyform-outer">
       <div className="EditprofileCompanyform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
-        <div className="">
+        <div className="d-grid2">
           <img
             src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
             className="img-fluid rounded-circle"
