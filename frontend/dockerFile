@@ -1,0 +1,25 @@
+FROM node:17-alpine
+
+ADD . /usr/local/src/frontend
+WORKDIR /usr/local/src/frontend
+
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+RUN npm i react-hook-form
+RUN npm i --save @fortawesome/react-fontawesome
+RUN npm i --save @fortawesome/free-solid-svg-icons
+RUN npm i --save @fortawesome/fontawesome-svg-core
+RUN npm install react-grid-system --save
+RUN npm install @mui/material
+RUN npm install react-bootstrap bootstrap@5.1.3
+RUN npm install --save react-router-dom
+RUN npm install --save react-native-vector-icons
+RUN npm install --save react-native-password-eye
+RUN npm install react-input-mask --save
+RUN npm install react-input-mask@next --save
+RUN npm install react-inputs-validation --save
+RUN npm install @material-ui/core
+RUN npm install @material-ui/icons
+RUN npm install axios
+
+CMD ["npm","start"]
