@@ -64,7 +64,7 @@ export default function EditWorkFreelance(props) {
           <option>Graphic & Design</option>
           <option value="1">Marketing</option>
           <option value="2">Programming</option>
-          <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback tooltip type="invalid">
             กรุณาเลือก หมวดหมู่งาน
           </Form.Control.Feedback>
         </Form.Select>
@@ -72,17 +72,17 @@ export default function EditWorkFreelance(props) {
         <br /><br />
         <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
             <Form.Label>ชื่องาน</Form.Label>
             <Form.Control required type="text" placeholder="ชื่องาน" />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback tooltip type="invalid">
               โปรดระบุ ชื่องาน
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
@@ -91,19 +91,19 @@ export default function EditWorkFreelance(props) {
               as="textarea"
               rows={5}
             />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback tooltip type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control required type="text" placeholder="0.00" />
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback tooltip type="invalid">
                 กรุณาใส่ ราคาเริ่มต้น
               </Form.Control.Feedback>
             </Form.Group>
@@ -127,7 +127,7 @@ export default function EditWorkFreelance(props) {
           />
         )} */}
 
-        <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
+        <Form.Group controlId="formFileMultiple" className="mb-3 spacing-top" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
           <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>

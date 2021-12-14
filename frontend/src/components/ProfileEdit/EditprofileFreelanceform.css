@@ -93,8 +93,8 @@
 }
 
 .d-grid2 {
-    grid-gap: 0.5rem!important;
-    gap: 0.5rem!important;
-    display: grid!important;
+    grid-gap: 0.5 rem !important;
+    gap: 0.5 rem !important;
+    display: grid !important;
     justify-content: space-around;
 }
