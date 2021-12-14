@@ -69,7 +69,7 @@ function Navbar(props) {
               //---After Login Navbar---
               <React.Fragment>
                 <li className='nav-item'>
-                  <Link to='/' className='nav-links' onClick={closeMobileMenu}>
+                  <Link to='/Freelance' className='nav-links' onClick={closeMobileMenu}>
                     สมัครเป็นฟรีแลนด์
                   </Link>
                 </li>

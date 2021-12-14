@@ -5,6 +5,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+### `npm install`
+npm i react-hook-form
+npm i --save @fortawesome/react-fontawesome
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/fontawesome-svg-core
+npm install react-grid-system --save
+npm install @mui/material
+npm install react-bootstrap bootstrap@5.1.3
+npm install
+npm install --save react-router-dom// ของใหม่
+npm install --save react-native-vector-icons // New
+npm install --save react-native-password-eye // New
+npm install react-input-mask --save //New
+npm install react-input-mask@next --save //New
+npm install react-inputs-validation --save//New 9/12/2021
+npm install @material-ui/core//New 11/12/2021 
 
 ### `npm start`
 

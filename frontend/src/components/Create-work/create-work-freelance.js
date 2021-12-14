@@ -42,6 +42,7 @@ export default function CreateWorkFreelance(props) {
   let url = ""
 
   const geturl = (e) => {
+    setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
     console.log(url);
   }
@@ -49,11 +50,7 @@ export default function CreateWorkFreelance(props) {
   const [selectedImage, setSelectedImage] = useState();
 
   // This function will be triggered when the file field change
-  const imageChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
+
   const removeSelectedImage = () => {
     setSelectedImage();
   };
@@ -133,7 +130,7 @@ export default function CreateWorkFreelance(props) {
 
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} onChange={imageChange} />
+          <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">

@@ -4,8 +4,9 @@
     padding: 0;
     font-family: 'PT Sans', sans-serif;
 }
+
 body {
-    background: linear-gradient(to right,#CFE9F7 12.5%, #fff 12.5%, #fff 87.5%,#CFE9F7 87.5%);
+    background: linear-gradient(to right, #CFE9F7 12.5%, #fff 12.5%, #fff 87.5%, #CFE9F7 87.5%);
 }
 
 .home,
@@ -17,6 +18,10 @@ body {
     font-size: 3rem;
 }
 
+.page__content {
+    /* padding-top: 80px; */
+}
+
 .services {
     /*background-image: src='/public/images/img-2.jpg';*/
     background-color: black;
@@ -26,8 +31,6 @@ body {
     color: #fff;
     font-size: 100px;
 }
-
-
 
 .App {
     text-align: center;

@@ -5,11 +5,11 @@ import Cardbar from '../Cardbar';
 import HeroSection from '../HeroSection';
 
 
+
 function Home() {
   return (
     <>
       <HeroSection />
-      
       <Cards />
     </>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../App.css';
-import EditprofileFreelanceform from '../Profile/EditprofileFreelanceform';
+import EditprofileFreelanceform from '../ProfileEdit/EditprofileFreelanceform';
 
 
 function EditprofileFreelance() {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./create-work.css";
+import "../Create-work/create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
@@ -8,9 +8,10 @@ import InputMask from "react-input-mask";
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
-
-export default function CreateWorkCompany(props) {
+export default function EditWorkFreelance(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,
@@ -41,34 +42,28 @@ export default function CreateWorkCompany(props) {
   let url = ""
 
   const geturl = (e) => {
-      setSelectedImage(e.target.files[0]);
+    setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
     console.log(url);
   }
-
   const [selectedImage, setSelectedImage] = useState();
 
   // This function will be triggered when the file field change
-  const imageChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
+
   const removeSelectedImage = () => {
     setSelectedImage();
   };
 
   return (
     <div className="create-work-outer">
-      <h3>ประกาศรับสมัครงาน</h3>
+      <h3>สร้างงานของฉัน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
         <Form.Select size="sm" as={Col} md="4" controlId="validationCustom01">
-          <option>----------------</option>
-          <option value="1">Graphic & Design</option>
-          <option value="2">Marketing</option>
-          <option value="3">Programming</option>
+          <option>Graphic & Design</option>
+          <option value="1">Marketing</option>
+          <option value="2">Programming</option>
           <Form.Control.Feedback type="invalid">
             กรุณาเลือก หมวดหมู่งาน
           </Form.Control.Feedback>
@@ -103,78 +98,18 @@ export default function CreateWorkCompany(props) {
         </Row>
 
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-            <Form.Label>ตำแหน่ง</Form.Label>
-            <Form.Control required type="text" placeholder="ตำแหน่ง" />
-            <Form.Control.Feedback type="invalid">
-              โปรดระบุ ตำแหน่ง
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label>จำนวน</Form.Label>
-
-              <Form.Control required type="text" placeholder="0" />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ จำนวนคน
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
-          <Col className="bath2bath">
-            <Form.Label>คน</Form.Label>
-          </Col>
-        </Row>
-
-        <Row className="mb-3">
-          <Col>
-            <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label>เงินเดือน</Form.Label>
+              <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control required type="text" placeholder="0.00" />
               <Form.Control.Feedback type="invalid">
-                กรุณาใส่ เงินเดือน
-              </Form.Control.Feedback>
-            </Form.Group>
-
-          </Col>
-          <div className="bath2bath">
-            <Form.Label> - </Form.Label>
-          </div>
-          <Col>
-
-            <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label className="whites">.</Form.Label>
-
-              <Form.Control required type="text" placeholder="0.00" />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ เงินเดือน
+                กรุณาใส่ ราคาเริ่มต้น
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-
           <Col className="bath2bath">
             <Form.Label>บาท</Form.Label>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Label>วุฒิการศึกษา</Form.Label>
-            <Form.Select size="sm" as={Col} md="4" controlId="validationCustom01">
-              <option>----------------</option>
-              <option value="1">ต่ำกว่า มัธยมศึกษาตอนต้น</option>
-              <option value="2">มัธยมศึกษาตอนต้น หรือเทียบเท่า</option>
-              <option value="3">มัธยมศึกษาตอนปลาย หรือเทียบเท่า</option>
-              <option value="4">อนุปริญญา</option>
-              <option value="5">ปริญญาตรี</option>
-              <option value="6">ปริญญาโท</option>
-              <option value="7">ปริญญาเอก</option>
-              <Form.Control.Feedback type="invalid">
-                กรุณาเลือก วุฒิการศึกษา
-              </Form.Control.Feedback>
-            </Form.Select>
           </Col>
         </Row>
 
@@ -194,7 +129,7 @@ export default function CreateWorkCompany(props) {
 
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl}  />
+          <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">
