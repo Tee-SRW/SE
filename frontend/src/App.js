@@ -21,21 +21,21 @@ import CreateWorkFreeLance from "./components/pages/CreateWorkFreeLance";
 import CreateWorkCompany from "./components/Create-work/create-work-company";
 import EditWorkFreelance from "./components/Work/Edit-work-freelance";
 import EditWorkCompany from "./components/Work/Edit-work-company";
-import Profilefreelance from "./components/pages/Profilefreelance"
-import Profilecompany from "./components/pages/Profilecompany"
-import WorkFreelance from './components/pages/WorkFreelance';
-import WorkCompany from './components/pages/WorkCompany';
-
+import Profilefreelance from "./components/pages/Profilefreelance";
+import Profilecompany from "./components/pages/Profilecompany";
+import WorkFreelance from "./components/pages/WorkFreelance";
+import WorkCompany from "./components/pages/WorkCompany";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
 
-    !false);
-    
-      // initial value
-      //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
-      return (
+    false
+  );
+
+  // initial value
+  //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+  return (
     <>
       <Router>
         <Navbar {...{ loggedIn }} />
@@ -43,14 +43,24 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/services" component={Services} />
-            <Route path="/ChooseCreate" component={ChooseCreate} />
             <Route path="/Login" component={Login} />
-            <Route path="/sign-up" component={SignUp} />
-            <Route path="/sign-up-company" component={SignUpcompany} />
+            {/* Tier 1 */}
             <Route path="/Forgetpassword" component={Forgetpassword} />
+            {/* Tier 1 */}
             <Route path="/Resetpassword" component={Resetpassword} />
-            <Route path="/Editprofile" component={Editprofile} />
+            {/* Tier 1 */}
+            <Route path="/ChooseCreate" component={ChooseCreate} />
+            {/* Tier 1 */}
+            <Route path="/sign-up" component={SignUp} />
+            {/* Tier 1 */}
+            <Route path="/sign-up-company" component={SignUpcompany} />
+            {/* Tier 1 */}
+            <Route path="/Freelance" component={Freelance} />
+            {/* Tier 2 */}
             <Route path="/Profile" component={Profile} />
+            {/* Tier 2 */}
+            <Route path="/Editprofile" component={Editprofile} />
+            {/* Tier 2 */}
             <Route path="/Profilefreelance" component={Profilefreelance} />
             <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
             <Route path="/EditprofileCompany" component={EditprofileCompany} />
@@ -60,8 +70,15 @@ function App() {
             <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
             <Route path="/EditworkCompany" component={EditWorkCompany} />
             <Route path="/Profilecompany" component={Profilecompany} />
-            <Route path='/WorkFreelance' component={WorkFreelance} />
-            <Route path='/WorkCompany' component={WorkCompany} />
+            {/* Tier 2 */}
+            <Route path="/EditprofileCompany" component={EditprofileCompany} />
+            {/* Tier 2 */}
+            <Route path="/CreateworkCompany" component={CreateWorkCompany} />
+            {/* Tier 2 */}
+            <Route path="/EditworkCompany" component={EditWorkCompany} />
+            {/* Tier 2 */}
+            <Route path="/WorkCompany" component={WorkCompany} />
+            {/* Tier 2 */}
           </Switch>
         </div>
         <Footer />

@@ -1,11 +1,35 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Resetpasswordform.css";
 import { Container, Row, Col } from "react-grid-system";
+import IconButton from "@material-ui/core/IconButton";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 export default function Resetpasswordform() {
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  const [values2, setValues2] = React.useState({
+    password2: "",
+    showPassword2: false,
+  });
+
+  function handleClickShowPassword() {
+    setValues({ ...values, showPassword: !values.showPassword });
+  }
+  function handleClickShowPassword2() {
+    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+  }
+
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+    setValues2({ ...values2, [prop]: event.target.value });
+  };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -15,6 +39,8 @@ export default function Resetpasswordform() {
     }
     setValidated(true);
   };
+
+
   return (
     <div className="Resetpasswordform-outer">
       <div className="Resetpasswordform-inner">
@@ -23,7 +49,18 @@ export default function Resetpasswordform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>รหัสผ่านใหม่</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสผ่านใหม่" />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values.showPassword ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                />
+                <IconButton onClick={handleClickShowPassword}>
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่านใหม่
               </Form.Control.Feedback>
@@ -32,7 +69,18 @@ export default function Resetpasswordform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>ยืนยันรหัสผ่านใหม่</Form.Label>
-              <Form.Control required type="text" placeholder="ยืนยันรหัสผ่านใหม่" />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values2.showPassword2 ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password2")}
+                  value={values2.password2}
+                />
+                <IconButton onClick={handleClickShowPassword2}>
+                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่านใหม่
               </Form.Control.Feedback>

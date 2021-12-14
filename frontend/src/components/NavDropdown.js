@@ -25,15 +25,6 @@ function NavDropdown() {
             <li>
               <Link
                 className='MyNavdropdown-link'
-                to='/Setting'
-                onClick={() => setClick(!false)}
-              >
-                Setting
-              </Link>
-            </li>
-            <li>
-              <Link
-                className='MyNavdropdown-link'
                 to='/'
                 onClick={() => setClick(!false)}
               >

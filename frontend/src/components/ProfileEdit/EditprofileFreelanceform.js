@@ -22,7 +22,7 @@ export default function EditprofileFreelance(props) {
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="d-grid2">
           <img
-            src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+            src=" "
             className="img-fluid rounded-circle"
             alt="Profile Admin"
           ></img>

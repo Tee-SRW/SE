@@ -41,7 +41,7 @@ export default function Profilecompanyform(props) {
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+            src=""
             className="img-fluid rounded-circle image"
             alt="Profile Admin"
             fluid

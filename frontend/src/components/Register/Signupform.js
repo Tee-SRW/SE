@@ -19,22 +19,28 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
-  // const [values, setValues] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
 
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  const [values2, setValues2] = React.useState({
+    password2: "",
+    showPassword2: false,
+  });
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  function handleClickShowPassword() {
+    setValues({ ...values, showPassword: !values.showPassword });
+  }
+  function handleClickShowPassword2() {
+    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+  }
 
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+    setValues2({ ...values2, [prop]: event.target.value });
+  };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -44,6 +50,8 @@ export default function Signupform(props) {
     }
     setValidated(true);
   };
+
+
   return (
     <div className="Signupform-outer">
       <div className="Signupform-inner">
@@ -79,13 +87,18 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="6" controlId="validationCustom03">
               <Form.Label>รหัสผ่าน</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="รหัสผ่าน"
-                
-              />
-            
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values.showPassword ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password")}
+                  value={values.password}
+                />
+                <IconButton onClick={handleClickShowPassword}>
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสผ่าน
               </Form.Control.Feedback>
@@ -94,11 +107,18 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="3" controlId="validationCustom04">
               <Form.Label>ยืนยันรหัสผ่าน</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                placeholder="รหัสผ่าน"
-              />
+              <div className="box__password">
+                <Form.Control
+                  required
+                  type={values2.showPassword2 ? "text" : "password"}
+                  placeholder="รหัสผ่าน"
+                  onChange={handlePasswordChange("password2")}
+                  value={values2.password2}
+                />
+                <IconButton onClick={handleClickShowPassword2}>
+                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+                </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>

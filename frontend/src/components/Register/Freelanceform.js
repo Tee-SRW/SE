@@ -18,22 +18,27 @@ const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Freelance(props) {
-  // const [values, setValues] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
+  const [values, setValues] = React.useState({
+    password: "",
+    showPassword: false,
+  });
+  const [values2, setValues2] = React.useState({
+    password2: "",
+    showPassword2: false,
+  });
 
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
+  function handleClickShowPassword() {
+    setValues({ ...values, showPassword: !values.showPassword });
+  }
+  function handleClickShowPassword2() {
+    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+  }
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
+  const handlePasswordChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+    setValues2({ ...values2, [prop]: event.target.value });
+  };
+  
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
