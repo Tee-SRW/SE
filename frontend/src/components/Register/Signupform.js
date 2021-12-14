@@ -21,7 +21,11 @@ const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 export default function Signupform(props) {
 
   const [values, setValues] = React.useState({
+    firstname: "",
+    lastname: "",
+    email: "",
     password: "",
+    phone: "", 
     showPassword: false,
   });
   const [values2, setValues2] = React.useState({
@@ -36,7 +40,7 @@ export default function Signupform(props) {
     setValues2({ ...values2, showPassword2: !values2.showPassword2 });
   }
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handleValuesChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
     setValues2({ ...values2, [prop]: event.target.value });
   };
@@ -47,6 +51,11 @@ export default function Signupform(props) {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    }
+        if (values.password !== values2.password2) {
+      event.preventDefault();
+      event.stopPropagation();
+      alert("รหัสไม่ตรงกันแก้ด้วย")
     }
     setValidated(true);
   };
@@ -60,7 +69,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อ</Form.Label>
-              <Form.Control required type="text" placeholder="ชื่อ" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="ชื่อ"
+              value={values.firstname}
+                onChange={handleValuesChange("firstname")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อ
               </Form.Control.Feedback>
@@ -69,7 +84,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>นามสกุล</Form.Label>
-              <Form.Control required type="text" placeholder="นามสกุล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="นามสกุล" 
+              value={values.lastname}
+              onChange={handleValuesChange("lastname")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
               </Form.Control.Feedback>
@@ -78,7 +99,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อีเมล" 
+              value={values.email}
+                onChange={handleValuesChange("email")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
               </Form.Control.Feedback>
@@ -92,7 +119,7 @@ export default function Signupform(props) {
                   required
                   type={values.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handlePasswordChange("password")}
+                  onChange={handleValuesChange("password")}
                   value={values.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
@@ -112,7 +139,7 @@ export default function Signupform(props) {
                   required
                   type={values2.showPassword2 ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handlePasswordChange("password2")}
+                  onChange={handleValuesChange("password2")}
                   value={values2.password2}
                 />
                 <IconButton onClick={handleClickShowPassword2}>
@@ -132,8 +159,8 @@ export default function Signupform(props) {
                 className="form-control spacing-top"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                onChange={props.onChange}
-                value={props.value}
+                value={values.phone}
+                onChange={handleValuesChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
