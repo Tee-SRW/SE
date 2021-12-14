@@ -30,6 +30,16 @@ export default function EditWorkFreelance(props) {
   // };
   const history = useHistory();
 
+  const [values, setValues] = React.useState({
+    genre: "",
+    workname: "",
+    description: "",
+    minsalary: "",
+  });
+  const handleValuesChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -38,6 +48,10 @@ export default function EditWorkFreelance(props) {
       event.stopPropagation();
     }
     setValidated(true);
+    console.log(values.genre);
+    console.log(values.workname);
+    console.log(values.description);
+    console.log(values.minsalary);
   };
   let url = ""
 
@@ -50,9 +64,9 @@ export default function EditWorkFreelance(props) {
 
   // This function will be triggered when the file field change
 
-  const removeSelectedImage = () => {
-    setSelectedImage();
-  };
+  // const removeSelectedImage = () => {
+  //   setSelectedImage();
+  // };
 
   return (
     <div className="create-work-outer">
@@ -60,29 +74,44 @@ export default function EditWorkFreelance(props) {
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-        <Form.Select size="sm" as={Col} md="4" controlId="validationCustom01">
-          <option>Graphic & Design</option>
-          <option value="1">Marketing</option>
-          <option value="2">Programming</option>
-          <Form.Control.Feedback tooltip type="invalid">
+      <Form.Select
+          size="sm"
+          as={Col}
+          md="4"
+          controlId="validationCustom01"
+          value={values.genre}
+          onChange={handleValuesChange("genre")}
+        >
+          <option>--------------</option>
+          <option value="Graphic & Design">Graphic & Design</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Programming">Programming</option>
+
+          {/* <Form.Control.Feedback tooltip type="invalid">
             กรุณาเลือก หมวดหมู่งาน
-          </Form.Control.Feedback>
+          </Form.Control.Feedback> */}
         </Form.Select>
 
         <br /><br />
         <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
 
-        <Row className="mb-3 spacing-top">
+        <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
             <Form.Label>ชื่องาน</Form.Label>
-            <Form.Control required type="text" placeholder="ชื่องาน" />
-            <Form.Control.Feedback tooltip type="invalid">
+            <Form.Control
+              required
+              type="text"
+              placeholder="ชื่องาน"
+              name="workname"
+              onChange={handleValuesChange("workname")}
+            />
+            <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3 spacing-top">
+        <Row className="mb-3">
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
@@ -90,20 +119,27 @@ export default function EditWorkFreelance(props) {
               placeholder="คำอธิบายเพื่มเติม"
               as="textarea"
               rows={5}
+              name="description"
+              onChange={handleValuesChange("description")}
             />
-            <Form.Control.Feedback tooltip type="invalid">
+            <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3 spacing-top">
+        <Row className="mb-3">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
-              <Form.Control required type="text" placeholder="0.00" />
-              <Form.Control.Feedback tooltip type="invalid">
+              <Form.Control
+                required type="text"
+                placeholder="0.00"
+                name="minsalary"
+                onChange={handleValuesChange("minsalary")}
+              />
+              <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ราคาเริ่มต้น
               </Form.Control.Feedback>
             </Form.Group>

@@ -19,7 +19,7 @@ export default function WorkFreelanceform() {
             </div>
           </Col>
           <Col className="">
-            <div className="Work__box__detail">
+            <div className="Work-box-detail">
               <h3 className="font__topic__work">ชื่องาน</h3>
               <div className="font__topcif__work">
                 <div className="font__tail">
