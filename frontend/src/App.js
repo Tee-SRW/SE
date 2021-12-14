@@ -52,28 +52,13 @@ function App() {
             <Route path="/Editprofile" component={Editprofile} />
             <Route path="/Profile" component={Profile} />
             <Route path="/Profilefreelance" component={Profilefreelance} />
-            <Route
-              path="/Editprofilefreelance"
-              component={EditprofileFreelacne}
-            />
+            <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
             <Route path="/EditprofileCompany" component={EditprofileCompany} />
             <Route path="/Freelance" component={Freelance} />
-            <Route
-              path="/Createworkfreelance"
-              component={CreateWorkFreeLance}
-            />
-            <Route
-              path="/CreateworkCompany"
-              component={CreateWorkCompany}
-            />
-            <Route
-              path="/EditWorkFreelance"
-              component={EditWorkFreelance}
-            />
-            <Route
-              path="/EditworkCompany"
-              component={EditWorkCompany}
-            />
+            <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
+            <Route path="/CreateworkCompany" component={CreateWorkCompany} />
+            <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
+            <Route path="/EditworkCompany" component={EditWorkCompany} />
             <Route path="/Profilecompany" component={Profilecompany} />
             <Route path='/WorkFreelance' component={WorkFreelance} />
             <Route path='/WorkCompany' component={WorkCompany} />

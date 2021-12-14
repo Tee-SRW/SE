@@ -80,6 +80,7 @@
     font-size: 13px;
     width: 125px;
     height: 50px;
+    color: #000;
 }
 
 .bottomprofile2 {
@@ -96,3 +97,4 @@
     display: grid!important;
     justify-content: space-around;
 }
+

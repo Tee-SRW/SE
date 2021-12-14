@@ -61,3 +61,14 @@
 .btn-color .right{
   align-items: right;
 }
+
+.btn-fontblack .color{
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: #49A9E1;
+}
+
+.btn-fontblack .color:hover {
+  background-color: #006eff;
+  color: rgb(0, 0, 0);
+}
