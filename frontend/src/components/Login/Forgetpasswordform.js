@@ -6,6 +6,14 @@ import "./Forgetpasswordform.css";
 import { Container, Row, Col } from "react-grid-system";
 
 export default function Forgetpasswordform() {
+  const [values, setValues] = React.useState({
+    email:""
+  });
+  
+  const handleValuesChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -27,7 +35,14 @@ export default function Forgetpasswordform() {
           <Row className="mb-3 spacing-top">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อีเมล" 
+              name="email"
+              value={values.email}
+              onChange={handleValuesChange("email")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
               </Form.Control.Feedback>

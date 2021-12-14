@@ -12,12 +12,19 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Input from "@material-ui/core/Input";
-const eye = <FontAwesomeIcon icon={faEye} />;
-const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
+
 
 export default function Signupform(props) {
   const [values, setValues] = React.useState({
+    companyname:"",
+    email:"",
     password: "",
+    phone:"",
+    address:"",
+    subdistrict:"",
+    district:"",
+    province:"",
+    postcode:"",
     showPassword: false,
   });
   const [values2, setValues2] = React.useState({
@@ -32,7 +39,7 @@ export default function Signupform(props) {
     setValues2({ ...values2, showPassword2: !values2.showPassword2 });
   }
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handleValuesChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
     setValues2({ ...values2, [prop]: event.target.value });
   };
@@ -44,6 +51,11 @@ export default function Signupform(props) {
       event.preventDefault();
       event.stopPropagation();
     }
+    if (values.password !== values2.password2) {
+      event.preventDefault();
+      event.stopPropagation();
+      alert("รหัสไม่ตรงกันแก้ด้วย")
+    }
     setValidated(true);
   };
   return (
@@ -54,7 +66,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อบริษัท</Form.Label>
-              <Form.Control required type="text" placeholder="ชื่อบริษัท" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="ชื่อบริษัท" 
+              value={values.companyname}
+              onChange={handleValuesChange("companyname")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อบริษัท
               </Form.Control.Feedback>
@@ -64,7 +82,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อีเมล" 
+              value={values.email}
+              onChange={handleValuesChange("email")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
               </Form.Control.Feedback>
@@ -79,7 +103,7 @@ export default function Signupform(props) {
                   required
                   type={values.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handlePasswordChange("password")}
+                  onChange={handleValuesChange("password")}
                   value={values.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
@@ -100,7 +124,7 @@ export default function Signupform(props) {
                   required
                   type={values2.showPassword2 ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handlePasswordChange("password2")}
+                  onChange={handleValuesChange("password2")}
                   value={values2.password2}
                 />
                 <IconButton onClick={handleClickShowPassword2}>
@@ -121,8 +145,8 @@ export default function Signupform(props) {
                 className="form-control"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                onChange={props.onChange}
-                value={props.value}
+                value={values.phone}
+                onChange={handleValuesChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -133,7 +157,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom06">
               <Form.Label>ที่อยู่</Form.Label>
-              <Form.Control required type="text" placeholder="ที่อยู่" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="ที่อยู่"
+              value={values.address}
+              onChange={handleValuesChange("address")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
               </Form.Control.Feedback>
@@ -143,7 +173,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom07">
               <Form.Label>ตำบล / แขวง</Form.Label>
-              <Form.Control required type="text" placeholder="ตำบล / แขวง" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="ตำบล / แขวง"
+              value={values.subdistrict}
+              onChange={handleValuesChange("subdistrict")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
               </Form.Control.Feedback>
@@ -153,7 +189,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom08">
               <Form.Label>อำเภอ / เขต</Form.Label>
-              <Form.Control required type="text" placeholder="อำเภอ / เขต" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อำเภอ / เขต" 
+              value={values.district}
+                onChange={handleValuesChange("district")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อำเภอ / เขต
               </Form.Control.Feedback>
@@ -163,7 +205,13 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom09">
               <Form.Label>จังหวัด</Form.Label>
-              <Form.Control required type="text" placeholder="จังหวัด" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="จังหวัด" 
+              value={values.province}
+                onChange={handleValuesChange("province")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จังหวัด
               </Form.Control.Feedback>
@@ -178,8 +226,8 @@ export default function Signupform(props) {
                 className="form-control"
                 placeholder="xxxxx"
                 mask="99999"
-                onChange={props.onChange}
-                value={props.value}
+                value={values.postcode}
+                onChange={handleValuesChange("postcode")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน

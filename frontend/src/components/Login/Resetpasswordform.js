@@ -37,6 +37,11 @@ export default function Resetpasswordform() {
       event.preventDefault();
       event.stopPropagation();
     }
+    if (values.password !== values2.password2) {
+      event.preventDefault();
+      event.stopPropagation();
+      alert("รหัสไม่ตรงกันแก้ด้วย")
+    }
     setValidated(true);
   };
 

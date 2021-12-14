@@ -19,26 +19,19 @@ const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Freelance(props) {
   const [values, setValues] = React.useState({
-    password: "",
-    showPassword: false,
-  });
-  const [values2, setValues2] = React.useState({
-    password2: "",
-    showPassword2: false,
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    line: "",
+    facebook: "",
+    instagram: ""
   });
 
-  function handleClickShowPassword() {
-    setValues({ ...values, showPassword: !values.showPassword });
-  }
-  function handleClickShowPassword2() {
-    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
-  }
-
-  const handlePasswordChange = (prop) => (event) => {
+  const handleValuesChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
-    setValues2({ ...values2, [prop]: event.target.value });
   };
-  
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -56,7 +49,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อ</Form.Label>
-              <Form.Control required type="text" placeholder="ชื่อ" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="ชื่อ"
+                value={values.firstname}
+                onChange={handleValuesChange("firstname")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อ
               </Form.Control.Feedback>
@@ -65,7 +64,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>นามสกุล</Form.Label>
-              <Form.Control required type="text" placeholder="นามสกุล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="นามสกุล" 
+              value={values.lastname}
+              onChange={handleValuesChange("lastname")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
               </Form.Control.Feedback>
@@ -74,7 +79,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมลสำหรับทำงาน</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมลสำหรับทำงาน" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อีเมลสำหรับทำงาน" 
+              value={values.email}
+              onChange={handleValuesChange("email")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมลสำหรับทำงาน
               </Form.Control.Feedback>
@@ -88,8 +99,8 @@ export default function Freelance(props) {
                 className="form-control spacing-top"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                onChange={props.onChange}
-                value={props.value}
+                value={values.phone}
+                onChange={handleValuesChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -99,7 +110,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Line</Form.Label>
-              <Form.Control required type="text" placeholder="Line" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="Line" 
+              value={values.line}
+              onChange={handleValuesChange("line")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Line
               </Form.Control.Feedback>
@@ -108,7 +125,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Facebook</Form.Label>
-              <Form.Control required type="text" placeholder="Facebook" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="Facebook" 
+              value={values.facebook}
+              onChange={handleValuesChange("facebook")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Facebook
               </Form.Control.Feedback>
@@ -117,7 +140,13 @@ export default function Freelance(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Instagram</Form.Label>
-              <Form.Control required type="text" placeholder="Instagram" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="Instagram" 
+              value={values.instagram}
+              onChange={handleValuesChange("instagram")}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Instagram
               </Form.Control.Feedback>
