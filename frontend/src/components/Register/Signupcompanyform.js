@@ -5,8 +5,8 @@ import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
-import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,7 +34,9 @@ export default function Signupform(props) {
 
   const handlePasswordChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+    setValues2({ ...values2, [prop]: event.target.value });
   };
+
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;

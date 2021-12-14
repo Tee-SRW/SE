@@ -23,17 +23,18 @@ export default function Editprofileform(props) {
       <h3>โปรไฟล์ของฉัน</h3>
       <div className="d-grid2">
             <img
-              src="https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg"
+              src=" "
               className="img-fluid rounded-circle"
               alt="Profile Admin"
             ></img>
           </div>
-          <div className="d-grid2 spacing-top">
+          
+          <div className="d-grid2 gap-2 spacing-top btn-fontblack">
             <button
               type="submit"
-              className="btn btn-dark btn-lg btn-block bottomprofileprofile"
+              className="btn btn-lg color bottomprofileprofile"
             >
-              แก้ไขโปรไฟล์
+              แก้ไขรูปโปรไฟล์
             </button>
             </div>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -80,10 +81,10 @@ export default function Editprofileform(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-        <div className="d-grid gap-2">
+        <div className="d-grid gap-2 btn-color">
           <Button
             type="submit"
-            className="btn btn-dark btn-lg btn-block spacing-top10"
+            className="btn btn-lg color spacing-top10"
           >
             บันทึก
           </Button>

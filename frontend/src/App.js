@@ -30,7 +30,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(
     //Test
 
-    !false
+    false
   );
 
   // initial value
@@ -62,21 +62,13 @@ function App() {
             <Route path="/Editprofile" component={Editprofile} />
             {/* Tier 2 */}
             <Route path="/Profilefreelance" component={Profilefreelance} />
-            {/* Tier 2 */}
-            <Route
-              path="/Editprofilefreelance"
-              component={EditprofileFreelacne}
-            />
-            {/* Tier 2 */}
-            <Route
-              path="/Createworkfreelance"
-              component={CreateWorkFreeLance}
-            />
-            {/* Tier 2 */}
+            <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
+            <Route path="/EditprofileCompany" component={EditprofileCompany} />
+            <Route path="/Freelance" component={Freelance} />
+            <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
+            <Route path="/CreateworkCompany" component={CreateWorkCompany} />
             <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
-            {/* Tier 2 */}
-            <Route path="/WorkFreelance" component={WorkFreelance} />
-            {/* Tier 2 */}
+            <Route path="/EditworkCompany" component={EditWorkCompany} />
             <Route path="/Profilecompany" component={Profilecompany} />
             {/* Tier 2 */}
             <Route path="/EditprofileCompany" component={EditprofileCompany} />

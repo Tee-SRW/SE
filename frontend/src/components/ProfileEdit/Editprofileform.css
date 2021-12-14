@@ -5,6 +5,9 @@
     justify-content: 'center';
     align-items: 'center';
     height: '100%'; */
+    background: url('https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .Editprofileform-outer {
@@ -80,6 +83,7 @@
     font-size: 13px;
     width: 125px;
     height: 50px;
+    color: #000;
 }
 
 .bottomprofile2 {
@@ -98,3 +102,4 @@
     display: grid !important;
     justify-content: space-around;
 }
+
