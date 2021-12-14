@@ -68,7 +68,7 @@ export default function EditWorkCompany(props) {
           <option>Graphic & Design</option>
           <option value="1">Marketing</option>
           <option value="2">Programming</option>
-          <Form.Control.Feedback type="invalid">
+          <Form.Control.Feedback tooltip type="invalid">
             กรุณาเลือก หมวดหมู่งาน
           </Form.Control.Feedback>
         </Form.Select>
@@ -76,17 +76,17 @@ export default function EditWorkCompany(props) {
         <br /><br />
         <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
             <Form.Label>ชื่องาน</Form.Label>
             <Form.Control required type="text" placeholder="ชื่องาน" />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback tooltip type="invalid">
               โปรดระบุ ชื่องาน
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
@@ -95,29 +95,29 @@ export default function EditWorkCompany(props) {
               as="textarea"
               rows={5}
             />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback tooltip type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
             <Form.Label>ตำแหน่ง</Form.Label>
             <Form.Control required type="text" placeholder="ตำแหน่ง" />
-            <Form.Control.Feedback type="invalid">
+            <Form.Control.Feedback tooltip type="invalid">
               โปรดระบุ ตำแหน่ง
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
               <Form.Label>จำนวน</Form.Label>
 
               <Form.Control required type="text" placeholder="0" />
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback tooltip type="invalid">
                 กรุณาใส่ จำนวนคน
               </Form.Control.Feedback>
             </Form.Group>
@@ -127,13 +127,13 @@ export default function EditWorkCompany(props) {
           </Col>
         </Row>
 
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
               <Form.Label>เงินเดือน</Form.Label>
 
               <Form.Control required type="text" placeholder="0.00" />
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback tooltip type="invalid">
                 กรุณาใส่ เงินเดือน
               </Form.Control.Feedback>
             </Form.Group>
@@ -148,7 +148,7 @@ export default function EditWorkCompany(props) {
               <Form.Label className="whites">.</Form.Label>
 
               <Form.Control required type="text" placeholder="0.00" />
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback tooltip type="invalid">
                 กรุณาใส่ เงินเดือน
               </Form.Control.Feedback>
             </Form.Group>
@@ -158,7 +158,7 @@ export default function EditWorkCompany(props) {
             <Form.Label>บาท</Form.Label>
           </Col>
         </Row>
-        <Row className="mb-3">
+        <Row className="mb-3 spacing-top">
           <Col>
             <Form.Label>วุฒิการศึกษา</Form.Label>
             <Form.Select size="sm" as={Col} md="4" controlId="validationCustom01">
@@ -170,7 +170,7 @@ export default function EditWorkCompany(props) {
               <option value="5">ปริญญาตรี</option>
               <option value="6">ปริญญาโท</option>
               <option value="7">ปริญญาเอก</option>
-              <Form.Control.Feedback type="invalid">
+              <Form.Control.Feedback tooltip type="invalid">
                 กรุณาเลือก วุฒิการศึกษา
               </Form.Control.Feedback>
             </Form.Select>

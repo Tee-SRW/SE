@@ -21,17 +21,17 @@ export default function EditprofileCompanyform(props) {
     <div className="EditprofileCompanyform-outer">
       <div className="EditprofileCompanyform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
-        <div className="">
+        <div className="d-grid2">
           <img
             src=" "
             className="img-fluid rounded-circle"
             alt="Profile Admin"
           ></img>
         </div>
-        <div className="d-grid gap-2 spacing-top">
+        <div className="d-grid2 gap-2 spacing-top btn-fontblack">
           <button
             type="submit"
-            className="btn btn-dark btn-lg btn-block bottomprofile"
+            className="btn btn-lg color bottomprofileprofile"
           >
             แก้ไขโปรไฟล์
           </button>
@@ -117,10 +117,10 @@ export default function EditprofileCompanyform(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 btn-color">
             <Button
               type="submit"
-              className="btn btn-dark btn-lg btn-block spacing-top10"
+              className="btn btn-lg color spacing-top10"
             >
               บันทึก
             </Button>
