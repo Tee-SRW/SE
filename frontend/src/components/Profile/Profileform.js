@@ -50,15 +50,15 @@ export default function Profileform(props) {
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src=""
+            src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image"
-            alt="Profile Admin"
+            // alt="Profile Admin"
             values={values.Profile__image}
             fluid
           />
           <div className="board__head">
             <h1 className="board__name ">
-              ชื่ออะไรสักอย่าง<text>{props.First__name}</text>
+              สุชัย <text>{props.First__name}</text>
             </h1>
             <div className="board__setting">
               <div className="board__box">
@@ -80,7 +80,7 @@ export default function Profileform(props) {
             </div>
           </div>
           <h2 className="board__last">
-            นามสกุลอะไรสักอย่าง <text>{props.Last__name}</text>
+            อัศะ <text>{props.Last__name}</text>
           </h2>
         </div>
 
@@ -91,7 +91,7 @@ export default function Profileform(props) {
               <label className="box__midtext__start">
                 เบอร์โทรศัพท์
                 <label className="box__midtext__end">
-                  08x-xxx-xxxx <text>{props.Contact__phone}</text>
+                  099-297-9490 <text>{props.Contact__phone}</text>
                 </label>
               </label>
             </div>
@@ -99,7 +99,7 @@ export default function Profileform(props) {
               <label className="box__bottomtext__start">
                 อีเมล
                 <label className="box__bottomtext__end">
-                  zzzzzz@hotmail.com<text>{props.Contact__email}</text>
+                  joppy.inc123@gmail.com<text>{props.Contact__email}</text>
                 </label>
               </label>
             </div>

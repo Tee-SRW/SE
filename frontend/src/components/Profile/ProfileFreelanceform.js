@@ -55,14 +55,15 @@ export default function ProfileFreelanceform(props) {
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src=""
+            src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image"jpg
-            alt="Profile Admin"
+            // alt="Profile Admin"
             values={values.Profile__freelance__image}
             fluid
           />
+          
           <div className="board__head">
-            <h1 className="board__name">ชื่ออะไรสักอย่าง<text>{props.First__name__freelance}</text></h1>
+            <h1 className="board__name">สุชัย<text>{props.First__name__freelance}</text></h1>
             <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
             <div className="board__setting">
               <div className="board__box">
@@ -83,7 +84,7 @@ export default function ProfileFreelanceform(props) {
               </div>
             </div>
           </div>
-          <h2 className="board__last">นามสกุลอะไรสักอย่าง<text>{props.Last__name__freelance}</text></h2>
+          <h2 className="board__last">อัศะ<text>{props.Last__name__freelance}</text></h2>
         </div>
 
         <div className="box_bg">
@@ -92,14 +93,14 @@ export default function ProfileFreelanceform(props) {
             <div>
               <label className="box__midtext__start">
                 เบอร์โทรศัพท์
-                <label className="box__midtext__end">08x-xxx-xxxx<text>{props.Contact__phone__freelance}</text></label>
+                <label className="box__midtext__end">099-297-9490<text>{props.Contact__phone__freelance}</text></label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
                 อีเมล
                 <label className="box__bottomtext__end">
-                  zzzzzz@hotmail.com<text>{props.Contact__email__freelance}</text>
+                  joppy.inc123@gmail.com<text>{props.Contact__email__freelance}</text>
                 </label>
               </label>
             </div>
