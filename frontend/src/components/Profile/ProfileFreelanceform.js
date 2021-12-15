@@ -53,38 +53,41 @@ export default function ProfileFreelanceform(props) {
   return (
     <Container className="container-profile">
       <div className="bg">
-        <div className="board__container">
-
-          <Row className="marginl">
-            <Col>
-              <Image
-                // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
-                // className="img-fluid rounded-circle image"
-                // alt="Profile Admin"
-                src="/images/IMG_20210208_195921_677.jpg"
-                className="img-fluid rounded-circle image" jpg
-                // alt="Profile Admin"
-                values={values.Profile__freelance__image}
-                fluid
-              />
-            </Col>
-            <Col >
-              {/* <text>{props.First__name__freelance}</text> */}
-              <Col className="margin">
-                <h1 > สุชัย  อัศะ</h1>
-                <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
-                <button
+        <div className="board__container__freelance">
+          <Image
+            // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
+            // className="img-fluid rounded-circle image"
+            // alt="Profile Admin"
+            src="/images/IMG_20210208_195921_677.jpg"
+            className="img-fluid rounded-circle image"jpg
+            // alt="Profile Admin"
+            values={values.Profile__freelance__image}
+            fluid
+          />
+          
+          <div className="board__head__freelance">
+            <h1 className="board__name__freelance">สุชัย<text>{props.First__name__freelance}</text></h1>
+            <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
+            <div className="board__setting">
+              <div className="board__box">
+                {/* <inputvalue={url}
+                  className="d-none"
+                  type="file"
+                  multiple
+                  onChange={geturl}
+                  onChange={imageChange}
+                /> */}
+              <button
                   className="btn btn-outline-primary bottom__profileform"
                   type="submit"
                   onClick={() => history.push("/Editprofilefreelance")}
                 >
                   แก้ไขโปรไฟล์
                 </button>
-              </Col>
-
-            </Col>
-          </Row>
-
+              </div>
+            </div>
+          </div>
+          <h2 className="board__last__freelance">อัศะ<text>{props.Last__name__freelance}</text></h2>
         </div>
 
         <div className="box_bg">
