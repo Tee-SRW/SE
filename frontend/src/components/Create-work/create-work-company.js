@@ -97,13 +97,12 @@ export default function CreateWorkCompany(props) {
       // console.log(values.email);
       // console.log(values.password);
       // console.log(res);
-      // console.log(res.data);
-    
-      if(form.checkValidity() === true) {
-        
+      // console.log(res.data);    
+    })
+    if(form.checkValidity() === true) {
+      alert("สร้างประกาศรับสมัครงานสำเร็จ")
         history.push("/Profilecompany")
       }
-    })
   };
 
   return (
@@ -192,7 +191,7 @@ export default function CreateWorkCompany(props) {
 
               <Form.Control
                 required
-                type="text"
+                type="number"
                 placeholder="0"
                 name="NumPerson"
                 value={values.numperson}
@@ -214,7 +213,7 @@ export default function CreateWorkCompany(props) {
               <Form.Label>เงินเดือน</Form.Label>
 
               <Form.Control
-                required type="text"
+                required type="number"
                 placeholder="0.00"
                 name="PriceWorkMin"
                 value={values.priceworkmin}
@@ -236,7 +235,7 @@ export default function CreateWorkCompany(props) {
 
               <Form.Control
                 required
-                type="text"
+                type="number"
                 placeholder="0.00"
                 name="PriceWorkMax"
                 value={values.priceworkmax}

@@ -80,8 +80,13 @@ export default function Signupform(props) {
       console.log(company);
       console.log(res);
       console.log(res.data);
+
+      
     })
-    
+    if(form.checkValidity() === true) {
+        alert("สมัครสมาขิกสำเร็จ")
+        history.push("/Login")
+      }
 
   };
 

@@ -139,7 +139,7 @@ export default function EditWorkFreelance(props) {
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control
-                required type="text"
+                required type="number"
                 placeholder="0.00"
                 name="minsalary"
                 onChange={handleValuesChange("minsalary")}
@@ -189,7 +189,7 @@ export default function EditWorkFreelance(props) {
           <Col>
             <Button
               className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profile")}
+              onClick={() => history.push("/Profilefreelance")}
             >
               ยกเลิก
             </Button>

@@ -136,20 +136,24 @@ export default function Editprofileform(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10 ">
-              บันทึก
-            </Button>
-          </div>
-          <div className="d-grid gap-2 btn-color">
+          <Row className="gap-2 btn-color">
+          <Col>
             <Button
-              type="submit"
-              className="btn btn-lg color spacing-top10 "
+              className="btn color2 shadow1 spacing-top10"
               onClick={() => history.push("/Profile")}
             >
-              ย้อนกลับ
+              ยกเลิก
             </Button>
-          </div>
+          </Col>
+          <Col className="create-work-freelance-buttonSave">
+            <Button
+              type="submit"
+              className="btn color spacing-top10"
+            >
+              บันทึก
+            </Button>
+          </Col>
+        </Row>
         </Form>
       </div>
     </div>

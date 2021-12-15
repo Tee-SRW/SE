@@ -192,31 +192,40 @@ export default function EditprofileCompanyform(props) {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Group as={Col} md="4" controlId="validationCustom10">
               <Form.Label>รหัสไปรษณีย์</Form.Label>
-              <Form.Control
+              <InputMask
                 required
-                type="text"
-                placeholder="รหัสไปรษณีย์"
-                name="Postcode"
-                onChange={handleValuesChange("Postcode")}
+                className="form-control"
+                placeholder="xxxxx"
+                mask="99999"
                 value={values.Postcode}
+                onChange={handleValuesChange("Postcode")}
               />
               <Form.Control.Feedback type="invalid">
-                กรุณาใส่ รหัสไปรษณีย์
+                กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10">
+
+          <Row className="gap-2 btn-color">
+          <Col>
+            <Button
+              className="btn color2 shadow1 spacing-top10"
+              onClick={() => history.push("/Profilecompany")}
+            >
+              ยกเลิก
+            </Button>
+          </Col>
+          <Col className="create-work-freelance-buttonSave">
+            <Button
+              type="submit"
+              className="btn color spacing-top10"
+            >
               บันทึก
             </Button>
-            <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10 "onClick={() => history.push("/Profile")} >
-              ย้อนกลับ
-            </Button>
-          </div>
-          </div>
+          </Col>
+        </Row>
         </Form>
       </div>
     </div>

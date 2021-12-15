@@ -104,41 +104,41 @@ export default function Profilecompanyform(props) {
             </div>
             <div>
               <label className="box__bottomtext__start">
-              ที่อยู่
+                ที่อยู่
                 <label className="box__bottomtext__end">
-                KMITL
+                  KMITL
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              ตำบล / แขวง
+                ตำบล / แขวง
                 <label className="box__bottomtext__end">
-                ลาดกระบัง
+                  ลาดกระบัง
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              อำเภอ  / เขต
+                อำเภอ  / เขต
                 <label className="box__bottomtext__end">
-                ลาดกระบัง
+                  ลาดกระบัง
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              จังหวัด
+                จังหวัด
                 <label className="box__bottomtext__end">
-                กรุงเทพฯ
+                  กรุงเทพฯ
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              รหัสไปรษณีย์
+                รหัสไปรษณีย์
                 <label className="box__bottomtext__end">
-                10520
+                  10520
                 </label>
               </label>
             </div>
@@ -168,7 +168,10 @@ export default function Profilecompanyform(props) {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => history.push("/EditworkCompany")}
+                >แก้ไข</Button>
               </Card.Body>
             </Card>
             {/* <h3 className="font__midtext">
@@ -187,7 +190,7 @@ export default function Profilecompanyform(props) {
               </Card.Body>
             </Card> */}
             <h3 className="font__midtext">
-            คุณไม่ได้ลงประกาศประเภทนี้ไว้
+              คุณไม่ได้ลงประกาศประเภทนี้ไว้
             </h3>
             <h3 className="font__topicf">Programing</h3>
             <Card style={{ width: "18rem" }}>{props.Card__3__company}
@@ -198,7 +201,10 @@ export default function Profilecompanyform(props) {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => history.push("/EditworkCompany")}
+                >แก้ไข</Button>
               </Card.Body>
             </Card>
             {/* <h3 className="font__midtext">

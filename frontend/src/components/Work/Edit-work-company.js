@@ -168,7 +168,7 @@ export default function EditWorkCompany(props) {
 
               <Form.Control
                 required
-                type="text"
+                type="number"
                 placeholder="0"
                 name="quantity"
                 onChange={handleValuesChange("quantity")}
@@ -189,7 +189,7 @@ export default function EditWorkCompany(props) {
               <Form.Label>เงินเดือน</Form.Label>
 
               <Form.Control
-                required type="text"
+                required type="number"
                 placeholder="0.00"
                 name="minsalary"
                 onChange={handleValuesChange("minsalary")}
@@ -210,7 +210,7 @@ export default function EditWorkCompany(props) {
 
               <Form.Control
                 required
-                type="text"
+                type="number"
                 placeholder="0.00"
                 name="maxsalary"
                 onChange={handleValuesChange("maxsalary")}
@@ -286,7 +286,7 @@ export default function EditWorkCompany(props) {
           <Col>
             <Button
               className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profile")}
+              onClick={() => history.push("/Profilecompany")}
             >
               ยกเลิก
             </Button>

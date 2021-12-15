@@ -85,10 +85,11 @@ export default function CreateWorkFreelance(props) {
       // console.log(res);
       // console.log(res.data);
     
+      })
       if(form.checkValidity() === true) {
+        alert("สร้างงานของคุณสำเร็จ")
         history.push("/Profilefreelance")
       }
-    })
   };
   return (
     <div className="create-work-outer">
@@ -158,7 +159,7 @@ export default function CreateWorkFreelance(props) {
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control
-                required type="text"
+                required type="number"
                 placeholder="0.00"
                 name="minsalary"
                 value={values.pricepostwork}

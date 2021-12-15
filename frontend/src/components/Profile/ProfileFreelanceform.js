@@ -154,7 +154,10 @@ export default function ProfileFreelanceform(props) {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => history.push("/EditWorkFreelance")}
+                >แก้ไข</Button>
               </Card.Body>
             </Card>
             {/* <h3 className="font__midtext">
@@ -184,7 +187,10 @@ export default function ProfileFreelanceform(props) {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => history.push("/EditWorkFreelance")}
+                >แก้ไข</Button>
               </Card.Body>
             </Card>
             {/* <h3 className="font__midtext">
