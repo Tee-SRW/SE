@@ -30,8 +30,7 @@ export default function Loginform() {
   };
 
   const [validated, setValidated] = useState(false);
-  
-  const baseUsl = "http://203.170.190.226:8080"
+  const baseUsl = "http://203.170.190.226:8080/";
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {

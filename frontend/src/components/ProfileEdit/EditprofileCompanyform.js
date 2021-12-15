@@ -3,11 +3,28 @@ import "./EditprofileCompanyform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
-
+import axios from "axios";
+const baseUsl = "http://203.170.190.226:8080/";
 export default function EditprofileCompanyform(props) {
+  const [values, setValues] = React.useState({
+    ID: "",
+    companyname: "",
+    companyemail: "",
+    CompanyPhone: "",
+    Address: "",
+    Subdistrict: "",
+    District: "",
+    Province: "",
+    Postcode: "",
+    ProfileCompany: "",
+  });
+  const handleValuesChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -16,7 +33,30 @@ export default function EditprofileCompanyform(props) {
       event.stopPropagation();
     }
     setValidated(true);
+    event.preventDefault();
+
+    const editprofilecompany = {
+      "ID": values.ID,
+      "companyname": values.companyname,
+      "companyemail": values.companyemail,
+      "CompanyPhone": values.CompanyPhone,
+      "Address": values.Address,
+      "Subdistrict": values.Subdistrict,
+      "District": values.District,
+      "Province": values.Province,
+      "Postcode": values.Postcode,
+      "ProfileCompany": values.ProfileCompany,
+    };
+    axios
+      .put(`${baseUsl}/updatecompany`, { editprofilecompany })
+      .then((res) => {
+        console.log(res.data);
+      });
+      if(form.checkValidity() === true) {
+        history.push("/Profilecompany")
+      }
   };
+  const history = useHistory();
   return (
     <div className="EditprofileCompanyform-outer">
       <div className="EditprofileCompanyform-inner">
@@ -40,7 +80,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อ</Form.Label>
-              <Form.Control required type="text" placeholder="ชื่อบริษัท" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="ชื่อบริษัท"
+                name="companyname"
+                onChange={handleValuesChange("companyname")}
+                value={values.companyname}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อบริษัท
               </Form.Control.Feedback>
@@ -50,7 +97,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="อีเมล"
+                name="companyemail"
+                onChange={handleValuesChange("companyemail")}
+                value={values.companyemail}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
               </Form.Control.Feedback>
@@ -64,8 +118,9 @@ export default function EditprofileCompanyform(props) {
                 className="form-control spacing-top"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                onChange={props.onChange}
-                value={props.value}
+                name="Companyphone"
+                onChange={handleValuesChange("CompanyPhone")}
+                value={values.CompanyPhone}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -75,7 +130,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>ที่อยู่</Form.Label>
-              <Form.Control required type="text" placeholder="ที่อยู่" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="ที่อยู่"
+                name="Address"
+                onChange={handleValuesChange("Address")}
+                value={values.Address}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
               </Form.Control.Feedback>
@@ -84,7 +146,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>ตำบล / แขวง</Form.Label>
-              <Form.Control required type="text" placeholder="ตำบล / แขวง" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="ตำบล / แขวง"
+                name="Subdistrict"
+                onChange={handleValuesChange("Subdistrict")}
+                value={values.Subdistrict}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
               </Form.Control.Feedback>
@@ -93,7 +162,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>อำเภอ / เขต</Form.Label>
-              <Form.Control required type="text" placeholder="อำเภอ / เขต" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="อำเภอ / เขต"
+                name="District"
+                onChange={handleValuesChange("District")}
+                value={values.District}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อำเภอ / เขต
               </Form.Control.Feedback>
@@ -102,7 +178,14 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>จังหวัด</Form.Label>
-              <Form.Control required type="text" placeholder="จังหวัด" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="จังหวัด"
+                name="Province"
+                onChange={handleValuesChange("Province")}
+                value={values.Province}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จังหวัด
               </Form.Control.Feedback>
@@ -111,19 +194,28 @@ export default function EditprofileCompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>รหัสไปรษณีย์</Form.Label>
-              <Form.Control required type="text" placeholder="รหัสไปรษณีย์" />
+              <Form.Control
+                required
+                type="text"
+                placeholder="รหัสไปรษณีย์"
+                name="Postcode"
+                onChange={handleValuesChange("Postcode")}
+                value={values.Postcode}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ รหัสไปรษณีย์
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button
-              type="submit"
-              className="btn btn-lg color spacing-top10"
-            >
+            <Button type="submit" className="btn btn-lg color spacing-top10">
               บันทึก
             </Button>
+            <div className="d-grid gap-2 btn-color">
+            <Button type="submit" className="btn btn-lg color spacing-top10 "onClick={() => history.push("/Profile")} >
+              ย้อนกลับ
+            </Button>
+          </div>
           </div>
         </Form>
       </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Profilecompanyform.css";
 import Card from "react-bootstrap/Card";
+import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
@@ -33,6 +34,18 @@ export default function Profilecompanyform(props) {
   const removeSelectedImage = () => {
     setSelectedImage();
   };
+  const [values, setValues] = React.useState({
+    First__name: "",
+    Contact__phone__company: "",
+    Contact__email__company: "",
+    Card__1__company: "",
+    Card__2__company: "",
+    Card__3__company: "",
+  });
+  const handleValuesChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
+  const history = useHistory();
   return (
     <Container className="container-profile">
       <div className="bg">
@@ -44,10 +57,11 @@ export default function Profilecompanyform(props) {
             src=""
             className="img-fluid rounded-circle image"
             alt="Profile Admin"
+            values={values.Profile__company__image}
             fluid
           />
           <div className="board__head__company">
-            <h1 className="board__name__company">ชื่อบริษัท</h1>
+            <h1 className="board__name__company">ชื่อบริษัท<text>{props.First__company}</text></h1>
             {/* <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1> */}
             <div className="board__setting">
               <div className="board__box">
@@ -58,8 +72,12 @@ export default function Profilecompanyform(props) {
                   onChange={geturl}
                   onChange={imageChange}
                 /> */}
-                <button className="btn btn-outline-primary bottom__profileform">
-                  แก้ไขข้อมูล
+                <button
+                  className="btn btn-outline-primary bottom__profileform"
+                  type="submit"
+                  onClick={() => history.push("/Editprofilecompany")}
+                >
+                  แก้ไขโปรไฟล์
                 </button>
               </div>
             </div>
@@ -73,14 +91,14 @@ export default function Profilecompanyform(props) {
             <div>
               <label className="box__midtext__start">
                 เบอร์โทรศัพท์
-                <label className="box__midtext__end">08x-xxx-xxxx</label>
+                <label className="box__midtext__end">08x-xxx-xxxx<text>{props.Contact__phone__company}</text></label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
                 อีเมล
                 <label className="box__bottomtext__end">
-                  zzzzzz@hotmail.com
+                  zzzzzz@hotmail.com<text>{props.Contact__email__company}</text>
                 </label>
               </label>
             </div>
@@ -142,7 +160,7 @@ export default function Profilecompanyform(props) {
                 </div>
               </div>
             </div> */}
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "18rem" }}>{props.Card__1__company}
               <Card.Img variant="top" src="holder.js/240px240" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
@@ -156,7 +174,7 @@ export default function Profilecompanyform(props) {
             {/* <h3 className="font__midtext">
               คุณไม่ได้ลงทะเบียนการเป็น “ฟรีแลนซ์” ไว้
             </h3> */}
-            <h3 className="font__topicf">การตลาด</h3>
+            <h3 className="font__topicf">การตลาด{props.Card__2__company}</h3>
             {/* <Card style={{ width: "18rem" }}>
               <Card.Img variant="top" src="holder.js/240px240" />
               <Card.Body>
@@ -172,7 +190,7 @@ export default function Profilecompanyform(props) {
             คุณไม่ได้ลงประกาศประเภทนี้ไว้
             </h3>
             <h3 className="font__topicf">Programing</h3>
-            <Card style={{ width: "18rem" }}>
+            <Card style={{ width: "18rem" }}>{props.Card__3__company}
               <Card.Img variant="top" src="holder.js/240px240" />
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>

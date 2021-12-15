@@ -52,6 +52,11 @@ export default function EditWorkFreelance(props) {
     console.log(values.workname);
     console.log(values.description);
     console.log(values.minsalary);
+
+    if(form.checkValidity() === true) {
+      alert("แก้ไขการสร้างงานของคุณสำเร็จ")
+      history.push("/Profilefreelance")
+    }
   };
   let url = ""
 

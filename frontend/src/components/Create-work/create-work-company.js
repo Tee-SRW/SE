@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
+
 export default function CreateWorkCompany(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
@@ -97,6 +98,11 @@ export default function CreateWorkCompany(props) {
       // console.log(values.password);
       // console.log(res);
       // console.log(res.data);
+    
+      if(form.checkValidity() === true) {
+        
+        history.push("/Profilecompany")
+      }
     })
   };
 

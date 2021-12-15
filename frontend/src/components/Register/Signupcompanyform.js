@@ -81,9 +81,7 @@ export default function Signupform(props) {
       console.log(res);
       console.log(res.data);
     })
-    if(form.checkValidity() === true) {
-      history.push("/Login")
-    }
+    
 
   };
 
