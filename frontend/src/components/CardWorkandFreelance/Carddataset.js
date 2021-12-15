@@ -3,254 +3,176 @@ export const Nothing = [
 ];
 export const GraphicFree = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'GraphicFree',
-        path:'/sign-up'
+        text: "Graphic & Design",
+        price: 3000,
+        text2: "you want",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'GraphicFree',
-        path:'/services'
+        text: "Graphic & Design",
+       price: 2000,
+        text2: "EZ",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'GraphicFree',
-        path:'/services'
+        text: "Graphic & Design",
+        price: 7000,
+        text2: "kiminoto",
+        label: "Turbo Saypantong",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'GraphicFree',
-        path:'/products'
+        text: "Graphic & Design",
+       price: 8888,
+        text2: "dev",
+        label: "jop asa",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'GraphicFree',
-        path:'/services'
+        text: "Graphic & Design",
+       price: 2500,
+        text2: "last",
+        label: "jop asa",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkFreelance"
     }
+
 ];
 
 export const GraphicWork = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'GraphicWork',
-        path:'/sign-up'
+        text: "Graphic & Design",
+        price: 3000,
+        text2: "you want",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkCompany"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'GraphicWork',
-        path:'/services'
+        text: "Graphic & Design",
+       price: 2000,
+        text2: "EZ",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/design.jpeg"
+        ,path:  "/WorkCompany"
     },
     {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'GraphicWork',
-        path:'/services'
+        text: "Graphic & Design",
+        price: 7000,
+        text2: "kiminoto",
+        label: "Turbo Saypantong",
+        srcwork: "images/design.jpeg"
+        ,path: "/WorkCompany"
     },
     {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'GraphicWork',
-        path:'/products'
+        text: "Graphic & Design",
+       price: 8888,
+        text2: "dev",
+        label: "jop asa",
+        srcwork: "images/design.jpeg"
+        ,path:  "/WorkCompany"
     },
     {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'GraphicWork',
-        path:'/services'
+        text: "Graphic & Design",
+       price: 2500,
+        text2: "last",
+        label: "jop asa",
+        srcwork: "images/design.jpeg"
+        ,path:  "/WorkCompany"
     }
 ];
 export const MarketFree = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'MarketFree',
-        path:'/sign-up'
+        text: "Marketing",
+       price: 1000,
+        text2: "low cost",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/market.png"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'MarketFree',
-        path:'/services'
+        text: "Marketing",
+       price: 4000,
+        text2: "cat",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/market.png"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'MarketFree',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'MarketFree',
-        path:'/products'
-    },
-    {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'MarketFree',
-        path:'/services'
+        text: "Marketing",
+       price: 1420,
+        text2: "plslast",
+        label: "jop asa",
+        srcwork: "images/market.png"
+        ,path: "/WorkFreelance"
     }
+
 ];
 export const MarketWork = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'MarketWork',
-        path:'/sign-up'
+        text: "Marketing",
+       price: 1000,
+        text2: "low cost",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/market.png"
+        ,path: "/WorkCompany"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'MarketWork',
-        path:'/services'
+        text: "Marketing",
+       price: 4000,
+        text2: "cat",
+        label: "Pulawat Boonsiri",
+        srcwork: "images/market.png"
+        ,path: "/WorkCompany"
     },
     {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'MarketWork',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'MarketWork',
-        path:'/products'
-    },
-    {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'MarketWork',
-        path:'/services'
+        text: "Marketing",
+       price: 1420,
+        text2: "plslast",
+        label: "jop asa",
+        srcwork: "images/market.png"
+        ,path: "/WorkCompany"
     }
 ];
 export const ProgrammingFree = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'ProgrammingFree',
-        path:'/sign-up'
+        text: "Programming",
+       price: 4000,
+        text2: "yoyo",
+        label: "สุชัย อัศะ",
+        srcwork: "images/programming.jpeg"
+        ,path: "/WorkFreelance"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'ProgrammingFree',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'ProgrammingFree',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'ProgrammingFree',
-        path:'/products'
-    },
-    {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'ProgrammingFree',
-        path:'/services'
+        text: "Programming",
+       price: 2500,
+        text2: "test",
+        label: "jop asa",
+        srcwork: "images/programming.jpeg"
+        ,path: "/WorkFreelance"
     }
 ];
 export const ProgrammingWork = [
     {
-        srcwork:'images/img-8.jpg',
-        text:'Ride through the Sahara Desert on a guided camel tour',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-8.jpg',
-        label:'ProgrammingWork',
-        path:'/sign-up'
+        text: "Programming",
+       price: 4000,
+        text2: "yoyo",
+        label: "สุชัย อัศะ",
+        srcwork: "images/programming.jpeg"
+        ,path:  "/WorkCompany"
     },
     {
-        srcwork:'images/img-2.jpg',
-        text:'Travel through the Islands of Bali in a Private Cruise',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-2.jpg',
-        label:'ProgrammingWork',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-3.jpg',
-        text:'Set Sail in the Atlantic Ocean visiting Uncharted Waters',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-3.jpg',
-        label:'ProgrammingWork',
-        path:'/services'
-    },
-    {
-        srcwork:'images/img-4.jpg',
-        text:'Experience Football on Top of the Himilayan Mountains',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-4.jpg',
-        label:'ProgrammingWork',
-        path:'/products'
-    },
-    {
-        srcwork:'images/img-9.jpg',
-        text:'Explore the hidden waterfall deep inside the Amazon Jungle',
-        price:'ราคา :9xxx',
-        //srcprofile:'images/img-9.jpg',
-        label:'ProgrammingWork',
-        path:'/services'
+        text: "Programming",
+       price: 2500,
+        text2: "test",
+        label: "jop asa",
+        srcwork: "images/programming.jpeg"
+        ,path: "/WorkCompany"
     }
 ];

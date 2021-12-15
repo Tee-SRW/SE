@@ -7,6 +7,12 @@ import axios from 'axios';
 import { Nothing, GraphicFree, GraphicWork, MarketFree, MarketWork, ProgrammingFree, ProgrammingWork } from './CardWorkandFreelance/Carddataset';
 
 function Cards() {
+  const pp  = [
+    [GraphicFree, GraphicWork], 
+    [MarketFree, MarketWork],
+    [ProgrammingFree, ProgrammingWork]
+  ]
+
   const [click, setClick] = useState(false);
   const [clickGraphic, setClickGraphic] = useState(false);
   const [clickMarket, setClickMarket] = useState(false);
@@ -110,7 +116,11 @@ function Cards() {
   //       "image_work_post_freelance": "Image_Work_Post_Freelance1"
   //   }
   // ]
+  const work = [
+    {
 
+    }
+  ]
 
 
 
@@ -163,7 +173,7 @@ function Cards() {
         <div className='cards__container'>
           <div className='cards__wrapper'>
             <ul className='cards__items'>
-              {MarketWork.map((Item, index) => {
+              {GraphicFree.map((Item, index) => {
                 return (
                   <>
                     <li className='cards__item' key={index}>
@@ -179,6 +189,7 @@ function Cards() {
                         </figure>
                         <div className='cards__item__info'>
                           <h5 className='cards__item__text'>{Item.text}</h5>
+                          <h5 className='cards__item__text'>{Item.text2}</h5>
                         </div>
                         <h5 className='cards__item__text_price'>{Item.price}</h5>
                       </Link>

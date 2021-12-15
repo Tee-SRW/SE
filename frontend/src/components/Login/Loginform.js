@@ -10,10 +10,11 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Container, Row, Col } from "react-grid-system";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Loginform() {
-  
+  const history = useHistory();
   const [values, setValues] = React.useState({
     email:"",
     password: "",
@@ -52,6 +53,9 @@ export default function Loginform() {
       console.log(res);
       console.log(res.data);
     })
+    if(form.checkValidity() === true) {
+      history.push("/")
+    }
   };
 
 
