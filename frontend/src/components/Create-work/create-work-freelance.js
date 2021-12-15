@@ -85,6 +85,10 @@ export default function CreateWorkFreelance(props) {
       // console.log(values.password);
       // console.log(res);
       // console.log(res.data);
+    
+      if(form.checkValidity() === true) {
+        history.push("/Profilefreelance")
+      }
     })
   };
   return (

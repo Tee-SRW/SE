@@ -14,10 +14,14 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from 'react-router-dom';
+
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Freelance(props) {
+  const history = useHistory();
+
   const [values, setValues] = React.useState({
     firstname: "",
     lastname: "",
@@ -40,6 +44,12 @@ export default function Freelance(props) {
       event.stopPropagation();
     }
     setValidated(true);
+
+
+    if(form.checkValidity() === true) {
+      alert("สมัครเป็นฟรีแลนซ์สำเร็จ")
+      history.push("/Profilefreelance")
+    }
   };
   return (
     <div className="Signupform-outer">

@@ -16,12 +16,13 @@ import Input from "@material-ui/core/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
-
+  const history = useHistory();
   const [values, setValues] = React.useState({
     firstname: "",
     lastname: "",
@@ -80,6 +81,10 @@ export default function Signupform(props) {
         console.log(res.data);
       })
       
+      if(form.checkValidity() === true) {
+        alert("สมัครสมาขิกสำเร็จ")
+        history.push("/Login")
+      }
   };
 
 
@@ -203,6 +208,7 @@ export default function Signupform(props) {
             <Button
               type="submit"
               className="btn btn-lg color spacing-top10"
+            // onClick={()=> history.push("/")}
             >
               สมัครสมาชิก
             </Button>

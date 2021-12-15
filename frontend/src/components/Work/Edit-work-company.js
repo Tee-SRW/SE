@@ -59,6 +59,11 @@ export default function EditWorkCompany(props) {
     console.log(values.minsalary);
     console.log(values.maxsalary);
     console.log(values.education);
+
+    if(form.checkValidity() === true) {
+      alert("แก้ไขประกาศรับสมัครงานสำเร็จ")
+      history.push("/Profilecompany")
+    }
   };
   let url = ""
 
