@@ -13,7 +13,7 @@ html {
     background-size: cover;
 }
 
-.board__container {
+.board__container__freelance {
     display: flex;
     width: 100%;
     height: 300px;
@@ -22,7 +22,7 @@ html {
     justify-content: space-between;
     background-color: #6DBAE7;
     align-items: flex-start;
-    align-content: space-around;
+    align-content: flex-start;
 }
 
 .container-profile {
@@ -82,11 +82,11 @@ html {
     font-weight: bold;
 }
 
-.board__name {
+.board__name__freelance {
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     line-height: 2.4;
     align-items: center;
     margin-right: 140px;
@@ -116,8 +116,9 @@ html {
     margin-right: 0px;
 }
 
-.board__head {
-    margin-top: 80px;
+.board__head__freelance {
+    margin-top: 50px;
+    margin-bottom: 40px;
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;
     display: flex;
@@ -127,8 +128,8 @@ html {
     justify-content: center;
 }
 
-.board__last {
-    margin-top: 80px;
+.board__last__freelance {
+    margin-top: 50px;
     margin-right: 130px;
     font-size: 32px;
     font-family: 'PT Sans', sans-serif;

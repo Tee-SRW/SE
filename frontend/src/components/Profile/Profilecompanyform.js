@@ -54,7 +54,7 @@ export default function Profilecompanyform(props) {
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src=""
+            src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image__company"
             alt="Profile Admin"
             values={values.Profile__company__image}
@@ -82,7 +82,7 @@ export default function Profilecompanyform(props) {
               </div>
             </div>
           </div>
-          {/* <h2 className="board__last">นามสกุลอะไรสักอย่าง</h2> */}
+          <h2 className="board__last__freelance"><text>{props.Last__name__freelance}</text></h2>
         </div>
 
         <div className="box_bg">
