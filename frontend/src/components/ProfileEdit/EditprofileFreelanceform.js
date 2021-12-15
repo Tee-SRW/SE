@@ -76,7 +76,7 @@ export default function EditprofileFreelance(props) {
         <div className="d-grid2">
           <img
             src=" "
-            className="img-fluid rounded-circle"
+            className="img-fluid rounded-circle image__freelance"
             alt="Profile Admin"
           ></img>
         </div>

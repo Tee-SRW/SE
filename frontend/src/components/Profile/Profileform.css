@@ -32,6 +32,8 @@ html {
 }
 
 .image {
+    margin-top: 40px;
+    margin-left: 10px;
     display: flex;
     justify-content: space-between;
     width: 250px;
