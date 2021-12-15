@@ -8,8 +8,8 @@ import InputMask from "react-input-mask";
 import { useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye} />;
-const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
+import axios from "axios";
+
 
 export default function CreateWorkFreelance(props) {
   // const [values, setValues] = React.useState({
@@ -31,28 +31,17 @@ export default function CreateWorkFreelance(props) {
   const history = useHistory();
 
   const [values, setValues] = React.useState({
-    genre: "",
-    workname: "",
-    description: "",
-    minsalary: "",
+    typeWorknumber: "",
+    namework: "",
+    detailwork: "",
+    pricepostwork: "",
   });
   const handleValuesChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-    setValidated(true);
-    console.log(values.genre);
-    console.log(values.workname);
-    console.log(values.description);
-    console.log(values.minsalary);
-  };
+  
   let url = ""
 
   const geturl = (e) => {
@@ -69,6 +58,35 @@ export default function CreateWorkFreelance(props) {
   //   setSelectedImage();
   // };
 
+  const baseUsl = "http://203.170.190.226:8080/"
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  
+    event.preventDefault();
+
+    const user = {
+      "typeWorknumber":values.typeWorknumber,
+      "detailwork":values.detailwork,
+      "userid":3,
+      "pricepostwork":values.pricepostwork,
+      "namework":values.namework,
+      "imageworkpostfreelance":"imageworkpostfreelancexd"
+    };
+
+    axios.post(`${baseUsl}/addworkFreelance`,{ user })
+    .then(res => {
+      console.log(user);
+      // console.log(values.email);
+      // console.log(values.password);
+      // console.log(res);
+      // console.log(res.data);
+    })
+  };
   return (
     <div className="create-work-outer">
       <h3>สร้างงานของฉัน</h3>
@@ -80,13 +98,13 @@ export default function CreateWorkFreelance(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={values.genre}
-          onChange={handleValuesChange("genre")}
+          value={values.typeWorknumber}
+          onChange={handleValuesChange("typeWorknumber")}
         >
           <option>--------------</option>
-          <option value="Graphic & Design">Graphic & Design</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Programming">Programming</option>
+          <option value="1">Graphic & Design</option>
+          <option value="2">Marketing</option>
+          <option value="3">Programming</option>
 
           {/* <Form.Control.Feedback tooltip type="invalid">
             กรุณาเลือก หมวดหมู่งาน
@@ -103,8 +121,9 @@ export default function CreateWorkFreelance(props) {
               required
               type="text"
               placeholder="ชื่องาน"
-              name="workname"
-              onChange={handleValuesChange("workname")}
+              name="namework"
+              value={values.namework}
+              onChange={handleValuesChange("namework")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -121,7 +140,8 @@ export default function CreateWorkFreelance(props) {
               as="textarea"
               rows={5}
               name="description"
-              onChange={handleValuesChange("description")}
+              value={values.detailwork}
+              onChange={handleValuesChange("detailwork")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -138,7 +158,8 @@ export default function CreateWorkFreelance(props) {
                 required type="text"
                 placeholder="0.00"
                 name="minsalary"
-                onChange={handleValuesChange("minsalary")}
+                value={values.pricepostwork}
+                onChange={handleValuesChange("pricepostwork")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ราคาเริ่มต้น
