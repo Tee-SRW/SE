@@ -82,7 +82,7 @@ func (u UserModel) Updateuser(idint int,
 
 	db := database.Connectdata()
 
-	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_user = ? WHERE id = ?", firstname, lastname, email, phone, profile_user, idint)
+	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_user = ?,  WHERE id = ?", firstname, lastname, email, phone, profile_user, idint)
 
 	if err != nil {
 		fmt.Print(err)
@@ -159,7 +159,6 @@ func (u UserModel) UpdateFreelance(
 	firstname string,
 	lastname string,
 	email string,
-	password string,
 	phone string,
 	profileuser string,
 	line string,
@@ -167,8 +166,8 @@ func (u UserModel) UpdateFreelance(
 	instagram string) (string, error) {
 
 	db := database.Connectdata()
-
-	_, err := db.Exec("update user set FirstName = ?, LastName = ?, Email = ?, Password = ?, Phone = ?, Profile_User = ?, Line = ?, Facebook = ?, Instagram = ? where TypeNumber_User = 2 and ID = ?", firstname, lastname, email, password, phone, profileuser, line, facebook, instagram, id)
+	TypeNumber_User := 2
+	_, err := db.Exec("update user set FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_User = ?, Line = ?, Facebook = ?, Instagram = ? , TypeNumber_User = ? where ID = ?", firstname, lastname, email, phone, profileuser, line, facebook, instagram, TypeNumber_User, id)
 
 	if err != nil {
 		fmt.Print(err)

@@ -133,7 +133,6 @@ func (u UserController) UpdateFreelance(c *gin.Context) {
 		user.FirstName,
 		user.LastName,
 		user.Email,
-		user.Password,
 		user.Phone,
 		user.Profile_User,
 		user.Line,
