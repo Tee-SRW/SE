@@ -13,6 +13,7 @@ import Button from "react-bootstrap/Button";
 import axios from 'axios';
 
 export default function Loginform() {
+  
   const [values, setValues] = React.useState({
     email:"",
     password: "",
@@ -28,8 +29,7 @@ export default function Loginform() {
   };
 
   const [validated, setValidated] = useState(false);
-  
-  const baseUsl = "http://203.170.190.226:8080"
+  const baseUsl = "http://203.170.190.226:8080/";
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {

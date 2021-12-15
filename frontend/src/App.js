@@ -60,7 +60,10 @@ function App() {
             <Route path="/Editprofile" component={Editprofile} />
             {/* Tier 2 */}
             <Route path="/Profilefreelance" component={Profilefreelance} />
-            <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
+            <Route
+              path="/Editprofilefreelance"
+              component={EditprofileFreelacne}
+            />
             <Route path="/EditprofileCompany" component={EditprofileCompany} />
             <Route path="/WorkFreelance" component={WorkFreelance} />
             <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
@@ -76,6 +79,9 @@ function App() {
             <Route path="/EditworkCompany" component={EditWorkCompany} />
             {/* Tier 2 */}
             <Route path="/WorkCompany" component={WorkCompany} />
+            {/* Tier 2 */}
+            {/* Tier 2 */}
+            <Route path="/WorkFreelance" component={WorkFreelance} />
             {/* Tier 2 */}
           </Switch>
         </div>
