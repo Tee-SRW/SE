@@ -22,6 +22,7 @@ type UpdateUser struct {
 type LoginUser struct {
 	Status string `json:"status"`
 	ID     int    `json:"id"`
+	TypeNumber_User int `json:"typenumber_user"`
 }
 
 type GetUser struct {
@@ -51,7 +52,6 @@ type UpdateFreelance struct {
 	FirstName    string `json:"firstname"`
 	LastName     string `json:"lastname"`
 	Email        string `json:"email"`
-	Password     string `json:"password"`
 	Phone        string `json:"phone"`
 	Profile_User string `json:"profileuser"`
 	Line         string `json:"line"`

@@ -36,17 +36,17 @@ func (u UserModel) CreateUser(firstname string,
 }
 
 func (u UserModel) LoginUser(email string,
-	password string, id int) (string, int, error) {
+	password string, id int) (string, int, int, error) {
 
 	db := database.Connectdata()
 
 	findemail := "@"
 	statuslogin := "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล"
 	var iddb int
+	var TypeNumber_User int
 	if strings.Contains(email, findemail) {
-
 		var passworddb string
-		err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
+		err := db.QueryRow("select Password, ID, TypeNumber_User from user WHERE Email=? union select Password, ID, TypeNumber_User from company WHERE CompanyEmail=?", email, email).Scan(&passworddb, &iddb ,&TypeNumber_User)
 
 		if err != nil {
 			fmt.Print(err)
@@ -58,7 +58,7 @@ func (u UserModel) LoginUser(email string,
 
 	} else {
 		var passworddb string
-		err := db.QueryRow("select Password from user WHERE Phone=? union select Password from company WHERE CompanyPhone=?", email, email).Scan(&passworddb)
+		err := db.QueryRow("select Password, ID, TypeNumber_User from user WHERE Phone=? union select Password, ID, TypeNumber_User from company WHERE CompanyPhone=?", email, email).Scan(&passworddb, &iddb, &TypeNumber_User)
 
 		if err != nil {
 			fmt.Print(err)
@@ -69,7 +69,7 @@ func (u UserModel) LoginUser(email string,
 			statuslogin = "ถูกต้อง"
 		}
 	}
-	return statuslogin, iddb, nil
+	return statuslogin, iddb, TypeNumber_User, nil
 }
 
 func (u UserModel) Updateuser(idint int,
@@ -82,7 +82,7 @@ func (u UserModel) Updateuser(idint int,
 
 	db := database.Connectdata()
 
-	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_user = ? WHERE id = ?", firstname, lastname, email, phone, profile_user, idint)
+	_, err := db.Exec("UPDATE user SET FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_user = ?,  WHERE id = ?", firstname, lastname, email, phone, profile_user, idint)
 
 	if err != nil {
 		fmt.Print(err)
@@ -159,7 +159,6 @@ func (u UserModel) UpdateFreelance(
 	firstname string,
 	lastname string,
 	email string,
-	password string,
 	phone string,
 	profileuser string,
 	line string,
@@ -167,8 +166,8 @@ func (u UserModel) UpdateFreelance(
 	instagram string) (string, error) {
 
 	db := database.Connectdata()
-
-	_, err := db.Exec("update user set FirstName = ?, LastName = ?, Email = ?, Password = ?, Phone = ?, Profile_User = ?, Line = ?, Facebook = ?, Instagram = ? where TypeNumber_User = 2 and ID = ?", firstname, lastname, email, password, phone, profileuser, line, facebook, instagram, id)
+	TypeNumber_User := 2
+	_, err := db.Exec("update user set FirstName = ?, LastName = ?, Email = ?, Phone = ?, Profile_User = ?, Line = ?, Facebook = ?, Instagram = ? , TypeNumber_User = ? where ID = ?", firstname, lastname, email, phone, profileuser, line, facebook, instagram, TypeNumber_User, id)
 
 	if err != nil {
 		fmt.Print(err)
