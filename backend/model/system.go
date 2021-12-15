@@ -10,7 +10,7 @@ type SystemModel struct{}
 
 func (u SystemModel) GetWorkAllfreelance(Type_Work_ID dateset.Typeworkid ) ([]dateset.Getworkpagehomefreelance,error)  {
 	var works_freelance []dateset.Getworkpagehomefreelance
-
+	// var allwork dateset.Allwork 
 	db := database.Connectdata()
 		rows, err := db.Query("select Type_Work_Name, Price_Post_Work, Name_Work, FirstName, LastName, Image_Work_Post_Freelance from user,work_post_freelance,type_work WHERE User_ID=ID AND Type_Work_ID=Type_Work_Number AND Type_Work_ID = ?", Type_Work_ID.Type_Work_ID)
 		if err != nil{
@@ -27,9 +27,9 @@ func (u SystemModel) GetWorkAllfreelance(Type_Work_ID dateset.Typeworkid ) ([]da
 					return works_freelance,err
 			}
 			fmt.Print(work.Image_Work_Post_Freelance)
-
 			works_freelance = append(works_freelance, work)
 		}
+		
 		return works_freelance,nil
 	} 
 

@@ -8,8 +8,12 @@ import (
 
 type systemController struct{}
 
+
+
+
 func (u UserController) GetAllWork(c *gin.Context) {
 	systemModel := model.SystemModel{}
+	var allwork dateset.Allwork 
 	var typeworkid dateset.Typeworkid
 
 	e := c.ShouldBind(&typeworkid)
@@ -24,7 +28,8 @@ func (u UserController) GetAllWork(c *gin.Context) {
 		if err != nil {
 			panic(err)
 		}
-		c.JSON(200, works)
+		allwork.Allwork = works;
+		c.JSON(200,allwork)
 
 	} else {
 		works,err := systemModel.GetWorkAllCompany(typeworkid)

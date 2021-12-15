@@ -81,3 +81,6 @@ type GetWorkCompany struct {
 	Image_Work_Post_Company	string	`json:"imageworkpostcompany"`
 }
 
+type Allwork struct {
+	Allwork []Getworkpagehomefreelance `json:"allwork"`
+}
