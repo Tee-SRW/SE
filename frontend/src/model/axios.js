@@ -47,11 +47,11 @@ export default function App() {
       // console.log(response.date);  
     });
 
-    axios.post(`${baseUsl}/createuser`,{ firstname : "สุพระ", lastname : "อะสระ" , email : "่jop@gmail.com" , password : "asds", phone : ""})
-    .then((response) => {
-      setID(response.data);
-      console.log(response.date);  
-    });
+    // axios.post(`${baseUsl}/createuser`,{ firstname : "สุพระ", lastname : "อะสระ" , email : "่jop@gmail.com" , password : "asds", phone : ""})
+    // .then((response) => {
+    //   setID(response.data);
+    //   console.log(response.date);  
+    // });
 
 
   },[]);

@@ -9,7 +9,10 @@ function Navbar(props) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [dropdown, setDropdown] = useState(false);
+  const [loggedin,setloggedin] = useState(
 
+  );
+  
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -74,13 +77,13 @@ function Navbar(props) {
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                    <i class="far fa-comment fa-2x" />
+                  <Link to="/Createworkfreelance" className="nav-links" onClick={closeMobileMenu}>
+                    สร้างงาน
                   </Link>
                 </li>
                 <li className='nav-item'>
-                  <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                    <i class="far fa-bell fa-2x" />
+                  <Link to='/CreateworkCompany' className='nav-links' onClick={closeMobileMenu}>
+                    ประกาศรับงาน
                   </Link>
                 </li>
                 <li className='nav-item'>

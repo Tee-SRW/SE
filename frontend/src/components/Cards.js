@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import './Cards.css';
 import './Cardbar.css';
 import CardItem from './CardItem';
+import axios from 'axios';
 import { Nothing, GraphicFree, GraphicWork, MarketFree, MarketWork, ProgrammingFree, ProgrammingWork } from './CardWorkandFreelance/Carddataset';
 
 function Cards() {
-  const PathFreelance = ['GraphicFree', 'GraphicWork', 'MarketFree', 'MarketWork', 'ProgrammingFree', 'ProgrammingWork'];
-
-
   const [click, setClick] = useState(false);
   const [clickGraphic, setClickGraphic] = useState(false);
   const [clickMarket, setClickMarket] = useState(false);
@@ -21,27 +19,32 @@ function Cards() {
   const ToggleDropdownWork = () => {
     setDropdownWork(dropdownWork ? false : true);
   }
+
   const GraphicButton = () => {
     setDropdownWork(true);
     setClickGraphic(true);
+    number = 1;
 
     setClickMarket(false);
     setClickProgramming(false);
     setClickFree(false);
     setClickWork(false);
-  }  
+    console.log(number)
+  }
   const MarketButton = () => {
     setDropdownWork(true);
     setClickMarket(true);
-
+    number = 2;
+    console.log(number)
     setClickGraphic(false);
     setClickProgramming(false);
     setClickFree(false);
     setClickWork(false);
-  }  
+  }
   const ProgrammingButton = () => {
     setDropdownWork(true);
     setClickProgramming(true);
+    number = 3;
 
     setClickGraphic(false);
     setClickMarket(false);
@@ -51,40 +54,100 @@ function Cards() {
   const WorkButton = () => {
     setClickFree(false);
     setClickWork(true);
+    number2 = 2;
+ 
   }
   const FreeButton = () => {
     setClickFree(true);
     setClickWork(false);
-  } 
-  const Content =()=> {
-    if(setClickGraphic(true)) {
-        if(setClickFree(true) && setClickWork(false)) {
-          return GraphicFree
-        }else if(setClickFree(false) && setClickWork(true)){ 
-          return GraphicWork
-        }else{
-          // nothing
-        }
-    }else if(setClickMarket(true)){
-        if(setClickFree(true) && setClickWork(false)) {
-          return MarketFree
-        }else if(setClickFree(false) && setClickWork(true)){ 
-          return MarketWork
-        }else{  
-          return Nothing
-        }
-    }else if(setClickProgramming(true)) {
-        if(setClickFree(true) && setClickWork(false)) {
-          return ProgrammingFree
-        }else if(setClickFree(false) && setClickWork(true)){ 
-          return ProgrammingWork
-        }else{  
-          return Nothing
-        }
+    number2 = 1;
+
+  }
+  const Content = () => {
+    if (setClickGraphic(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return GraphicFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return GraphicWork
+      } else {
+        // nothing
+      }
+    } else if (setClickMarket(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return MarketFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return MarketWork
+      } else {
+      }
+    } else if (setClickProgramming(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return ProgrammingFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return ProgrammingWork
+      } else {
+
+      }
     }
   }
+  const [number, setNumber] = useState(0);
+  const [number2, setNumber2] = useState(0);
 
+  const [numS,setnumS] = React.useState({
+    num1: "",
+    num2: ""
+    
+  });
 
+  const  [typework, settypework] = React.useState({
+    type_work_id:number,
+    select_id : number2
+    
+  });
+
+  const handleValuesChange = (prop) => (event) => {
+    settypework({ ...typework, [prop]: event.target.value });
+  };
+
+  const baseUsl = "http://203.170.190.226:8080"
+  const handleSubmit = (event) => {
+    if (setClickGraphic(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return GraphicFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return GraphicWork
+      } else {
+        // nothing
+      }
+    } else if (setClickMarket(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return MarketFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return MarketWork
+      } else {
+      }
+    } else if (setClickProgramming(true)) {
+      if (setClickFree(true) && setClickWork(false)) {
+        return ProgrammingFree
+      } else if (setClickFree(false) && setClickWork(true)) {
+        return ProgrammingWork
+      } else {
+
+      }
+    }
+    event.preventDefault();
+
+    const job = {
+      "type_work_id" : number,
+      "select_id" : number2
+    };
+
+    axios.post(`${baseUsl}/getallwork`, { job })
+      .then(res => {
+        console.log(job);
+        console.log(res);
+        console.log(res.data);
+      })
+  };
 
   return (
     <div>
@@ -116,12 +179,12 @@ function Cards() {
             </div>
             <div className={dropdownWork ? 'btn-group2' : 'Clicked-CardbarJob'}>
               <button className={clickFree ? 'HoldbuttonFW redius-L' : 'buttonFW redius-L'}
-                onClick={FreeButton}
+                onClick={FreeButton} onSubmit={handleSubmit}
               >
                 หาฟรีแลนซ์
               </button>
               <button className={clickWork ? 'HoldbuttonFW redius-R' : 'buttonFW redius-R'}
-                onClick={WorkButton}
+                onClick={WorkButton} onSubmit={handleSubmit}
               >
                 หางาน
               </button>

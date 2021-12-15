@@ -12,6 +12,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Input from "@material-ui/core/Input";
+import axios from 'axios';
 
 
 export default function Signupform(props) {
@@ -45,6 +46,8 @@ export default function Signupform(props) {
   };
 
   const [validated, setValidated] = useState(false);
+
+  const baseUsl = "http://203.170.190.226:8080"
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -57,7 +60,29 @@ export default function Signupform(props) {
       alert("รหัสไม่ตรงกันแก้ด้วย")
     }
     setValidated(true);
+    event.preventDefault();
+
+    const company = {
+      "companyname": values.companyname,
+      "companyemail": values.email,
+      "address": values.address,
+      "subdistrict": values.subdistrict,
+      "district": values.district,
+      "province": values.province,
+      "postcode": values.postcode,
+      "password": values.password
+    };
+
+    axios.post(`${baseUsl}/createcompany`,{ company })
+    .then(res => {
+      console.log(company);
+      console.log(res);
+      console.log(res.data);
+    })
+
   };
+
+
   return (
     <div className="Signupform-outer">
       <div className="Signupform-inner">

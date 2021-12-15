@@ -15,6 +15,8 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import Input from "@material-ui/core/Input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
+
 const eye = <FontAwesomeIcon icon={faEye} />;
 const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
@@ -25,7 +27,7 @@ export default function Signupform(props) {
     lastname: "",
     email: "",
     password: "",
-    phone: "", 
+    phone: "",
     showPassword: false,
   });
   const [values2, setValues2] = React.useState({
@@ -46,18 +48,38 @@ export default function Signupform(props) {
   };
 
   const [validated, setValidated] = useState(false);
+
+  const baseUsl = "http://203.170.190.226:8080"
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-        if (values.password !== values2.password2) {
+    if (values.password !== values2.password2) {
       event.preventDefault();
       event.stopPropagation();
       alert("รหัสไม่ตรงกันแก้ด้วย")
     }
     setValidated(true);
+    event.preventDefault();
+
+    const createuser = {
+      "firstname": values.firstname,
+      "lastname": values.lastname,
+      "email": values.email,
+      "password": values.password,
+      "phone": values.phone
+    };
+
+    axios.post(`${baseUsl}/login`, { createuser })
+      .then(res => {
+        console.log(createuser);
+        console.log(res);
+        console.log(res.data);
+      })
+
   };
 
 
@@ -69,11 +91,11 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อ</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="ชื่อ"
-              value={values.firstname}
+              <Form.Control
+                required
+                type="text"
+                placeholder="ชื่อ"
+                value={values.firstname}
                 onChange={handleValuesChange("firstname")}
               />
               <Form.Control.Feedback type="invalid">
@@ -84,12 +106,12 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>นามสกุล</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="นามสกุล" 
-              value={values.lastname}
-              onChange={handleValuesChange("lastname")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="นามสกุล"
+                value={values.lastname}
+                onChange={handleValuesChange("lastname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -99,11 +121,11 @@ export default function Signupform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="อีเมล" 
-              value={values.email}
+              <Form.Control
+                required
+                type="text"
+                placeholder="อีเมล"
+                value={values.email}
                 onChange={handleValuesChange("email")}
               />
               <Form.Control.Feedback type="invalid">
@@ -145,7 +167,7 @@ export default function Signupform(props) {
                 <IconButton onClick={handleClickShowPassword2}>
                   {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
-                </div>
+              </div>
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
               </Form.Control.Feedback>

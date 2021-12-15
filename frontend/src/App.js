@@ -28,15 +28,13 @@ import WorkCompany from "./components/pages/WorkCompany";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(
-    //Test
-
-    false
-  );
+    //false);
 
   // initial value
-  //document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+  document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+
   return (
-    <>
+    <div className="">
       <Router>
         <Navbar {...{ loggedIn }} />
         <div className="page__content">
@@ -83,7 +81,7 @@ function App() {
         </div>
         <Footer />
       </Router>
-    </>
+    </div>
   );
 }
 

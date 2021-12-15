@@ -10,9 +10,11 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { Container, Row, Col } from "react-grid-system";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import axios from 'axios';
 
 export default function Loginform() {
   const [values, setValues] = React.useState({
+    email:"",
     password: "",
     showPassword: false
   });
@@ -26,14 +28,30 @@ export default function Loginform() {
   };
 
   const [validated, setValidated] = useState(false);
+  
+  const baseUsl = "http://203.170.190.226:8080"
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
+    event.preventDefault();
+
+    const user = {
+      "email": values.email,
+      "password": values.password
+    };
+
+    axios.post(`${baseUsl}/login`,{ user })
+    .then(res => {
+      console.log(user);
+      console.log(values.email);
+      console.log(values.password);
+      console.log(res);
+      console.log(res.data);
+    })
   };
 
 
@@ -45,7 +63,13 @@ export default function Loginform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control required type="text" placeholder="อีเมล" />
+              <Form.Control 
+              required 
+              type="text" 
+              placeholder="อีเมล" 
+              onChange={handlePasswordChange("email")}
+              value={values.email}
+              />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล/เบอร์โทรศัพท์
               </Form.Control.Feedback>
