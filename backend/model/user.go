@@ -36,17 +36,17 @@ func (u UserModel) CreateUser(firstname string,
 }
 
 func (u UserModel) LoginUser(email string,
-	password string, id int) (string, int, error) {
+	password string, id int) (string, int, int, error) {
 
 	db := database.Connectdata()
 
 	findemail := "@"
 	statuslogin := "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล"
 	var iddb int
+	var TypeNumber_User int
 	if strings.Contains(email, findemail) {
-
 		var passworddb string
-		err := db.QueryRow("select Password, ID from user WHERE Email=? union select Password, ID from company WHERE CompanyEmail=?", email, email).Scan(&passworddb, &iddb)
+		err := db.QueryRow("select Password, ID, TypeNumber_User from user WHERE Email=? union select Password, ID, TypeNumber_User from company WHERE CompanyEmail=?", email, email).Scan(&passworddb, &iddb ,&TypeNumber_User)
 
 		if err != nil {
 			fmt.Print(err)
@@ -58,7 +58,7 @@ func (u UserModel) LoginUser(email string,
 
 	} else {
 		var passworddb string
-		err := db.QueryRow("select Password, ID from user WHERE Phone=? union select Password, ID from company WHERE CompanyPhone=?", email, email).Scan(&passworddb, &iddb)
+		err := db.QueryRow("select Password, ID, TypeNumber_User from user WHERE Phone=? union select Password, ID, TypeNumber_User from company WHERE CompanyPhone=?", email, email).Scan(&passworddb, &iddb, &TypeNumber_User)
 
 		if err != nil {
 			fmt.Print(err)
@@ -69,7 +69,7 @@ func (u UserModel) LoginUser(email string,
 			statuslogin = "ถูกต้อง"
 		}
 	}
-	return statuslogin, iddb, nil
+	return statuslogin, iddb, TypeNumber_User, nil
 }
 
 func (u UserModel) Updateuser(idint int,

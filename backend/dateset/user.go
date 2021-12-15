@@ -22,6 +22,7 @@ type UpdateUser struct {
 type LoginUser struct {
 	Status string `json:"status"`
 	ID     int    `json:"id"`
+	TypeNumber_User int `json:"typenumber_user"`
 }
 
 type GetUser struct {
