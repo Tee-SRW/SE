@@ -5,6 +5,9 @@ WORKDIR /usr/local/src/frontend
 
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
+COPY package.json /usr/src/app/package.json
+RUN npm install
+
 RUN npm i react-hook-form
 RUN npm i --save @fortawesome/react-fontawesome
 RUN npm i --save @fortawesome/free-solid-svg-icons
