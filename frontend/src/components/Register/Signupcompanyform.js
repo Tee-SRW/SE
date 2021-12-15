@@ -79,6 +79,9 @@ export default function Signupform(props) {
       console.log(res);
       console.log(res.data);
     })
+    if(form.checkValidity() === true) {
+      history.push("/Login")
+    }
 
   };
 
@@ -271,7 +274,7 @@ export default function Signupform(props) {
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10">
+            <Button type="submit" className="btn btn-lg color spacing-top10"  >
               สมัครสมาชิก
             </Button>
           </div>

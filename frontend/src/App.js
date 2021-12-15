@@ -27,16 +27,16 @@ import WorkFreelance from "./components/pages/WorkFreelance";
 import WorkCompany from "./components/pages/WorkCompany";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(
-    //false);
+  // const [loggedIn, setLoggedIn] = useState(console.log(false),
+  //   //false);
 
-  // initial value
-  document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
+  // // initial value
+  // document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
 
   return (
     <div className="">
       <Router>
-        <Navbar {...{ loggedIn }} />
+        <Navbar />
         <div className="page__content">
           <Switch>
             <Route path="/" exact component={Home} />

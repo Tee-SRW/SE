@@ -19,135 +19,100 @@ function Cards() {
   const ToggleDropdownWork = () => {
     setDropdownWork(dropdownWork ? false : true);
   }
+  const [number, setNumber] = useState(1);
+  const [number2, setNumber2] = useState(1);
 
   const GraphicButton = () => {
     setDropdownWork(true);
     setClickGraphic(true);
-    number = 1;
 
     setClickMarket(false);
     setClickProgramming(false);
     setClickFree(false);
     setClickWork(false);
-    console.log(number)
+    setNumber(1);
+    console.log(number);
   }
   const MarketButton = () => {
     setDropdownWork(true);
     setClickMarket(true);
-    number = 2;
-    console.log(number)
+
     setClickGraphic(false);
     setClickProgramming(false);
     setClickFree(false);
     setClickWork(false);
+    setNumber(2);
+    console.log(number);
   }
   const ProgrammingButton = () => {
     setDropdownWork(true);
     setClickProgramming(true);
-    number = 3;
 
     setClickGraphic(false);
     setClickMarket(false);
     setClickFree(false);
     setClickWork(false);
-  }
+    setNumber(3);
+    console.log(number);
+  }  
+  
+  const baseUsl = "http://203.170.190.226:8080"
+
   const WorkButton = () => {
     setClickFree(false);
     setClickWork(true);
-    number2 = 2;
- 
+    setNumber2(2);
+    console.log(number2);
+    const job = {
+      "type_work_id": number,
+      "select_id": number2      
+    };
+    if (number2 === 2) {
+      axios.post(`${baseUsl}/getallwork`, { job })
+        .then(res => {
+          console.log(job);
+          console.log(res);
+          console.log(res.data.type_work_name);
+        })
+    }
   }
   const FreeButton = () => {
     setClickFree(true);
     setClickWork(false);
-    number2 = 1;
-
-  }
-  const Content = () => {
-    if (setClickGraphic(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return GraphicFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return GraphicWork
-      } else {
-        // nothing
-      }
-    } else if (setClickMarket(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return MarketFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return MarketWork
-      } else {
-      }
-    } else if (setClickProgramming(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return ProgrammingFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return ProgrammingWork
-      } else {
-
-      }
-    }
-  }
-  const [number, setNumber] = useState(0);
-  const [number2, setNumber2] = useState(0);
-
-  const [numS,setnumS] = React.useState({
-    num1: "",
-    num2: ""
-    
-  });
-
-  const  [typework, settypework] = React.useState({
-    type_work_id:number,
-    select_id : number2
-    
-  });
-
-  const handleValuesChange = (prop) => (event) => {
-    settypework({ ...typework, [prop]: event.target.value });
-  };
-
-  const baseUsl = "http://203.170.190.226:8080"
-  const handleSubmit = (event) => {
-    if (setClickGraphic(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return GraphicFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return GraphicWork
-      } else {
-        // nothing
-      }
-    } else if (setClickMarket(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return MarketFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return MarketWork
-      } else {
-      }
-    } else if (setClickProgramming(true)) {
-      if (setClickFree(true) && setClickWork(false)) {
-        return ProgrammingFree
-      } else if (setClickFree(false) && setClickWork(true)) {
-        return ProgrammingWork
-      } else {
-
-      }
-    }
-    event.preventDefault();
-
+    setNumber2(1);
+    console.log(number2);
     const job = {
-      "type_work_id" : number,
-      "select_id" : number2
+      "type_work_id": number,
+      "select_id": number2
     };
+    if (number2 === 1) {
+      axios.post(`${baseUsl}/getallwork`, { job })
+        .then(res => {
+          console.log(job);
+          console.log(res.data);
+        
+          // for (let index = 0; index < res.length; index++) {
+          //   const work = [
 
-    axios.post(`${baseUsl}/getallwork`, { job })
-      .then(res => {
-        console.log(job);
-        console.log(res);
-        console.log(res.data);
-      })
-  };
+          //   ]
+          // }
+
+        })
+    }
+  }
+  // const Work = [
+  //   respond.map(Item,index) => {key=index}{
+  //     "type_work_name": "Graphic & Design",
+  //       "price_post_work": 3000,
+  //       "name_work": "you want",
+  //       "firstName": "Pulawat",
+  //       "lastName": "Boonsiri",
+  //       "image_work_post_freelance": "Image_Work_Post_Freelance1"
+  //   }
+  // ]
+
+
+
 
   return (
     <div>
@@ -178,13 +143,13 @@ function Cards() {
               </button>
             </div>
             <div className={dropdownWork ? 'btn-group2' : 'Clicked-CardbarJob'}>
-              <button className={clickFree ? 'HoldbuttonFW redius-L' : 'buttonFW redius-L'}
-                onClick={FreeButton} onSubmit={handleSubmit}
+              <button  className={clickFree ? 'HoldbuttonFW redius-L' : 'buttonFW redius-L'}
+                onClick={FreeButton} 
               >
                 หาฟรีแลนซ์
               </button>
               <button className={clickWork ? 'HoldbuttonFW redius-R' : 'buttonFW redius-R'}
-                onClick={WorkButton} onSubmit={handleSubmit}
+                onClick={WorkButton} 
               >
                 หางาน
               </button>

@@ -73,13 +73,13 @@ export default function Signupform(props) {
       "phone": values.phone
     };
 
-    axios.post(`${baseUsl}/login`, { createuser })
+    axios.post(`${baseUsl}/createuser`, { createuser })
       .then(res => {
         console.log(createuser);
         console.log(res);
         console.log(res.data);
       })
-
+      
   };
 
 
