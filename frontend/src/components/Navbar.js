@@ -9,16 +9,19 @@ function Navbar(props) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [dropdown, setDropdown] = useState(false);
-  const [loggedin,setloggedin] = useState(
+  const [loggedin, setloggedin] = useState(false);
 
-  );
-  
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const ToggleDropdown =() =>{
+  const ToggleDropdown = () => {
     setDropdown(dropdown ? false : true);
   }
+
+  const toggleLogin = () => {
+    setloggedin(loggedin ? false : true)
+  }
+
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -55,7 +58,7 @@ function Navbar(props) {
       <nav className='navbarMy'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            <img 
+            <img
               className='navbar-brand'
               src='images/Job_mai_fair_logo.png'
               alt='JobmaifairLogo'
@@ -63,14 +66,16 @@ function Navbar(props) {
             />
             JobMaiFair
           </Link>
+
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            {props.loggedIn ?
+            
+            {loggedin ?
               //---After Login Navbar---
               <React.Fragment>
+
                 <li className='nav-item'>
                   <Link to='/Freelance' className='nav-links' onClick={closeMobileMenu}>
                     สมัครเป็นฟรีแลนด์
@@ -122,7 +127,11 @@ function Navbar(props) {
                   </Link>
                 </li>
               </React.Fragment>
-            }
+            }<li className='nav-item' >
+              <div to='/Freelance' className='nav-linksss' onClick={toggleLogin} >
+                Change
+              </div>
+            </li>
           </ul>
         </div>
       </nav>
