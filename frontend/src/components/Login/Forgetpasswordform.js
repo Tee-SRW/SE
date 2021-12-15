@@ -4,8 +4,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Forgetpasswordform.css";
 import { Container, Row, Col } from "react-grid-system";
+import { useHistory } from 'react-router-dom';
 
 export default function Forgetpasswordform() {
+  const history = useHistory();
   const [values, setValues] = React.useState({
     email:""
   });
@@ -22,6 +24,9 @@ export default function Forgetpasswordform() {
       event.stopPropagation();
     }
     setValidated(true);
+    if(form.checkValidity() === true) {
+      history.push("/Resetpassword")
+    }
   };
   return (
     <div className="Forgetpasswordform-outer">

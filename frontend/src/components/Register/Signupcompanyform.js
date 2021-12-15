@@ -13,9 +13,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import Input from "@material-ui/core/Input";
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Signupform(props) {
+  const history = useHistory();
   const [values, setValues] = React.useState({
     companyname:"",
     email:"",
