@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ProfileFreelanceform.css";
+import "../css/margin.css"
 import Card from "react-bootstrap/Card";
 import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";
@@ -8,6 +9,8 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 import {
   GraphicFree,
   GraphicWork,
@@ -51,40 +54,37 @@ export default function ProfileFreelanceform(props) {
     <Container className="container-profile">
       <div className="bg">
         <div className="board__container">
-          <Image
-            // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
-            // className="img-fluid rounded-circle image"
-            // alt="Profile Admin"
-            src="/images/IMG_20210208_195921_677.jpg"
-            className="img-fluid rounded-circle image"jpg
-            // alt="Profile Admin"
-            values={values.Profile__freelance__image}
-            fluid
-          />
-          
-          <div className="board__head">
-            <h1 className="board__name">สุชัย<text>{props.First__name__freelance}</text></h1>
-            <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
-            <div className="board__setting">
-              <div className="board__box">
-                {/* <inputvalue={url}
-                  className="d-none"
-                  type="file"
-                  multiple
-                  onChange={geturl}
-                  onChange={imageChange}
-                /> */}
-              <button
+
+          <Row className="marginl">
+            <Col>
+              <Image
+                // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
+                // className="img-fluid rounded-circle image"
+                // alt="Profile Admin"
+                src="/images/IMG_20210208_195921_677.jpg"
+                className="img-fluid rounded-circle image" jpg
+                // alt="Profile Admin"
+                values={values.Profile__freelance__image}
+                fluid
+              />
+            </Col>
+            <Col >
+              {/* <text>{props.First__name__freelance}</text> */}
+              <Col className="margin">
+                <h1 > สุชัย  อัศะ</h1>
+                <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
+                <button
                   className="btn btn-outline-primary bottom__profileform"
                   type="submit"
                   onClick={() => history.push("/Editprofilefreelance")}
                 >
                   แก้ไขโปรไฟล์
                 </button>
-              </div>
-            </div>
-          </div>
-          <h2 className="board__last">อัศะ<text>{props.Last__name__freelance}</text></h2>
+              </Col>
+
+            </Col>
+          </Row>
+
         </div>
 
         <div className="box_bg">
@@ -106,25 +106,25 @@ export default function ProfileFreelanceform(props) {
             </div>
             <div>
               <label className="box__bottomtext__start">
-              Line
+                Line
                 <label className="box__bottomtext__end">
-                JopJop321lnwZa<text>{props.Contact__line__freelance}</text>
+                  JopJop321lnwZa<text>{props.Contact__line__freelance}</text>
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              Facebook
+                Facebook
                 <label className="box__bottomtext__end">
-                R-Jop Mylife<text>{props.Contact__facebook__freelance}</text>
+                  R-Jop Mylife<text>{props.Contact__facebook__freelance}</text>
                 </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
-              Instagram
+                Instagram
                 <label className="box__bottomtext__end">
-                jop_asawa<text>{props.Contact__instagram__freelance}</text>
+                  jop_asawa<text>{props.Contact__instagram__freelance}</text>
                 </label>
               </label>
             </div>
@@ -177,7 +177,7 @@ export default function ProfileFreelanceform(props) {
               </Card.Body>
             </Card> */}
             <h3 className="font__midtext">
-            คุณไม่ได้ลงงานประเภทนี้ไว้
+              คุณไม่ได้ลงงานประเภทนี้ไว้
             </h3>
             <h3 className="font__topicf">Programing</h3>
             <Card style={{ width: "18rem" }}>{props.Card__3__freelance}

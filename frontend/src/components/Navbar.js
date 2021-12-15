@@ -81,19 +81,16 @@ function Navbar(props) {
                     สมัครเป็นฟรีแลนด์
                   </Link>
                 </li>
-
-                {/* <li className='nav-item'>
+                <li className='nav-item'>
                   <Link to="/Createworkfreelance" className="nav-links" onClick={closeMobileMenu}>
                     สร้างงาน
                   </Link>
-                </li> */}
-
-                {/* <li className='nav-item'>
+                </li>
+                <li className='nav-item'>
                   <Link to='/CreateworkCompany' className='nav-links' onClick={closeMobileMenu}>
                     ประกาศรับงาน
                   </Link>
-                </li> */}
-
+                </li>
                 <li className='nav-item'>
                   <div className='nav-links-none'>
                     <i class="fas fa-grip-lines-vertical fa-2x" />

@@ -46,42 +46,32 @@ export default function Profileform(props) {
     <Container className="container-profile">
       <div className="bg">
         <div className="board__container">
-          <Image
-            // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
-            // className="img-fluid rounded-circle image"
-            // alt="Profile Admin"
-            src="/images/IMG_20210208_195921_677.jpg"
-            className="img-fluid rounded-circle image"
-            // alt="Profile Admin"
-            values={values.Profile__image}
-            fluid
-          />
-          <div className="board__head">
-            <h1 className="board__name ">
-              สุชัย <text>{props.First__name}</text>
-            </h1>
-            <div className="board__setting">
-              <div className="board__box">
-                {/* <inputvalue={url}
-                  className="d-none"
-                  type="file"
-                  multiple
-                  onChange={geturl}
-                  onChange={imageChange}
-                /> */}{" "}
-                <button
-                  className="btn btn-outline-primary bottom__profileform"
-                  type="submit"
-                  onClick={() => history.push("/Editprofile")}
-                >
-                  แก้ไขโปรไฟล์
-                </button>
-              </div>
-            </div>
-          </div>
-          <h2 className="board__last">
-            อัศะ <text>{props.Last__name}</text>
-          </h2>
+          <Row className="mnarginl">
+            <Col>
+              <Image
+                // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
+                // className="img-fluid rounded-circle image"
+                // alt="Profile Admin"
+                src="/images/IMG_20210208_195921_677.jpg"
+                className="img-fluid rounded-circle image"
+                // alt="Profile Admin"
+                values={values.Profile__image}
+                fluid
+              />
+            </Col>
+            <Col className="margin">
+              <h1 >สุชัย อัศะ</h1>
+              <button
+                className="btn btn-outline-primary bottom__profileform"
+                type="submit"
+                onClick={() => history.push("/Editprofile")}
+              >
+                แก้ไขโปรไฟล์
+              </button>
+            </Col>
+
+          </Row>
+
         </div>
 
         <div className="box_bg">
