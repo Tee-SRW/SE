@@ -46,7 +46,7 @@ func (u UserModel) LoginUser(email string,
 	if strings.Contains(email, findemail) {
 
 		var passworddb string
-		err := db.QueryRow("select Password from user WHERE Email=? union select Password from company WHERE CompanyEmail=?", email, email).Scan(&passworddb)
+		err := db.QueryRow("select Password, ID from user WHERE Email=? union select Password, ID from company WHERE CompanyEmail=?", email, email).Scan(&passworddb, &iddb)
 
 		if err != nil {
 			fmt.Print(err)
@@ -58,7 +58,7 @@ func (u UserModel) LoginUser(email string,
 
 	} else {
 		var passworddb string
-		err := db.QueryRow("select Password from user WHERE Phone=? union select Password from company WHERE CompanyPhone=?", email, email).Scan(&passworddb)
+		err := db.QueryRow("select Password, ID from user WHERE Phone=? union select Password, ID from company WHERE CompanyPhone=?", email, email).Scan(&passworddb, &iddb)
 
 		if err != nil {
 			fmt.Print(err)
