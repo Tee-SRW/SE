@@ -1,7 +1,7 @@
 # SE
 Joppy project for software engineer kmitl
-Scripts
-npm install
+## Scripts
+`npm install
 npm i react-hook-form
 npm i --save @fortawesome/react-fontawesome
 npm i --save @fortawesome/free-solid-svg-icons
@@ -17,4 +17,4 @@ npm install react-input-mask@next --save
 npm install react-inputs-validation --save
 npm install @material-ui/core
 npm install @material-ui/icons
-npm install axios 
+npm install axios`
