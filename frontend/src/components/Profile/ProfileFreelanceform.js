@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ProfileFreelanceform.css";
-import "../css/margin.css"
 import Card from "react-bootstrap/Card";
 import { useHistory } from "react-router-dom";
 import Form from "react-bootstrap/Form";

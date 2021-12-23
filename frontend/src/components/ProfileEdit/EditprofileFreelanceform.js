@@ -9,6 +9,7 @@ import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
 import axios from "axios";
 const baseUsl = "http://203.170.190.226:8080/";
+
 export default function EditprofileFreelance(props) {
   const [values, setValues] = React.useState({
     id: "",

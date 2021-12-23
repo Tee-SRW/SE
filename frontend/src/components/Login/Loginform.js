@@ -11,7 +11,7 @@ import { Container, Row, Col } from "react-grid-system";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../../api/axios-login';
 
 export default function Loginform() {
   const history = useHistory();
@@ -30,7 +30,6 @@ export default function Loginform() {
   };
 
   const [validated, setValidated] = useState(false);
-  const baseUsl = "http://203.170.190.226:8080/";
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -45,7 +44,7 @@ export default function Loginform() {
       "password": values.password
     };
 
-    axios.post(`${baseUsl}/login`,{ user })
+    axios.post(`/login`,{ user })
     .then(res => {
       console.log(user);
       console.log(values.email);
