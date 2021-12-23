@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import Freelanceform from '../Register/Freelanceform'
+import Freelanceform from '../components/Register/Freelanceform'
 
 function Freelance() {
   return (

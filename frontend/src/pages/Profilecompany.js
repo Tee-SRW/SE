@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import Profilecompanyform from '../Profile/Profilecompanyform';
+import Profilecompanyform from '../components/Profile/Profilecompanyform';
 
 
 function Profilecompany() {

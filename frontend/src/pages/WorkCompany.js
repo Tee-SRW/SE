@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import WorkCompanyform from '../Work/WorkCompanyform';
+import WorkCompanyform from '../components/Work/WorkCompanyform';
 
 function WorkCompany() {
   return (

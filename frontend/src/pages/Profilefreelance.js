@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import ProfileFreelanceform from '../Profile/ProfileFreelanceform';
+import ProfileFreelanceform from '../components/Profile/ProfileFreelanceform';
 
 
 function Profilefreelance() {

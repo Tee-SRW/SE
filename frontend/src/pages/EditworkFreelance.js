@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import EditWorkFreelance from '../Create-work/edit-work-freelance';
+import EditWorkFreelance from '../components/Create-work/edit-work-freelance';
 
 
 function EditWorkFreeLance() {

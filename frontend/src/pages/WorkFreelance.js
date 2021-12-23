@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import WorkFreelanceform from '../Work/WorkFreelanceform';
+import WorkFreelanceform from '../components/Work/WorkFreelanceform';
 
 function WorkFreelance() {
   return (

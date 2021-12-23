@@ -1,6 +1,5 @@
 import React from 'react';
-import '../../App.css';
-import EditprofileCompanyform from '../ProfileEdit/EditprofileCompanyform';
+import EditprofileCompanyform from '../components/ProfileEdit/EditprofileCompanyform';
 
 export default function EditprofileCompany() {
     return (

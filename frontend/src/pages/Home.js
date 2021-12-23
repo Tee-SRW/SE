@@ -1,9 +1,8 @@
 import React , {useState} from 'react';
-import '../../App.css';
-import Cards from '../Cards';
-import Cardbar from '../Cardbar';
-import HeroSection from '../HeroSection';
-import Navbar from "../Navbar";
+import Cards from '../components/Cards';
+import Cardbar from '../components/Cardbar';
+import HeroSection from '../components/HeroSection';
+import Navbar from "../components/Navbar";
 
 
 function Home() {
