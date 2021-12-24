@@ -10,7 +10,7 @@ import { Container, Row, Col } from "react-grid-system";
 import axios from "axios";
 const baseUsl = "http://203.170.190.226:8080/";
 export default function EditprofileCompanyform(props) {
-  const [values, setValues] = React.useState({
+  const [valuesEditprofilecompany, setvaluesEditprofilecompany] = React.useState({
     ID: "",
     companyname: "",
     companyemail: "",
@@ -22,8 +22,8 @@ export default function EditprofileCompanyform(props) {
     Postcode: "",
     ProfileCompany: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesEditprofilecompanyChange = (prop) => (event) => {
+    setvaluesEditprofilecompany({ ...valuesEditprofilecompany, [prop]: event.target.value });
   };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
@@ -36,16 +36,16 @@ export default function EditprofileCompanyform(props) {
     event.preventDefault();
 
     const editprofilecompany = {
-      "ID": values.ID,
-      "companyname": values.companyname,
-      "companyemail": values.companyemail,
-      "CompanyPhone": values.CompanyPhone,
-      "Address": values.Address,
-      "Subdistrict": values.Subdistrict,
-      "District": values.District,
-      "Province": values.Province,
-      "Postcode": values.Postcode,
-      "ProfileCompany": values.ProfileCompany,
+      "ID": valuesEditprofilecompany.ID,
+      "companyname": valuesEditprofilecompany.companyname,
+      "companyemail": valuesEditprofilecompany.companyemail,
+      "CompanyPhone": valuesEditprofilecompany.CompanyPhone,
+      "Address": valuesEditprofilecompany.Address,
+      "Subdistrict": valuesEditprofilecompany.Subdistrict,
+      "District": valuesEditprofilecompany.District,
+      "Province": valuesEditprofilecompany.Province,
+      "Postcode": valuesEditprofilecompany.Postcode,
+      "ProfileCompany": valuesEditprofilecompany.ProfileCompany,
     };
     axios
       .put(`${baseUsl}/updatecompany`, { editprofilecompany })
@@ -85,8 +85,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="ชื่อบริษัท"
                 name="companyname"
-                onChange={handleValuesChange("companyname")}
-                value={values.companyname}
+                onChange={handlevaluesEditprofilecompanyChange("companyname")}
+                value={valuesEditprofilecompany.companyname}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อบริษัท
@@ -102,8 +102,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="อีเมล"
                 name="companyemail"
-                onChange={handleValuesChange("companyemail")}
-                value={values.companyemail}
+                onChange={handlevaluesEditprofilecompanyChange("companyemail")}
+                value={valuesEditprofilecompany.companyemail}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
@@ -119,8 +119,8 @@ export default function EditprofileCompanyform(props) {
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
                 name="Companyphone"
-                onChange={handleValuesChange("CompanyPhone")}
-                value={values.CompanyPhone}
+                onChange={handlevaluesEditprofilecompanyChange("CompanyPhone")}
+                value={valuesEditprofilecompany.CompanyPhone}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -135,8 +135,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="ที่อยู่"
                 name="Address"
-                onChange={handleValuesChange("Address")}
-                value={values.Address}
+                onChange={handlevaluesEditprofilecompanyChange("Address")}
+                value={valuesEditprofilecompany.Address}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
@@ -151,8 +151,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="ตำบล / แขวง"
                 name="Subdistrict"
-                onChange={handleValuesChange("Subdistrict")}
-                value={values.Subdistrict}
+                onChange={handlevaluesEditprofilecompanyChange("Subdistrict")}
+                value={valuesEditprofilecompany.Subdistrict}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
@@ -167,8 +167,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="อำเภอ / เขต"
                 name="District"
-                onChange={handleValuesChange("District")}
-                value={values.District}
+                onChange={handlevaluesEditprofilecompanyChange("District")}
+                value={valuesEditprofilecompany.District}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อำเภอ / เขต
@@ -183,8 +183,8 @@ export default function EditprofileCompanyform(props) {
                 type="text"
                 placeholder="จังหวัด"
                 name="Province"
-                onChange={handleValuesChange("Province")}
-                value={values.Province}
+                onChange={handlevaluesEditprofilecompanyChange("Province")}
+                value={valuesEditprofilecompany.Province}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จังหวัด
@@ -199,8 +199,8 @@ export default function EditprofileCompanyform(props) {
                 className="form-control"
                 placeholder="xxxxx"
                 mask="99999"
-                value={values.Postcode}
-                onChange={handleValuesChange("Postcode")}
+                value={valuesEditprofilecompany.Postcode}
+                onChange={handlevaluesEditprofilecompanyChange("Postcode")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน

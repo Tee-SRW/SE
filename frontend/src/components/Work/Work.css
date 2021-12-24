@@ -185,12 +185,10 @@
     height: 200px;
     padding: 15px 15px 15px 15px;
     /* background-image: ; */
-        background: url('https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg');
+    background: url('https://discountdoorhardware.ca/wp-content/uploads/2018/06/profile-placeholder-3.jpg');
     background-position: center;
     background-size: cover;
 }
-
-.border-Company-detail {}
 
 .Company-box-detail {
     margin-top: 20px;

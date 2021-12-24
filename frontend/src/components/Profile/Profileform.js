@@ -23,19 +23,19 @@ export default function Profileform(props) {
   const removeSelectedImage = () => {
     setSelectedImage();
   };
-  const [values, setValues] = React.useState({
+  const [valuesProfile, setvaluesProfile] = React.useState({
     id: "",
     First__name: "",
     Last__name: "",
     Contact__phone: "",
     Contact__email: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesProfileChange = (prop) => (event) => {
+    setvaluesProfile({ ...valuesProfile, [prop]: event.target.value });
   };
   // const handleSubmit = (event) => {
-  //   console.log("email: " + values.email);
-  //   console.log("password: " + values.password);
+  //   console.log("email: " + valuesProfile.email);
+  //   console.log("password: " + valuesProfile.password);
   // };
   const history = useHistory();
   return (
@@ -51,7 +51,7 @@ export default function Profileform(props) {
                 src="/images/IMG_20210208_195921_677.jpg"
                 className="img-fluid rounded-circle image"
                 // alt="Profile Admin"
-                values={values.Profile__image}
+                valuesProfile={valuesProfile.Profile__image}
                 fluid
               />
             </Col>

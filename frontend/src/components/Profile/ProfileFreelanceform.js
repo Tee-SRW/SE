@@ -27,7 +27,7 @@ export default function ProfileFreelanceform(props) {
   const removeSelectedImage = () => {
     setSelectedImage();
   };
-  const [values, setValues] = React.useState({
+  const [valuesProfilefreelance, setvaluesProfilefreelance] = React.useState({
     First__name: "",
     Last__name: "",
     Contact__phone: "",
@@ -36,8 +36,8 @@ export default function ProfileFreelanceform(props) {
     Card__2__freelance: "",
     Card__3__freelance: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesProfilefreelanceChange = (prop) => (event) => {
+    setvaluesProfilefreelance({ ...valuesProfilefreelance, [prop]: event.target.value });
   };
   const history = useHistory();
   return (
@@ -51,7 +51,7 @@ export default function ProfileFreelanceform(props) {
             src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image"jpg
             // alt="Profile Admin"
-            values={values.Profile__freelance__image}
+            valuesProfilefreelance={valuesProfilefreelance.Profile__freelance__image}
             fluid
           />
           

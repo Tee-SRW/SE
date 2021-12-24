@@ -26,7 +26,7 @@ export default function Profilecompanyform(props) {
   const removeSelectedImage = () => {
     setSelectedImage();
   };
-  const [values, setValues] = React.useState({
+  const [valuesProfilecompany, setvaluesProfilecompany] = React.useState({
     First__name: "",
     Contact__phone__company: "",
     Contact__email__company: "",
@@ -34,8 +34,8 @@ export default function Profilecompanyform(props) {
     Card__2__company: "",
     Card__3__company: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesProfilecompanyChange = (prop) => (event) => {
+    setvaluesProfilecompany({ ...valuesProfilecompany, [prop]: event.target.value });
   };
   const history = useHistory();
   return (
@@ -49,7 +49,7 @@ export default function Profilecompanyform(props) {
             src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image__company"
             alt="Profile Admin"
-            values={values.Profile__company__image}
+            valuesProfilecompany={valuesProfilecompany.Profile__company__image}
             fluid
           />
           <div className="board__head__company">

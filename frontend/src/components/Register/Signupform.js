@@ -23,7 +23,7 @@ import { useHistory } from 'react-router-dom';
 
 export default function Signupform(props) {
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [valuesSignup, setvaluesSignup] = React.useState({
     firstname: "",
     lastname: "",
     email: "",
@@ -31,21 +31,21 @@ export default function Signupform(props) {
     phone: "",
     showPassword: false,
   });
-  const [values2, setValues2] = React.useState({
+  const [valuesSignup2, setvaluesSignup2] = React.useState({
     password2: "",
     showPassword2: false,
   });
 
   function handleClickShowPassword() {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setvaluesSignup({ ...valuesSignup, showPassword: !valuesSignup.showPassword });
   }
   function handleClickShowPassword2() {
-    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+    setvaluesSignup2({ ...valuesSignup2, showPassword2: !valuesSignup2.showPassword2 });
   }
 
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-    setValues2({ ...values2, [prop]: event.target.value });
+  const handlevaluesSignupChange = (prop) => (event) => {
+    setvaluesSignup({ ...valuesSignup, [prop]: event.target.value });
+    setvaluesSignup2({ ...valuesSignup2, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -58,7 +58,7 @@ export default function Signupform(props) {
       event.preventDefault();
       event.stopPropagation();
     }
-    if (values.password !== values2.password2) {
+    if (valuesSignup.password !== valuesSignup2.password2) {
       event.preventDefault();
       event.stopPropagation();
       alert("รหัสไม่ตรงกันแก้ด้วย")
@@ -67,11 +67,11 @@ export default function Signupform(props) {
     event.preventDefault();
 
     const createuser = {
-      "firstname": values.firstname,
-      "lastname": values.lastname,
-      "email": values.email,
-      "password": values.password,
-      "phone": values.phone
+      "firstname": valuesSignup.firstname,
+      "lastname": valuesSignup.lastname,
+      "email": valuesSignup.email,
+      "password": valuesSignup.password,
+      "phone": valuesSignup.phone
     };
 
     axios.post(`${baseUsl}/createuser`, { createuser })
@@ -100,8 +100,8 @@ export default function Signupform(props) {
                 required
                 type="text"
                 placeholder="ชื่อ"
-                value={values.firstname}
-                onChange={handleValuesChange("firstname")}
+                value={valuesSignup.firstname}
+                onChange={handlevaluesSignupChange("firstname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อ
@@ -115,8 +115,8 @@ export default function Signupform(props) {
                 required
                 type="text"
                 placeholder="นามสกุล"
-                value={values.lastname}
-                onChange={handleValuesChange("lastname")}
+                value={valuesSignup.lastname}
+                onChange={handlevaluesSignupChange("lastname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -130,8 +130,8 @@ export default function Signupform(props) {
                 required
                 type="text"
                 placeholder="อีเมล"
-                value={values.email}
-                onChange={handleValuesChange("email")}
+                value={valuesSignup.email}
+                onChange={handlevaluesSignupChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
@@ -144,13 +144,13 @@ export default function Signupform(props) {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values.showPassword ? "text" : "password"}
+                  type={valuesSignup.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handleValuesChange("password")}
-                  value={values.password}
+                  onChange={handlevaluesSignupChange("password")}
+                  value={valuesSignup.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  {valuesSignup.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
@@ -164,13 +164,13 @@ export default function Signupform(props) {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values2.showPassword2 ? "text" : "password"}
+                  type={valuesSignup2.showPassword2 ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handleValuesChange("password2")}
-                  value={values2.password2}
+                  onChange={handlevaluesSignupChange("password2")}
+                  value={valuesSignup2.password2}
                 />
                 <IconButton onClick={handleClickShowPassword2}>
-                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                  {valuesSignup2.showPassword2 ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
@@ -186,8 +186,8 @@ export default function Signupform(props) {
                 className="form-control spacing-top"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                value={values.phone}
-                onChange={handleValuesChange("phone")}
+                value={valuesSignup.phone}
+                onChange={handlevaluesSignupChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์

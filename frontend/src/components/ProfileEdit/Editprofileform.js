@@ -11,7 +11,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 const baseUsl = "http://203.170.190.226:8080/";
 export default function Editprofileform(props) {
-  const [values, setValues] = React.useState({
+  const [valuesEditprofile, setvaluesEditprofile] = React.useState({
     id: "",
     firstname: "",
     lastname: "",
@@ -20,8 +20,8 @@ export default function Editprofileform(props) {
     phone: "",
     profile_user: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesEditprofileChange = (prop) => (event) => {
+    setvaluesEditprofile({ ...valuesEditprofile, [prop]: event.target.value });
   };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
@@ -34,13 +34,13 @@ export default function Editprofileform(props) {
     event.preventDefault();
 
     const editprofile = {
-      id: values.id,
-      firstname: values.firstname,
-      lastname: values.lastname,
-      email: values.email,
-      password: values.password,
-      phone: values.phone,
-      profile_user: values.profile_user,
+      id: valuesEditprofile.id,
+      firstname: valuesEditprofile.firstname,
+      lastname: valuesEditprofile.lastname,
+      email: valuesEditprofile.email,
+      password: valuesEditprofile.password,
+      phone: valuesEditprofile.phone,
+      profile_user: valuesEditprofile.profile_user,
     };
     axios.put(`${baseUsl}/updateuser`, { editprofile }).then((res) => {
       console.log(res.data);
@@ -79,8 +79,8 @@ export default function Editprofileform(props) {
                 type="text"
                 placeholder="ชื่อ"
                 name="firstname"
-                onChange={handleValuesChange("firstname")}
-                value={values.firstname}
+                onChange={handlevaluesEditprofileChange("firstname")}
+                value={valuesEditprofile.firstname}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อ
@@ -95,8 +95,8 @@ export default function Editprofileform(props) {
                 type="text"
                 placeholder="นามสกุล"
                 name="lastname"
-                onChange={handleValuesChange("lastname")}
-                value={values.lastname}
+                onChange={handlevaluesEditprofileChange("lastname")}
+                value={valuesEditprofile.lastname}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -111,8 +111,8 @@ export default function Editprofileform(props) {
                 type="text"
                 placeholder="อีเมล"
                 name="email"
-                onChange={handleValuesChange("email")}
-                value={values.email}
+                onChange={handlevaluesEditprofileChange("email")}
+                value={valuesEditprofile.email}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
@@ -128,8 +128,8 @@ export default function Editprofileform(props) {
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
                 name="phone"
-                onChange={handleValuesChange("phone")}
-                value={values.phone}
+                onChange={handlevaluesEditprofileChange("phone")}
+                value={valuesEditprofile.phone}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์

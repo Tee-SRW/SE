@@ -11,7 +11,7 @@ import axios from "axios";
 const baseUsl = "http://203.170.190.226:8080/";
 
 export default function EditprofileFreelance(props) {
-  const [values, setValues] = React.useState({
+  const [valuesEditprofilefreelance, setvaluesEditprofilefreelance] = React.useState({
     id: "",
     firstname: "",
     lastname: "",
@@ -23,8 +23,8 @@ export default function EditprofileFreelance(props) {
     facebook: "",
     instagram: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesEditprofilefreelanceChange = (prop) => (event) => {
+    setvaluesEditprofilefreelance({ ...valuesEditprofilefreelance, [prop]: event.target.value });
   };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
@@ -37,33 +37,21 @@ export default function EditprofileFreelance(props) {
     event.preventDefault();
 
     const editprofilefreelance = {
-      "id": values.id,
-      "firstname": values.firstname,
-      "lastname": values.lastname,
-      "email": values.email,
-      "password": values.password,
-      "phone": values.phone,
-      "profile_user": values.profile_user,
-      "line": values.line,
-      "facebook": values.facebook,
-      "instagram": values.instagram,
+      "id": valuesEditprofilefreelance.id,
+      "firstname": valuesEditprofilefreelance.firstname,
+      "lastname": valuesEditprofilefreelance.lastname,
+      "email": valuesEditprofilefreelance.email,
+      "password": valuesEditprofilefreelance.password,
+      "phone": valuesEditprofilefreelance.phone,
+      "profile_user": valuesEditprofilefreelance.profile_user,
+      "line": valuesEditprofilefreelance.line,
+      "facebook": valuesEditprofilefreelance.facebook,
+      "instagram": valuesEditprofilefreelance.instagram,
     };
     axios
       .put(`${baseUsl}/updatefreelance`, { editprofilefreelance })
       .then((res) => {
         console.log(editprofilefreelance);
-        console.log(values.id);
-        console.log(values.firstname);
-        console.log(values.lastname);
-        console.log(values.email);
-        console.log(values.phone);
-        console.log(values.password);
-        console.log(values.profile_user);
-        console.log(values.line);
-        console.log(values.facebook);
-        console.log(values.instagram);
-        console.log(res);
-        console.log(res.data);
       });
       if(form.checkValidity() === true) {
         history.push("/Profilefreelance")
@@ -98,8 +86,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="ชื่อจริง"
                 name="firstname"
-                onChange={handleValuesChange("firstname")}
-                value={values.firstname}
+                onChange={handlevaluesEditprofilefreelanceChange("firstname")}
+                value={valuesEditprofilefreelance.firstname}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อจริง
@@ -114,8 +102,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="นามสกุล"
                 name="lastname"
-                onChange={handleValuesChange("lastname")}
-                value={values.lastname}
+                onChange={handlevaluesEditprofilefreelanceChange("lastname")}
+                value={valuesEditprofilefreelance.lastname}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -130,8 +118,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="อีเมลที่ติดต่อได้"
                 name="email"
-                onChange={handleValuesChange("email")}
-                value={values.email}
+                onChange={handlevaluesEditprofilefreelanceChange("email")}
+                value={valuesEditprofilefreelance.email}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมลที่ติดต่อได้
@@ -147,8 +135,8 @@ export default function EditprofileFreelance(props) {
                 placeholder="เบอร์โทรศัพท์ที่ติดต่อได้"
                 mask="999-999-9999"
                 name="phone"
-                onChange={handleValuesChange("phone")}
-                value={values.phone}
+                onChange={handlevaluesEditprofilefreelanceChange("phone")}
+                value={valuesEditprofilefreelance.phone}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -163,8 +151,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="Line"
                 name="line"
-                onChange={handleValuesChange("line")}
-                value={values.line}
+                onChange={handlevaluesEditprofilefreelanceChange("line")}
+                value={valuesEditprofilefreelance.line}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Line
@@ -179,8 +167,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="Facebook"
                 name="facebook"
-                onChange={handleValuesChange("facebook")}
-                value={values.facebook}
+                onChange={handlevaluesEditprofilefreelanceChange("facebook")}
+                value={valuesEditprofilefreelance.facebook}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Facebook
@@ -195,8 +183,8 @@ export default function EditprofileFreelance(props) {
                 type="text"
                 placeholder="Instagram"
                 name="instagram"
-                onChange={handleValuesChange("instagram")}
-                value={values.instagram}
+                onChange={handlevaluesEditprofilefreelanceChange("instagram")}
+                value={valuesEditprofilefreelance.instagram}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Instagram

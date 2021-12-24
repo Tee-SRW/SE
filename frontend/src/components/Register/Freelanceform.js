@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 export default function Freelance() {
   const history = useHistory();
 
-  const [values, setValues] = React.useState({
+  const [valuesSignupfreelance, setvaluesSignupfreelance] = React.useState({
     firstname: "",
     lastname: "",
     email: "",
@@ -22,8 +22,8 @@ export default function Freelance() {
     instagram: ""
   });
 
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesSignupfreelanceChange = (prop) => (event) => {
+    setvaluesSignupfreelance({ ...valuesSignupfreelance, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -53,8 +53,8 @@ export default function Freelance() {
                 required
                 type="text"
                 placeholder="ชื่อ"
-                value={values.firstname}
-                onChange={handleValuesChange("firstname")}
+                value={valuesSignupfreelance.firstname}
+                onChange={handlevaluesSignupfreelanceChange("firstname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อ
@@ -68,8 +68,8 @@ export default function Freelance() {
               required 
               type="text" 
               placeholder="นามสกุล" 
-              value={values.lastname}
-              onChange={handleValuesChange("lastname")}
+              value={valuesSignupfreelance.lastname}
+              onChange={handlevaluesSignupfreelanceChange("lastname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -83,8 +83,8 @@ export default function Freelance() {
               required 
               type="text" 
               placeholder="อีเมลสำหรับทำงาน" 
-              value={values.email}
-              onChange={handleValuesChange("email")}
+              value={valuesSignupfreelance.email}
+              onChange={handlevaluesSignupfreelanceChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมลสำหรับทำงาน
@@ -99,8 +99,8 @@ export default function Freelance() {
                 className="form-control spacing-top"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                value={values.phone}
-                onChange={handleValuesChange("phone")}
+                value={valuesSignupfreelance.phone}
+                onChange={handlevaluesSignupfreelanceChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -114,8 +114,8 @@ export default function Freelance() {
               required 
               type="text" 
               placeholder="Line" 
-              value={values.line}
-              onChange={handleValuesChange("line")}
+              value={valuesSignupfreelance.line}
+              onChange={handlevaluesSignupfreelanceChange("line")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Line
@@ -129,8 +129,8 @@ export default function Freelance() {
               required 
               type="text" 
               placeholder="Facebook" 
-              value={values.facebook}
-              onChange={handleValuesChange("facebook")}
+              value={valuesSignupfreelance.facebook}
+              onChange={handlevaluesSignupfreelanceChange("facebook")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Facebook
@@ -144,8 +144,8 @@ export default function Freelance() {
               required 
               type="text" 
               placeholder="Instagram" 
-              value={values.instagram}
-              onChange={handleValuesChange("instagram")}
+              value={valuesSignupfreelance.instagram}
+              onChange={handlevaluesSignupfreelanceChange("instagram")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Instagram

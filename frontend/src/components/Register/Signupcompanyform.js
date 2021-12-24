@@ -16,9 +16,9 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 
-export default function Signupform(props) {
+export default function Signupcompanyform(props) {
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [valuesSignupcompany, setvaluesSignupcompany] = React.useState({
     companyname:"",
     email:"",
     password: "",
@@ -30,21 +30,21 @@ export default function Signupform(props) {
     postcode:"",
     showPassword: false,
   });
-  const [values2, setValues2] = React.useState({
+  const [valuesSignupcompany2, setvaluesSignupcompany2] = React.useState({
     password2: "",
     showPassword2: false,
   });
 
   function handleClickShowPassword() {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setvaluesSignupcompany({ ...valuesSignupcompany, showPassword: !valuesSignupcompany.showPassword });
   }
   function handleClickShowPassword2() {
-    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+    setvaluesSignupcompany2({ ...valuesSignupcompany2, showPassword2: !valuesSignupcompany2.showPassword2 });
   }
 
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-    setValues2({ ...values2, [prop]: event.target.value });
+  const handlevaluesSignupcompanyChange = (prop) => (event) => {
+    setvaluesSignupcompany({ ...valuesSignupcompany, [prop]: event.target.value });
+    setvaluesSignupcompany2({ ...valuesSignupcompany2, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -56,7 +56,7 @@ export default function Signupform(props) {
       event.preventDefault();
       event.stopPropagation();
     }
-    if (values.password !== values2.password2) {
+    if (valuesSignupcompany.password !== valuesSignupcompany2.password2) {
       event.preventDefault();
       event.stopPropagation();
       alert("รหัสไม่ตรงกันแก้ด้วย")
@@ -65,14 +65,14 @@ export default function Signupform(props) {
     event.preventDefault();
 
     const company = {
-      "companyname": values.companyname,
-      "companyemail": values.email,
-      "address": values.address,
-      "subdistrict": values.subdistrict,
-      "district": values.district,
-      "province": values.province,
-      "postcode": values.postcode,
-      "password": values.password
+      "companyname": valuesSignupcompany.companyname,
+      "companyemail": valuesSignupcompany.email,
+      "address": valuesSignupcompany.address,
+      "subdistrict": valuesSignupcompany.subdistrict,
+      "district": valuesSignupcompany.district,
+      "province": valuesSignupcompany.province,
+      "postcode": valuesSignupcompany.postcode,
+      "password": valuesSignupcompany.password
     };
 
     axios.post(`${baseUsl}/createcompany`,{ company })
@@ -103,8 +103,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="ชื่อบริษัท" 
-              value={values.companyname}
-              onChange={handleValuesChange("companyname")}
+              value={valuesSignupcompany.companyname}
+              onChange={handlevaluesSignupcompanyChange("companyname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อบริษัท
@@ -119,8 +119,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="อีเมล" 
-              value={values.email}
-              onChange={handleValuesChange("email")}
+              value={valuesSignupcompany.email}
+              onChange={handlevaluesSignupcompanyChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
@@ -134,13 +134,13 @@ export default function Signupform(props) {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values.showPassword ? "text" : "password"}
+                  type={valuesSignupcompany.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handleValuesChange("password")}
-                  value={values.password}
+                  onChange={handlevaluesSignupcompanyChange("password")}
+                  value={valuesSignupcompany.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  {valuesSignupcompany.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
@@ -155,13 +155,13 @@ export default function Signupform(props) {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values2.showPassword2 ? "text" : "password"}
+                  type={valuesSignupcompany2.showPassword2 ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handleValuesChange("password2")}
-                  value={values2.password2}
+                  onChange={handlevaluesSignupcompanyChange("password2")}
+                  value={valuesSignupcompany2.password2}
                 />
                 <IconButton onClick={handleClickShowPassword2}>
-                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                  {valuesSignupcompany2.showPassword2 ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
@@ -178,8 +178,8 @@ export default function Signupform(props) {
                 className="form-control"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                value={values.phone}
-                onChange={handleValuesChange("phone")}
+                value={valuesSignupcompany.phone}
+                onChange={handlevaluesSignupcompanyChange("phone")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -194,8 +194,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="ที่อยู่"
-              value={values.address}
-              onChange={handleValuesChange("address")}
+              value={valuesSignupcompany.address}
+              onChange={handlevaluesSignupcompanyChange("address")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
@@ -210,8 +210,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="ตำบล / แขวง"
-              value={values.subdistrict}
-              onChange={handleValuesChange("subdistrict")}
+              value={valuesSignupcompany.subdistrict}
+              onChange={handlevaluesSignupcompanyChange("subdistrict")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
@@ -226,8 +226,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="อำเภอ / เขต" 
-              value={values.district}
-                onChange={handleValuesChange("district")}
+              value={valuesSignupcompany.district}
+                onChange={handlevaluesSignupcompanyChange("district")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อำเภอ / เขต
@@ -242,8 +242,8 @@ export default function Signupform(props) {
               required 
               type="text" 
               placeholder="จังหวัด" 
-              value={values.province}
-                onChange={handleValuesChange("province")}
+              value={valuesSignupcompany.province}
+                onChange={handlevaluesSignupcompanyChange("province")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จังหวัด
@@ -259,8 +259,8 @@ export default function Signupform(props) {
                 className="form-control"
                 placeholder="xxxxx"
                 mask="99999"
-                value={values.postcode}
-                onChange={handleValuesChange("postcode")}
+                value={valuesSignupcompany.postcode}
+                onChange={handlevaluesSignupcompanyChange("postcode")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
