@@ -8,13 +8,13 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function EditWorkFreelanceform(props) {
-  // const [values, setValues] = React.useState({
+  // const [valuesEditWfl, setvaluesEditWfl] = React.useState({
   //   password: "",
   //   showPassword: false,
   // });
 
   // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
+  //   setvaluesEditWfl({ ...valuesEditWfl, showPassword: !valuesEditWfl.showPassword });
   // };
 
   // const handleMouseDownPassword = (event) => {
@@ -22,18 +22,18 @@ export default function EditWorkFreelanceform(props) {
   // };
 
   // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
+  //   setvaluesEditWfl({ ...valuesEditWfl, [prop]: event.target.value });
   // };
   const history = useHistory();
 
-  const [values, setValues] = React.useState({
+  const [valuesEditWfl, setvaluesEditWfl] = React.useState({
     genre: "",
     workname: "",
     description: "",
     minsalary: "",
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesEditWflChange = (prop) => (event) => {
+    setvaluesEditWfl({ ...valuesEditWfl, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -44,10 +44,10 @@ export default function EditWorkFreelanceform(props) {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(values.genre);
-    console.log(values.workname);
-    console.log(values.description);
-    console.log(values.minsalary);
+    console.log(valuesEditWfl.genre);
+    console.log(valuesEditWfl.workname);
+    console.log(valuesEditWfl.description);
+    console.log(valuesEditWfl.minsalary);
 
     if(form.checkValidity() === true) {
       alert("แก้ไขการสร้างงานของคุณสำเร็จ")
@@ -71,7 +71,7 @@ export default function EditWorkFreelanceform(props) {
 
   return (
     <div className="edit-work-outer">
-      <h3>สร้างงานของฉัน</h3>
+      <h3>แก้ไขงานของฉัน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -80,8 +80,8 @@ export default function EditWorkFreelanceform(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={values.genre}
-          onChange={handleValuesChange("genre")}
+          value={valuesEditWfl.genre}
+          onChange={handlevaluesEditWflChange("genre")}
         >
           <option>--------------</option>
           <option value="Graphic & Design">Graphic & Design</option>
@@ -104,7 +104,7 @@ export default function EditWorkFreelanceform(props) {
               type="text"
               placeholder="ชื่องาน"
               name="workname"
-              onChange={handleValuesChange("workname")}
+              onChange={handlevaluesEditWflChange("workname")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -121,7 +121,7 @@ export default function EditWorkFreelanceform(props) {
               as="textarea"
               rows={5}
               name="description"
-              onChange={handleValuesChange("description")}
+              onChange={handlevaluesEditWflChange("description")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -138,7 +138,7 @@ export default function EditWorkFreelanceform(props) {
                 required type="number"
                 placeholder="0.00"
                 name="minsalary"
-                onChange={handleValuesChange("minsalary")}
+                onChange={handlevaluesEditWflChange("minsalary")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ราคาเริ่มต้น

@@ -9,13 +9,13 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function EditWorkCompanyform(props) {
-  // const [values, setValues] = React.useState({
+  // const [valuesEditWcom, setvaluesEditWcom] = React.useState({
   //   password: "",
   //   showPassword: false,
   // });
 
   // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
+  //   setvaluesEditWcom({ ...valuesEditWcom, showPassword: !valuesEditWcom.showPassword });
   // };
 
   // const handleMouseDownPassword = (event) => {
@@ -23,11 +23,11 @@ export default function EditWorkCompanyform(props) {
   // };
 
   // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
+  //   setvaluesEditWcom({ ...valuesEditWcom, [prop]: event.target.value });
   // };
   const history = useHistory();
 
-  const [values, setValues] = React.useState({
+  const [valuesEditWcom, setvaluesEditWcom] = React.useState({
     genre: "",
     workname: "",
     description: "",
@@ -37,8 +37,8 @@ export default function EditWorkCompanyform(props) {
     maxsalary: "",
     education: ""
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesEditWcomChange = (prop) => (event) => {
+    setvaluesEditWcom({ ...valuesEditWcom, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -49,14 +49,8 @@ export default function EditWorkCompanyform(props) {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(values.genre);
-    console.log(values.workname);
-    console.log(values.description);
-    console.log(values.jobtitle);
-    console.log(values.quantity);
-    console.log(values.minsalary);
-    console.log(values.maxsalary);
-    console.log(values.education);
+    console.log(valuesEditWcom);
+  
 
     if(form.checkValidity() === true) {
       alert("แก้ไขประกาศรับสมัครงานสำเร็จ")
@@ -85,7 +79,7 @@ export default function EditWorkCompanyform(props) {
 
   return (
     <div className="edit-work-outer">
-      <h3>ประกาศรับสมัครงาน</h3>
+      <h3>แก้ไขประกาศรับสมัครงาน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
@@ -94,8 +88,8 @@ export default function EditWorkCompanyform(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={values.genre}
-          onChange={handleValuesChange("genre")}
+          value={valuesEditWcom.genre}
+          onChange={handlevaluesEditWcomChange("genre")}
         >
           <option>--------------</option>
           <option value="Graphic & Design">Graphic & Design</option>
@@ -118,7 +112,7 @@ export default function EditWorkCompanyform(props) {
               type="text"
               placeholder="ชื่องาน"
               name="workname"
-              onChange={handleValuesChange("workname")}
+              onChange={handlevaluesEditWcomChange("workname")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -135,7 +129,7 @@ export default function EditWorkCompanyform(props) {
               as="textarea"
               rows={5}
               name="description"
-              onChange={handleValuesChange("description")}
+              onChange={handlevaluesEditWcomChange("description")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -151,7 +145,7 @@ export default function EditWorkCompanyform(props) {
               type="text"
               placeholder="ตำแหน่ง"
               name="jobtitle"
-              onChange={handleValuesChange("jobtitle")}
+              onChange={handlevaluesEditWcomChange("jobtitle")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ตำแหน่ง
@@ -169,7 +163,7 @@ export default function EditWorkCompanyform(props) {
                 type="number"
                 placeholder="0"
                 name="quantity"
-                onChange={handleValuesChange("quantity")}
+                onChange={handlevaluesEditWcomChange("quantity")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จำนวนคน
@@ -190,7 +184,7 @@ export default function EditWorkCompanyform(props) {
                 required type="number"
                 placeholder="0.00"
                 name="minsalary"
-                onChange={handleValuesChange("minsalary")}
+                onChange={handlevaluesEditWcomChange("minsalary")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -211,7 +205,7 @@ export default function EditWorkCompanyform(props) {
                 type="number"
                 placeholder="0.00"
                 name="maxsalary"
-                onChange={handleValuesChange("maxsalary")}
+                onChange={handlevaluesEditWcomChange("maxsalary")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -232,7 +226,7 @@ export default function EditWorkCompanyform(props) {
               md="4"
               controlId="validationCustom01"
               name="education"
-              onChange={handleValuesChange("education")}
+              onChange={handlevaluesEditWcomChange("education")}
             >
               <option>----------------</option>
               <option value="ต่ำกว่า มัธยมศึกษาตอนต้น">ต่ำกว่า มัธยมศึกษาตอนต้น</option>
