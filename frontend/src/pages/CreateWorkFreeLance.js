@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateWorkFreelance from '../components/Create-work/create-work-freelance';
+import CreateWorkFreelance from '../components/Work/Create-work/create-work-freelance';
 
 
 function CreateWorkFreeLance() {

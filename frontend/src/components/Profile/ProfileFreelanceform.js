@@ -2,23 +2,14 @@ import React, { useState } from "react";
 import "./ProfileFreelanceform.css";
 import Card from "react-bootstrap/Card";
 import { useHistory } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import InputMask from "react-input-mask";
+// import Form from "react-bootstrap/Form";
+// import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
 // import Col from 'react-bootstrap/Col';
 // import Row from 'react-bootstrap/Row';
-import {
-  GraphicFree,
-  GraphicWork,
-  MarketFree,
-  MarketWork,
-  ProgrammingFree,
-  ProgrammingWork,
-} from "../CardWorkandFreelance/Carddataset";
-import CardItem from "../CardItem";
+
 export default function ProfileFreelanceform(props) {
   let url = "";
   const geturl = (e) => {

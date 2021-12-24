@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Cards.css";
-import "./Cardbar.css";
+import "./Contents.css";
+import "./contentbar.css";
 import CardItem from "./CardItem";
 import axios from '../api/axios-work'
 import {

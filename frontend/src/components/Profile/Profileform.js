@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import "./Profileform.css";
 import { useHistory } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Form from "react-bootstrap/Form";
-import InputMask from "react-input-mask";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
-import axios from "axios";
-const baseUsl = "http://203.170.190.226:8080/";
+// import axios from '../api/axios-profile';
+
+
 export default function Profileform(props) {
   let url = "";
   const geturl = (e) => {

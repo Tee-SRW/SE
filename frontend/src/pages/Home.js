@@ -1,4 +1,5 @@
-import Cards from '../components/Cards';
+import React from 'react';
+import Contents from '../components/HomeContent/Contents';
 import HeroSection from '../components/HomeHeroSection/HeroSection';
 
 
@@ -6,7 +7,7 @@ function Home() {
   return (
     <>
       <HeroSection />
-      <Cards />
+      <Contents />
     </>
   );
 }

@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import "../Create-work/create-work.css";
+import "./edit-work.css";
 import Form from "react-bootstrap/Form";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import InputMask from "react-input-mask";
 import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 
-export default function EditWorkCompany(props) {
+
+export default function EditWorkFreelance(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,
@@ -33,11 +30,7 @@ export default function EditWorkCompany(props) {
     genre: "",
     workname: "",
     description: "",
-    jobtitle: "",
-    quantity: "",
     minsalary: "",
-    maxsalary: "",
-    education: ""
   });
   const handleValuesChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -54,15 +47,11 @@ export default function EditWorkCompany(props) {
     console.log(values.genre);
     console.log(values.workname);
     console.log(values.description);
-    console.log(values.jobtitle);
-    console.log(values.quantity);
     console.log(values.minsalary);
-    console.log(values.maxsalary);
-    console.log(values.education);
 
     if(form.checkValidity() === true) {
-      alert("แก้ไขประกาศรับสมัครงานสำเร็จ")
-      history.push("/Profilecompany")
+      alert("แก้ไขการสร้างงานของคุณสำเร็จ")
+      history.push("/Profilefreelance")
     }
   };
   let url = ""
@@ -72,26 +61,21 @@ export default function EditWorkCompany(props) {
     url = e.target.files[0].name
     console.log(url);
   }
-
   const [selectedImage, setSelectedImage] = useState();
 
   // This function will be triggered when the file field change
-  // const imageChange = (e) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setSelectedImage(e.target.files[0]);
-  //   }
-  // };
+
   // const removeSelectedImage = () => {
   //   setSelectedImage();
   // };
 
   return (
-    <div className="create-work-outer">
-      <h3>ประกาศรับสมัครงาน</h3>
+    <div className="edit-work-outer">
+      <h3>สร้างงานของฉัน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-        <Form.Select
+      <Form.Select
           size="sm"
           as={Col}
           md="4"
@@ -146,47 +130,9 @@ export default function EditWorkCompany(props) {
         </Row>
 
         <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-            <Form.Label>ตำแหน่ง</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              placeholder="ตำแหน่ง"
-              name="jobtitle"
-              onChange={handleValuesChange("jobtitle")}
-            />
-            <Form.Control.Feedback type="invalid">
-              โปรดระบุ ตำแหน่ง
-            </Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3">
           <Col>
             <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label>จำนวน</Form.Label>
-
-              <Form.Control
-                required
-                type="number"
-                placeholder="0"
-                name="quantity"
-                onChange={handleValuesChange("quantity")}
-              />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ จำนวนคน
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
-          <Col className="bath2bath">
-            <Form.Label>คน</Form.Label>
-          </Col>
-        </Row>
-
-        <Row className="mb-3">
-          <Col>
-            <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label>เงินเดือน</Form.Label>
+              <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control
                 required type="number"
@@ -195,59 +141,12 @@ export default function EditWorkCompany(props) {
                 onChange={handleValuesChange("minsalary")}
               />
               <Form.Control.Feedback type="invalid">
-                กรุณาใส่ เงินเดือน
-              </Form.Control.Feedback>
-            </Form.Group>
-
-          </Col>
-          <div className="bath2bath">
-            <Form.Label> - </Form.Label>
-          </div>
-          <Col>
-
-            <Form.Group md="4" controlId="validationCustom04">
-              <Form.Label className="whites">.</Form.Label>
-
-              <Form.Control
-                required
-                type="number"
-                placeholder="0.00"
-                name="maxsalary"
-                onChange={handleValuesChange("maxsalary")}
-              />
-              <Form.Control.Feedback type="invalid">
-                กรุณาใส่ เงินเดือน
+                กรุณาใส่ ราคาเริ่มต้น
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-
           <Col className="bath2bath">
             <Form.Label>บาท</Form.Label>
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Label>วุฒิการศึกษา</Form.Label>
-            <Form.Select
-              size="sm"
-              as={Col}
-              md="4"
-              controlId="validationCustom01"
-              name="education"
-              onChange={handleValuesChange("education")}
-            >
-              <option>----------------</option>
-              <option value="ต่ำกว่า มัธยมศึกษาตอนต้น">ต่ำกว่า มัธยมศึกษาตอนต้น</option>
-              <option value="มัธยมศึกษาตอนต้น หรือเทียบเท่า">มัธยมศึกษาตอนต้น หรือเทียบเท่า</option>
-              <option value="มัธยมศึกษาตอนปลาย หรือเทียบเท่า">มัธยมศึกษาตอนปลาย หรือเทียบเท่า</option>
-              <option value="อนุปริญญา">อนุปริญญา</option>
-              <option value="ปริญญาตรี">ปริญญาตรี</option>
-              <option value="ปริญญาโท">ปริญญาโท</option>
-              <option value="ปริญญาเอก">ปริญญาเอก</option>
-              <Form.Control.Feedback tooltip type="invalid">
-                กรุณาเลือก วุฒิการศึกษา
-              </Form.Control.Feedback>
-            </Form.Select>
           </Col>
         </Row>
 
@@ -259,13 +158,13 @@ export default function EditWorkCompany(props) {
       
         {selectedImage && (
           <img
-            src={URL.createObjectURL(selectedImage)}
+            src={URL.editObjectURL(selectedImage)}
             className="img-fluid"
             alt="Thumb"
           />
         )} */}
 
-        <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
+        <Form.Group controlId="formFileMultiple" className="mb-3 spacing-top" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
           <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
@@ -274,7 +173,7 @@ export default function EditWorkCompany(props) {
           <div className="box-image">
             {selectedImage && (
               <img
-                src={URL.createObjectURL(selectedImage)}
+                src={URL.editObjectURL(selectedImage)}
                 className="img-fluid"
                 alt="Thumb"
               />
@@ -286,12 +185,12 @@ export default function EditWorkCompany(props) {
           <Col>
             <Button
               className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profilecompany")}
+              onClick={() => history.push("/Profilefreelance")}
             >
               ยกเลิก
             </Button>
           </Col>
-          <Col className="create-work-freelance-buttonSave">
+          <Col className="edit-work-freelance-buttonSave">
             <Button
               type="submit"
               className="btn color spacing-top10"

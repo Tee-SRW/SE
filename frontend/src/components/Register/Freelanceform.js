@@ -1,25 +1,15 @@
 import React, { useState } from "react";
 import "./Freelanceform.css";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
-import IconButton from "@material-ui/core/IconButton";
-import InputLabel from "@material-ui/core/InputLabel";
-import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from 'react-router-dom';
 
-const eye = <FontAwesomeIcon icon={faEye} />;
-const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
-
-export default function Freelance(props) {
+export default function Freelance() {
   const history = useHistory();
 
   const [values, setValues] = React.useState({

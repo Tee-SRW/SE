@@ -2,24 +2,24 @@
 import React, { useState } from "react";
 import "./Signupform.css";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import { Container, Row, Col } from "react-grid-system";
+// import InputGroup from "react-bootstrap/InputGroup";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
 import IconButton from "@material-ui/core/IconButton";
-import InputLabel from "@material-ui/core/InputLabel";
+// import InputLabel from "@material-ui/core/InputLabel";
 import Visibility from "@material-ui/icons/Visibility";
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import Input from "@material-ui/core/Input";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+// import Input from "@material-ui/core/Input";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
-const eye = <FontAwesomeIcon icon={faEye} />;
-const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
+// const eye = <FontAwesomeIcon icon={faEye} />;
+// const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
   const history = useHistory();

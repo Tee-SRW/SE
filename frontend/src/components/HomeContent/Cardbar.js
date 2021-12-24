@@ -6,8 +6,6 @@ function Cardbar() {
     const [click, setClick] = useState(false);
     const [dropdownWork, setDropdownWork] = useState(false);
     
-
-    const handleClick = () => setClick(!click);
     const ToggleDropdownWork = () => {
         setDropdownWork(dropdownWork ? false : true);
     }

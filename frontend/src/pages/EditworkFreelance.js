@@ -1,12 +1,12 @@
 import React from 'react';
-import EditWorkFreelance from '../components/Create-work/edit-work-freelance';
+import EditWorkCompany from '../components/Work/Edit-work/Edit-work-freelance';
 
 
-function EditWorkFreeLance() {
+function EditWorkCompany() {
     return (
         <>
-            <EditWorkFreelance />
+            <EditWorkCompany />
         </>
     );
 }
-export default EditWorkFreeLance;
+export default EditWorkCompany;

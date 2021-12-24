@@ -1,30 +1,41 @@
 import React, { useState } from "react";
-import Navbar from "./components/Navigation/Navbar";
-import Footer from "./components/Footer/Footer";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Home from "./pages/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Services from "./pages/Services";
-import ChooseCreate from "./pages/ChooseCreate";
-import SignUp from "./pages/SignUp";
-import SignUpcompany from "./pages/SignUpcompany";
+//  Home
+import Home from "./pages/Home";
+import Navbar from "./components/Navigation/Navbar";
+import Footer from "./components/Footer/Footer";
+
+//  Login
 import Login from "./pages/Login";
 import Forgetpassword from "./pages/Forgetpassword";
 import Resetpassword from "./pages/Resetpassword";
-import Editprofile from "./pages/Editprofile";
-import Profile from "./pages/Profile";
-import EditprofileCompany from "./pages/EditprofileCompany";
-import EditprofileFreelacne from "./pages/EditprofileFreelance";
+//  Sign-up
+import ChooseCreate from "./pages/ChooseCreate";
+import SignUp from "./pages/SignUp";
+import SignUpcompany from "./pages/SignUpcompany";
 import Freelance from "./pages/Freelance";
-import CreateWorkFreeLance from "./pages/CreateWorkFreeLance";
-import CreateWorkCompany from "./components/Create-work/create-work-company";
-import EditWorkFreelance from "./components/Work/Edit-work-freelance";
-import EditWorkCompany from "./components/Work/Edit-work-company";
+
+//  Profile
+import Profile from "./pages/Profile";
 import Profilefreelance from "./pages/Profilefreelance";
 import Profilecompany from "./pages/Profilecompany";
+//  EditProfile
+import Editprofile from "./pages/Editprofile";
+import EditprofileCompany from "./pages/EditprofileCompany";
+import EditprofileFreelacne from "./pages/EditprofileFreelance";
+
+//  work
 import WorkFreelance from "./pages/WorkFreelance";
 import WorkCompany from "./pages/WorkCompany";
+//  Create-work
+import CreateWorkFreeLance from "./pages/CreateWorkFreeLance";
+import CreateWorkCompany from "./pages/createWorkCompany";
+//  Editwork
+import EditWorkFreelance from "./pages/EditWorkFreelance";
+import EditWorkCompany from "./pages/EditWorkCompany";
+
 
 function App() {
   // const [loggedIn, setLoggedIn] = useState(console.log(false),
@@ -39,50 +50,41 @@ function App() {
         <Navbar />
         <div className="page__content">
           <Switch>
+            {/* Home Path*/}
             <Route path="/" exact component={Home} />
-            <Route path="/services" component={Services} />
+
+            {/* Login Path*/}
             <Route path="/Login" component={Login} />
-            {/* Tier 1 */}
             <Route path="/Forgetpassword" component={Forgetpassword} />
-            {/* Tier 1 */}
             <Route path="/Resetpassword" component={Resetpassword} />
-            {/* Tier 1 */}
+
+            {/* Sign-up Path */}
             <Route path="/ChooseCreate" component={ChooseCreate} />
-            {/* Tier 1 */}
             <Route path="/sign-up" component={SignUp} />
-            {/* Tier 1 */}
             <Route path="/sign-up-company" component={SignUpcompany} />
-            {/* Tier 1 */}
             <Route path="/Freelance" component={Freelance} />
-            {/* Tier 2 */}
+
+            {/* Profile Path*/}
             <Route path="/Profile" component={Profile} />
-            {/* Tier 2 */}
-            <Route path="/Editprofile" component={Editprofile} />
-            {/* Tier 2 */}
             <Route path="/Profilefreelance" component={Profilefreelance} />
-            <Route
-              path="/Editprofilefreelance"
-              component={EditprofileFreelacne}
-            />
+            <Route path="/Profilecompany" component={Profilecompany} />
+
+            {/* Edit-Profile Path*/}
+            <Route path="/Editprofile" component={Editprofile} />
+            <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
             <Route path="/EditprofileCompany" component={EditprofileCompany} />
+
+            {/* Work Path */}
             <Route path="/WorkFreelance" component={WorkFreelance} />
+            <Route path="/WorkCompany" component={WorkCompany} />
+
+            {/* Create-Work Path */}
             <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
             <Route path="/CreateworkCompany" component={CreateWorkCompany} />
+
+            {/* Edit-Work Path */}
             <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
             <Route path="/EditworkCompany" component={EditWorkCompany} />
-            <Route path="/Profilecompany" component={Profilecompany} />
-            {/* Tier 2 */}
-            <Route path="/EditprofileCompany" component={EditprofileCompany} />
-            {/* Tier 2 */}
-            <Route path="/CreateworkCompany" component={CreateWorkCompany} />
-            {/* Tier 2 */}
-            <Route path="/EditworkCompany" component={EditWorkCompany} />
-            {/* Tier 2 */}
-            <Route path="/WorkCompany" component={WorkCompany} />
-            {/* Tier 2 */}
-            {/* Tier 2 */}
-            <Route path="/WorkFreelance" component={WorkFreelance} />
-            {/* Tier 2 */}
           </Switch>
         </div>
         <Footer />
