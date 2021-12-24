@@ -3,61 +3,33 @@ import "./create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-
 export default function CreateWorkFreelance(props) {
-  // const [values, setValues] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
-
-  // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
   const history = useHistory();
-
-  const [values, setValues] = React.useState({
-    typeWorknumber: "",
-    namework: "",
-    detailwork: "",
-    pricepostwork: "",
-  });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const [valuesCreateworkfreelance, setvaluesCreateworkfreelance] =
+    React.useState({
+      typeWorknumber: "",
+      namework: "",
+      detailwork: "",
+      pricepostwork: "",
+    });
+  const handlevaluesCreateworkfreelanceChange = (prop) => (event) => {
+    setvaluesCreateworkfreelance({
+      ...valuesCreateworkfreelance,
+      [prop]: event.target.value,
+    });
   };
-
   const [validated, setValidated] = useState(false);
-  
-  let url = ""
-
+  let url = "";
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
-    url = e.target.files[0].name
+    url = e.target.files[0].name;
     console.log(url);
-  }
-
+  };
   const [selectedImage, setSelectedImage] = useState();
-
-  // This function will be triggered when the file field change
-
-  // const removeSelectedImage = () => {
-  //   setSelectedImage();
-  // };
-
-  const baseUsl = "http://203.170.190.226:8080/"
+  const baseUsl = "http://203.170.190.226:8080/";
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -65,45 +37,42 @@ export default function CreateWorkFreelance(props) {
       event.stopPropagation();
     }
     setValidated(true);
-  
+
     event.preventDefault();
 
     const user = {
-      "typeWorknumber":values.typeWorknumber,
-      "detailwork":values.detailwork,
-      "userid":3,
-      "pricepostwork":values.pricepostwork,
-      "namework":values.namework,
-      "imageworkpostfreelance":"imageworkpostfreelancexd"
+      typeWorknumber: valuesCreateworkfreelance.typeWorknumber,
+      detailwork: valuesCreateworkfreelance.detailwork,
+      userid: 3,
+      pricepostwork: valuesCreateworkfreelance.pricepostwork,
+      namework: valuesCreateworkfreelance.namework,
+      imageworkpostfreelance: "imageworkpostfreelancexd",
     };
 
-    axios.post(`${baseUsl}/addworkFreelance`,{ user })
-    .then(res => {
+    axios.post(`${baseUsl}/addworkFreelance`, { user }).then((res) => {
       console.log(user);
-      // console.log(values.email);
-      // console.log(values.password);
+      // console.log(valuesCreateworkfreelance.email);
+      // console.log(valuesCreateworkfreelance.password);
       // console.log(res);
       // console.log(res.data);
-    
-      })
-      if(form.checkValidity() === true) {
-        alert("สร้างงานของคุณสำเร็จ")
-        history.push("/Profilefreelance")
-      }
+    });
+    if (form.checkValidity() === true) {
+      alert("สร้างงานของคุณสำเร็จ");
+      history.push("/Profilefreelance");
+    }
   };
   return (
     <div className="create-work-outer">
       <h3>สร้างงานของฉัน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-      <Form.Select
+        <Form.Select
           size="sm"
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={values.typeWorknumber}
-          onChange={handleValuesChange("typeWorknumber")}
+          value={valuesCreateworkfreelance.typeWorknumber}
+          onChange={handlevaluesCreateworkfreelanceChange("typeWorknumber")}
         >
           <option>--------------</option>
           <option value="1">Graphic & Design</option>
@@ -115,8 +84,11 @@ export default function CreateWorkFreelance(props) {
           </Form.Control.Feedback> */}
         </Form.Select>
 
-        <br /><br />
-        <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
+        <br />
+        <br />
+        <Form.Label as={Col} className="text">
+          รายละเอียดงาน
+        </Form.Label>
 
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -126,8 +98,8 @@ export default function CreateWorkFreelance(props) {
               type="text"
               placeholder="ชื่องาน"
               name="namework"
-              value={values.namework}
-              onChange={handleValuesChange("namework")}
+              value={valuesCreateworkfreelance.namework}
+              onChange={handlevaluesCreateworkfreelanceChange("namework")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -139,13 +111,14 @@ export default function CreateWorkFreelance(props) {
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
-              required type="text"
+              required
+              type="text"
               placeholder="คำอธิบายเพื่มเติม"
               as="textarea"
               rows={5}
               name="description"
-              value={values.detailwork}
-              onChange={handleValuesChange("detailwork")}
+              value={valuesCreateworkfreelance.detailwork}
+              onChange={handlevaluesCreateworkfreelanceChange("detailwork")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -159,11 +132,14 @@ export default function CreateWorkFreelance(props) {
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control
-                required type="number"
+                required
+                type="number"
                 placeholder="0.00"
                 name="minsalary"
-                value={values.pricepostwork}
-                onChange={handleValuesChange("pricepostwork")}
+                value={valuesCreateworkfreelance.pricepostwork}
+                onChange={handlevaluesCreateworkfreelanceChange(
+                  "pricepostwork"
+                )}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ราคาเริ่มต้น
@@ -174,26 +150,10 @@ export default function CreateWorkFreelance(props) {
             <Form.Label>บาท</Form.Label>
           </Col>
         </Row>
-
-        {/* <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
-          <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} onChange={imageChange} />
-        </Form.Group>
-
-      
-        {selectedImage && (
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            className="img-fluid"
-            alt="Thumb"
-          />
-        )} */}
-
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
           <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
-
         <div className="border-list-pic">
           <div className="box-image">
             {selectedImage && (
@@ -205,7 +165,6 @@ export default function CreateWorkFreelance(props) {
             )}
           </div>
         </div>
-
         <Row className="gap-2 btn-color">
           <Col>
             <Button
@@ -216,16 +175,11 @@ export default function CreateWorkFreelance(props) {
             </Button>
           </Col>
           <Col className="create-work-freelance-buttonSave">
-            <Button
-              type="submit"
-              className="btn color spacing-top10"
-            >
+            <Button type="submit" className="btn color spacing-top10">
               บันทึก
             </Button>
           </Col>
         </Row>
-
-
       </Form>
     </div>
   );

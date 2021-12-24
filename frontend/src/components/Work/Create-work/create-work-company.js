@@ -12,13 +12,13 @@ import axios from "axios";
 
 
 export default function CreateWorkCompany(props) {
-  // const [values, setValues] = React.useState({
+  // const [valuesCreateworkcompany, setvaluesCreateworkcompany] = React.useState({
   //   password: "",
   //   showPassword: false,
   // });
 
   // const handleClickShowPassword = () => {
-  //   setValues({ ...values, showPassword: !values.showPassword });
+  //   setvaluesCreateworkcompany({ ...valuesCreateworkcompany, showPassword: !valuesCreateworkcompany.showPassword });
   // };
 
   // const handleMouseDownPassword = (event) => {
@@ -26,11 +26,11 @@ export default function CreateWorkCompany(props) {
   // };
 
   // const handlePasswordChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
+  //   setvaluesCreateworkcompany({ ...valuesCreateworkcompany, [prop]: event.target.value });
   // };
   const history = useHistory();
 
-  const [values, setValues] = React.useState({
+  const [valuesCreateworkcompany, setvaluesCreateworkcompany] = React.useState({
     typeworknumber: "",
     namework: "",
     detailwork: "",
@@ -40,8 +40,8 @@ export default function CreateWorkCompany(props) {
     priceworkmax: "",
     education: ""
   });
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesCreateworkcompanyChange = (prop) => (event) => {
+    setvaluesCreateworkcompany({ ...valuesCreateworkcompany, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -80,22 +80,22 @@ export default function CreateWorkCompany(props) {
 
     const user = {
       "companyid":1,
-      "typeworknumber":values.typeworknumber,
-      "namework":values.namework,
-      "detailwork":values.detailwork,
-      "position":values.position,
-      "numperson":values.numperson,
-      "priceworkmin":values.priceworkmin,
-      "priceworkmax":values.priceworkmax,
-      "education":values.education,
+      "typeworknumber":valuesCreateworkcompany.typeworknumber,
+      "namework":valuesCreateworkcompany.namework,
+      "detailwork":valuesCreateworkcompany.detailwork,
+      "position":valuesCreateworkcompany.position,
+      "numperson":valuesCreateworkcompany.numperson,
+      "priceworkmin":valuesCreateworkcompany.priceworkmin,
+      "priceworkmax":valuesCreateworkcompany.priceworkmax,
+      "education":valuesCreateworkcompany.education,
       "imageworkpostcompany":"Image_Work_Post_Companyxd"
     };
 
     axios.post(`${baseUsl}/addworkFreelance`,{ user })
     .then(res => {
       console.log(user);
-      // console.log(values.email);
-      // console.log(values.password);
+      // console.log(valuesCreateworkcompany.email);
+      // console.log(valuesCreateworkcompany.password);
       // console.log(res);
       // console.log(res.data);    
     })
@@ -116,8 +116,8 @@ export default function CreateWorkCompany(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={values.typeworknumber}
-          onChange={handleValuesChange("typeworknumber")}
+          value={valuesCreateworkcompany.typeworknumber}
+          onChange={handlevaluesCreateworkcompanyChange("typeworknumber")}
         >
           <option>--------------</option>
           <option value="1">Graphic & Design</option>
@@ -140,8 +140,8 @@ export default function CreateWorkCompany(props) {
               type="text"
               placeholder="ชื่องาน"
               name="workname"
-              value={values.namework}
-              onChange={handleValuesChange("namework")}
+              value={valuesCreateworkcompany.namework}
+              onChange={handlevaluesCreateworkcompanyChange("namework")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -158,8 +158,8 @@ export default function CreateWorkCompany(props) {
               as="textarea"
               rows={5}
               name="description"
-              value={values.detailwork}
-              onChange={handleValuesChange("detailwork")}
+              value={valuesCreateworkcompany.detailwork}
+              onChange={handlevaluesCreateworkcompanyChange("detailwork")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -175,8 +175,8 @@ export default function CreateWorkCompany(props) {
               type="text"
               placeholder="ตำแหน่ง"
               name="Position"
-              value={values.position}
-              onChange={handleValuesChange("position")}
+              value={valuesCreateworkcompany.position}
+              onChange={handlevaluesCreateworkcompanyChange("position")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ตำแหน่ง
@@ -194,8 +194,8 @@ export default function CreateWorkCompany(props) {
                 type="number"
                 placeholder="0"
                 name="NumPerson"
-                value={values.numperson}
-                onChange={handleValuesChange("numperson")}
+                value={valuesCreateworkcompany.numperson}
+                onChange={handlevaluesCreateworkcompanyChange("numperson")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จำนวนคน
@@ -216,8 +216,8 @@ export default function CreateWorkCompany(props) {
                 required type="number"
                 placeholder="0.00"
                 name="PriceWorkMin"
-                value={values.priceworkmin}
-                onChange={handleValuesChange("priceworkmin")}
+                value={valuesCreateworkcompany.priceworkmin}
+                onChange={handlevaluesCreateworkcompanyChange("priceworkmin")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -238,8 +238,8 @@ export default function CreateWorkCompany(props) {
                 type="number"
                 placeholder="0.00"
                 name="PriceWorkMax"
-                value={values.priceworkmax}
-                onChange={handleValuesChange("priceworkmax")}
+                value={valuesCreateworkcompany.priceworkmax}
+                onChange={handlevaluesCreateworkcompanyChange("priceworkmax")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -260,8 +260,8 @@ export default function CreateWorkCompany(props) {
               md="4"
               controlId="validationCustom01"
               name="Education"
-              value={values.education}
-              onChange={handleValuesChange("education")}
+              value={valuesCreateworkcompany.education}
+              onChange={handlevaluesCreateworkcompanyChange("education")}
             >
               <option>----------------</option>
               <option value="ต่ำกว่า มัธยมศึกษาตอนต้น">ต่ำกว่า มัธยมศึกษาตอนต้น</option>

@@ -33,8 +33,8 @@ import WorkCompany from "./pages/WorkCompany";
 import CreateWorkFreeLance from "./pages/CreateWorkFreeLance";
 import CreateWorkCompany from "./pages/CreateWorkCompany";
 //  Editwork
-import EditWorkFreelance from "./pages/EditWorkFreelance";
-import EditWorkCompany from "./pages/EditWorkCompany";
+import EditWorkFreelance from "./pages/EditworkFreelance";
+import EditWorkCompany from "./pages/EditworkCompany";
 
 
 function App() {
