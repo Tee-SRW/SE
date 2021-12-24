@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-export default function EditWorkFreelance(props) {
+export default function EditWorkFreelanceform(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,

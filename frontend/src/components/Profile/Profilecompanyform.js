@@ -8,15 +8,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
-import {
-  GraphicFree,
-  GraphicWork,
-  MarketFree,
-  MarketWork,
-  ProgrammingFree,
-  ProgrammingWork,
-} from "../CardWorkandFreelance/Carddataset";
-import CardItem from "../CardItem";
+
 export default function Profilecompanyform(props) {
   let url = "";
   const geturl = (e) => {

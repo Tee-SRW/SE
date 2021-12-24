@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Contents.css";
+import "./contents.css";
 import "./contentbar.css";
 import CardItem from "./CardItem";
-import axios from '../api/axios-work'
+import axios from '../../api/axios-work'
 import {
 	Nothing,
 	GraphicFree,
@@ -12,7 +12,7 @@ import {
 	MarketWork,
 	ProgrammingFree,
 	ProgrammingWork,
-} from "./CardWorkandFreelance/Carddataset";
+} from "../CardWorkandFreelance/Carddataset";
 
 const Cards = () => {
 	// const [clickGraphic, setClickGraphic] = useState(false);

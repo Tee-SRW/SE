@@ -8,7 +8,7 @@ import { useHistory } from 'react-router-dom';
 
 
 
-export default function EditWorkCompany(props) {
+export default function EditWorkCompanyform(props) {
   // const [values, setValues] = React.useState({
   //   password: "",
   //   showPassword: false,

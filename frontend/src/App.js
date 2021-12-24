@@ -31,7 +31,7 @@ import WorkFreelance from "./pages/WorkFreelance";
 import WorkCompany from "./pages/WorkCompany";
 //  Create-work
 import CreateWorkFreeLance from "./pages/CreateWorkFreeLance";
-import CreateWorkCompany from "./pages/createWorkCompany";
+import CreateWorkCompany from "./pages/CreateWorkCompany";
 //  Editwork
 import EditWorkFreelance from "./pages/EditWorkFreelance";
 import EditWorkCompany from "./pages/EditWorkCompany";
