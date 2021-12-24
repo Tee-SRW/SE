@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Resetpasswordform.css";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -11,25 +10,25 @@ import { useHistory } from 'react-router-dom';
 
 export default function Resetpasswordform() {
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [valuesResetPw, setvaluesResetPw] = React.useState({
     password: "",
     showPassword: false,
   });
-  const [values2, setValues2] = React.useState({
+  const [valuesResetPw2, setvaluesResetPw2] = React.useState({
     password2: "",
     showPassword2: false,
   });
 
   function handleClickShowPassword() {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setvaluesResetPw({ ...valuesResetPw, showPassword: !valuesResetPw.showPassword });
   }
   function handleClickShowPassword2() {
-    setValues2({ ...values2, showPassword2: !values2.showPassword2 });
+    setvaluesResetPw2({ ...valuesResetPw2, showPassword2: !valuesResetPw2.showPassword2 });
   }
 
   const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-    setValues2({ ...values2, [prop]: event.target.value });
+    setvaluesResetPw({ ...valuesResetPw, [prop]: event.target.value });
+    setvaluesResetPw2({ ...valuesResetPw2, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -39,7 +38,7 @@ export default function Resetpasswordform() {
       event.preventDefault();
       event.stopPropagation();
     }
-    if (values.password !== values2.password2) {
+    if (valuesResetPw.password !== valuesResetPw2.password2) {
       event.preventDefault();
       event.stopPropagation();
       alert("รหัสไม่ตรงกันแก้ด้วย")
@@ -62,13 +61,13 @@ export default function Resetpasswordform() {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values.showPassword ? "text" : "password"}
+                  type={valuesResetPw.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
                   onChange={handlePasswordChange("password")}
-                  value={values.password}
+                  value={valuesResetPw.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  {valuesResetPw.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
@@ -82,13 +81,13 @@ export default function Resetpasswordform() {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values2.showPassword2 ? "text" : "password"}
+                  type={valuesResetPw2.showPassword2 ? "text" : "password"}
                   placeholder="รหัสผ่าน"
                   onChange={handlePasswordChange("password2")}
-                  value={values2.password2}
+                  value={valuesResetPw2.password2}
                 />
                 <IconButton onClick={handleClickShowPassword2}>
-                  {values2.showPassword2 ? <Visibility /> : <VisibilityOff />}
+                  {valuesResetPw2.showPassword2 ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
