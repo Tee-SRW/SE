@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Forgetpasswordform.css";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { useHistory } from 'react-router-dom';
 
 export default function Forgetpasswordform() {
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [valuesForgetpw, setvaluesForgetpw] = React.useState({
     email:""
   });
   
-  const handleValuesChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handlevaluesForgetpwChange = (prop) => (event) => {
+    setvaluesForgetpw({ ...valuesForgetpw, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -45,8 +45,8 @@ export default function Forgetpasswordform() {
               type="text" 
               placeholder="อีเมล" 
               name="email"
-              value={values.email}
-              onChange={handleValuesChange("email")}
+              value={valuesForgetpw.email}
+              onChange={handlevaluesForgetpwChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล

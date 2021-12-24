@@ -1,32 +1,32 @@
 import React, { useState } from "react";
-// import style from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import "./Loginform.css";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { Container, Row, Col } from "react-grid-system";
-// import InputGroup from "react-bootstrap/InputGroup";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom';
 import axios from '../../api/axios-login';
+// import style from "react";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+// import InputGroup from "react-bootstrap/InputGroup";
 
 export default function Loginform() {
   const history = useHistory();
-  const [values, setValues] = React.useState({
+  const [valuesLogin, setvaluesLogin] = React.useState({
     email:"",
     password: "",
     showPassword: false
   });
   
   function handleClickShowPassword() {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setvaluesLogin({ ...valuesLogin, showPassword: !valuesLogin.showPassword });
   }
 
   const handlePasswordChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+    setvaluesLogin({ ...valuesLogin, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
@@ -40,15 +40,15 @@ export default function Loginform() {
     event.preventDefault();
 
     const user = {
-      "email": values.email,
-      "password": values.password
+      "email": valuesLogin.email,
+      "password": valuesLogin.password
     };
 
     axios.post(`/login`,{ user })
     .then(res => {
       console.log(user);
-      console.log(values.email);
-      console.log(values.password);
+      console.log(valuesLogin.email);
+      console.log(valuesLogin.password);
       console.log(res);
       console.log(res.data);
     })
@@ -71,7 +71,7 @@ export default function Loginform() {
               type="text" 
               placeholder="อีเมล" 
               onChange={handlePasswordChange("email")}
-              value={values.email}
+              value={valuesLogin.email}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล/เบอร์โทรศัพท์
@@ -84,13 +84,13 @@ export default function Loginform() {
               <div className="box__password">
                 <Form.Control
                   required
-                  type={values.showPassword ? "text" : "password"}
+                  type={valuesLogin.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
                   onChange={handlePasswordChange("password")}
-                  value={values.password}
+                  value={valuesLogin.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                  {valuesLogin.showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
               </div>
               <Form.Control.Feedback type="invalid">
