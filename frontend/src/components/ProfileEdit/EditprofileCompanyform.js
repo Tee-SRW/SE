@@ -65,7 +65,7 @@ export default function EditprofileCompanyform(props) {
           <img
             src=" "
             className="img-fluid rounded-circle"
-            alt="Profile Admin"
+            alt=""
           ></img>
         </div>
         <div className="d-grid2 gap-2 spacing-top btn-fontblack">
