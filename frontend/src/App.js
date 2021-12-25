@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//  DataContext
+import DataUser from "./DataUser/DataUser";
+
 //  Home
 import Home from "./pages/Home";
 import Navbar from "./components/Navigation/Navbar";
 import Footer from "./components/Footer/Footer";
 
 //  Login
-import Login from "./pages/Login";
+import Loginform from "./components/Login/Loginform";
+//import Login from "./pages/Login";
 import Forgetpassword from "./pages/Forgetpassword";
 import Resetpassword from "./pages/Resetpassword";
 //  Sign-up
@@ -37,6 +41,7 @@ import EditWorkFreelance from "./pages/EditworkFreelance";
 import EditWorkCompany from "./pages/EditworkCompany";
 
 
+
 function App() {
   // const [loggedIn, setLoggedIn] = useState(console.log(false),
   //   //false);
@@ -44,51 +49,69 @@ function App() {
   // // initial value
   // document.cookie.split(';').some((item) => item.trim().startsWith('logedIn=')));
 
+  const [userID, setUserID] = useState(0)
+  const [userType, setUserType] = useState(0)
+
+  const updateDataUser = (dataUser) => {
+    // console.log(dataUser)
+    setUserID(dataUser.id)
+    setUserType(dataUser.type)
+  }
+
   return (
     <div className="">
-      <Router>
-        <Navbar />
-        <div className="page__content">
-          <Switch>
-            {/* Home Path*/}
-            <Route path="/" exact component={Home} />
+      <DataUser.Provider value={
+        {
+          userID: userID,
+          userType: userType
+        }
+      }>
+        <Router>
+          <Navbar />
+          <div className="page__content">
+            <Switch>
+              {/* Home Path*/}
+              <Route path="/" exact component={Home} />
 
-            {/* Login Path*/}
-            <Route path="/Login" component={Login} />
-            <Route path="/Forgetpassword" component={Forgetpassword} />
-            <Route path="/Resetpassword" component={Resetpassword} />
+              {/* Login Path*/}
+              <Route path="/Login">
+                <Loginform onUpdateDataUser={updateDataUser} />
+              </Route>
+              <Route path="/Forgetpassword" component={Forgetpassword} />
+              <Route path="/Resetpassword" component={Resetpassword} />
 
-            {/* Sign-up Path */}
-            <Route path="/ChooseCreate" component={ChooseCreate} />
-            <Route path="/sign-up" component={SignUp} />
-            <Route path="/sign-up-company" component={SignUpcompany} />
-            <Route path="/Freelance" component={Freelance} />
+              {/* Sign-up Path */}
+              <Route path="/ChooseCreate" component={ChooseCreate} />
+              <Route path="/sign-up" component={SignUp} />
+              <Route path="/sign-up-company" component={SignUpcompany} />
+              <Route path="/Freelance" component={Freelance} />
 
-            {/* Profile Path*/}
-            <Route path="/Profile" component={Profile} />
-            <Route path="/Profilefreelance" component={Profilefreelance} />
-            <Route path="/Profilecompany" component={Profilecompany} />
+              {/* Profile Path*/}
+              <Route path="/Profile" component={Profile} />
+              <Route path="/Profilefreelance" component={Profilefreelance} />
+              <Route path="/Profilecompany" component={Profilecompany} />
 
-            {/* Edit-Profile Path*/}
-            <Route path="/Editprofile" component={Editprofile} />
-            <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
-            <Route path="/EditprofileCompany" component={EditprofileCompany} />
+              {/* Edit-Profile Path*/}
+              <Route path="/Editprofile" component={Editprofile} />
+              <Route path="/Editprofilefreelance" component={EditprofileFreelacne} />
+              <Route path="/EditprofileCompany" component={EditprofileCompany} />
 
-            {/* Work Path */}
-            <Route path="/WorkFreelance" component={WorkFreelance} />
-            <Route path="/WorkCompany" component={WorkCompany} />
+              {/* Work Path */}
+              <Route path="/WorkFreelance" component={WorkFreelance} />
+              <Route path="/WorkCompany" component={WorkCompany} />
 
-            {/* Create-Work Path */}
-            <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
-            <Route path="/CreateworkCompany" component={CreateWorkCompany} />
+              {/* Create-Work Path */}
+              <Route path="/Createworkfreelance" component={CreateWorkFreeLance} />
+              <Route path="/CreateworkCompany" component={CreateWorkCompany} />
 
-            {/* Edit-Work Path */}
-            <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
-            <Route path="/EditworkCompany" component={EditWorkCompany} />
-          </Switch>
-        </div>
-        <Footer />
-      </Router>
+              {/* Edit-Work Path */}
+              <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
+              <Route path="/EditWorkCompany" component={EditWorkCompany} />
+            </Switch>
+          </div>
+          <Footer />
+        </Router>
+      </DataUser.Provider>
     </div>
   );
 }

@@ -13,14 +13,14 @@ import axios from '../../api/axios-login';
 // import InputAdornment from "@material-ui/core/InputAdornment";
 // import InputGroup from "react-bootstrap/InputGroup";
 
-export default function Loginform() {
+export default function Loginform(props) {
   const history = useHistory();
   const [valuesLogin, setvaluesLogin] = React.useState({
-    email:"",
+    email: "",
     password: "",
     showPassword: false
   });
-  
+
   function handleClickShowPassword() {
     setvaluesLogin({ ...valuesLogin, showPassword: !valuesLogin.showPassword });
   }
@@ -44,13 +44,26 @@ export default function Loginform() {
       "password": valuesLogin.password
     };
 
-    axios.post(`/login`, user )
-    .then(res => {
-      console.log(user);
-      console.log(res);
-      console.log(res.data); 
-      history.push("/")
-    })
+    axios.post(`/login`, user)
+      .then(res => {
+        console.log(user);
+        console.log(res);
+        console.log(res.data);
+        if (res.data.status === "ถูกต้อง") {
+          alert("เข้าสู่ระบบสำเร็จ")
+          const userData = {
+            id: res.data.id,
+            type: res.data.typenumber_user
+          }
+          // console.log(userData);
+          props.onUpdateDataUser(userData)
+          history.push("/")
+        } else if (res.data.status === "ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้องอีเมล") {
+          alert("ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง")
+        }
+      }).catch(err => {
+        alert("เข้าสู่ระบบไม่สำเร็จ")
+      })
   };
 
 
@@ -62,12 +75,12 @@ export default function Loginform() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="อีเมล" 
-              onChange={handlevaluesLoginChange("email")}
-              value={valuesLogin.email}
+              <Form.Control
+                required
+                type="text"
+                placeholder="อีเมล"
+                onChange={handlevaluesLoginChange("email")}
+                value={valuesLogin.email}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล/เบอร์โทรศัพท์

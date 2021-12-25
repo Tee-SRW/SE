@@ -159,7 +159,7 @@ export default function Profilecompanyform(props) {
                 </Card.Text>
                 <Button
                   variant="primary"
-                  onClick={() => history.push("/EditworkCompany")}
+                  onClick={() => history.push("/EditWorkCompany")}
                 >แก้ไข</Button>
               </Card.Body>
             </Card>
@@ -192,7 +192,7 @@ export default function Profilecompanyform(props) {
                 </Card.Text>
                 <Button
                   variant="primary"
-                  onClick={() => history.push("/EditworkCompany")}
+                  onClick={() => history.push("/EditWorkCompany")}
                 >แก้ไข</Button>
               </Card.Body>
             </Card>
