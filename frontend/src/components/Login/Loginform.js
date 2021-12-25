@@ -25,7 +25,7 @@ export default function Loginform() {
     setvaluesLogin({ ...valuesLogin, showPassword: !valuesLogin.showPassword });
   }
 
-  const handlePasswordChange = (prop) => (event) => {
+  const handlevaluesLoginChange = (prop) => (event) => {
     setvaluesLogin({ ...valuesLogin, [prop]: event.target.value });
   };
 
@@ -66,7 +66,7 @@ export default function Loginform() {
               required 
               type="text" 
               placeholder="อีเมล" 
-              onChange={handlePasswordChange("email")}
+              onChange={handlevaluesLoginChange("email")}
               value={valuesLogin.email}
               />
               <Form.Control.Feedback type="invalid">
@@ -82,7 +82,7 @@ export default function Loginform() {
                   required
                   type={valuesLogin.showPassword ? "text" : "password"}
                   placeholder="รหัสผ่าน"
-                  onChange={handlePasswordChange("password")}
+                  onChange={handlevaluesLoginChange("password")}
                   value={valuesLogin.password}
                 />
                 <IconButton onClick={handleClickShowPassword}>

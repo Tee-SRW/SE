@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import "./Profilecompanyform.css";
 import Card from "react-bootstrap/Card";
 import { useHistory } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
 

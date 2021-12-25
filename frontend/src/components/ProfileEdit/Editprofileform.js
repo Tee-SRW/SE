@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import "./Editprofileform.css";
 import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -34,15 +31,18 @@ export default function Editprofileform(props) {
     event.preventDefault();
 
     const editprofile = {
-      id: valuesEditprofile.id,
-      firstname: valuesEditprofile.firstname,
-      lastname: valuesEditprofile.lastname,
-      email: valuesEditprofile.email,
-      password: valuesEditprofile.password,
-      phone: valuesEditprofile.phone,
-      profile_user: valuesEditprofile.profile_user,
+      "id": valuesEditprofile.id,
+      "firstname": valuesEditprofile.firstname,
+      "lastname": valuesEditprofile.lastname,
+      "email": valuesEditprofile.email,
+      "password": valuesEditprofile.password,
+      "phone": valuesEditprofile.phone,
+      "profile_user": valuesEditprofile.profile_user
     };
-    axios.put(`${baseUsl}/updateuser`, { editprofile }).then((res) => {
+    axios.put(`${baseUsl}/updateuser`, editprofile )
+    .then((res) => {
+      console.log(editprofile);
+      console.log(res);
       console.log(res.data);
     });
     if(form.checkValidity() === true) {

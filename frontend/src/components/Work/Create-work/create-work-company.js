@@ -3,11 +3,7 @@ import "./create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import InputMask from "react-input-mask";
 import { useHistory } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 
