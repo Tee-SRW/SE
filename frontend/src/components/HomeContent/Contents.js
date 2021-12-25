@@ -2,28 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./contents.css";
 import "./contentbar.css";
-import CardItem from "./CardItem";
 import axios from '../../api/axios-work'
-import {
-	Nothing,
-	GraphicFree,
-	GraphicWork,
-	MarketFree,
-	MarketWork,
-	ProgrammingFree,
-	ProgrammingWork,
-} from "../CardWorkandFreelance/Carddataset";
+
 
 const Cards = () => {
-	// const [clickGraphic, setClickGraphic] = useState(false);
-	// const [clickMarket, setClickMarket] = useState(false);
-	// const [clickProgramming, setClickProgramming] = useState(false);
-	// const [clickFree, setClickFree] = useState(false);
-	// const [clickWork, setClickWork] = useState(false);
-	// const [dropdownWork, setDropdownWork] = useState(false);
-	// const [selectedWorkType, setSelectedWorkType] = useState(1);
-	// const [selectedId, setSelectedId] = useState(1);
-
 	const [selectedMenu, setSelectedMenu] = useState({
 		graphic: false,
 		programming: false,
@@ -32,11 +14,7 @@ const Cards = () => {
 		selectedId: 0,
 	});
 
-	const pp = [
-		[GraphicFree, GraphicWork],
-		[MarketFree, MarketWork],
-		[ProgrammingFree, ProgrammingWork],
-	];
+	const [showWork, setShowWork] = useState([]);
 
 	const onClickGraphic = () => {
 		setSelectedMenu({
@@ -46,14 +24,28 @@ const Cards = () => {
 			workType: 1,
 			selectedId: 0,
 		});
-		// setSelectedWorkType(1);
-		// console.log(selectedWorkType);
-		// setDropdownWork(true);
-		// setClickGraphic(true);
-		// setClickMarket(false);
-		// setClickProgramming(false);
-		// setClickFree(false);
-		// setClickWork(false);
+		const job = {
+			type_work_id: 1,
+			select_id: 1,
+		};
+		axios.post(`/getallwork`, job).then((res) => {
+			console.log(job);
+			console.log(res.data);
+			let work = res.data.allwork.map(Item => {
+				return {
+					firstName: Item.firstName,
+					lastName: Item.lastName,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_post_work,
+					image: Item.image_work_post_freelance,
+					srcwork: "images/design.jpeg",
+					path: "/WorkFreelance"
+				}
+			})
+			setShowWork(work)
+			console.log(work);
+		});
 	};
 
 	const onClickMarket = () => {
@@ -64,14 +56,28 @@ const Cards = () => {
 			workType: 2,
 			selectedId: 0,
 		});
-		// setSelectedWorkType(2);
-		// console.log(selectedWorkType);
-		// setDropdownWork(true);
-		// setClickMarket(true);
-		// setClickGraphic(false);
-		// setClickProgramming(false);
-		// setClickFree(false);
-		// setClickWork(false);
+		const job = {
+			type_work_id: 2,
+			select_id: 1,
+		};
+		axios.post(`/getallwork`, job).then((res) => {
+			console.log(job);
+			console.log(res.data);
+			let work = res.data.allwork.map(Item => {
+				return {
+					firstName: Item.firstName,
+					lastName: Item.lastName,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_post_work,
+					image: Item.image_work_post_freelance,
+					srcwork: "images/market.png",
+					path: "/WorkFreelance"
+				}
+			})
+			setShowWork(work)
+			console.log(work);
+		});
 	};
 
 	const onClickProgramming = () => {
@@ -82,47 +88,173 @@ const Cards = () => {
 			workType: 3,
 			selectedId: 0,
 		});
-		// setSelectedWorkType(3);
-		// console.log(selectedWorkType);
-		// setDropdownWork(true);
-		// setClickProgramming(true);
-		// setClickGraphic(false);
-		// setClickMarket(false);
-		// setClickFree(false);
-		// setClickWork(false);
+		const job = {
+			type_work_id: 3,
+			select_id: 1,
+		};
+		axios.post(`/getallwork`, job).then((res) => {
+			console.log(job);
+			console.log(res.data);
+			let work = res.data.allwork.map(Item => {
+				return {
+					firstName: Item.firstName,
+					lastName: Item.lastName,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_post_work,
+					image: Item.image_work_post_freelance,
+					srcwork: "images/programming.jpeg",
+					path: "/WorkFreelance"
+				}
+			})
+			setShowWork(work)
+			console.log(work);
+		});
 	};
 
 
 	const onClickWork = () => {
-      setSelectedMenu({...selectedMenu, selectedId: 2})
-		// setClickFree(false);
-		// setClickWork(true);
-		// setSelectedId(2);
+		setSelectedMenu({ ...selectedMenu, selectedId: 2 })
 		const job = {
 			type_work_id: selectedMenu.workType,
 			select_id: 2,
 		};
-    axios.post(`/getallwork`, { job }).then((res) => {
-      console.log(job);
-      console.log(res.data);
-    });
+		axios.post(`/getallwork`, job).then((res) => {
+			console.log(job);
+			console.log(res.data);
+			let work = res.data.map(Item => {
+				return {
+					companyName: Item.companyname,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_work_min,
+					image: Item.image_work_post_company,
+					srcwork: selectedMenu.workType === 1 ? "images/design.jpeg"
+						: selectedMenu.workType === 2 ? "images/market.png"
+							: selectedMenu.workType === 3 ? "images/programming.jpeg" : null,
+					path: "/WorkCompany"
+				}
+			})
+			setShowWork(work)
+			console.log(work);
+		});
+
 	};
+
 	const onClickFreelance = () => {
-      setSelectedMenu({...selectedMenu, selectedId: 1})
-		// setClickFree(true);
-		// setClickWork(false);
-		// setSelectedId(1);
+		setSelectedMenu({ ...selectedMenu, selectedId: 1 })
 		const job = {
 			type_work_id: selectedMenu.workType,
 			select_id: 1,
 		};
-			axios.post(`/getallwork`, { job }).then((res) => {
-				console.log(job);
-				console.log(res.data);
-			});
+		axios.post(`/getallwork`, job).then((res) => {
+			console.log(job);
+			console.log(res.data);
+			let work = res.data.allwork.map(Item => {
+				return {
+					firstName: Item.firstName,
+					lastName: Item.lastName,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_post_work,
+					image: Item.image_work_post_freelance,
+					srcwork: selectedMenu.workType === 1 ? "images/design.jpeg"
+						: selectedMenu.workType === 2 ? "images/market.png"
+							: selectedMenu.workType === 3 ? "images/programming.jpeg" : null,
+					path: "/WorkFreelance"
+				}
+			})
+			setShowWork(work)
+			console.log(work);
+		});
+
 	};
 
-	const work = [{}];
+	let showContent = <></>
+	if (selectedMenu.selectedId === 1
+		|| selectedMenu.workType === 1
+		|| selectedMenu.workType === 2
+		|| selectedMenu.workType === 3) {
+		showContent = <div className="cards__wrapper">
+			<ul className="cards__items">
+				{showWork.map((Item, index) => {
+					return (
+						<>
+							<li className="cards__item" key={index}>
+								<Link
+									className="cards__item__link"
+									to={Item.path}
+								>
+									<figure
+										className="cards__item__pic-wrap"
+										data-category={Item.firstName, Item.lastName}
+									>
+										<img
+											className="cards__item__img"
+											src={Item.srcwork}
+											alt="Travel Image"
+										/>
+									</figure>
+									<div className="cards__item__info">
+										<h5 className="cards__item__text">
+											{Item.typeWorkName}
+										</h5>
+										<h5 className="cards__item__text">
+											{Item.nameWork}
+										</h5>
+									</div>
+									<h5 className="cards__item__text_price">
+										{Item.pricePostWork}
+									</h5>
+								</Link>
+							</li>
+						</>
+					);
+				})}
+			</ul>
+		</div>
+	} else if (selectedMenu.selectedId === 2) {
+		showContent = <div className="cards__wrapper">
+			<ul className="cards__items">
+				{showWork.map((Item, index) => {
+					return (
+						<>
+							<li className="cards__item" key={index}>
+								<Link
+									className="cards__item__link"
+									to={Item.path}
+								>
+									<figure
+										className="cards__item__pic-wrap"
+										data-category={Item.companyName}
+									>
+										<img
+											className="cards__item__img"
+											src={Item.srcwork}
+											alt="Travel Image"
+										/>
+									</figure>
+									<div className="cards__item__info">
+										<h5 className="cards__item__text">
+											{Item.typeWorkName}
+										</h5>
+										<h5 className="cards__item__text">
+											{Item.nameWork}
+										</h5>
+									</div>
+									<h5 className="cards__item__text_price">
+										{Item.pricePostWork}
+									</h5>
+								</Link>
+							</li>
+						</>
+					);
+				})}
+			</ul>
+		</div>
+	}
+
+
 
 	return (
 		<div>
@@ -201,44 +333,7 @@ const Cards = () => {
 
 			<div className="cards">
 				<div className="cards__container">
-					<div className="cards__wrapper">
-						<ul className="cards__items">
-							{GraphicFree.map((Item, index) => {
-								return (
-									<>
-										<li className="cards__item" key={index}>
-											<Link
-												className="cards__item__link"
-												to={Item.path}
-											>
-												<figure
-													className="cards__item__pic-wrap"
-													data-category={Item.label}
-												>
-													<img
-														className="cards__item__img"
-														src={Item.srcwork}
-														alt="Travel Image"
-													/>
-												</figure>
-												<div className="cards__item__info">
-													<h5 className="cards__item__text">
-														{Item.text}
-													</h5>
-													<h5 className="cards__item__text">
-														{Item.text2}
-													</h5>
-												</div>
-												<h5 className="cards__item__text_price">
-													{Item.price}
-												</h5>
-											</Link>
-										</li>
-									</>
-								);
-							})}
-						</ul>
-					</div>
+					{showContent}
 				</div>
 			</div>
 		</div>

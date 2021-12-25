@@ -44,17 +44,13 @@ export default function Loginform() {
       "password": valuesLogin.password
     };
 
-    axios.post(`/login`,{ user })
+    axios.post(`/login`, user )
     .then(res => {
       console.log(user);
-      console.log(valuesLogin.email);
-      console.log(valuesLogin.password);
       console.log(res);
-      console.log(res.data);
-    })
-    if(form.checkValidity() === true) {
+      console.log(res.data); 
       history.push("/")
-    }
+    })
   };
 
 

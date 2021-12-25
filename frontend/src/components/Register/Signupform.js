@@ -74,17 +74,15 @@ export default function Signupform(props) {
       "phone": valuesSignup.phone
     };
 
-    axios.post(`${baseUsl}/createuser`, { createuser })
+    axios.post(`/createuser`, createuser)
       .then(res => {
-        console.log(createuser);
         console.log(res);
         console.log(res.data);
-      })
-      
-      if(form.checkValidity() === true) {
         alert("สมัครสมาขิกสำเร็จ")
         history.push("/Login")
-      }
+      }).catch(err => {
+        alert("สมัครสมาขิกไม่สำเร็จ")
+      })
   };
 
 
