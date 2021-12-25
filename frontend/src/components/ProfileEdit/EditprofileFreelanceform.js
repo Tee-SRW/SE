@@ -47,7 +47,7 @@ export default function EditprofileFreelance(props) {
       "instagram": valuesEditprofilefreelance.instagram,
     };
     axios
-      .put(`${baseUsl}/updatefreelance`, { editprofilefreelance })
+      .put(`${baseUsl}/updatefreelance`,  editprofilefreelance )
       .then((res) => {
         console.log(editprofilefreelance);
       });
@@ -129,7 +129,7 @@ export default function EditprofileFreelance(props) {
               <Form.Label>เบอร์โทรศัพท์ที่ติดต่อได้</Form.Label>
               <InputMask
                 required
-                className="form-control spacing-top"
+                className="form-control"
                 placeholder="เบอร์โทรศัพท์ที่ติดต่อได้"
                 mask="999-999-9999"
                 name="phone"

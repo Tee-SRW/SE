@@ -175,8 +175,8 @@ export default function Freelance() {
             <Form.Group className="mb-3 boxinputAgreeFl">
               <Form.Check
                 required
-                label="ฉันยอมรับข้อตกลงและเงื่อนไขการใช้ JobMaiFair"
-                feedback="คุณต้องยอมรับข้อตกลงและเงื่อนไขการใช้งาน JobMaiFair ก่อน"
+                label="ฉันยอมรับเงื่อนไขการสมัครเป็นฟรีแลนซ์ของ JobMaiFair"
+                feedback="ฉันยอมรับเงื่อนไขการสมัครเป็นฟรีแลนซ์ของ JobMaiFairก่อน"
                 feedbackType="invalid"
               />
             </Form.Group>

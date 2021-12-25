@@ -124,7 +124,7 @@ export default function Editprofileform(props) {
               <Form.Label>เบอร์โทรศัพท์</Form.Label>
               <InputMask
                 required
-                className="form-control spacing-top"
+                className="form-control"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
                 name="phone"
