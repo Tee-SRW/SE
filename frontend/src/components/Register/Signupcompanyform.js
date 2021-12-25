@@ -3,7 +3,7 @@ import "./Signupcompanyform.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import InputMask from "react-input-mask";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
@@ -12,22 +12,23 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import Input from "@material-ui/core/Input";
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-
+import axios from '../../api/axios-signup';
 
 export default function Signupcompanyform(props) {
   const history = useHistory();
+
+
+
   const [valuesSignupcompany, setvaluesSignupcompany] = React.useState({
-    companyname:"",
-    email:"",
+    companyname: "",
+    email: "",
     password: "",
-    phone:"",
-    address:"",
-    subdistrict:"",
-    district:"",
-    province:"",
-    postcode:"",
+    phone: "",
+    address: "",
+    subdistrict: "",
+    district: "",
+    province: "",
+    postcode: "",
     showPassword: false,
   });
   const [valuesSignupcompany2, setvaluesSignupcompany2] = React.useState({
@@ -75,18 +76,20 @@ export default function Signupcompanyform(props) {
       "password": valuesSignupcompany.password
     };
 
-    axios.post(`${baseUsl}/createcompany`,{ company })
-    .then(res => {
-      console.log(company);
-      console.log(res);
-      console.log(res.data);
-
-      
-    })
-    if(form.checkValidity() === true) {
-        alert("สมัครสมาขิกสำเร็จ")
-        history.push("/Login")
-      }
+    axios.post(`/createcompany`, company)
+      .then(res => {
+        console.log(company);
+        console.log(res);
+        console.log(res.data);
+        if (res.data === "Complete") {
+          alert("สมัครบริษัทสมาขิกสำเร็จ")
+          history.push("/Login")
+        } else if (res.data === "Fail") {
+          alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
+        }
+      }).catch(err => {
+        alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
+      })
 
   };
 
@@ -99,12 +102,12 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom01">
               <Form.Label>ชื่อบริษัท</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="ชื่อบริษัท" 
-              value={valuesSignupcompany.companyname}
-              onChange={handlevaluesSignupcompanyChange("companyname")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="ชื่อบริษัท"
+                value={valuesSignupcompany.companyname}
+                onChange={handlevaluesSignupcompanyChange("companyname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ชื่อบริษัท
@@ -115,12 +118,12 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมล</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="อีเมล" 
-              value={valuesSignupcompany.email}
-              onChange={handlevaluesSignupcompanyChange("email")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="อีเมล"
+                value={valuesSignupcompany.email}
+                onChange={handlevaluesSignupcompanyChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมล
@@ -190,12 +193,12 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom06">
               <Form.Label>ที่อยู่</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="ที่อยู่"
-              value={valuesSignupcompany.address}
-              onChange={handlevaluesSignupcompanyChange("address")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="ที่อยู่"
+                value={valuesSignupcompany.address}
+                onChange={handlevaluesSignupcompanyChange("address")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
@@ -206,12 +209,12 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom07">
               <Form.Label>ตำบล / แขวง</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="ตำบล / แขวง"
-              value={valuesSignupcompany.subdistrict}
-              onChange={handlevaluesSignupcompanyChange("subdistrict")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="ตำบล / แขวง"
+                value={valuesSignupcompany.subdistrict}
+                onChange={handlevaluesSignupcompanyChange("subdistrict")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
@@ -222,11 +225,11 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom08">
               <Form.Label>อำเภอ / เขต</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="อำเภอ / เขต" 
-              value={valuesSignupcompany.district}
+              <Form.Control
+                required
+                type="text"
+                placeholder="อำเภอ / เขต"
+                value={valuesSignupcompany.district}
                 onChange={handlevaluesSignupcompanyChange("district")}
               />
               <Form.Control.Feedback type="invalid">
@@ -238,11 +241,11 @@ export default function Signupcompanyform(props) {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom09">
               <Form.Label>จังหวัด</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="จังหวัด" 
-              value={valuesSignupcompany.province}
+              <Form.Control
+                required
+                type="text"
+                placeholder="จังหวัด"
+                value={valuesSignupcompany.province}
                 onChange={handlevaluesSignupcompanyChange("province")}
               />
               <Form.Control.Feedback type="invalid">

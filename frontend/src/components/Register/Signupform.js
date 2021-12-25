@@ -15,11 +15,9 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 // import Input from "@material-ui/core/Input";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import axios from '../../api/axios-signup';
 
-// const eye = <FontAwesomeIcon icon={faEye} />;
-// const eye2 = <FontAwesomeIcon icon={faEyeSlash} />;
 
 export default function Signupform(props) {
   const history = useHistory();
@@ -50,7 +48,6 @@ export default function Signupform(props) {
 
   const [validated, setValidated] = useState(false);
 
-  const baseUsl = "http://203.170.190.226:8080"
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -78,10 +75,14 @@ export default function Signupform(props) {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        alert("สมัครสมาขิกสำเร็จ")
-        history.push("/Login")
+        if (res.data === "Complete") {
+          alert("สมัครสมาขิกสำเร็จ")
+          history.push("/Login")
+        } else if (res.data === "Fail") {
+          alert("***สมัครสมาขิกไม่สำเร็จ***")
+        }
       }).catch(err => {
-        alert("สมัครสมาขิกไม่สำเร็จ")
+        alert("***สมัครสมาขิกไม่สำเร็จ***")
       })
   };
 

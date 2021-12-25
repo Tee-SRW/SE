@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./contents.css";
 import "./contentbar.css";
-import axios from '../../api/axios-work'
+import axios from '../../api/axios-work';
 
 
 const Cards = () => {

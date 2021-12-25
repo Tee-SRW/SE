@@ -3,11 +3,9 @@ import "./Freelanceform.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import InputMask from "react-input-mask";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from 'react-router-dom';
+import axios from '../../api/axios-signup';
 
 export default function Freelance() {
   const history = useHistory();
@@ -34,12 +32,33 @@ export default function Freelance() {
       event.stopPropagation();
     }
     setValidated(true);
+    event.preventDefault();
 
+    const signUptoFreelance = {
+      "id": valuesSignupfreelance.id,                        //Need from Login
+      "firstname": valuesSignupfreelance.firstname,
+      "lastname": valuesSignupfreelance.lastname,
+      "email": valuesSignupfreelance.email,
+      "phone": valuesSignupfreelance.phone,
+      "profileuser": valuesSignupfreelance.profileuser,     //Need from Login
+      "line": valuesSignupfreelance.line,
+      "facebook": valuesSignupfreelance.facebook,
+      "instagram": valuesSignupfreelance.instagram,
+    };
 
-    if(form.checkValidity() === true) {
-      alert("สมัครเป็นฟรีแลนซ์สำเร็จ")
-      history.push("/Profilefreelance")
-    }
+    axios.put(`/updatefreelance`, signUptoFreelance)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        if (res.data === "Complete") {
+          alert("สมัครเป็นฟรีแลนซ์สำเร็จ")
+          history.push("/Profilefreelance")
+        } else if (res.data === "Fail") {
+          alert("***สมัครเป็นฟรีแลนซ์ไม่สำเร็จ***")
+        }
+      }).catch(err => {
+        alert("***สมัครเป็นฟรีแลนซ์ไม่สำเร็จ***")
+      })
   };
   return (
     <div className="Signupform-outer">
@@ -64,12 +83,12 @@ export default function Freelance() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustom02">
               <Form.Label>นามสกุล</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="นามสกุล" 
-              value={valuesSignupfreelance.lastname}
-              onChange={handlevaluesSignupfreelanceChange("lastname")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="นามสกุล"
+                value={valuesSignupfreelance.lastname}
+                onChange={handlevaluesSignupfreelanceChange("lastname")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ นามสกุล
@@ -79,12 +98,12 @@ export default function Freelance() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>อีเมลสำหรับทำงาน</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="อีเมลสำหรับทำงาน" 
-              value={valuesSignupfreelance.email}
-              onChange={handlevaluesSignupfreelanceChange("email")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="อีเมลสำหรับทำงาน"
+                value={valuesSignupfreelance.email}
+                onChange={handlevaluesSignupfreelanceChange("email")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อีเมลสำหรับทำงาน
@@ -96,7 +115,7 @@ export default function Freelance() {
               <Form.Label>เบอร์โทรศัพท์</Form.Label>
               <InputMask
                 required
-                className="form-control spacing-top"
+                className="form-control"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
                 value={valuesSignupfreelance.phone}
@@ -110,12 +129,12 @@ export default function Freelance() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Line</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="Line" 
-              value={valuesSignupfreelance.line}
-              onChange={handlevaluesSignupfreelanceChange("line")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Line"
+                value={valuesSignupfreelance.line}
+                onChange={handlevaluesSignupfreelanceChange("line")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Line
@@ -125,12 +144,12 @@ export default function Freelance() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Facebook</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="Facebook" 
-              value={valuesSignupfreelance.facebook}
-              onChange={handlevaluesSignupfreelanceChange("facebook")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Facebook"
+                value={valuesSignupfreelance.facebook}
+                onChange={handlevaluesSignupfreelanceChange("facebook")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Facebook
@@ -140,12 +159,12 @@ export default function Freelance() {
           <Row className="mb-3">
             <Form.Group as={Col} md="4" controlId="validationCustomUsername">
               <Form.Label>Instagram</Form.Label>
-              <Form.Control 
-              required 
-              type="text" 
-              placeholder="Instagram" 
-              value={valuesSignupfreelance.instagram}
-              onChange={handlevaluesSignupfreelanceChange("instagram")}
+              <Form.Control
+                required
+                type="text"
+                placeholder="Instagram"
+                value={valuesSignupfreelance.instagram}
+                onChange={handlevaluesSignupfreelanceChange("instagram")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ Instagram
