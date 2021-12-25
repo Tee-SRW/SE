@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useContext } from "react";
 import "./Freelanceform.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
@@ -6,8 +6,11 @@ import Button from "react-bootstrap/Button";
 import { Link, useHistory } from "react-router-dom";
 import InputMask from "react-input-mask";
 import axios from '../../api/axios-signup';
+import DataUser from "../../DataUser/DataUser";
+
 
 export default function Freelance() {
+  const {userID, userType} = useContext(DataUser)
   const history = useHistory();
 
   const [valuesSignupfreelance, setvaluesSignupfreelance] = React.useState({
@@ -35,12 +38,12 @@ export default function Freelance() {
     event.preventDefault();
 
     const signUptoFreelance = {
-      "id": valuesSignupfreelance.id,                        //Need from Login
+      "id": userID,                        
       "firstname": valuesSignupfreelance.firstname,
       "lastname": valuesSignupfreelance.lastname,
       "email": valuesSignupfreelance.email,
       "phone": valuesSignupfreelance.phone,
-      "profileuser": valuesSignupfreelance.profileuser,     //Need from Login
+      "profileuser": "/images/IMG_20210208_195921_677.jpg",     //Manual Front-end fix profile imgage
       "line": valuesSignupfreelance.line,
       "facebook": valuesSignupfreelance.facebook,
       "instagram": valuesSignupfreelance.instagram,

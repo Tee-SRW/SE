@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState , useContext } from 'react';
 import './NavDropdown.css';
 import { Link } from 'react-router-dom';
+import DataUser from '../../DataUser/DataUser';
 
 function NavDropdown() {
+  const statusNavbarDropdown = useContext(DataUser)
+
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -16,7 +19,11 @@ function NavDropdown() {
             <li>
               <Link
                 className='MyNavdropdown-link'
-                to='/Profile'
+                to={ statusNavbarDropdown.userType === 1 ? '/Profile'
+                    :statusNavbarDropdown.userType === 2 ? '/Profilefreelance'
+                    :statusNavbarDropdown.userType === 3 ? '/EditprofileCompany'
+                    :'/Profile'
+                }
                 onClick={() => setClick(!false)}
               >
                 Profile
