@@ -12,7 +12,7 @@ func (u SystemModel) GetWorkAllfreelance(Type_Work_ID dateset.Typeworkid ) ([]da
 	var works_freelance []dateset.Getworkpagehomefreelance
 	// var allwork dateset.Allwork 
 	db := database.Connectdata()
-		rows, err := db.Query("select Type_Work_Name, Price_Post_Work, Name_Work, FirstName, LastName, Image_Work_Post_Freelance from user,work_post_freelance,type_work WHERE User_ID=ID AND Type_Work_ID=Type_Work_Number AND Type_Work_ID = ?", Type_Work_ID.Type_Work_ID)
+		rows, err := db.Query("select Work_Post_ID,Type_Work_Name, Price_Post_Work, Name_Work, FirstName, LastName, Image_Work_Post_Freelance from user,work_post_freelance,type_work WHERE User_ID=ID AND Type_Work_ID=Type_Work_Number AND Type_Work_ID = ?", Type_Work_ID.Type_Work_ID)
 		if err != nil{
 			return works_freelance,err
 		}
@@ -21,7 +21,7 @@ func (u SystemModel) GetWorkAllfreelance(Type_Work_ID dateset.Typeworkid ) ([]da
 		for rows.Next() {
 			var work dateset.Getworkpagehomefreelance
 
-			if err := rows.Scan(&work.Type_Work_Name, &work.Price_Post_Work, &work.Name_Work, &work.FirstName, &work.LastName, &work.Image_Work_Post_Freelance); 
+			if err := rows.Scan(&work.Work_Post_ID,&work.Type_Work_Name, &work.Price_Post_Work, &work.Name_Work, &work.FirstName, &work.LastName, &work.Image_Work_Post_Freelance); 
 			
 			err != nil{
 					return works_freelance,err
@@ -38,7 +38,7 @@ func (u SystemModel) GetWorkAllCompany(Type_Work_ID dateset.Typeworkid ) ([]date
 
 	db := database.Connectdata()
 
-		rows, err := db.Query("select Type_Work_Name, Price_Work_Min, Name_Work, Image_Work_Post_Company, CompanyName from company,work_post_company,type_work WHERE Company_ID=ID AND Type_Work_ID=Type_Work_Number AND Type_Work_ID = ?", Type_Work_ID.Type_Work_ID)
+		rows, err := db.Query("select Work_Post_ID,Type_Work_Name, Price_Work_Min, Name_Work, Image_Work_Post_Company, CompanyName from company,work_post_company,type_work WHERE Company_ID=ID AND Type_Work_ID=Type_Work_Number AND Type_Work_ID = ?", Type_Work_ID.Type_Work_ID)
 	
 		if err != nil{
 			return works_company,err
@@ -47,7 +47,7 @@ func (u SystemModel) GetWorkAllCompany(Type_Work_ID dateset.Typeworkid ) ([]date
 		for rows.Next() {
 			var work dateset.Getworkpagehomecompany
 
-			if err := rows.Scan(&work.Type_Work_Name, &work.Price_Work_Min, &work.Name_Work, &work.Image_Work_Post_Company ,&work.CompanyName); 
+			if err := rows.Scan(&work.Work_Post_ID,&work.Type_Work_Name, &work.Price_Work_Min, &work.Name_Work, &work.Image_Work_Post_Company ,&work.CompanyName); 
 			
 			err != nil{
 					return works_company,err

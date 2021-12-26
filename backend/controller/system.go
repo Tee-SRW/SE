@@ -13,7 +13,6 @@ type systemController struct{}
 
 func (u UserController) GetAllWork(c *gin.Context) {
 	systemModel := model.SystemModel{}
-	var allwork dateset.Allwork 
 	var typeworkid dateset.Typeworkid
 
 	e := c.ShouldBind(&typeworkid)
@@ -23,6 +22,7 @@ func (u UserController) GetAllWork(c *gin.Context) {
 	}
 
 	if typeworkid.Select_ID == 1 {
+		var allwork dateset.AllWorkFreelance
 		works,err := systemModel.GetWorkAllfreelance(typeworkid)
 
 		if err != nil {
@@ -32,13 +32,14 @@ func (u UserController) GetAllWork(c *gin.Context) {
 		c.JSON(200,allwork)
 
 	} else {
+		var allwork dateset.AllWorkCompany
 		works,err := systemModel.GetWorkAllCompany(typeworkid)
 
 		if err != nil {
 			panic(err)
 		}
-		
-		c.JSON(200, works)
+		allwork.Allwork = works;
+		c.JSON(200, allwork)
 	}
 }
 
