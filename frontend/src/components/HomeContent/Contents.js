@@ -134,7 +134,7 @@ const Contents = (props) => {
 		axios.post(`/getallwork`, job).then((res) => {
 			console.log(job);
 			console.log(res.data);
-			let work = res.data.map(Item => {
+			let work = res.data.allwork.map(Item => {
 				return {
 					work_post_id: Item.work_post_id,
 					companyName: Item.companyname,
