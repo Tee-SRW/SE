@@ -1,26 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Editprofileform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
-const baseUsl = "http://203.170.190.226:8080/";
+import axios from '../../api/axios-login';
+import DataUser from '../../DataUser/DataUser';
+import { useContext } from "react";
+
 export default function Editprofileform(props) {
-  const [valuesEditprofile, setvaluesEditprofile] = React.useState({
-    id: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    phone: "",
-    profile_user: "",
-  });
+  const dataUser = useContext(DataUser)
+
+  const history = useHistory();
+
+  const [validated, setValidated] = useState(false);
+
   const handlevaluesEditprofileChange = (prop) => (event) => {
     setvaluesEditprofile({ ...valuesEditprofile, [prop]: event.target.value });
   };
-  const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -30,26 +29,78 @@ export default function Editprofileform(props) {
     setValidated(true);
     event.preventDefault();
 
-    const editprofile = {
-      "id": valuesEditprofile.id,
-      "firstname": valuesEditprofile.firstname,
-      "lastname": valuesEditprofile.lastname,
-      "email": valuesEditprofile.email,
-      "password": valuesEditprofile.password,
-      "phone": valuesEditprofile.phone,
-      "profile_user": valuesEditprofile.profile_user
-    };
-    axios.put(`${baseUsl}/updateuser`, editprofile )
-    .then((res) => {
-      console.log(editprofile);
-      console.log(res);
-      console.log(res.data);
-    });
-    if(form.checkValidity() === true) {
+    axios.put(`/updateuser`, valuesEditprofile)
+      .then((res) => {
+        console.log(valuesEditprofile);
+        console.log(res);
+        console.log(res.data);
+      });
+    if (form.checkValidity() === true) {
       history.push("/Profile")
     }
   };
-  const history = useHistory();
+  const sendUserID = {
+    id: dataUser.userID
+  }
+
+  // const beforeEdit = {
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   phone: "",
+  //   // profile_user: ""
+  // }
+
+  // const [valuesEditprofile, setvaluesEditprofile] = useState({
+  //   id: dataUser.userID,
+  //   firstname: beforeEdit.firstname,
+  //   lastname: beforeEdit.lastname,
+  //   email: beforeEdit.email,
+  //   phone: beforeEdit.phone,
+  //   // profile_user: beforeEdit.profile_user,
+  // });
+
+  const [valuesEditprofile, setvaluesEditprofile] = useState({
+    id: dataUser.userID,
+    firstname: "",
+    lastname: "",
+    email: "",
+    // password: "250140",
+    phone: "",
+    profile_user: "",
+  });
+
+  // console.log(valuesEditprofile)
+
+  // const [checkPost,setCheck] = useState(true)
+  // if (valuesEditprofile.firstname === "") {
+  useEffect(() => {
+    // if(checkPost){
+    console.log("fakkkkk")
+
+    axios.post(`/getupdateuser`, sendUserID)
+      .then((res) => {
+        console.log(sendUserID);
+        console.log(res);
+        console.log(res.data);
+
+        let beforeEditto = {
+          id: dataUser.userID,
+          firstname: res.data.firstname,
+          lastname: res.data.lastname,
+          email: res.data.email,
+          phone: res.data.phone,
+          profile_user: res.data.profile_user,
+        }
+        setvaluesEditprofile(beforeEditto)
+      });
+    // console.log(valuesEditprofile);
+    //   setCheck(false)
+    // }
+  }, []);
+  // }
+  console.log(valuesEditprofile);
+
   return (
     <div className="Editprofileform-outer">
       <div className="Editprofileform-inner">
@@ -67,7 +118,7 @@ export default function Editprofileform(props) {
             type="submit"
             className="btn btn-lg color bottomprofileprofile"
           >
-            แก้ไขรูปโปรไฟล์
+            แก้ไขโปรไฟล์
           </button>
         </div>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -136,24 +187,11 @@ export default function Editprofileform(props) {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-          <Row className="gap-2 btn-color">
-          <Col>
-            <Button
-              className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profile")}
-            >
-              ยกเลิก
-            </Button>
-          </Col>
-          <Col className="create-work-freelance-buttonSave">
-            <Button
-              type="submit"
-              className="btn color spacing-top10"
-            >
+          <div className="d-grid gap-2 btn-color">
+            <Button type="submit" className="btn btn-lg color spacing-top10" >
               บันทึก
             </Button>
-          </Col>
-        </Row>
+          </div>
         </Form>
       </div>
     </div>

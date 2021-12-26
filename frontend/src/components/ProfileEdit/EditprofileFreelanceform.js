@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import "./EditprofileFreelanceform.css";
+import "./Editprofileform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col } from "react-grid-system";
-import axios from "axios";
-const baseUsl = "http://203.170.190.226:8080/";
+import { Row, Col } from "react-grid-system";
+import axios from '../../api/axios-login';
 
 export default function EditprofileFreelance(props) {
   const [valuesEditprofilefreelance, setvaluesEditprofilefreelance] = React.useState({
@@ -47,7 +46,7 @@ export default function EditprofileFreelance(props) {
       "instagram": valuesEditprofilefreelance.instagram,
     };
     axios
-      .put(`${baseUsl}/updatefreelance`,  editprofilefreelance )
+      .put(`/updatefreelance`,  editprofilefreelance )
       .then((res) => {
         console.log(editprofilefreelance);
       });
@@ -57,8 +56,8 @@ export default function EditprofileFreelance(props) {
   };
   const history = useHistory();
   return (
-    <div className="EditprofileFreelanceform-outer">
-      <div className="EditprofileFreelanceform-inner">
+    <div className="Editprofileform-outer">
+      <div className="Editprofileform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="d-grid2">
           <img
@@ -67,10 +66,10 @@ export default function EditprofileFreelance(props) {
             alt=""
           ></img>
         </div>
-        <div className="d-grid2 spacing-top btn-fontblack">
+        <div className="d-grid2 spacing-top btn-fontblack ">
           <button
             type="submit"
-            className="btn btn-lg color bottomprofileprofile"
+            className="btn btn-lg bottomprofileprofile "
           >
             แก้ไขโปรไฟล์
           </button>
@@ -194,11 +193,11 @@ export default function EditprofileFreelance(props) {
               บันทึก
             </Button>
           </div>
-          <div className="d-grid gap-2 btn-color">
+          {/* <div className="d-grid gap-2 btn-color">
             <Button type="submit" className="btn btn-lg color spacing-top10 "onClick={() => history.push("/Profilefreelance")} >
               ย้อนกลับ
             </Button>
-          </div>
+          </div> */}
         </Form>
       </div>
     </div>
