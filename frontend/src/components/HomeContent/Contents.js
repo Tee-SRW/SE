@@ -330,7 +330,12 @@ const Cards = () => {
 					</div>
 				</div>
 			</div>
-
+			<div className="space_img_donate">
+				<img
+					className="img_for_danate"
+					src="/images/Donate.png"
+				/>
+			</div>
 			<div className="cards">
 				<div className="cards__container">
 					{showContent}

@@ -9,8 +9,7 @@ body {
     background: linear-gradient(to right, #CFE9F7 12.5%, #fff 12.5%, #fff 87.5%, #CFE9F7 87.5%);
 }
 
-.home,
-.services {
+.home {
     display: flex;
     height: 100vh;
     align-items: center;
@@ -22,15 +21,16 @@ body {
     /* padding-top: 80px; */
 }
 
-.services {
-    /*background-image: src='/public/images/img-2.jpg';*/
+/* .services {
+    background-image: src='/public/images/img-2.jpg';
     background-color: black;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
     font-size: 100px;
-}
+} 
+*/
 
 .App {
     text-align: center;
