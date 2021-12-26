@@ -10,6 +10,7 @@ function Navbar(props) {
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  
   const userLogout = (dataUserLogout) => {
     // console.log(dataUser)
     props.onUpdateDataUser(dataUserLogout)
@@ -99,7 +100,7 @@ function Navbar(props) {
         <div className='nav-links' onClick={handleClick} onClick={ToggleDropdown}>
           <i class="far fa-user fa-2x" /><i className='fas fa-caret-down fa-2x' />
         </div>
-        {dropdown && <NavDropdown />}
+        {dropdown && <NavDropdown userLogout={userLogout} />}
       </li>
     </ul>
   } 
@@ -122,7 +123,7 @@ function Navbar(props) {
         <div className='nav-links' onClick={handleClick} onClick={ToggleDropdown}>
           <i class="far fa-user fa-2x" /><i className='fas fa-caret-down fa-2x' />
         </div>
-        {dropdown && <NavDropdown />}
+        {dropdown && <NavDropdown userLogout={userLogout} />}
       </li>
     </ul>
   }else { //  NotLoggedin Navbar

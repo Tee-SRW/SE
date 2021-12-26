@@ -5,7 +5,7 @@ import "./contentbar.css";
 import axios from '../../api/axios-work';
 
 
-const Cards = () => {
+const Contents = (props) => {
 	const [selectedMenu, setSelectedMenu] = useState({
 		graphic: false,
 		programming: false,
@@ -15,6 +15,15 @@ const Cards = () => {
 	});
 
 	const [showWork, setShowWork] = useState([]);
+
+	const [selectedWorkID,setSelectWorkID] = useState({
+		workID: 0
+	})
+
+	const handleClickWork = () =>{
+		// showWork.work_post_id
+		props.userWorkSelectID(selectedWorkID)
+	}
 
 	const onClickGraphic = () => {
 		setSelectedMenu({
@@ -33,6 +42,7 @@ const Cards = () => {
 			console.log(res.data);
 			let work = res.data.allwork.map(Item => {
 				return {
+					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
 					typeWorkName: Item.type_work_name,
@@ -65,6 +75,7 @@ const Cards = () => {
 			console.log(res.data);
 			let work = res.data.allwork.map(Item => {
 				return {
+					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
 					typeWorkName: Item.type_work_name,
@@ -97,6 +108,7 @@ const Cards = () => {
 			console.log(res.data);
 			let work = res.data.allwork.map(Item => {
 				return {
+					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
 					typeWorkName: Item.type_work_name,
@@ -124,6 +136,7 @@ const Cards = () => {
 			console.log(res.data);
 			let work = res.data.map(Item => {
 				return {
+					work_post_id: Item.work_post_id,
 					companyName: Item.companyname,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
@@ -152,6 +165,7 @@ const Cards = () => {
 			console.log(res.data);
 			let work = res.data.allwork.map(Item => {
 				return {
+					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
 					typeWorkName: Item.type_work_name,
@@ -184,6 +198,7 @@ const Cards = () => {
 								<Link
 									className="cards__item__link"
 									to={Item.path}
+									onClick={() => setSelectWorkID(Item.work_post_id),handleClickWork}
 								>
 									<figure
 										className="cards__item__pic-wrap"
@@ -192,7 +207,7 @@ const Cards = () => {
 										<img
 											className="cards__item__img"
 											src={Item.srcwork}
-											alt="Travel Image"
+											alt={String(Item.work_post_id)}
 										/>
 									</figure>
 									<div className="cards__item__info">
@@ -223,6 +238,7 @@ const Cards = () => {
 								<Link
 									className="cards__item__link"
 									to={Item.path}
+									onClick={() => setSelectWorkID(Item.work_post_id),handleClickWork}
 								>
 									<figure
 										className="cards__item__pic-wrap"
@@ -345,4 +361,4 @@ const Cards = () => {
 	);
 };
 
-export default Cards;
+export default Contents;
