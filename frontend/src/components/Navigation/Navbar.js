@@ -5,12 +5,15 @@ import './Navbar.css';
 import DataUser from '../../DataUser/DataUser';
 
 
-function Navbar() {
+function Navbar(props) {
   const statusNavbar = useContext(DataUser)
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const [loggedin, setloggedin] = useState(false);
+  const userLogout = (dataUserLogout) => {
+    // console.log(dataUser)
+    props.onUpdateDataUser(dataUserLogout)
+  }
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -18,11 +21,6 @@ function Navbar() {
   const ToggleDropdown = () => {
     setDropdown(dropdown ? false : true);
   }
-
-  const toggleLogin = () => {
-    setloggedin(loggedin ? false : true)
-  }
-
 
   const onMouseEnter = () => {
     if (window.innerWidth < 960) {
@@ -54,11 +52,6 @@ function Navbar() {
           Sign Up
         </Link>
       </li>
-      <li>
-        <Link to='/ChooseCreate' className='nav-links-mobile' onClick={closeMobileMenu}>
-          Sign Up
-        </Link>
-      </li>
     </ul>
   } 
   else if (statusNavbar.userType === 1) {    //  Loggedin Normal User Navbar
@@ -71,7 +64,8 @@ function Navbar() {
       </li>
       <li className='nav-item'>
         <div className='nav-links-none'>
-          <i class="fas fa-grip-lines-vertical fa-2x" />
+          {/*  */}
+
         </div>
       </li>
       <li
@@ -81,7 +75,7 @@ function Navbar() {
         <div className='nav-links' onClick={handleClick} onClick={ToggleDropdown}>
           <i class="far fa-user fa-2x" /><i className='fas fa-caret-down fa-2x' />
         </div>
-        {dropdown && <NavDropdown />}
+        {dropdown && <NavDropdown userLogout={userLogout} />}
       </li>
     </ul>
   } 
@@ -95,7 +89,7 @@ function Navbar() {
       </li>
       <li className='nav-item'>
         <div className='nav-links-none'>
-          <i class="fas fa-grip-lines-vertical fa-2x" />
+          
         </div>
       </li>
       <li
@@ -119,7 +113,6 @@ function Navbar() {
       </li>
       <li className='nav-item'>
         <div className='nav-links-none'>
-          <i class="fas fa-grip-lines-vertical fa-2x" />
         </div>
       </li>
       <li

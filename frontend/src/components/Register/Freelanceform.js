@@ -43,7 +43,7 @@ export default function Freelance() {
       "lastname": valuesSignupfreelance.lastname,
       "email": valuesSignupfreelance.email,
       "phone": valuesSignupfreelance.phone,
-      "profileuser": "/images/IMG_20210208_195921_677.jpg",     //Manual Front-end fix profile imgage
+      "profileuser": "/images/ProfileCEO.jpg",     //Manual Front-end fix profile imgage
       "line": valuesSignupfreelance.line,
       "facebook": valuesSignupfreelance.facebook,
       "instagram": valuesSignupfreelance.instagram,

@@ -69,7 +69,7 @@ function App() {
         }
       }>
         <Router>
-          <Navbar />
+          <Navbar onUpdateDataUser={updateDataUser} />
           <div className="page__content">
             <Switch>
               {/* Home Path*/}
