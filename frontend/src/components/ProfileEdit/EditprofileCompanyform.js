@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import "./EditprofileCompanyform.css";
+import "./Editprofileform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
-import { Container, Row, Col } from "react-grid-system";
-import axios from "axios";
-const baseUsl = "http://203.170.190.226:8080/";
+import { Row, Col } from "react-grid-system";
+import axios from '../../api/axios-login';
+
 export default function EditprofileCompanyform(props) {
   const [valuesEditprofilecompany, setvaluesEditprofilecompany] = React.useState({
-    ID: "",
+    id: "",
     companyname: "",
     companyemail: "",
-    CompanyPhone: "",
-    Address: "",
-    Subdistrict: "",
-    District: "",
-    Province: "",
-    Postcode: "",
-    ProfileCompany: "",
+    companyPhone: "",
+    address: "",
+    subdistrict: "",
+    district: "",
+    province: "",
+    postcode: "",
+    profileCompany: "",
   });
   const handlevaluesEditprofilecompanyChange = (prop) => (event) => {
     setvaluesEditprofilecompany({ ...valuesEditprofilecompany, [prop]: event.target.value });
@@ -34,19 +34,19 @@ export default function EditprofileCompanyform(props) {
     event.preventDefault();
 
     const editprofilecompany = {
-      "ID": valuesEditprofilecompany.ID,
+      "id": valuesEditprofilecompany.id,
       "companyname": valuesEditprofilecompany.companyname,
       "companyemail": valuesEditprofilecompany.companyemail,
-      "CompanyPhone": valuesEditprofilecompany.CompanyPhone,
-      "Address": valuesEditprofilecompany.Address,
-      "Subdistrict": valuesEditprofilecompany.Subdistrict,
-      "District": valuesEditprofilecompany.District,
-      "Province": valuesEditprofilecompany.Province,
-      "Postcode": valuesEditprofilecompany.Postcode,
-      "ProfileCompany": valuesEditprofilecompany.ProfileCompany,
+      "companyPhone": valuesEditprofilecompany.companyPhone,
+      "address": valuesEditprofilecompany.address,
+      "subdistrict": valuesEditprofilecompany.subdistrict,
+      "district": valuesEditprofilecompany.district,
+      "province": valuesEditprofilecompany.province,
+      "postcode": valuesEditprofilecompany.postcode,
+      "profileCompany": valuesEditprofilecompany.profileCompany,
     };
     axios
-      .put(`${baseUsl}/updatecompany`, { editprofilecompany })
+      .put(`/updatecompany`, { editprofilecompany })
       .then((res) => {
         console.log(res.data);
       });
@@ -56,8 +56,8 @@ export default function EditprofileCompanyform(props) {
   };
   const history = useHistory();
   return (
-    <div className="EditprofileCompanyform-outer">
-      <div className="EditprofileCompanyform-inner">
+    <div className="Editprofileform-outer">
+      <div className="Editprofileform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="d-grid2">
           <img
@@ -66,6 +66,7 @@ export default function EditprofileCompanyform(props) {
             alt=""
           ></img>
         </div>
+        
         <div className="d-grid2 gap-2 spacing-top btn-fontblack">
           <button
             type="submit"
@@ -116,9 +117,9 @@ export default function EditprofileCompanyform(props) {
                 className="form-control"
                 placeholder="xxx-xxx-xxxx"
                 mask="999-999-9999"
-                name="Companyphone"
-                onChange={handlevaluesEditprofilecompanyChange("CompanyPhone")}
-                value={valuesEditprofilecompany.CompanyPhone}
+                name="companyphone"
+                onChange={handlevaluesEditprofilecompanyChange("companyPhone")}
+                value={valuesEditprofilecompany.companyPhone}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เบอร์โทรศัพท์
@@ -132,9 +133,9 @@ export default function EditprofileCompanyform(props) {
                 required
                 type="text"
                 placeholder="ที่อยู่"
-                name="Address"
-                onChange={handlevaluesEditprofilecompanyChange("Address")}
-                value={valuesEditprofilecompany.Address}
+                name="address"
+                onChange={handlevaluesEditprofilecompanyChange("address")}
+                value={valuesEditprofilecompany.address}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ที่อยู่
@@ -148,9 +149,9 @@ export default function EditprofileCompanyform(props) {
                 required
                 type="text"
                 placeholder="ตำบล / แขวง"
-                name="Subdistrict"
-                onChange={handlevaluesEditprofilecompanyChange("Subdistrict")}
-                value={valuesEditprofilecompany.Subdistrict}
+                name="subdistrict"
+                onChange={handlevaluesEditprofilecompanyChange("subdistrict")}
+                value={valuesEditprofilecompany.subdistrict}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ตำบล / แขวง
@@ -164,9 +165,9 @@ export default function EditprofileCompanyform(props) {
                 required
                 type="text"
                 placeholder="อำเภอ / เขต"
-                name="District"
-                onChange={handlevaluesEditprofilecompanyChange("District")}
-                value={valuesEditprofilecompany.District}
+                name="district"
+                onChange={handlevaluesEditprofilecompanyChange("district")}
+                value={valuesEditprofilecompany.district}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ อำเภอ / เขต
@@ -180,9 +181,9 @@ export default function EditprofileCompanyform(props) {
                 required
                 type="text"
                 placeholder="จังหวัด"
-                name="Province"
-                onChange={handlevaluesEditprofilecompanyChange("Province")}
-                value={valuesEditprofilecompany.Province}
+                name="province"
+                onChange={handlevaluesEditprofilecompanyChange("province")}
+                value={valuesEditprofilecompany.province}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จังหวัด
@@ -197,8 +198,8 @@ export default function EditprofileCompanyform(props) {
                 className="form-control"
                 placeholder="xxxxx"
                 mask="99999"
-                value={valuesEditprofilecompany.Postcode}
-                onChange={handlevaluesEditprofilecompanyChange("Postcode")}
+                value={valuesEditprofilecompany.postcode}
+                onChange={handlevaluesEditprofilecompanyChange("postcode")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ ยืนยันรหัสผ่าน
@@ -206,24 +207,11 @@ export default function EditprofileCompanyform(props) {
             </Form.Group>
           </Row>
 
-          <Row className="gap-2 btn-color">
-          <Col>
-            <Button
-              className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profilecompany")}
-            >
-              ยกเลิก
-            </Button>
-          </Col>
-          <Col className="create-work-freelance-buttonSave">
-            <Button
-              type="submit"
-              className="btn color spacing-top10"
-            >
+          <div className="d-grid gap-2 btn-color">
+            <Button type="submit" className="btn btn-lg color spacing-top10" >
               บันทึก
             </Button>
-          </Col>
-        </Row>
+          </div>
         </Form>
       </div>
     </div>

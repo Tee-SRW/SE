@@ -52,20 +52,25 @@ function App() {
 
   const [userID, setUserID] = useState(0)
   const [userType, setUserType] = useState(0)
+  const [userSelectWorkID, setUserSelectWorkID] = useState(0)
 
   const updateDataUser = (dataUser) => {
     // console.log(dataUser)
+    console.log("Receive Data")
     setUserID(dataUser.id)
     setUserType(dataUser.type)
-  }
-  
-  return (
+    setUserSelectWorkID(dataUser.workID)
     
+  }
+
+  return (
+
     <div className="">
       <DataUser.Provider value={
         {
           userID: userID,
-          userType: userType
+          userType: userType,
+          userSelectWorkID: userSelectWorkID,
         }
       }>
         <Router>
@@ -73,7 +78,9 @@ function App() {
           <div className="page__content">
             <Switch>
               {/* Home Path*/}
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact>
+                <Home onUpdateDataUser={updateDataUser} />
+              </Route>
 
               {/* Login Path*/}
               <Route path="/Login">
