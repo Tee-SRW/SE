@@ -9,9 +9,13 @@ import axios from '../../api/axios-signup';
 import DataUser from "../../DataUser/DataUser";
 
 
-export default function Freelance() {
+export default function Freelance(props) {
   const {userID, userType} = useContext(DataUser)
   const history = useHistory();
+
+  const userTypeUpgrade = {
+    userType:2
+  }
 
   const [valuesSignupfreelance, setvaluesSignupfreelance] = React.useState({
     firstname: "",
@@ -28,6 +32,7 @@ export default function Freelance() {
   };
 
   const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -62,6 +67,8 @@ export default function Freelance() {
       }).catch(err => {
         alert("***สมัครเป็นฟรีแลนซ์ไม่สำเร็จ***")
       })
+
+      props.userTypeUpgrade(userTypeUpgrade)
   };
   return (
     <div className="Signupform-outer">

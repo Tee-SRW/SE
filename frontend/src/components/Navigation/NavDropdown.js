@@ -30,8 +30,8 @@ function NavDropdown(props) {
             className='MyNavdropdown-link'
             to={statusNavbarDropdown.userType === 1 ? '/Profile'
               : statusNavbarDropdown.userType === 2 ? '/Profilefreelance'
-                : statusNavbarDropdown.userType === 3 ? '/EditprofileCompany'
-                  : '/Profile'
+                : statusNavbarDropdown.userType === 3 ? '/Profilecompany'
+                  : '/'
             }
             onClick={() => setClick(!false)}
           >

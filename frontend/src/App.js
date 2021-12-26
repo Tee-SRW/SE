@@ -60,8 +60,8 @@ function App() {
     setUserID(dataUser.id)
     setUserType(dataUser.type)
     setUserSelectWorkID(dataUser.workID)
-    
   }
+
 
   return (
 
@@ -93,7 +93,9 @@ function App() {
               <Route path="/ChooseCreate" component={ChooseCreate} />
               <Route path="/sign-up" component={SignUp} />
               <Route path="/sign-up-company" component={SignUpcompany} />
-              <Route path="/Freelance" component={Freelance} />
+              <Route path="/Freelance">
+                <Freelance onUpdateDataUser={updateDataUser} />
+              </Route>
 
               {/* Profile Path*/}
               <Route path="/Profile" component={Profile} />
