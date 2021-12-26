@@ -42,24 +42,6 @@ export default function Editprofileform(props) {
   const sendUserID = {
     id: dataUser.userID
   }
-
-  // const beforeEdit = {
-  //   firstname: "",
-  //   lastname: "",
-  //   email: "",
-  //   phone: "",
-  //   // profile_user: ""
-  // }
-
-  // const [valuesEditprofile, setvaluesEditprofile] = useState({
-  //   id: dataUser.userID,
-  //   firstname: beforeEdit.firstname,
-  //   lastname: beforeEdit.lastname,
-  //   email: beforeEdit.email,
-  //   phone: beforeEdit.phone,
-  //   // profile_user: beforeEdit.profile_user,
-  // });
-
   const [valuesEditprofile, setvaluesEditprofile] = useState({
     id: dataUser.userID,
     firstname: "",
@@ -69,11 +51,6 @@ export default function Editprofileform(props) {
     phone: "",
     profile_user: "",
   });
-
-  // console.log(valuesEditprofile)
-
-  // const [checkPost,setCheck] = useState(true)
-  // if (valuesEditprofile.firstname === "") {
   useEffect(() => {
     // if(checkPost){
     console.log("fakkkkk")
