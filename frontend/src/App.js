@@ -43,6 +43,7 @@ import EditWorkCompany from "./pages/EditworkCompany";
 
 
 function App() {
+  document.title = "JobMaiFair";
   // const [loggedIn, setLoggedIn] = useState(console.log(false),
   //   //false);
 
@@ -57,8 +58,9 @@ function App() {
     setUserID(dataUser.id)
     setUserType(dataUser.type)
   }
-
+  
   return (
+    
     <div className="">
       <DataUser.Provider value={
         {
