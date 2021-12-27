@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import DataUser from "../../../DataUser/DataUser";
+import axios from "../../../api/axios-work";
+
+
 
 export default function CreateWorkFreelance(props) {
+  const dataUser = useContext(DataUser)
+
   const history = useHistory();
   const [valuesCreateworkfreelance, setvaluesCreateworkfreelance] =
     React.useState({
@@ -28,8 +33,9 @@ export default function CreateWorkFreelance(props) {
     url = e.target.files[0].name;
     console.log(url);
   };
+
   const [selectedImage, setSelectedImage] = useState();
-  const baseUsl = "http://203.170.190.226:8080/";
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -40,26 +46,26 @@ export default function CreateWorkFreelance(props) {
 
     event.preventDefault();
 
-    const user = {
-      typeWorknumber: valuesCreateworkfreelance.typeWorknumber,
+    const userAddWork = {
+      typeWorknumber: Number(valuesCreateworkfreelance.typeWorknumber),
       detailwork: valuesCreateworkfreelance.detailwork,
-      userid: 3,
+      userid: Number(dataUser.userID),
       pricepostwork: valuesCreateworkfreelance.pricepostwork,
       namework: valuesCreateworkfreelance.namework,
       imageworkpostfreelance: "imageworkpostfreelancexd",
     };
-
-    axios.post(`${baseUsl}/addworkFreelance`, { user }).then((res) => {
-      console.log(user);
-      // console.log(valuesCreateworkfreelance.email);
-      // console.log(valuesCreateworkfreelance.password);
-      // console.log(res);
-      // console.log(res.data);
+    
+    axios.post(`/addworkFreelance`, userAddWork)
+      .then((res) => {
+      console.log(userAddWork);
+      console.log(res);
+      console.log(res.data);
+      if (res.data === "Complete!") {
+        alert("สร้างงานของคุณสำเร็จ");
+        // history.push("/Profilefreelance");
+      }
     });
-    if (form.checkValidity() === true) {
-      alert("สร้างงานของคุณสำเร็จ");
-      history.push("/Profilefreelance");
-    }
+
   };
   return (
     <div className="create-work-outer">
