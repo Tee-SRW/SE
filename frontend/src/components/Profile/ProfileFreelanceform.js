@@ -49,7 +49,7 @@ export default function ProfileFreelanceform(props) {
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
             src="/images/IMG_20210208_195921_677.jpg"
-            className="img-fluid rounded-circle image"jpg
+            className="img-fluid rounded-circle image__freelance"jpg
             // alt="Profile Admin"
             valuesProfilefreelance={valuesProfilefreelance.Profile__freelance__image}
             fluid

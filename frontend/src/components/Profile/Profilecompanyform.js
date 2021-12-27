@@ -45,7 +45,7 @@ export default function Profilecompanyform(props) {
             // alt="Profile Admin"
             src="/images/IMG_20210208_195921_677.jpg"
             className="img-fluid rounded-circle image__company"
-            alt="Profile Admin"
+            // alt="Profile Admin"
             valuesProfilecompany={valuesProfilecompany.Profile__company__image}
             fluid
           />
