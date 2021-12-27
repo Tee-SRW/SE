@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./create-work.css";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom';
-import axios from "axios";
+import axios from "../../../api/axios-work";
+import DataUser from "../../../DataUser/DataUser";
 
 
 export default function CreateWorkCompany(props) {
@@ -24,6 +25,8 @@ export default function CreateWorkCompany(props) {
   // const handlePasswordChange = (prop) => (event) => {
   //   setvaluesCreateworkcompany({ ...valuesCreateworkcompany, [prop]: event.target.value });
   // };
+  const companyData = useContext(DataUser)
+
   const history = useHistory();
 
   const [valuesCreateworkcompany, setvaluesCreateworkcompany] = React.useState({
@@ -45,7 +48,7 @@ export default function CreateWorkCompany(props) {
   let url = ""
 
   const geturl = (e) => {
-      setSelectedImage(e.target.files[0]);
+    setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
     console.log(url);
   }
@@ -62,8 +65,6 @@ export default function CreateWorkCompany(props) {
   //   setSelectedImage();
   // };
 
-  const baseUsl = "http://203.170.190.226:8080/"
-
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -74,31 +75,29 @@ export default function CreateWorkCompany(props) {
 
     event.preventDefault();
 
-    const user = {
-      "companyid":1,
-      "typeworknumber":valuesCreateworkcompany.typeworknumber,
-      "namework":valuesCreateworkcompany.namework,
-      "detailwork":valuesCreateworkcompany.detailwork,
-      "position":valuesCreateworkcompany.position,
-      "numperson":valuesCreateworkcompany.numperson,
-      "priceworkmin":valuesCreateworkcompany.priceworkmin,
-      "priceworkmax":valuesCreateworkcompany.priceworkmax,
-      "education":valuesCreateworkcompany.education,
-      "imageworkpostcompany":"Image_Work_Post_Companyxd"
+    const userAddWorkCompany = {
+      "companyid": companyData.userID,
+      "typeworknumber": Number(valuesCreateworkcompany.typeworknumber),
+      "namework": valuesCreateworkcompany.namework,
+      "detailwork": valuesCreateworkcompany.detailwork,
+      "position": valuesCreateworkcompany.position,
+      "numperson": Number(valuesCreateworkcompany.numperson),
+      "priceworkmin": valuesCreateworkcompany.priceworkmin,
+      "priceworkmax": valuesCreateworkcompany.priceworkmax,
+      "education": valuesCreateworkcompany.education,
+      "imageworkpostcompany": "Image_Work_Post_Companyxd"
     };
 
-    axios.post(`${baseUsl}/addworkFreelance`,{ user })
-    .then(res => {
-      console.log(user);
-      // console.log(valuesCreateworkcompany.email);
-      // console.log(valuesCreateworkcompany.password);
-      // console.log(res);
-      // console.log(res.data);    
-    })
-    if(form.checkValidity() === true) {
-      alert("สร้างประกาศรับสมัครงานสำเร็จ")
-        history.push("/Profilecompany")
-      }
+    axios.post(`/addworkFreelance`, userAddWorkCompany)
+      .then(res => {
+        console.log(userAddWorkCompany);
+        console.log(res);
+        console.log(res.data); 
+        if (res.data === "Complete!") {
+          alert("สร้างงานของคุณสำเร็จ");
+          history.push("/Profilefreelance");
+        }   
+      })
   };
 
   return (
@@ -107,7 +106,7 @@ export default function CreateWorkCompany(props) {
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-      <Form.Select
+        <Form.Select
           size="sm"
           as={Col}
           md="4"
@@ -290,7 +289,7 @@ export default function CreateWorkCompany(props) {
 
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl}  />
+          <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">

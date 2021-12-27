@@ -46,7 +46,7 @@ export default function CreateWorkFreelance(props) {
 
     event.preventDefault();
 
-    const userAddWork = {
+    const userAddWorkFreelance = {
       typeWorknumber: Number(valuesCreateworkfreelance.typeWorknumber),
       detailwork: valuesCreateworkfreelance.detailwork,
       userid: Number(dataUser.userID),
@@ -55,14 +55,14 @@ export default function CreateWorkFreelance(props) {
       imageworkpostfreelance: "imageworkpostfreelancexd",
     };
     
-    axios.post(`/addworkFreelance`, userAddWork)
+    axios.post(`/addworkFreelance`, userAddWorkFreelance)
       .then((res) => {
-      console.log(userAddWork);
+      console.log(userAddWorkFreelance);
       console.log(res);
       console.log(res.data);
       if (res.data === "Complete!") {
         alert("สร้างงานของคุณสำเร็จ");
-        // history.push("/Profilefreelance");
+        history.push("/Profilefreelance");
       }
     });
 
