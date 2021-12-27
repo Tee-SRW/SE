@@ -1,14 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-grid-system";
 import "./Work.css";
 import Image from "react-bootstrap/Image";
+import DataUser from '../../DataUser/DataUser';
+import { useContext } from "react";
+import axios from '../../api/axios-work';
 
 export default function WorkFreelanceform() {
+  const dataWork = useContext(DataUser)
+
+  const sendWorkComID = {
+    workpostid: dataWork.userSelectWorkID
+  }
+
+  const [valuesWorkCom, setvaluesWorkCom] = useState([]);
+
+  useEffect(() => {
+    console.log("faqqqq")
+
+    axios.post(`/getworkcompany`, sendWorkComID)
+      .then((res) => {
+        console.log(sendWorkComID);
+        console.log(res);
+        console.log(res.data);
+
+        let beforeEdit = res.data.map(Item => {
+          return {
+            workname: Item.workname,
+            companyname: Item.companyname,
+            companyemail: Item.companyemail,
+            companyphone: Item.companyphone,
+            typenamework: Item.typenamework,
+            position: Item.position,
+            numperson: Item.numperson,
+            priceworkmin: Item.priceworkmin,
+            priceworkmax: Item.priceworkmax,
+            education: Item.education,
+            detailwork: Item.detailwork,
+            imageworkpostcompany: Item.imageworkpostcompany,
+          }
+        })
+        setvaluesWorkCom(beforeEdit)
+      });
+
+  }, []);
+
+  console.log(valuesWorkCom);
+  console.log(valuesWorkCom.type_work_name)
+
   return (
     <div className="Container-work">
+      {valuesWorkCom.map((item, index) => {
+        return (
       <div className="">
         <div className="Work-title">
-          <h3>หางาน - Graphic & Design</h3>
+          <h3>หางาน - {item.typenamework}</h3>
         </div>
         <Row>
           <Col className="">
@@ -20,41 +66,33 @@ export default function WorkFreelanceform() {
           </Col>
           <Col className="">
             <div className="Work-box-detail">
-              <h3 className="font__topic__work">ชื่องาน</h3>
+              <h3 className="font__topic__work">ชื่องาน: {item.workname}</h3>
               <div className="font__topcif__work">
                 <div className="font__tail">
                   <h3>
                     หมวดหมู่:{" "}
-                    <text className="font__detail__work">Graphic & Design</text>{" "}
+                    <text className="font__detail__work">{item.typenamework}</text>{" "}
                   </h3>
                   <h3>
-                    ตำแหน่ง : <text className="font__detail__work">ยาม</text>{" "}
+                    ตำแหน่ง : <text className="font__detail__work">{item.position}</text>{" "}
                   </h3>
                   <h3>
-                    จำนวน : <text className="font__detail__work">x คน</text>{" "}
+                    จำนวน : <text className="font__detail__work">{item.numperson} คน</text>{" "}
                   </h3>
                   <h3>
                     เงินเดือน :{" "}
                     <text className="font__detail__work">
-                      10000 - 1000000 บาท
+                      {item.priceworkmin} - {item.priceworkmax} บาท
                     </text>{" "}
                   </h3>
                   <h3>
                     วุฒิการศึกษา :{" "}
-                    <text className="font__detail__work">ปริญญาใจ</text>{" "}
+                    <text className="font__detail__work">{item.education}</text>{" "}
                   </h3>
                   <h3>
                     คำอธิบาย :{" "}
                     <text className="font__detail__work">
-                      งานนี้เป็นอย่างไร
-                      รับสอนว่ายน้ำครับสำหรับคนที่จมอยู่กับอดีต
-                      เราจะวิ่งตามคนที่เรารักไปทำไมในเมื่อเรามีมอเตอร์ไซค์
-                      นั้นที-เร็กซ์ ส่วนนี่ที่รัก รักน้ำรักปลา
-                      รักตัวเองบ้างไอ้สัส จะลืมใครต้องใช้เวลา
-                      ยามาฮาเป็นยี่ห้อมอไซค์
-                      หิวก็แดกข้าวแต่อย่ากินเยอะนะระวังอ้วน ถ้าเธอง่วง
-                      ก็ไปนอนไอสัสอยู่ทำควยอะไร เธอๆ เมื่อคืนเราเหนื่อยมากเลย
-                      เราไปขโมยของบ้านคนอื่นมา
+                      {item.detailwork}
                     </text>{" "}
                   </h3>
                 </div>
@@ -74,7 +112,7 @@ export default function WorkFreelanceform() {
                 />
                 <div className="box__contact__text">
                   <div>
-                    <h3 className="box__contact__fonttext">Joppy Inc.</h3>
+                    <h3 className="box__contact__fonttext">{item.companyname}</h3>
                     <div>
                       <h3 className="box__contact__textline">
                         เป็นคนดีที่เธอไม่มอง
@@ -87,19 +125,10 @@ export default function WorkFreelanceform() {
                 <h3 className="box__contact__ct__topic">ช่องทางการติดต่อ</h3>
                 <div className="box__contact__ct__topicline__top">
                   <h3 className="box__contact__ct__topicline">
-                    เบอร์โทรศัพท์ <text></text>{" "}
+                    เบอร์โทรศัพท์: {item.companyphone} <text></text>{" "}
                   </h3>
                   <h3 className="box__contact__ct__topicline">
-                    อีเมล <text></text>{" "}
-                  </h3>
-                  <h3 className="box__contact__ct__topicline">
-                    Line <text></text>{" "}
-                  </h3>
-                  <h3 className="box__contact__ct__topicline">
-                    Facebook <text></text>{" "}
-                  </h3>
-                  <h3 className="box__contact__ct__topicline">
-                    Instagram <text></text>{" "}
+                    อีเมล: {item.companyemail} <text></text>{" "}
                   </h3>
                 </div>
               </div>
@@ -107,6 +136,8 @@ export default function WorkFreelanceform() {
           </Col>
         </Row>
       </div>
+       );
+      })}
     </div>
   );
 }
