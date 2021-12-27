@@ -74,7 +74,7 @@ export default function Profilecompanyform(props) {
           <h2 className="board__last__freelance"><text>{props.Last__name__freelance}</text></h2>
         </div>
 
-        <div className="box_bg">
+        <div className="box_bg_company">
           <div className="box__head__inner__company">
             <label className="box__toptext">ช่องทางการติดต่อ</label>
             <div>
@@ -132,7 +132,7 @@ export default function Profilecompanyform(props) {
               </label>
             </div>
           </div>
-          <div className="box__head__work">
+          <div className="box__head__work__company">
             <h3 className="font__topic">การประกาศรับบุคลากรของคุณ</h3>
             <h3 className="font__topicf">Graphic & Design</h3>
             {/* <div className="cards">

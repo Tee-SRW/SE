@@ -80,7 +80,7 @@ export default function ProfileFreelanceform(props) {
           <h2 className="board__last__freelance">อัศะ<text>{props.Last__name__freelance}</text></h2>
         </div>
 
-        <div className="box_bg">
+        <div className="box_bg_freelance">
           <div className="box__head__inner__freelance">
             <label className="box__toptext">ช่องทางการติดต่อ</label>
             <div>
@@ -122,7 +122,7 @@ export default function ProfileFreelanceform(props) {
               </label>
             </div>
           </div>
-          <div className="box__head__work">
+          <div className="box__head__work_freelance">
             <h3 className="font__topic">งานของฉัน</h3>
             <h3 className="font__topicf">Graphic & Design</h3>
             {/* <div className="cards">
