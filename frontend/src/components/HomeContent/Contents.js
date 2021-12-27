@@ -16,7 +16,7 @@ const Contents = (props) => {
 
 	const [showWorkFreelance, setShowWorkFreelance] = useState([]);
 
-	const [showWork, setShowWork] = useState([]);
+	const [showWorkCompany, setShowWorkCompany] = useState([]);
 
 	function handleClickWork(value) {
 		// showWork.work_post_id
@@ -25,7 +25,6 @@ const Contents = (props) => {
 		}
 		props.userWorkSelectID(sentWorkID)
 		console.log(value) //shows value
-
 	}
 
 
@@ -53,8 +52,8 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: Item.image_work_post_freelance,
-					srcwork: "images/design.jpeg",
+					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					srcwork: "images/postfreelance/design.jpeg",
 					path: "/WorkFreelance"
 				}
 			})
@@ -87,8 +86,8 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: Item.image_work_post_freelance,
-					srcwork: "images/market.png",
+					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					srcwork: "images/postfreelance/market.png",
 					path: "/WorkFreelance"
 				}
 			})
@@ -121,8 +120,8 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: Item.image_work_post_freelance,
-					srcwork: "images/programming.jpeg",
+					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					srcwork: "images/postfreelance/programming.jpeg",
 					path: "/WorkFreelance"
 				}
 			})
@@ -148,14 +147,14 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_work_min,
-					image: Item.image_work_post_company,
-					srcwork: selectedMenu.workType === 1 ? "images/design.jpeg"
-						: selectedMenu.workType === 2 ? "images/market.png"
-							: selectedMenu.workType === 3 ? "images/programming.jpeg" : null,
+					image:  "images/postfreelance/"+Item.image_work_post_company,
+					srcwork: selectedMenu.workType === 1 ? "images/postfreelance/design.jpeg"
+						: selectedMenu.workType === 2 ? "images/postfreelance/market.png"
+							: selectedMenu.workType === 3 ? "images/postfreelance/programming.jpeg" : null,
 					path: "/WorkCompany"
 				}
 			})
-			setShowWork(work)
+			setShowWorkCompany(work)
 			console.log(work);
 		});
 
@@ -179,10 +178,10 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: Item.image_work_post_freelance,
-					srcwork: selectedMenu.workType === 1 ? "images/design.jpeg"
-						: selectedMenu.workType === 2 ? "images/market.png"
-							: selectedMenu.workType === 3 ? "images/programming.jpeg" : null,
+					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					srcwork: selectedMenu.workType === 1 ? "images/postfreelance/design.jpeg"
+						: selectedMenu.workType === 2 ? "images/postfreelance/market.png"
+							: selectedMenu.workType === 3 ? "images/postfreelance/programming.jpeg" : null,
 					path: "/WorkFreelance"
 				}
 			})
@@ -194,7 +193,8 @@ const Contents = (props) => {
 
 	let showContent = <></>
 	if (selectedMenu.selectedId === 1 || selectedMenu.selectedId === 0) {
-		showContent = <div className="cards__wrapper">
+		showContent = 
+		<div className="cards__wrapper">
 			<ul className="cards__items">
 				{showWorkFreelance.map((Item, index) => {
 					return (
@@ -211,7 +211,8 @@ const Contents = (props) => {
 									>
 										<img
 											className="cards__item__img"
-											src={Item.srcwork}
+											// src={Item.srcwork}	Default image job
+											src={Item.image}
 											alt={String(Item.work_post_id)}
 										/>
 									</figure>
@@ -238,7 +239,7 @@ const Contents = (props) => {
 	} else if (selectedMenu.selectedId === 2) {
 		showContent = <div className="cards__wrapper">
 			<ul className="cards__items">
-				{showWork.map((Item, index) => {
+				{showWorkCompany.map((Item, index) => {
 					return (
 						<>
 							<li className="cards__item" key={index}>
@@ -253,7 +254,8 @@ const Contents = (props) => {
 									>
 										<img
 											className="cards__item__img"
-											src={Item.srcwork}
+											// src={Item.srcwork}	Default image job
+											src={Item.image}
 											alt={String(Item.work_post_id)}
 										/>
 									</figure>

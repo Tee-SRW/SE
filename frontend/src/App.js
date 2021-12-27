@@ -56,14 +56,14 @@ function App() {
 
   const updateDataUser = (dataUser) => {
     // console.log(dataUser)
-    console.log("Receive Data : ",dataUser.id," and ",dataUser.type)
+    console.log("Receive Data : ", dataUser.id, " and ", dataUser.type)
     setUserID(dataUser.id)
     setUserType(dataUser.type)
   }
-  
+
   const onUpdateDataWorkID = (selectWorkID) => {
     // console.log(dataUser)
-    console.log("Receive WorkID : ",selectWorkID.workID)
+    console.log("Receive WorkID : ", selectWorkID.workID)
     setUserSelectWorkID(selectWorkID.workID)
   }
 
@@ -121,8 +121,12 @@ function App() {
               <Route path="/CreateworkCompany" component={CreateWorkCompany} />
 
               {/* Edit-Work Path */}
-              <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
-              <Route path="/EditWorkCompany" component={EditWorkCompany} />
+              <Route path="/EditWorkFreelance">
+                <EditWorkFreelance onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
+              <Route path="/EditWorkCompany">
+                <EditWorkCompany onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
             </Switch>
           </div>
           <Footer />
