@@ -277,7 +277,16 @@ const Contents = (props) => {
 		</div>
 	}
 
-
+	let donate = <></>
+	if (selectedMenu.workType === 0) {
+		donate =
+		<div className="space_img_donate">
+			<img
+				className="img_for_danate"
+				src="/images/Donate.png"
+			/>
+		</div>
+	}
 
 	return (
 		<div>
@@ -353,12 +362,7 @@ const Contents = (props) => {
 					</div>
 				</div>
 			</div>
-			<div className="space_img_donate">
-				<img
-					className="img_for_danate"
-					src="/images/Donate.png"
-				/>
-			</div>
+			{donate}
 			<div className="cards">
 				<div className="cards__container">
 					{showContent}
