@@ -20,7 +20,7 @@
             flex-direction: row;
             flex-wrap: nowrap;
             /* justify-content: space-between; */
-            background-color: #CAF0F8;
+            background-color: #6DBAE7;
             align-items: flex-start;
             align-content: flex-start;
         }
@@ -264,7 +264,7 @@
             border-width: 5px 4px 5px 4px;
             justify-content: center;
             align-items: center;
-            background-color: #6DBAE7;
+            background-color: #2a99da;
             color: #fff;
         }
         .bottom__profileform .shadow{
