@@ -30,10 +30,7 @@ export default function Profileform(props) {
 
   const [valuesProfile, setvaluesProfile] = React.useState({
     id: "",
-    First__name: "",
-    Last__name: "",
-    Contact__phone: "",
-    Contact__email: "",
+    
   });
 
   const handlevaluesProfileChange = (prop) => (event) => {
@@ -99,7 +96,7 @@ export default function Profileform(props) {
                   onChange={imageChange}
                 /> */}
                 <button
-                  className="btn btn-outline-primary bottom__profileform"
+                  className="btn bottom__profileform shadow"
                   type="submit"
                   onClick={() => history.push("/Editprofilefreelance")}
                 >

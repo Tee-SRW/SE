@@ -1,62 +1,92 @@
-import React, { useState } from "react";
-import "./ProfileFreelanceform.css";
+import React, { useState, useContext, useEffect } from "react";
+import "./Profileform.css";
 import Card from "react-bootstrap/Card";
 import { useHistory } from "react-router-dom";
-// import Form from "react-bootstrap/Form";
-// import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import { Container, Row, Col } from "react-grid-system";
-// import Col from 'react-bootstrap/Col';
-// import Row from 'react-bootstrap/Row';
+import axios from '../../api/axios-profile';
+import DataUser from '../../DataUser/DataUser';
 
 export default function ProfileFreelanceform(props) {
-  let url = "";
-  const geturl = (e) => {
-    url = e.target.files[0].name;
-    console.log(url);
-  };
-  const [selectedImage, setSelectedImage] = useState();
+  // let url = "";
+  // const geturl = (e) => {
+  //   url = e.target.files[0].name;
+  //   console.log(url);
+  // };
+  // const [selectedImage, setSelectedImage] = useState();
 
-  // This function will be triggered when the file field change
-  const imageChange = (e) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setSelectedImage(e.target.files[0]);
-    }
-  };
-  const removeSelectedImage = () => {
-    setSelectedImage();
-  };
+  // // This function will be triggered when the file field change
+  // const imageChange = (e) => {
+  //   if (e.target.files && e.target.files.length > 0) {
+  //     setSelectedImage(e.target.files[0]);
+  //   }
+  // };
+  // const removeSelectedImage = () => {
+  //   setSelectedImage();
+  // };
+
+  const dataUser = useContext(DataUser)
+
+  const history = useHistory();
+
   const [valuesProfilefreelance, setvaluesProfilefreelance] = React.useState({
-    First__name: "",
-    Last__name: "",
-    Contact__phone: "",
-    Contact__email: "",
-    Card__1__freelance: "",
-    Card__2__freelance: "",
-    Card__3__freelance: "",
+    id: "",
+    
   });
+
   const handlevaluesProfilefreelanceChange = (prop) => (event) => {
     setvaluesProfilefreelance({ ...valuesProfilefreelance, [prop]: event.target.value });
   };
-  const history = useHistory();
+  
+  const sendUserID = {
+    id: dataUser.userID
+  }
+
+  useEffect(() => {
+    console.log("fakkkkk")
+
+    axios.post(`/getupdatefreelance`, sendUserID)
+      .then((res) => {
+        console.log(sendUserID);
+        console.log(res);
+        console.log(res.data);
+
+        let beforeEditto = {
+          id: dataUser.userID,
+          fullname: res.data.firstname+' '+res.data.lastname,
+          // firstname: res.data.firstname,
+          // lastname: res.data.lastname,
+          email: res.data.email,
+          phone: res.data.phone,
+          profile_user: res.data.profile_user,
+          line: res.data.line,
+          facebook: res.data.facebook,
+          instagram: res.data.instagram,
+        }
+        setvaluesProfilefreelance(beforeEditto)
+      });
+  }, []);
+  
   return (
     <Container className="container-profile">
       <div className="bg">
-        <div className="board__container__freelance">
+        <div className="board__container">
           <Image
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src="/images/IMG_20210208_195921_677.jpg"
-            className="img-fluid rounded-circle image__freelance"jpg
+            src="/images/ProfileCEO.jpg"
+            className="img-fluid rounded-circle image"
             // alt="Profile Admin"
             valuesProfilefreelance={valuesProfilefreelance.Profile__freelance__image}
             fluid
           />
           
-          <div className="board__head__freelance">
-            <h1 className="board__name__freelance">สุชัย<text>{props.First__name__freelance}</text></h1>
+          <div className="board__head">
+            <h1 className="board__name">
+              {valuesProfilefreelance.fullname}
+            </h1>
             <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
             <div className="board__setting">
               <div className="board__box">
@@ -68,7 +98,7 @@ export default function ProfileFreelanceform(props) {
                   onChange={imageChange}
                 /> */}
               <button
-                  className="btn btn-outline-primary bottom__profileform"
+                  className="btn bottom__profileform shadow"
                   type="submit"
                   onClick={() => history.push("/Editprofilefreelance")}
                 >
@@ -77,23 +107,25 @@ export default function ProfileFreelanceform(props) {
               </div>
             </div>
           </div>
-          <h2 className="board__last__freelance">อัศะ<text>{props.Last__name__freelance}</text></h2>
+          {/* <h2 className="board__last__freelance">อัศะ<text>{props.Last__name__freelance}</text></h2> */}
         </div>
 
-        <div className="box_bg_freelance">
-          <div className="box__head__inner__freelance">
+        <div className="box_bg">
+          <div className="box__head__inner">
             <label className="box__toptext">ช่องทางการติดต่อ</label>
             <div>
               <label className="box__midtext__start">
                 เบอร์โทรศัพท์
-                <label className="box__midtext__end">099-297-9490<text>{props.Contact__phone__freelance}</text></label>
+                <label className="box__midtext__end">
+                  {valuesProfilefreelance.phone}
+                  </label>
               </label>
             </div>
             <div>
               <label className="box__bottomtext__start">
                 อีเมล
                 <label className="box__bottomtext__end">
-                  joppy.inc123@gmail.com<text>{props.Contact__email__freelance}</text>
+                {valuesProfilefreelance.email}
                 </label>
               </label>
             </div>
@@ -101,7 +133,7 @@ export default function ProfileFreelanceform(props) {
               <label className="box__bottomtext__start">
                 Line
                 <label className="box__bottomtext__end">
-                  JopJop321lnwZa<text>{props.Contact__line__freelance}</text>
+                {valuesProfilefreelance.line}
                 </label>
               </label>
             </div>
@@ -109,7 +141,7 @@ export default function ProfileFreelanceform(props) {
               <label className="box__bottomtext__start">
                 Facebook
                 <label className="box__bottomtext__end">
-                  R-Jop Mylife<text>{props.Contact__facebook__freelance}</text>
+                  {valuesProfilefreelance.facebook}
                 </label>
               </label>
             </div>
@@ -117,12 +149,12 @@ export default function ProfileFreelanceform(props) {
               <label className="box__bottomtext__start">
                 Instagram
                 <label className="box__bottomtext__end">
-                  jop_asawa<text>{props.Contact__instagram__freelance}</text>
+                {valuesProfilefreelance.instagram}
                 </label>
               </label>
             </div>
           </div>
-          <div className="box__head__work_freelance">
+          <div className="box__head__work">
             <h3 className="font__topic">งานของฉัน</h3>
             <h3 className="font__topicf">Graphic & Design</h3>
             {/* <div className="cards">
