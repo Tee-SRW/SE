@@ -56,10 +56,15 @@ function App() {
 
   const updateDataUser = (dataUser) => {
     // console.log(dataUser)
-    console.log("Receive Data")
+    console.log("Receive Data : ",dataUser.id," and ",dataUser.type)
     setUserID(dataUser.id)
     setUserType(dataUser.type)
-    setUserSelectWorkID(dataUser.workID)
+  }
+  
+  const onUpdateDataWorkID = (selectWorkID) => {
+    // console.log(dataUser)
+    console.log("Receive WorkID : ",selectWorkID.workID)
+    setUserSelectWorkID(selectWorkID.workID)
   }
 
 
@@ -79,7 +84,7 @@ function App() {
             <Switch>
               {/* Home Path*/}
               <Route path="/" exact>
-                <Home onUpdateDataUser={updateDataUser} />
+                <Home onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Content to show next page   */}
               </Route>
 
               {/* Login Path*/}

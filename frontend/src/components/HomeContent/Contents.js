@@ -16,14 +16,16 @@ const Contents = (props) => {
 
 	const [showWork, setShowWork] = useState([]);
 
-	const [selectedWorkID,setSelectWorkID] = useState({
-		workID: 0
-	})
-
-	const handleClickWork = () =>{
+	function handleClickWork(value) {
 		// showWork.work_post_id
-		props.userWorkSelectID(selectedWorkID)
+		let sentWorkID = {
+			workID: value
+		}
+		props.userWorkSelectID(sentWorkID)
+		console.log(value) //shows value
+
 	}
+
 
 	const onClickGraphic = () => {
 		setSelectedMenu({
@@ -45,6 +47,7 @@ const Contents = (props) => {
 					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
+					fullName: Item.firstName+" "+Item.lastName,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
@@ -198,11 +201,11 @@ const Contents = (props) => {
 								<Link
 									className="cards__item__link"
 									to={Item.path}
-									onClick={() => setSelectWorkID(Item.work_post_id),handleClickWork}
+									onClick={() => handleClickWork(Item.work_post_id)}
 								>
 									<figure
 										className="cards__item__pic-wrap"
-										data-category={Item.firstName, Item.lastName}
+										data-category={Item.fullName}
 									>
 										<img
 											className="cards__item__img"
@@ -217,6 +220,8 @@ const Contents = (props) => {
 										<h5 className="cards__item__text">
 											{Item.nameWork}
 										</h5>
+										<button type="button" value={Item.work_post_id} onClick={() => handleClickWork(Item.work_post_id)}>
+										</button>
 									</div>
 									<h5 className="cards__item__text_price">
 										{Item.pricePostWork}
@@ -238,7 +243,7 @@ const Contents = (props) => {
 								<Link
 									className="cards__item__link"
 									to={Item.path}
-									onClick={() => setSelectWorkID(Item.work_post_id),handleClickWork}
+									onClick={() => handleClickWork(Item.work_post_id)}
 								>
 									<figure
 										className="cards__item__pic-wrap"
@@ -247,7 +252,7 @@ const Contents = (props) => {
 										<img
 											className="cards__item__img"
 											src={Item.srcwork}
-											alt="Travel Image"
+											alt={String(Item.work_post_id)}
 										/>
 									</figure>
 									<div className="cards__item__info">
