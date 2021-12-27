@@ -1,5 +1,4 @@
 .cards__in_profile {
-    padding: 4rem;
     background: none;
 }
 
@@ -30,7 +29,7 @@
 
 .cards__in_profile__item {
     display: flex;
-    width: 200px;
+    width: 270px;
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px;

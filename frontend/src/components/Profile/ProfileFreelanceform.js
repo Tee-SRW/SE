@@ -9,23 +9,6 @@ import axios from '../../api/axios-profile';
 import DataUser from '../../DataUser/DataUser';
 
 export default function ProfileFreelanceform(props) {
-  // let url = "";
-  // const geturl = (e) => {
-  //   url = e.target.files[0].name;
-  //   console.log(url);
-  // };
-  // const [selectedImage, setSelectedImage] = useState();
-
-  // // This function will be triggered when the file field change
-  // const imageChange = (e) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setSelectedImage(e.target.files[0]);
-  //   }
-  // };
-  // const removeSelectedImage = () => {
-  //   setSelectedImage();
-  // };
-
   const dataUser = useContext(DataUser)
   const history = useHistory();
 
@@ -102,7 +85,7 @@ export default function ProfileFreelanceform(props) {
           pricePostWork: Item.price_work_min,
           image: "images/postfreelance/" + Item.image_work_post_company,
           srcwork: "images/design.jpeg",
-          path: "/WorkCompany"
+          path: "/WorkFreelance"
         }
       })
       let graghic = work.filter(work => work.typeWorkName === "Graphic & Design")
@@ -123,40 +106,41 @@ export default function ProfileFreelanceform(props) {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
-                  <Link
-                    className="cards__in_profile__item__link"
-                    to="/WorkCompany"
-                    onClick={() => handleClickWork(Item.work_post_id)}
-                  >
-                    <figure
-                      className="cards__in_profile__item__pic-wrap"
-                      data-category={Item.companyName}
+                  <div className="cards__in_profile__item__link">
+                    <Link
+                      to="/WorkFreelance"
+                      onClick={() => handleClickWork(Item.work_post_id)}
                     >
-                      <img
-                        className="cards__in_profile__item__img"
-                        // src={Item.srcwork}	Default image job
-                        src={Item.image}
-                        alt={String(Item.work_post_id)}
-                      />
-                    </figure>
-                  </Link>
-                  <div className="cards__in_profile__item__info">
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.typeWorkName}
+                      <figure
+                        className="cards__in_profile__item__pic-wrap"
+                        data-category={Item.companyName}
+                      >
+                        <img
+                          className="cards__in_profile__item__img"
+                          // src={Item.srcwork}	Default image job
+                          src={Item.image}
+                          alt={String(Item.work_post_id)}
+                        />
+                      </figure>
+                    </Link>
+                    <div className="cards__in_profile__item__info">
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.typeWorkName}
+                      </h5>
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.nameWork}
+                      </h5>
+                      <Button
+                        variant="primary"
+                        onClick={() => handleClickWorkButton(Item.work_post_id)}
+                      >
+                        แก้ไข
+                      </Button>
+                    </div>
+                    <h5 className="cards__in_profile__item__text_price">
+                      {Item.pricePostWork}
                     </h5>
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.nameWork}
-                    </h5>
-                    <Button
-                      variant="primary"
-                      onClick={() => handleClickWorkButton(Item.work_post_id)}
-                    >
-                      แก้ไข
-                    </Button>
                   </div>
-                  <h5 className="cards__in_profile__item__text_price">
-                    {Item.pricePostWork}
-                  </h5>
                 </li>
               </>
             );
@@ -179,40 +163,41 @@ export default function ProfileFreelanceform(props) {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
-                  <Link
-                    className="cards__in_profile__item__link"
-                    to="/WorkCompany"
-                    onClick={() => handleClickWork(Item.work_post_id)}
-                  >
-                    <figure
-                      className="cards__in_profile__item__pic-wrap"
-                      data-category={Item.companyName}
+                  <div className="cards__in_profile__item__link">
+                    <Link
+                      to="/WorkFreelance"
+                      onClick={() => handleClickWork(Item.work_post_id)}
                     >
-                      <img
-                        className="cards__in_profile__item__img"
-                        // src={Item.srcwork}	Default image job
-                        src={Item.image}
-                        alt={String(Item.work_post_id)}
-                      />
-                    </figure>
-                  </Link>
-                  <div className="cards__in_profile__item__info">
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.typeWorkName}
+                      <figure
+                        className="cards__in_profile__item__pic-wrap"
+                        data-category={Item.companyName}
+                      >
+                        <img
+                          className="cards__in_profile__item__img"
+                          // src={Item.srcwork}	Default image job
+                          src={Item.image}
+                          alt={String(Item.work_post_id)}
+                        />
+                      </figure>
+                    </Link>
+                    <div className="cards__in_profile__item__info">
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.typeWorkName}
+                      </h5>
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.nameWork}
+                      </h5>
+                      <Button
+                        variant="primary"
+                        onClick={() => handleClickWorkButton(Item.work_post_id)}
+                      >
+                        แก้ไข
+                      </Button>
+                    </div>
+                    <h5 className="cards__in_profile__item__text_price">
+                      {Item.pricePostWork}
                     </h5>
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.nameWork}
-                    </h5>
-                    <Button
-                      variant="primary"
-                      onClick={() => handleClickWorkButton(Item.work_post_id)}
-                    >
-                      แก้ไข
-                    </Button>
                   </div>
-                  <h5 className="cards__in_profile__item__text_price">
-                    {Item.pricePostWork}
-                  </h5>
                 </li>
               </>
             );
@@ -235,40 +220,41 @@ export default function ProfileFreelanceform(props) {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
-                  <Link
-                    className="cards__in_profile__item__link"
-                    to="/WorkCompany"
-                    onClick={() => handleClickWork(Item.work_post_id)}
-                  >
-                    <figure
-                      className="cards__in_profile__item__pic-wrap"
-                      data-category={Item.companyName}
+                  <div className="cards__in_profile__item__link">
+                    <Link
+                      to="/WorkFreelance"
+                      onClick={() => handleClickWork(Item.work_post_id)}
                     >
-                      <img
-                        className="cards__in_profile__item__img"
-                        // src={Item.srcwork}	Default image job
-                        src={Item.image}
-                        alt={String(Item.work_post_id)}
-                      />
-                    </figure>
-                  </Link>
-                  <div className="cards__in_profile__item__info">
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.typeWorkName}
+                      <figure
+                        className="cards__in_profile__item__pic-wrap"
+                        data-category={Item.companyName}
+                      >
+                        <img
+                          className="cards__in_profile__item__img"
+                          // src={Item.srcwork}	Default image job
+                          src={Item.image}
+                          alt={String(Item.work_post_id)}
+                        />
+                      </figure>
+                    </Link>
+                    <div className="cards__in_profile__item__info">
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.typeWorkName}
+                      </h5>
+                      <h5 className="cards__in_profile__item__text">
+                        {Item.nameWork}
+                      </h5>
+                      <Button
+                        variant="primary"
+                        onClick={() => handleClickWorkButton(Item.work_post_id)}
+                      >
+                        แก้ไข
+                      </Button>
+                    </div>
+                    <h5 className="cards__in_profile__item__text_price">
+                      {Item.pricePostWork}
                     </h5>
-                    <h5 className="cards__in_profile__item__text">
-                      {Item.nameWork}
-                    </h5>
-                    <Button
-                      variant="primary"
-                      onClick={() => handleClickWorkButton(Item.work_post_id)}
-                    >
-                      แก้ไข
-                    </Button>
                   </div>
-                  <h5 className="cards__in_profile__item__text_price">
-                    {Item.pricePostWork}
-                  </h5>
                 </li>
               </>
             );

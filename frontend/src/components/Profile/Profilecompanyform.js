@@ -9,29 +9,12 @@ import axios from '../../api/axios-profile';
 import DataUser from '../../DataUser/DataUser';
 
 export default function Profilecompanyform(props) {
-  // let url = "";
-  // const geturl = (e) => {
-  //   url = e.target.files[0].name;
-  //   console.log(url);
-  // };
-  // const [selectedImage, setSelectedImage] = useState();
-
-  // // This function will be triggered when the file field change
-  // const imageChange = (e) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setSelectedImage(e.target.files[0]);
-  //   }
-  // };
-  // const removeSelectedImage = () => {
-  //   setSelectedImage();
-  // };
-
   const dataUser = useContext(DataUser)
   const history = useHistory();
 
   const [showWorkCompanyGraphicDesign, setShowWorkCompanyGraphicDesign] = useState([]);
   const [showWorkCompanyMarketing, setShowWorkCompanyMarketing] = useState([]);
-  const [showWorkCompanyProgramming , setShowWorkCompanyProgramming] = useState([]);
+  const [showWorkCompanyProgramming, setShowWorkCompanyProgramming] = useState([]);
 
   function handleClickWork(value) {
     let sentWorkID = {
@@ -88,34 +71,34 @@ export default function Profilecompanyform(props) {
         setvaluesProfilecompany(beforeEditto)
       });
 
-      const job = {
-        type_work_id: 2,
-        select_id: 2,
-      };
+    const job = {
+      type_work_id: 2,
+      select_id: 2,
+    };
 
-      axios.post(`/getallwork`, job).then((res) => {
-        console.log(job);
-        console.log(res.data);
-        let work = res.data.allwork.map(Item => {
-          return {
-            work_post_id: Item.work_post_id,
-            companyName: Item.companyname,
-            typeWorkName: Item.type_work_name,
-            nameWork: Item.name_work,
-            pricePostWork: Item.price_work_min,
-            image: "images/postfreelance/"+Item.image_work_post_company,
-            srcwork:"images/design.jpeg",
-            path: "/WorkCompany"
-          }
-        })
-        let graghic = work.filter(work => work.typeWorkName === "Graphic & Design")
-        setShowWorkCompanyGraphicDesign(graghic)
-        let marketing = work.filter(work => work.typeWorkName === "Marketing")
-        setShowWorkCompanyMarketing(marketing)
-        let programming = work.filter(work => work.typeWorkName === "Programming")
-        setShowWorkCompanyProgramming(programming)
-        
-      });
+    axios.post(`/getallwork`, job).then((res) => {
+      console.log(job);
+      console.log(res.data);
+      let work = res.data.allwork.map(Item => {
+        return {
+          work_post_id: Item.work_post_id,
+          companyName: Item.companyname,
+          typeWorkName: Item.type_work_name,
+          nameWork: Item.name_work,
+          pricePostWork: Item.price_work_min,
+          image: "images/postfreelance/" + Item.image_work_post_company,
+          srcwork: "images/design.jpeg",
+          path: "/WorkCompany"
+        }
+      })
+      let graghic = work.filter(work => work.typeWorkName === "Graphic & Design")
+      setShowWorkCompanyGraphicDesign(graghic)
+      let marketing = work.filter(work => work.typeWorkName === "Marketing")
+      setShowWorkCompanyMarketing(marketing)
+      let programming = work.filter(work => work.typeWorkName === "Programming")
+      setShowWorkCompanyProgramming(programming)
+
+    });
   }, []);
   let showContentGraphicDesign = <></>
   if (showWorkCompanyGraphicDesign.length > 0) {
@@ -123,11 +106,11 @@ export default function Profilecompanyform(props) {
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
           {showWorkCompanyGraphicDesign.map((Item, index) => {
-              return (
-                <>
-                  <li className="cards__in_profile__item" key={index}>
+            return (
+              <>
+                <li className="cards__in_profile__item" key={index}>
+                  <div className="cards__in_profile__item__link">
                     <Link
-                      className="cards__in_profile__item__link"
                       to="/WorkCompany"
                       onClick={() => handleClickWork(Item.work_post_id)}
                     >
@@ -160,17 +143,18 @@ export default function Profilecompanyform(props) {
                     <h5 className="cards__in_profile__item__text_price">
                       {Item.pricePostWork}
                     </h5>
-                  </li>
-                </>
-              );
+                  </div>
+                </li>
+              </>
+            );
           })}
         </ul>
       </div>
   } else {
     showContentGraphicDesign =
-    <h3 className="font__midtext">
-      คุณไม่ได้ลงประกาศประเภทนี้ไว้
-    </h3>
+      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>
   }
 
   let showContentMarketing = <></>
@@ -179,11 +163,11 @@ export default function Profilecompanyform(props) {
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
           {showWorkCompanyMarketing.map((Item, index) => {
-              return (
-                <>
-                  <li className="cards__in_profile__item" key={index}>
+            return (
+              <>
+                <li className="cards__in_profile__item" key={index}>
+                  <div className="cards__in_profile__item__link">
                     <Link
-                      className="cards__in_profile__item__link"
                       to="/WorkCompany"
                       onClick={() => handleClickWork(Item.work_post_id)}
                     >
@@ -216,17 +200,18 @@ export default function Profilecompanyform(props) {
                     <h5 className="cards__in_profile__item__text_price">
                       {Item.pricePostWork}
                     </h5>
-                  </li>
-                </>
-              );
+                  </div>
+                </li>
+              </>
+            );
           })}
         </ul>
       </div>
   } else {
     showContentMarketing =
-    <h3 className="font__midtext">
-      คุณไม่ได้ลงประกาศประเภทนี้ไว้
-    </h3>
+      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>
   }
 
   let showContentProgramming = <></>
@@ -235,11 +220,11 @@ export default function Profilecompanyform(props) {
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
           {showWorkCompanyProgramming.map((Item, index) => {
-              return (
-                <>
-                  <li className="cards__in_profile__item" key={index}>
+            return (
+              <>
+                <li className="cards__in_profile__item" key={index}>
+                  <div className="cards__in_profile__item__link">
                     <Link
-                      className="cards__in_profile__item__link"
                       to="/WorkCompany"
                       onClick={() => handleClickWork(Item.work_post_id)}
                     >
@@ -272,17 +257,18 @@ export default function Profilecompanyform(props) {
                     <h5 className="cards__in_profile__item__text_price">
                       {Item.pricePostWork}
                     </h5>
-                  </li>
-                </>
-              );
+                  </div>
+                </li>
+              </>
+            );
           })}
         </ul>
       </div>
   } else {
     showContentProgramming =
-    <h3 className="font__midtext">
-      คุณไม่ได้ลงประกาศประเภทนี้ไว้
-    </h3>
+      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>
   }
 
   return (
@@ -394,7 +380,7 @@ export default function Profilecompanyform(props) {
                 {showContentGraphicDesign}
               </div>
             </div>
-            <h3 className="font__topicf">Marketing{props.Card__2__company}</h3> {/*-------------------การตลาด-------------------*/}
+            <h3 className="font__topicf">Marketing</h3> {/*-------------------การตลาด-------------------*/}
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
                 {showContentMarketing}

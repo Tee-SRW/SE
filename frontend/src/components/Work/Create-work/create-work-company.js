@@ -85,7 +85,7 @@ export default function CreateWorkCompany(props) {
       "priceworkmin": valuesCreateworkcompany.priceworkmin,
       "priceworkmax": valuesCreateworkcompany.priceworkmax,
       "education": valuesCreateworkcompany.education,
-      "imageworkpostcompany": "Image_Work_Post_Companyxd"
+      "imageworkpostcompany": "photoshop2.png"
     };
 
     axios.post(`/addworkFreelance`, userAddWorkCompany)

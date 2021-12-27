@@ -52,7 +52,7 @@ export default function CreateWorkFreelance(props) {
       userid: Number(dataUser.userID),
       pricepostwork: valuesCreateworkfreelance.pricepostwork,
       namework: valuesCreateworkfreelance.namework,
-      imageworkpostfreelance: "imageworkpostfreelancexd",
+      imageworkpostfreelance: "javascript1.png",
     };
     
     axios.post(`/addworkFreelance`, userAddWorkFreelance)
