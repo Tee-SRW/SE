@@ -19,7 +19,7 @@
             height: 300px;
             flex-direction: row;
             flex-wrap: nowrap;
-            justify-content: space-between;
+            /* justify-content: space-between; */
             background-color: #6DBAE7;
             align-items: flex-start;
             align-content: flex-start;
@@ -27,7 +27,7 @@
         
         .container-profile {
             /* width: 100%;
-    height: 100%; */
+            height: 100%; */
             margin-top: 80px;
         }
         
@@ -94,6 +94,8 @@
         
         .board__setting {
             margin-top: 80px;
+            /* margin-top: 10px;
+            margin-bottom: 30px; */
         }
         
         .board__box {
@@ -108,6 +110,7 @@
         .board__head {
             margin-top: 50px;
             margin-bottom: 40px;
+            margin-left: 50px;
             font-size: 32px;
             font-family: 'PT Sans', sans-serif;
             display: flex;
