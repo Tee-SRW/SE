@@ -14,6 +14,8 @@ const Contents = (props) => {
 		selectedId: 0,
 	});
 
+	const [showWorkFreelance, setShowWorkFreelance] = useState([]);
+
 	const [showWork, setShowWork] = useState([]);
 
 	function handleClickWork(value) {
@@ -47,7 +49,7 @@ const Contents = (props) => {
 					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
-					fullName: Item.firstName+" "+Item.lastName,
+					fullName: Item.firstName + " " + Item.lastName,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
@@ -56,7 +58,7 @@ const Contents = (props) => {
 					path: "/WorkFreelance"
 				}
 			})
-			setShowWork(work)
+			setShowWorkFreelance(work)
 			console.log(work);
 		});
 	};
@@ -81,6 +83,7 @@ const Contents = (props) => {
 					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
+					fullName: Item.firstName + " " + Item.lastName,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
@@ -89,7 +92,7 @@ const Contents = (props) => {
 					path: "/WorkFreelance"
 				}
 			})
-			setShowWork(work)
+			setShowWorkFreelance(work)
 			console.log(work);
 		});
 	};
@@ -114,6 +117,7 @@ const Contents = (props) => {
 					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
+					fullName: Item.firstName + " " + Item.lastName,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
@@ -122,7 +126,7 @@ const Contents = (props) => {
 					path: "/WorkFreelance"
 				}
 			})
-			setShowWork(work)
+			setShowWorkFreelance(work)
 			console.log(work);
 		});
 	};
@@ -171,6 +175,7 @@ const Contents = (props) => {
 					work_post_id: Item.work_post_id,
 					firstName: Item.firstName,
 					lastName: Item.lastName,
+					fullName: Item.firstName + " " + Item.lastName,
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
@@ -181,20 +186,17 @@ const Contents = (props) => {
 					path: "/WorkFreelance"
 				}
 			})
-			setShowWork(work)
+			setShowWorkFreelance(work)
 			console.log(work);
 		});
 
 	};
 
 	let showContent = <></>
-	if (selectedMenu.selectedId === 1
-		|| selectedMenu.workType === 1
-		|| selectedMenu.workType === 2
-		|| selectedMenu.workType === 3) {
+	if (selectedMenu.selectedId === 1 || selectedMenu.selectedId === 0) {
 		showContent = <div className="cards__wrapper">
 			<ul className="cards__items">
-				{showWork.map((Item, index) => {
+				{showWorkFreelance.map((Item, index) => {
 					return (
 						<>
 							<li className="cards__item" key={index}>
@@ -220,8 +222,8 @@ const Contents = (props) => {
 										<h5 className="cards__item__text">
 											{Item.nameWork}
 										</h5>
-										<button type="button" value={Item.work_post_id} onClick={() => handleClickWork(Item.work_post_id)}>
-										</button>
+										{/* <button type="button" value={Item.work_post_id} onClick={() => handleClickWork(Item.work_post_id)}>
+										</button> */}
 									</div>
 									<h5 className="cards__item__text_price">
 										{Item.pricePostWork}
