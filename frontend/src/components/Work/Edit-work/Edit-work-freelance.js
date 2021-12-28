@@ -65,9 +65,9 @@ export default function EditWorkFreelanceform(props) {
           onChange={handlevaluesEditWflChange("genre")}
         >
           <option>--------------</option>
-          <option value="Graphic & Design">Graphic & Design</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Programming">Programming</option>
+          <option value="1">Graphic & Design</option>
+          <option value="2">Marketing</option>
+          <option value="3">Programming</option>
         </Form.Select>
 
         <br />

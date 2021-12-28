@@ -1,25 +1,33 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./edit-work.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-
 import { useHistory } from 'react-router-dom';
-
+import axios from "../../api/axios-login";
+import DataUser from "../../DataUser/DataUser";
+import { useContext } from "react";
 
 
 export default function EditWorkCompanyform(props) {
   const history = useHistory();
-
+  const dataUser = useContext(DataUser);
+  const sendUserID = {
+    id: dataUser.userID,
+  };
   const [valuesEditWcom, setvaluesEditWcom] = React.useState({
-    genre: "",
-    workname: "",
-    description: "",
-    jobtitle: "",
-    quantity: "",
-    minsalary: "",
-    maxsalary: "",
-    education: ""
+    id: dataUser.userID,
+    workpostid: "",
+    companyid: "",
+    typeworknumber: "",
+    namework: "",
+    detailwork: "",
+    position: "",
+    numperson: "",
+    priceworkmin: "",
+    priceworkmax: "",
+    education: "",
+    imageworkpostcompany: "",
   });
   const handlevaluesEditWcomChange = (prop) => (event) => {
     setvaluesEditWcom({ ...valuesEditWcom, [prop]: event.target.value });
@@ -33,22 +41,50 @@ export default function EditWorkCompanyform(props) {
       event.stopPropagation();
     }
     setValidated(true);
-    console.log(valuesEditWcom);
-  
+    event.preventDefault();
+    axios.put(`/updateuser`, valuesEditWcom).then((res) => {
+      console.log(valuesEditWcom);
+      console.log(res);
+      console.log(res.data);
+      if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
+        alert("แก้ไขการสร้างงานของคุณสำเร็จ");
+        history.push("/Profilecompany");
+      }
+    });
 
-    if(form.checkValidity() === true) {
-      alert("แก้ไขประกาศรับสมัครงานสำเร็จ")
-      history.push("/Profilecompany")
-    }
+    
   };
-  let url = ""
 
+  let url = ""
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
     console.log(url);
   }
+useEffect(() => {
+    axios.post(`/updatepostcompany`, sendUserID).then((res) => {
+      console.log(sendUserID);
+      console.log(res);
+      console.log(res.data);
 
+      let beforeEditto = {
+        id: dataUser.userID,
+        workpostid: res.data.workpostid,
+        companyid: res.data.companyid,
+        typeworknumber: res.data.typeworknumber,
+        namework: res.data.namework,
+        detailwork: res.data.detailwork,
+        position: res.data.position,
+        numperson: res.data.numperson,
+        priceworkmin: res.data.priceworkmin,
+        priceworkmax: res.data.priceworkmax,
+        education: res.data.education,
+        imageworkpostcompany: res.data.imageworkpostcompany,
+      };
+      setvaluesEditWcom(beforeEditto);
+    });
+    console.log(valuesEditWcom);
+  }, []);
   const [selectedImage, setSelectedImage] = useState();
   return (
     <div className="edit-work-outer">
@@ -61,13 +97,13 @@ export default function EditWorkCompanyform(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={valuesEditWcom.genre}
-          onChange={handlevaluesEditWcomChange("genre")}
+          value={Number(valuesEditWcom.typeworknumber)}
+          onChange={handlevaluesEditWcomChange("typeworknumber")}
         >
           <option>--------------</option>
-          <option value="Graphic & Design">Graphic & Design</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Programming">Programming</option>
+          <option value="1">Graphic & Design</option>
+          <option value="2">Marketing</option>
+          <option value="3">Programming</option>
 
           {/* <Form.Control.Feedback tooltip type="invalid">
             กรุณาเลือก หมวดหมู่งาน
@@ -85,7 +121,8 @@ export default function EditWorkCompanyform(props) {
               type="text"
               placeholder="ชื่องาน"
               name="workname"
-              onChange={handlevaluesEditWcomChange("workname")}
+              value={valuesEditWcom.namework}
+              onChange={handlevaluesEditWcomChange("namework")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ชื่องาน
@@ -102,7 +139,8 @@ export default function EditWorkCompanyform(props) {
               as="textarea"
               rows={5}
               name="description"
-              onChange={handlevaluesEditWcomChange("description")}
+              value={valuesEditWcom.detailwork}
+              onChange={handlevaluesEditWcomChange("detailwork")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ คำอธิบายเพื่มเติม
@@ -117,8 +155,9 @@ export default function EditWorkCompanyform(props) {
               required
               type="text"
               placeholder="ตำแหน่ง"
-              name="jobtitle"
-              onChange={handlevaluesEditWcomChange("jobtitle")}
+              name="position"
+              value={valuesEditWcom.position}
+              onChange={handlevaluesEditWcomChange("position")}
             />
             <Form.Control.Feedback type="invalid">
               โปรดระบุ ตำแหน่ง
@@ -135,8 +174,9 @@ export default function EditWorkCompanyform(props) {
                 required
                 type="number"
                 placeholder="0"
-                name="quantity"
-                onChange={handlevaluesEditWcomChange("quantity")}
+                name="NumPerson"
+                value={valuesEditWcom.numperson}
+                onChange={handlevaluesEditWcomChange("numperson")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ จำนวนคน
@@ -156,8 +196,9 @@ export default function EditWorkCompanyform(props) {
               <Form.Control
                 required type="number"
                 placeholder="0.00"
-                name="minsalary"
-                onChange={handlevaluesEditWcomChange("minsalary")}
+                name="priceworkmin"
+                value={valuesEditWcom.priceworkmin}
+                onChange={handlevaluesEditWcomChange("priceworkmin")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -177,8 +218,9 @@ export default function EditWorkCompanyform(props) {
                 required
                 type="number"
                 placeholder="0.00"
-                name="maxsalary"
-                onChange={handlevaluesEditWcomChange("maxsalary")}
+                name="priceworkmax"
+                value={valuesEditWcom.priceworkmax}
+                onChange={handlevaluesEditWcomChange("priceworkmax")}
               />
               <Form.Control.Feedback type="invalid">
                 กรุณาใส่ เงินเดือน
@@ -199,6 +241,7 @@ export default function EditWorkCompanyform(props) {
               md="4"
               controlId="validationCustom01"
               name="education"
+              value={valuesEditWcom.education}
               onChange={handlevaluesEditWcomChange("education")}
             >
               <option>----------------</option>
