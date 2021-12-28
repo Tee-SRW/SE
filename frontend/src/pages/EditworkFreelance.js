@@ -2,14 +2,11 @@ import React from 'react';
 import EditWorkFreelanceform from '../components/Work/Edit-work/Edit-work-freelance';
 
 
-function EditWorkFreelance(props) {
-    const userWorkSelectID = (workSelected) => {
-        props.onUpdateDataWorkID(workSelected)
-      }
+function EditWorkFreelance() {
 
     return (
         <>
-            <EditWorkFreelanceform userWorkSelectID={userWorkSelectID}/>
+            <EditWorkFreelanceform />
         </>
     );
 }

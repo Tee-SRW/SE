@@ -100,6 +100,7 @@ export default function Profilecompanyform(props) {
 
     });
   }, []);
+
   let showContentGraphicDesign = <></>
   if (showWorkCompanyGraphicDesign.length > 0) {
     showContentGraphicDesign =
@@ -141,7 +142,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -198,7 +199,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -255,7 +256,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>

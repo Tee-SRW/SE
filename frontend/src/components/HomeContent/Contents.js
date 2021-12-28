@@ -227,7 +227,7 @@ const Contents = (props) => {
 										</button> */}
 									</div>
 									<h5 className="cards__item__text_price">
-										{Item.pricePostWork}
+										{"ราคา : "+Item.pricePostWork}
 									</h5>
 								</Link>
 							</li>
@@ -268,7 +268,7 @@ const Contents = (props) => {
 										</h5>
 									</div>
 									<h5 className="cards__item__text_price">
-										{Item.pricePostWork}
+										{"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
 									</h5>
 								</Link>
 							</li>

@@ -104,8 +104,12 @@ function App() {
 
               {/* Profile Path*/}
               <Route path="/Profile" component={Profile} />
-              <Route path="/Profilefreelance" component={Profilefreelance} />
-              <Route path="/Profilecompany" component={Profilecompany} />
+              <Route path="/Profilefreelance">
+                <Profilefreelance onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
+              <Route path="/Profilecompany">
+                <Profilecompany onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
 
               {/* Edit-Profile Path*/}
               <Route path="/Editprofile" component={Editprofile} />
@@ -121,12 +125,8 @@ function App() {
               <Route path="/CreateworkCompany" component={CreateWorkCompany} />
 
               {/* Edit-Work Path */}
-              <Route path="/EditWorkFreelance">
-                <EditWorkFreelance onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
-              </Route>
-              <Route path="/EditWorkCompany">
-                <EditWorkCompany onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
-              </Route>
+              <Route path="/EditWorkFreelance"component={EditWorkFreelance} />
+              <Route path="/EditWorkCompany"component={EditWorkCompany} />
             </Switch>
           </div>
           <Footer />

@@ -12,9 +12,9 @@ export default function ProfileFreelanceform(props) {
   const dataUser = useContext(DataUser)
   const history = useHistory();
 
-  const [showWorkCompanyGraphicDesign, setShowWorkCompanyGraphicDesign] = useState([]);
-  const [showWorkCompanyMarketing, setShowWorkCompanyMarketing] = useState([]);
-  const [showWorkCompanyProgramming, setShowWorkCompanyProgramming] = useState([]);
+  const [showWorkFreelanceGraphicDesign, setShowWorkFreelanceGraphicDesign] = useState([]);
+  const [showWorkFreelanceMarketing, setShowWorkFreelanceMarketing] = useState([]);
+  const [showWorkFreelanceProgramming, setShowWorkFreelanceProgramming] = useState([]);
 
   function handleClickWork(value) {
     let sentWorkID = {
@@ -30,7 +30,7 @@ export default function ProfileFreelanceform(props) {
     }
     props.userWorkSelectID(sentWorkID)
     console.log(value) //shows value
-    history.push("/EditWorkCompany")
+    history.push("/EditWorkFreelance")
   }
 
   const [valuesProfilefreelance, setvaluesProfilefreelance] = React.useState({
@@ -70,7 +70,7 @@ export default function ProfileFreelanceform(props) {
         setvaluesProfilefreelance(beforeEditto)
       }); const job = {
         type_work_id: 2,
-        select_id: 2,
+        select_id: 1,
       };
 
     axios.post(`/getallwork`, job).then((res) => {
@@ -78,31 +78,33 @@ export default function ProfileFreelanceform(props) {
       console.log(res.data);
       let work = res.data.allwork.map(Item => {
         return {
-          work_post_id: Item.work_post_id,
-          companyName: Item.companyname,
-          typeWorkName: Item.type_work_name,
-          nameWork: Item.name_work,
-          pricePostWork: Item.price_work_min,
-          image: "images/postfreelance/" + Item.image_work_post_company,
-          srcwork: "images/design.jpeg",
-          path: "/WorkFreelance"
-        }
+					work_post_id: Item.work_post_id,
+					firstName: Item.firstName,
+					lastName: Item.lastName,
+					fullName: Item.firstName + " " + Item.lastName,
+					typeWorkName: Item.type_work_name,
+					nameWork: Item.name_work,
+					pricePostWork: Item.price_post_work,
+					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					srcwork: "images/postfreelance/market.png",
+				}
       })
+
       let graghic = work.filter(work => work.typeWorkName === "Graphic & Design")
-      setShowWorkCompanyGraphicDesign(graghic)
+      setShowWorkFreelanceGraphicDesign(graghic)
       let marketing = work.filter(work => work.typeWorkName === "Marketing")
-      setShowWorkCompanyMarketing(marketing)
+      setShowWorkFreelanceMarketing(marketing)
       let programming = work.filter(work => work.typeWorkName === "Programming")
-      setShowWorkCompanyProgramming(programming)
+      setShowWorkFreelanceProgramming(programming)
 
     });
   }, []);
   let showContentGraphicDesign = <></>
-  if (showWorkCompanyGraphicDesign.length > 0) {
+  if (showWorkFreelanceGraphicDesign.length > 0) {
     showContentGraphicDesign =
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
-          {showWorkCompanyGraphicDesign.map((Item, index) => {
+          {showWorkFreelanceGraphicDesign.map((Item, index) => {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
@@ -113,7 +115,7 @@ export default function ProfileFreelanceform(props) {
                     >
                       <figure
                         className="cards__in_profile__item__pic-wrap"
-                        data-category={Item.companyName}
+                        data-category={Item.fullName}
                       >
                         <img
                           className="cards__in_profile__item__img"
@@ -138,7 +140,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"ราคา : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -155,11 +157,11 @@ export default function ProfileFreelanceform(props) {
   }
 
   let showContentMarketing = <></>
-  if (showWorkCompanyMarketing.length > 0) {
+  if (showWorkFreelanceMarketing.length > 0) {
     showContentMarketing =
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
-          {showWorkCompanyMarketing.map((Item, index) => {
+          {showWorkFreelanceMarketing.map((Item, index) => {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
@@ -170,7 +172,7 @@ export default function ProfileFreelanceform(props) {
                     >
                       <figure
                         className="cards__in_profile__item__pic-wrap"
-                        data-category={Item.companyName}
+                        data-category={Item.fullName}
                       >
                         <img
                           className="cards__in_profile__item__img"
@@ -195,7 +197,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"ราคา : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -212,11 +214,11 @@ export default function ProfileFreelanceform(props) {
   }
 
   let showContentProgramming = <></>
-  if (showWorkCompanyProgramming.length > 0) {
+  if (showWorkFreelanceProgramming.length > 0) {
     showContentProgramming =
       <div className="cards__in_profile__wrapper">
         <ul className="cards__in_profile__items">
-          {showWorkCompanyProgramming.map((Item, index) => {
+          {showWorkFreelanceProgramming.map((Item, index) => {
             return (
               <>
                 <li className="cards__in_profile__item" key={index}>
@@ -227,7 +229,7 @@ export default function ProfileFreelanceform(props) {
                     >
                       <figure
                         className="cards__in_profile__item__pic-wrap"
-                        data-category={Item.companyName}
+                        data-category={Item.fullName}
                       >
                         <img
                           className="cards__in_profile__item__img"
@@ -252,7 +254,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {Item.pricePostWork}
+                      {"ราคา : "+Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
