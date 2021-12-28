@@ -1,24 +1,26 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./edit-work.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom';
-import axios from "../../api/axios-login";
-import DataUser from "../../DataUser/DataUser";
+import axios from "../../../api/axios-work";
+import DataUser from "../../../DataUser/DataUser";
 import { useContext } from "react";
 
 
 export default function EditWorkCompanyform(props) {
   const history = useHistory();
-  const dataUser = useContext(DataUser);
-  const sendUserID = {
-    id: dataUser.userID,
+  const dataWork = useContext(DataUser);
+  const sendWorkID = {
+    workpostid: dataWork.userSelectWorkID,
+  };
+  const sendComID = {
+    companyid: dataWork.userID,
   };
   const [valuesEditWcom, setvaluesEditWcom] = React.useState({
-    id: dataUser.userID,
-    workpostid: "",
-    companyid: "",
+    workpostid: dataWork.userID,
+    companyid: dataWork.userID,
     typeworknumber: "",
     namework: "",
     detailwork: "",
@@ -52,7 +54,6 @@ export default function EditWorkCompanyform(props) {
       }
     });
 
-    
   };
 
   let url = ""
@@ -61,31 +62,37 @@ export default function EditWorkCompanyform(props) {
     url = e.target.files[0].name
     console.log(url);
   }
-useEffect(() => {
-    axios.post(`/updatepostcompany`, sendUserID).then((res) => {
-      console.log(sendUserID);
+  useEffect(() => {
+
+    axios.post(`/getworkcompany`, sendWorkID).then((res) => {
+      console.log(sendWorkID);
       console.log(res);
       console.log(res.data);
 
-      let beforeEditto = {
-        id: dataUser.userID,
-        workpostid: res.data.workpostid,
-        companyid: res.data.companyid,
-        typeworknumber: res.data.typeworknumber,
-        namework: res.data.namework,
-        detailwork: res.data.detailwork,
-        position: res.data.position,
-        numperson: res.data.numperson,
-        priceworkmin: res.data.priceworkmin,
-        priceworkmax: res.data.priceworkmax,
-        education: res.data.education,
-        imageworkpostcompany: res.data.imageworkpostcompany,
-      };
+      let beforeEditto = res.data.map(Item => {
+        return {
+          id: dataWork.userID,
+          workpostid: Item.workpostid,
+          companyid: Item.companyid,
+          typeworknumber: Item.typeworknumber,
+          namework: Item.namework,
+          detailwork: Item.detailwork,
+          position: Item.position,
+          numperson: Item.numperson,
+          priceworkmin: Item.priceworkmin,
+          priceworkmax: Item.priceworkmax,
+          education: Item.education,
+          imageworkpostcompany: "images/postfreelance/" + Item.imageworkpostcompany,
+        }
+      })
       setvaluesEditWcom(beforeEditto);
     });
-    console.log(valuesEditWcom);
+
   }, []);
+
+  console.log(valuesEditWcom);
   const [selectedImage, setSelectedImage] = useState();
+
   return (
     <div className="edit-work-outer">
       <h3>แก้ไขประกาศรับสมัครงาน</h3>
