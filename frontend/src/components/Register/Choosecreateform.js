@@ -1,6 +1,7 @@
 import React  from "react";
 import { useHistory } from 'react-router-dom';
 import "./Choosecreateform.css";
+import "../Button.css";
 
 
 export default function ChooseCreateForm() {
@@ -10,7 +11,7 @@ export default function ChooseCreateForm() {
     <div className="Choosecreateform-outer">
       <div className="Choosecreateform-inner">
         <form>
-          <h3>สมัครรับข้อมูล</h3>
+          <h3>สมัครสมาชิก</h3>
 
           <div className="d-grid gap-2 btn-color spacing-top">
             <button
