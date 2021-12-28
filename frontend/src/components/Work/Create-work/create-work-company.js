@@ -1,31 +1,14 @@
 import React, { useState, useContext } from "react";
 import "./create-work.css";
 import Form from "react-bootstrap/Form";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import axios from "../../../api/axios-work";
 import DataUser from "../../../DataUser/DataUser";
 
-
 export default function CreateWorkCompany(props) {
-  // const [valuesCreateworkcompany, setvaluesCreateworkcompany] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
-
-  // const handleClickShowPassword = () => {
-  //   setvaluesCreateworkcompany({ ...valuesCreateworkcompany, showPassword: !valuesCreateworkcompany.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setvaluesCreateworkcompany({ ...valuesCreateworkcompany, [prop]: event.target.value });
-  // };
-  const companyData = useContext(DataUser)
+  const companyData = useContext(DataUser);
 
   const history = useHistory();
 
@@ -37,33 +20,26 @@ export default function CreateWorkCompany(props) {
     numperson: "",
     priceworkmin: "",
     priceworkmax: "",
-    education: ""
+    education: "",
   });
   const handlevaluesCreateworkcompanyChange = (prop) => (event) => {
-    setvaluesCreateworkcompany({ ...valuesCreateworkcompany, [prop]: event.target.value });
+    setvaluesCreateworkcompany({
+      ...valuesCreateworkcompany,
+      [prop]: event.target.value,
+    });
   };
 
   const [validated, setValidated] = useState(false);
 
-  let url = ""
+  let url = "";
 
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
-    url = e.target.files[0].name
+    url = e.target.files[0].name;
     console.log(url);
-  }
+  };
 
   const [selectedImage, setSelectedImage] = useState();
-
-  // This function will be triggered when the file field change
-  // const imageChange = (e) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setSelectedImage(e.target.files[0]);
-  //   }
-  // };
-  // const removeSelectedImage = () => {
-  //   setSelectedImage();
-  // };
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -76,28 +52,27 @@ export default function CreateWorkCompany(props) {
     event.preventDefault();
 
     const userAddWorkCompany = {
-      "companyid": companyData.userID,
-      "typeworknumber": Number(valuesCreateworkcompany.typeworknumber),
-      "namework": valuesCreateworkcompany.namework,
-      "detailwork": valuesCreateworkcompany.detailwork,
-      "position": valuesCreateworkcompany.position,
-      "numperson": Number(valuesCreateworkcompany.numperson),
-      "priceworkmin": valuesCreateworkcompany.priceworkmin,
-      "priceworkmax": valuesCreateworkcompany.priceworkmax,
-      "education": valuesCreateworkcompany.education,
-      "imageworkpostcompany": "photoshop2.png"
+      companyid: companyData.userID,
+      typeworknumber: Number(valuesCreateworkcompany.typeworknumber),
+      namework: valuesCreateworkcompany.namework,
+      detailwork: valuesCreateworkcompany.detailwork,
+      position: valuesCreateworkcompany.position,
+      numperson: Number(valuesCreateworkcompany.numperson),
+      priceworkmin: valuesCreateworkcompany.priceworkmin,
+      priceworkmax: valuesCreateworkcompany.priceworkmax,
+      education: valuesCreateworkcompany.education,
+      imageworkpostcompany: "photoshop2.png",
     };
 
-    axios.post(`/addworkFreelance`, userAddWorkCompany)
-      .then(res => {
-        console.log(userAddWorkCompany);
-        console.log(res);
-        console.log(res.data); 
-        if (res.data === "Complete!") {
-          alert("สร้างงานของคุณสำเร็จ");
-          history.push("/Profilefreelance");
-        }   
-      })
+    axios.post(`/addworkFreelance`, userAddWorkCompany).then((res) => {
+      console.log(userAddWorkCompany);
+      console.log(res);
+      console.log(res.data);
+      if (res.data === "Complete!") {
+        alert("สร้างงานของคุณสำเร็จ");
+        history.push("/Profilefreelance");
+      }
+    });
   };
 
   return (
@@ -105,7 +80,6 @@ export default function CreateWorkCompany(props) {
       <h3>ประกาศรับสมัครงาน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
         <Form.Select
           size="sm"
           as={Col}
@@ -118,14 +92,13 @@ export default function CreateWorkCompany(props) {
           <option value="1">Graphic & Design</option>
           <option value="2">Marketing</option>
           <option value="3">Programming</option>
-
-          {/* <Form.Control.Feedback tooltip type="invalid">
-            กรุณาเลือก หมวดหมู่งาน
-          </Form.Control.Feedback> */}
         </Form.Select>
 
-        <br /><br />
-        <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
+        <br />
+        <br />
+        <Form.Label as={Col} className="text">
+          รายละเอียดงาน
+        </Form.Label>
 
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -148,7 +121,8 @@ export default function CreateWorkCompany(props) {
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
-              required type="text"
+              required
+              type="text"
               placeholder="คำอธิบายเพื่มเติม"
               as="textarea"
               rows={5}
@@ -208,7 +182,8 @@ export default function CreateWorkCompany(props) {
               <Form.Label>เงินเดือน</Form.Label>
 
               <Form.Control
-                required type="number"
+                required
+                type="number"
                 placeholder="0.00"
                 name="PriceWorkMin"
                 value={valuesCreateworkcompany.priceworkmin}
@@ -218,13 +193,11 @@ export default function CreateWorkCompany(props) {
                 กรุณาใส่ เงินเดือน
               </Form.Control.Feedback>
             </Form.Group>
-
           </Col>
           <div className="bath2bath">
             <Form.Label> - </Form.Label>
           </div>
           <Col>
-
             <Form.Group md="4" controlId="validationCustom04">
               <Form.Label className="whites">.</Form.Label>
 
@@ -259,9 +232,15 @@ export default function CreateWorkCompany(props) {
               onChange={handlevaluesCreateworkcompanyChange("education")}
             >
               <option>----------------</option>
-              <option value="ต่ำกว่า มัธยมศึกษาตอนต้น">ต่ำกว่า มัธยมศึกษาตอนต้น</option>
-              <option value="มัธยมศึกษาตอนต้น หรือเทียบเท่า">มัธยมศึกษาตอนต้น หรือเทียบเท่า</option>
-              <option value="มัธยมศึกษาตอนปลาย หรือเทียบเท่า">มัธยมศึกษาตอนปลาย หรือเทียบเท่า</option>
+              <option value="ต่ำกว่า มัธยมศึกษาตอนต้น">
+                ต่ำกว่า มัธยมศึกษาตอนต้น
+              </option>
+              <option value="มัธยมศึกษาตอนต้น หรือเทียบเท่า">
+                มัธยมศึกษาตอนต้น หรือเทียบเท่า
+              </option>
+              <option value="มัธยมศึกษาตอนปลาย หรือเทียบเท่า">
+                มัธยมศึกษาตอนปลาย หรือเทียบเท่า
+              </option>
               <option value="อนุปริญญา">อนุปริญญา</option>
               <option value="ปริญญาตรี">ปริญญาตรี</option>
               <option value="ปริญญาโท">ปริญญาโท</option>
@@ -272,21 +251,6 @@ export default function CreateWorkCompany(props) {
             </Form.Select>
           </Col>
         </Row>
-
-        {/* <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
-          <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} onChange={imageChange} />
-        </Form.Group>
-
-      
-        {selectedImage && (
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            className="img-fluid"
-            alt="Thumb"
-          />
-        )} */}
-
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
           <Form.Control type="file" multiple onChange={geturl} />
@@ -314,16 +278,11 @@ export default function CreateWorkCompany(props) {
             </Button>
           </Col>
           <Col className="create-work-freelance-buttonSave">
-            <Button
-              type="submit"
-              className="btn color spacing-top10"
-            >
+            <Button type="submit" className="btn color spacing-top10">
               บันทึก
             </Button>
           </Col>
         </Row>
-
-
       </Form>
     </div>
   );

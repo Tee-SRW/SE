@@ -39,19 +39,6 @@ export default function EditprofileCompanyform(props) {
     }
     setValidated(true);
     event.preventDefault();
-
-    // const editprofilecompany = {
-    //   "id": valuesEditprofilecompany.id,
-    //   "companyname": valuesEditprofilecompany.companyname,
-    //   "companyemail": valuesEditprofilecompany.companyemail,
-    //   "companyPhone": valuesEditprofilecompany.companyPhone,
-    //   "address": valuesEditprofilecompany.address,
-    //   "subdistrict": valuesEditprofilecompany.subdistrict,
-    //   "district": valuesEditprofilecompany.district,
-    //   "province": valuesEditprofilecompany.province,
-    //   "postcode": valuesEditprofilecompany.postcode,
-    //   "profileCompany": valuesEditprofilecompany.profileCompany,
-    // };
     axios.put(`/updatecompany`, { valuesEditprofilecompany }).then((res) => {
       console.log(valuesEditprofilecompany);
       console.log(res);
@@ -65,7 +52,6 @@ export default function EditprofileCompanyform(props) {
     id: dataUser.userID,
   };
   useEffect(() => {
-    console.log("Wattttttt");
     axios.post(`/getupdatecompany`, sendUserID).then((res) => {
       console.log(sendUserID);
       console.log(res);

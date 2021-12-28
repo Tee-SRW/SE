@@ -5,12 +5,12 @@ import InputMask from "react-input-mask";
 import Button from "react-bootstrap/Button";
 import { Row, Col } from "react-grid-system";
 import { useHistory } from "react-router-dom";
-import axios from '../../api/axios-login';
-import DataUser from '../../DataUser/DataUser';
+import axios from "../../api/axios-login";
+import DataUser from "../../DataUser/DataUser";
 import { useContext } from "react";
 
 export default function Editprofileform(props) {
-  const dataUser = useContext(DataUser)
+  const dataUser = useContext(DataUser);
 
   const history = useHistory();
 
@@ -29,55 +29,45 @@ export default function Editprofileform(props) {
     setValidated(true);
     event.preventDefault();
 
-    axios.put(`/updateuser`, valuesEditprofile)
-      .then((res) => {
-        console.log(valuesEditprofile);
-        console.log(res);
-        console.log(res.data);
-      });
+    axios.put(`/updateuser`, valuesEditprofile).then((res) => {
+      console.log(valuesEditprofile);
+      console.log(res);
+      console.log(res.data);
+    });
     if (form.checkValidity() === true) {
-      history.push("/Profile")
+      history.push("/Profile");
     }
   };
 
   const sendUserID = {
-    id: dataUser.userID
-  }
-  
+    id: dataUser.userID,
+  };
+
   const [valuesEditprofile, setvaluesEditprofile] = useState({
     id: dataUser.userID,
     firstname: "",
     lastname: "",
     email: "",
-    // password: "250140",
     phone: "",
     profile_user: "",
   });
   useEffect(() => {
-    // if(checkPost){
-    console.log("fakkkkk")
+    axios.post(`/getupdateuser`, sendUserID).then((res) => {
+      console.log(sendUserID);
+      console.log(res);
+      console.log(res.data);
 
-    axios.post(`/getupdateuser`, sendUserID)
-      .then((res) => {
-        console.log(sendUserID);
-        console.log(res);
-        console.log(res.data);
-
-        let beforeEditto = {
-          id: dataUser.userID,
-          firstname: res.data.firstname,
-          lastname: res.data.lastname,
-          email: res.data.email,
-          phone: res.data.phone,
-          profile_user: res.data.profile_user,
-        }
-        setvaluesEditprofile(beforeEditto)
-      });
-    // console.log(valuesEditprofile);
-    //   setCheck(false)
-    // }
+      let beforeEditto = {
+        id: dataUser.userID,
+        firstname: res.data.firstname,
+        lastname: res.data.lastname,
+        email: res.data.email,
+        phone: res.data.phone,
+        profile_user: res.data.profile_user,
+      };
+      setvaluesEditprofile(beforeEditto);
+    });
   }, []);
-  // }
   console.log(valuesEditprofile);
 
   return (
@@ -85,11 +75,7 @@ export default function Editprofileform(props) {
       <div className="Editprofileform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="d-grid2">
-          <img
-            src=" "
-            className="img-fluid rounded-circle"
-            alt=""
-          ></img>
+          <img src=" " className="img-fluid rounded-circle" alt=""></img>
         </div>
 
         <div className="d-grid2 gap-2 spacing-top btn-fontblack">
@@ -167,7 +153,7 @@ export default function Editprofileform(props) {
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10" >
+            <Button type="submit" className="btn btn-lg color spacing-top10">
               บันทึก
             </Button>
           </div>
