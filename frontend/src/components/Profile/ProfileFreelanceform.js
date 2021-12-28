@@ -374,7 +374,7 @@ export default function ProfileFreelanceform(props) {
             <h3 className="font__topicf">Programing</h3> {/*-------------------Programing-------------------*/}
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
-                {showContentProgramming}  
+                {showContentProgramming}
               </div>
             </div>
           </div>
