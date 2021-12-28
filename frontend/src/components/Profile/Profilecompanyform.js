@@ -142,7 +142,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -199,7 +199,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -256,7 +256,7 @@ export default function Profilecompanyform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
+                      {"เงินเดือนเริ่มต้น : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -270,6 +270,7 @@ export default function Profilecompanyform(props) {
       <h3 className="font__midtext">
         คุณไม่ได้ลงประกาศประเภทนี้ไว้
       </h3>
+
   }
 
   return (
@@ -392,6 +393,83 @@ export default function Profilecompanyform(props) {
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
                 {showContentProgramming}
+                {/* <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3><h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3> */}
               </div>
             </div>
           </div>
