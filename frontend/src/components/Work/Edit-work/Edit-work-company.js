@@ -9,22 +9,6 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function EditWorkCompanyform(props) {
-  // const [valuesEditWcom, setvaluesEditWcom] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
-
-  // const handleClickShowPassword = () => {
-  //   setvaluesEditWcom({ ...valuesEditWcom, showPassword: !valuesEditWcom.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setvaluesEditWcom({ ...valuesEditWcom, [prop]: event.target.value });
-  // };
   const history = useHistory();
 
   const [valuesEditWcom, setvaluesEditWcom] = React.useState({
@@ -66,17 +50,6 @@ export default function EditWorkCompanyform(props) {
   }
 
   const [selectedImage, setSelectedImage] = useState();
-
-  // This function will be triggered when the file field change
-  // const imageChange = (e) => {
-  //   if (e.target.files && e.target.files.length > 0) {
-  //     setSelectedImage(e.target.files[0]);
-  //   }
-  // };
-  // const removeSelectedImage = () => {
-  //   setSelectedImage();
-  // };
-
   return (
     <div className="edit-work-outer">
       <h3>แก้ไขประกาศรับสมัครงาน</h3>

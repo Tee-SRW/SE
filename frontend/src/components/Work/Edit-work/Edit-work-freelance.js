@@ -3,27 +3,9 @@ import "./edit-work.css";
 import Form from "react-bootstrap/Form";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
-import { useHistory } from 'react-router-dom';
-
-
+import { useHistory } from "react-router-dom";
 
 export default function EditWorkFreelanceform(props) {
-  // const [valuesEditWfl, setvaluesEditWfl] = React.useState({
-  //   password: "",
-  //   showPassword: false,
-  // });
-
-  // const handleClickShowPassword = () => {
-  //   setvaluesEditWfl({ ...valuesEditWfl, showPassword: !valuesEditWfl.showPassword });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
-
-  // const handlePasswordChange = (prop) => (event) => {
-  //   setvaluesEditWfl({ ...valuesEditWfl, [prop]: event.target.value });
-  // };
   const history = useHistory();
 
   const [valuesEditWfl, setvaluesEditWfl] = React.useState({
@@ -49,18 +31,18 @@ export default function EditWorkFreelanceform(props) {
     console.log(valuesEditWfl.description);
     console.log(valuesEditWfl.minsalary);
 
-    if(form.checkValidity() === true) {
-      alert("แก้ไขการสร้างงานของคุณสำเร็จ")
-      history.push("/Profilefreelance")
+    if (form.checkValidity() === true) {
+      alert("แก้ไขการสร้างงานของคุณสำเร็จ");
+      history.push("/Profilefreelance");
     }
   };
-  let url = ""
+  let url = "";
 
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
-    url = e.target.files[0].name
+    url = e.target.files[0].name;
     console.log(url);
-  }
+  };
   const [selectedImage, setSelectedImage] = useState();
 
   // This function will be triggered when the file field change
@@ -74,8 +56,7 @@ export default function EditWorkFreelanceform(props) {
       <h3>แก้ไขงานของฉัน</h3>
       <text>เลือกหมวดหมู่งาน</text>
       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-      <Form.Select
+        <Form.Select
           size="sm"
           as={Col}
           md="4"
@@ -87,14 +68,13 @@ export default function EditWorkFreelanceform(props) {
           <option value="Graphic & Design">Graphic & Design</option>
           <option value="Marketing">Marketing</option>
           <option value="Programming">Programming</option>
-
-          {/* <Form.Control.Feedback tooltip type="invalid">
-            กรุณาเลือก หมวดหมู่งาน
-          </Form.Control.Feedback> */}
         </Form.Select>
 
-        <br /><br />
-        <Form.Label as={Col} className="text">รายละเอียดงาน</Form.Label>
+        <br />
+        <br />
+        <Form.Label as={Col} className="text">
+          รายละเอียดงาน
+        </Form.Label>
 
         <Row className="mb-3">
           <Form.Group as={Col} md="4" controlId="validationCustomUsername">
@@ -116,7 +96,8 @@ export default function EditWorkFreelanceform(props) {
           <Form.Group as={Col} md="6" controlId="validationCustom03">
             <Form.Label>อธิบายเพื่มเติมเกี่ยวกับงาน</Form.Label>
             <Form.Control
-              required type="text"
+              required
+              type="text"
               placeholder="คำอธิบายเพื่มเติม"
               as="textarea"
               rows={5}
@@ -135,7 +116,8 @@ export default function EditWorkFreelanceform(props) {
               <Form.Label>ราคาเริ่มต้น</Form.Label>
 
               <Form.Control
-                required type="number"
+                required
+                type="number"
                 placeholder="0.00"
                 name="minsalary"
                 onChange={handlevaluesEditWflChange("minsalary")}
@@ -149,22 +131,11 @@ export default function EditWorkFreelanceform(props) {
             <Form.Label>บาท</Form.Label>
           </Col>
         </Row>
-
-        {/* <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
-          <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} onChange={imageChange} />
-        </Form.Group>
-
-      
-        {selectedImage && (
-          <img
-            src={URL.editObjectURL(selectedImage)}
-            className="img-fluid"
-            alt="Thumb"
-          />
-        )} */}
-
-        <Form.Group controlId="formFileMultiple" className="mb-3 spacing-top" value={url}>
+        <Form.Group
+          controlId="formFileMultiple"
+          className="mb-3 spacing-top"
+          value={url}
+        >
           <Form.Label>รูปผลงาน</Form.Label>
           <Form.Control type="file" multiple onChange={geturl} />
         </Form.Group>
@@ -191,16 +162,11 @@ export default function EditWorkFreelanceform(props) {
             </Button>
           </Col>
           <Col className="edit-work-freelance-buttonSave">
-            <Button
-              type="submit"
-              className="btn color spacing-top10"
-            >
+            <Button type="submit" className="btn color spacing-top10">
               บันทึก
             </Button>
           </Col>
         </Row>
-
-
       </Form>
     </div>
   );

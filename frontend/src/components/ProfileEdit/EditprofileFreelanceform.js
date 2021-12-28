@@ -51,21 +51,8 @@ export default function EditprofileFreelance(props) {
   const sendUserID = {
     id: dataUser.userID,
   };
-  // const editprofilefreelance = {
-  //   id: valuesEditprofilefreelance.id,
-  //   firstname: valuesEditprofilefreelance.firstname,
-  //   lastname: valuesEditprofilefreelance.lastname,
-  //   email: valuesEditprofilefreelance.email,
-  //   phone: valuesEditprofilefreelance.phone,
-  //   profile_user: valuesEditprofilefreelance.profile_user,
-  //   line: valuesEditprofilefreelance.line,
-  //   facebook: valuesEditprofilefreelance.facebook,
-  //   instagram: valuesEditprofilefreelance.instagram,
-  // };
   useEffect(() => {
-    console.log("Watttttttt")
-    axios.post(`/getupdatefreelance`, sendUserID)
-    .then((res) => {
+    axios.post(`/getupdatefreelance`, sendUserID).then((res) => {
       console.log(sendUserID);
       console.log(res);
       console.log(res.data);
@@ -215,11 +202,6 @@ export default function EditprofileFreelance(props) {
               บันทึก
             </Button>
           </div>
-          {/* <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10 "onClick={() => history.push("/Profilefreelance")} >
-              ย้อนกลับ
-            </Button>
-          </div> */}
         </Form>
       </div>
     </div>

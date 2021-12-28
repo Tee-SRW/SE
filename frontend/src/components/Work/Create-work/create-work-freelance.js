@@ -1,16 +1,14 @@
 import React, { useState, useContext } from "react";
 import "./create-work.css";
 import Form from "react-bootstrap/Form";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import DataUser from "../../../DataUser/DataUser";
 import axios from "../../../api/axios-work";
 
-
-
 export default function CreateWorkFreelance(props) {
-  const dataUser = useContext(DataUser)
+  const dataUser = useContext(DataUser);
 
   const history = useHistory();
   const [valuesCreateworkfreelance, setvaluesCreateworkfreelance] =
@@ -54,9 +52,8 @@ export default function CreateWorkFreelance(props) {
       namework: valuesCreateworkfreelance.namework,
       imageworkpostfreelance: "javascript1.png",
     };
-    
-    axios.post(`/addworkFreelance`, userAddWorkFreelance)
-      .then((res) => {
+
+    axios.post(`/addworkFreelance`, userAddWorkFreelance).then((res) => {
       console.log(userAddWorkFreelance);
       console.log(res);
       console.log(res.data);
@@ -65,7 +62,6 @@ export default function CreateWorkFreelance(props) {
         history.push("/Profilefreelance");
       }
     });
-
   };
   return (
     <div className="create-work-outer">
@@ -84,10 +80,6 @@ export default function CreateWorkFreelance(props) {
           <option value="1">Graphic & Design</option>
           <option value="2">Marketing</option>
           <option value="3">Programming</option>
-
-          {/* <Form.Control.Feedback tooltip type="invalid">
-            กรุณาเลือก หมวดหมู่งาน
-          </Form.Control.Feedback> */}
         </Form.Select>
 
         <br />

@@ -2,51 +2,47 @@ import React, { useState, useEffect } from "react";
 import { Row, Col } from "react-grid-system";
 import "./Work.css";
 import Image from "react-bootstrap/Image";
-import DataUser from '../../DataUser/DataUser';
+import DataUser from "../../DataUser/DataUser";
 import { useContext } from "react";
-import axios from '../../api/axios-work';
+import axios from "../../api/axios-work";
 
 export default function WorkFreelanceform(props) {
-  const dataWork = useContext(DataUser)
+  const dataWork = useContext(DataUser);
 
   const sendWorkID = {
-    work_post_id: dataWork.userSelectWorkID
-  }
+    work_post_id: dataWork.userSelectWorkID,
+  };
 
   const [valuesWork, setvaluesWork] = useState([]);
 
   useEffect(() => {
-    console.log("faqqqq")
+    axios.post(`/getworkfreelance`, sendWorkID).then((res) => {
+      console.log(sendWorkID);
+      console.log(res);
+      console.log(res.data);
 
-    axios.post(`/getworkfreelance`, sendWorkID)
-      .then((res) => {
-        console.log(sendWorkID);
-        console.log(res);
-        console.log(res.data);
-
-        let beforeEditto = res.data.map(Item => {
-          return {
-            detail_work: Item.detail_work,
-            email: Item.email,
-            facebook: Item.facebook,
-            firstName: Item.firstName,
-            image_work_post_freelance: Item.image_work_post_freelance,
-            instagram: Item.instagram,
-            lastName: Item.lastName,
-            line: Item.line,
-            name_work: Item.name_work,
-            phone: Item.phone,
-            price_post_work: Item.price_post_work,
-            type_work_name: Item.type_work_name,
-          }
-        })
-        setvaluesWork(beforeEditto)
+      let beforeEditto = res.data.map((Item) => {
+        return {
+          detail_work: Item.detail_work,
+          email: Item.email,
+          facebook: Item.facebook,
+          firstName: Item.firstName,
+          image_work_post_freelance: Item.image_work_post_freelance,
+          instagram: Item.instagram,
+          lastName: Item.lastName,
+          line: Item.line,
+          name_work: Item.name_work,
+          phone: Item.phone,
+          price_post_work: Item.price_post_work,
+          type_work_name: Item.type_work_name,
+        };
       });
-
+      setvaluesWork(beforeEditto);
+    });
   }, []);
 
   console.log(valuesWork);
-  console.log(valuesWork.type_work_name)
+  console.log(valuesWork.type_work_name);
 
   return (
     <div className="Container-work">
@@ -66,12 +62,16 @@ export default function WorkFreelanceform(props) {
               </Col>
               <Col className="">
                 <div className="Work-box-detail">
-                  <h3 className="font__topic__work">ชื่องาน: {item.name_work}</h3>
+                  <h3 className="font__topic__work">
+                    ชื่องาน: {item.name_work}
+                  </h3>
                   <div className="font__topcif__work">
                     <div className="font__tail">
                       <h3>
                         หมวดหมู่:{" "}
-                        <text className="font__detail__work">{item.type_work_name}</text>{" "}
+                        <text className="font__detail__work">
+                          {item.type_work_name}
+                        </text>{" "}
                       </h3>
                       <h3>
                         ราคาเริ่มต้น :{" "}
@@ -114,7 +114,9 @@ export default function WorkFreelanceform(props) {
                     </div>
                   </div>
                   <div className="box__contact__ct">
-                    <h3 className="box__contact__ct__topic">ช่องทางการติดต่อ</h3>
+                    <h3 className="box__contact__ct__topic">
+                      ช่องทางการติดต่อ
+                    </h3>
                     <div className="box__contact__ct__topicline__top">
                       <h3 className="box__contact__ct__topicline">
                         เบอร์โทรศัพท์: {item.phone} <text></text>{" "}
@@ -139,7 +141,6 @@ export default function WorkFreelanceform(props) {
           </div>
         );
       })}
-
     </div>
   );
 }

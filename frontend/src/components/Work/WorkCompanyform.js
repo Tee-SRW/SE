@@ -16,7 +16,6 @@ export default function WorkFreelanceform() {
   const [valuesWorkCom, setvaluesWorkCom] = useState([]);
 
   useEffect(() => {
-    console.log("faqqqq")
 
     axios.post(`/getworkcompany`, sendWorkComID)
       .then((res) => {
