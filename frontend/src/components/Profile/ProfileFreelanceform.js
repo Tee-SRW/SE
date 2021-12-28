@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Profileform.css";
-import Card from "react-bootstrap/Card";
 import { Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
-import { Container, Row, Col } from "react-grid-system";
+import { Container } from "react-grid-system";
 import axios from '../../api/axios-profile';
 import DataUser from '../../DataUser/DataUser';
 
@@ -38,10 +37,6 @@ export default function ProfileFreelanceform(props) {
 
   });
 
-  const handlevaluesProfilefreelanceChange = (prop) => (event) => {
-    setvaluesProfilefreelance({ ...valuesProfilefreelance, [prop]: event.target.value });
-  };
-
   const sendUserID = {
     id: dataUser.userID
   }
@@ -58,8 +53,6 @@ export default function ProfileFreelanceform(props) {
         let beforeEditto = {
           id: dataUser.userID,
           fullname: res.data.firstname + ' ' + res.data.lastname,
-          // firstname: res.data.firstname,
-          // lastname: res.data.lastname,
           email: res.data.email,
           phone: res.data.phone,
           profile_user: res.data.profile_user,
@@ -98,7 +91,9 @@ export default function ProfileFreelanceform(props) {
       setShowWorkFreelanceProgramming(programming)
 
     });
+
   }, []);
+
   let showContentGraphicDesign = <></>
   if (showWorkFreelanceGraphicDesign.length > 0) {
     showContentGraphicDesign =
@@ -275,12 +270,8 @@ export default function ProfileFreelanceform(props) {
       <div className="bg">
         <div className="board__container">
           <Image
-            // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
-            // className="img-fluid rounded-circle image"
-            // alt="Profile Admin"
             src="/images/ProfileCEO.jpg"
             className="img-fluid rounded-circle image"
-            // alt="Profile Admin"
             valuesProfilefreelance={valuesProfilefreelance.Profile__freelance__image}
             fluid
           />
@@ -292,13 +283,6 @@ export default function ProfileFreelanceform(props) {
             <h1 className="board__check">คุณเป็นฟรีแลนซ์</h1>
             <div className="board__setting">
               <div className="board__box">
-                {/* <inputvalue={url}
-                  className="d-none"
-                  type="file"
-                  multiple
-                  onChange={geturl}
-                  onChange={imageChange}
-                /> */}
                 <button
                   className="btn bottom__profileform shadow"
                   type="submit"
@@ -309,7 +293,6 @@ export default function ProfileFreelanceform(props) {
               </div>
             </div>
           </div>
-          {/* <h2 className="board__last__freelance">อัศะ<text>{props.Last__name__freelance}</text></h2> */}
         </div>
 
         <div className="box_bg">
@@ -358,7 +341,7 @@ export default function ProfileFreelanceform(props) {
           </div>
           <div className="box__head__work">
             <h3 className="font__topic">การประกาศรับบุคลากรของคุณ</h3>
-            <h3 className="font__topicf">Graphic & Design</h3>  {/*-------------------การตลาด-------------------*/}
+            <h3 className="font__topicf">Graphic & Design</h3>  {/*-------------------Graphic & Design-------------------*/}
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
                 {showContentGraphicDesign}
