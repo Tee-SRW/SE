@@ -7,6 +7,7 @@
 
 body {
     background: linear-gradient(to right, #CFE9F7 12.5%, #fff 12.5%, #fff 87.5%, #CFE9F7 87.5%);
+    /* height: 100%; */
 }
 
 .home {
@@ -18,6 +19,7 @@ body {
 }
 
 .page__content {
+    /* height: 100vh; */
     /* padding-top: 80px; */
 }
 
