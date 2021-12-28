@@ -44,7 +44,7 @@ export default function Signupcompanyform() {
 
   const [validated, setValidated] = useState(false);
 
-  const baseUsl = "http://203.170.190.226:8080"
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -62,6 +62,7 @@ export default function Signupcompanyform() {
     const company = {
       "companyname": valuesSignupcompany.companyname,
       "companyemail": valuesSignupcompany.email,
+      "companyphone": valuesSignupcompany.phone,
       "address": valuesSignupcompany.address,
       "subdistrict": valuesSignupcompany.subdistrict,
       "district": valuesSignupcompany.district,
@@ -69,7 +70,7 @@ export default function Signupcompanyform() {
       "postcode": valuesSignupcompany.postcode,
       "password": valuesSignupcompany.password
     };
-
+    if (validated === true) {
     axios.post(`/createcompany`, company)
       .then(res => {
         console.log(company);
@@ -82,9 +83,9 @@ export default function Signupcompanyform() {
           alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
         }
       }).catch(err => {
-        alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
+        alert("***สมัครบริษัทสมาขิกไม่สำเร็จ err***")
       })
-
+    }
   };
 
 
