@@ -22,6 +22,9 @@ export default function CreateWorkCompany(props) {
     priceworkmax: "",
     education: "",
   });
+  
+  const [selectedImage, setSelectedImage] = useState();
+  
   const handlevaluesCreateworkcompanyChange = (prop) => (event) => {
     setvaluesCreateworkcompany({
       ...valuesCreateworkcompany,
@@ -39,7 +42,7 @@ export default function CreateWorkCompany(props) {
     console.log(url);
   };
 
-  const [selectedImage, setSelectedImage] = useState();
+  
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;

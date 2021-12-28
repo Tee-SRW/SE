@@ -58,7 +58,7 @@ export default function Freelance(props) {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        if (res.data === "Complete") {
+        if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
           alert("สมัครเป็นฟรีแลนซ์สำเร็จ")
           history.push("/Profilefreelance")
         } else if (res.data === "Fail") {
