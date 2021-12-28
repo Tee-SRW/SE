@@ -27,7 +27,7 @@ export default function WorkFreelanceform(props) {
           email: Item.email,
           facebook: Item.facebook,
           firstName: Item.firstName,
-          image_work_post_freelance: Item.image_work_post_freelance,
+          image_work_post_freelance: "images/postfreelance/" + Item.image_work_post_freelance,
           instagram: Item.instagram,
           lastName: Item.lastName,
           line: Item.line,
@@ -55,9 +55,14 @@ export default function WorkFreelanceform(props) {
             <Row>
               <Col className="">
                 <div className="Work-box-image">
-                  <h3 className="Work__box__image__midtext">
+                  {/* <h3 className="Work__box__image__midtext">
                     รูปผลงานที่จะให้แสดง
-                  </h3>
+                  </h3> */}
+                  <img 
+                    className="work-image-set"
+                    src={item.image_work_post_freelance}
+                    alt="work"
+                  />
                 </div>
               </Col>
               <Col className="">
