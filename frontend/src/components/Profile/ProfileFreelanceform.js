@@ -78,16 +78,16 @@ export default function ProfileFreelanceform(props) {
       console.log(res.data);
       let work = res.data.allwork.map(Item => {
         return {
-					work_post_id: Item.work_post_id,
-					firstName: Item.firstName,
-					lastName: Item.lastName,
-					fullName: Item.firstName + " " + Item.lastName,
-					typeWorkName: Item.type_work_name,
-					nameWork: Item.name_work,
-					pricePostWork: Item.price_post_work,
-					image:  "images/postfreelance/"+Item.image_work_post_freelance,
-					srcwork: "images/postfreelance/market.png",
-				}
+          work_post_id: Item.work_post_id,
+          firstName: Item.firstName,
+          lastName: Item.lastName,
+          fullName: Item.firstName + " " + Item.lastName,
+          typeWorkName: Item.type_work_name,
+          nameWork: Item.name_work,
+          pricePostWork: Item.price_post_work,
+          image: "images/postfreelance/" + Item.image_work_post_freelance,
+          srcwork: "images/postfreelance/market.png",
+        }
       })
 
       let graghic = work.filter(work => work.typeWorkName === "Graphic & Design")
@@ -140,7 +140,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"ราคา : "+Item.pricePostWork}
+                      {"ราคา : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -197,7 +197,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"ราคา : "+Item.pricePostWork}
+                      {"ราคา : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -211,6 +211,7 @@ export default function ProfileFreelanceform(props) {
       <h3 className="font__midtext">
         คุณไม่ได้ลงประกาศประเภทนี้ไว้
       </h3>
+
   }
 
   let showContentProgramming = <></>
@@ -254,7 +255,7 @@ export default function ProfileFreelanceform(props) {
                       </Button>
                     </div>
                     <h5 className="cards__in_profile__item__text_price">
-                      {"ราคา : "+Item.pricePostWork}
+                      {"ราคา : " + Item.pricePostWork}
                     </h5>
                   </div>
                 </li>
@@ -374,6 +375,55 @@ export default function ProfileFreelanceform(props) {
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
                 {showContentProgramming}
+                <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
+                </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>      <h3 className="font__midtext">
+        คุณไม่ได้ลงประกาศประเภทนี้ไว้
+      </h3>
               </div>
             </div>
           </div>
