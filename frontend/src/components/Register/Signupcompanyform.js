@@ -76,7 +76,7 @@ export default function Signupcompanyform() {
         console.log(company);
         console.log(res);
         console.log(res.data);
-        if (res.data === "Complete") {
+        if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
           alert("สมัครบริษัทสมาขิกสำเร็จ")
           history.push("/Login")
         } else if (res.data === "Fail") {

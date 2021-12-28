@@ -74,7 +74,7 @@ export default function Signupform() {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        if (res.data === "Complete!") {
+        if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
           alert("สมัครสมาขิกสำเร็จ")
           history.push("/Login")
         } else if (res.data === "Fail") {
