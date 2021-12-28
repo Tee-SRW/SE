@@ -375,55 +375,6 @@ export default function ProfileFreelanceform(props) {
             <div className="cards__in_profile">
               <div className="cards__in_profile__container">
                 {showContentProgramming}
-                <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-                  คุณไม่ได้ลงประกาศประเภทนี้ไว้
-                </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>      <h3 className="font__midtext">
-        คุณไม่ได้ลงประกาศประเภทนี้ไว้
-      </h3>
               </div>
             </div>
           </div>
