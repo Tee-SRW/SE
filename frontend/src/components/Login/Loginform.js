@@ -9,9 +9,6 @@ import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { useHistory } from 'react-router-dom';
 import axios from '../../api/axios-login';
-// import style from "react";
-// import InputAdornment from "@material-ui/core/InputAdornment";
-// import InputGroup from "react-bootstrap/InputGroup";
 
 export default function Loginform(props) {
   const history = useHistory();
@@ -133,17 +130,17 @@ export default function Loginform(props) {
           <Row>
             <Col>
               <p className="Loginhaveaccount">
-                ไม่มีบัญชี
+                {"ไม่มีบัญชี "}
                 <Link to="/ChooseCreate">
-                  <a href="#"> ใช่ไหม?</a>
+                   ใช่ไหม?
                 </Link>
               </p>
             </Col>
             <Col>
               <p className="Loginforgot-password">
-                ลืม
+                {"ลืม  "}
                 <Link to="/Forgetpassword">
-                  <a href="#"> รหัสผ่าน?</a>
+                   รหัสผ่าน?
                 </Link>
               </p>
             </Col>

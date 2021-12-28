@@ -10,7 +10,7 @@ import DataUser from "../../DataUser/DataUser";
 
 
 export default function Freelance(props) {
-  const {userID, userType} = useContext(DataUser)
+  const userData = useContext(DataUser)
   const history = useHistory();
 
   const userTypeUpgrade = {
@@ -43,7 +43,7 @@ export default function Freelance(props) {
     event.preventDefault();
 
     const signUptoFreelance = {
-      "id": userID,                        
+      "id": userData.userID,                        
       "firstname": valuesSignupfreelance.firstname,
       "lastname": valuesSignupfreelance.lastname,
       "email": valuesSignupfreelance.email,
@@ -199,16 +199,6 @@ export default function Freelance(props) {
               สมัครสมาชิก
             </Button>
           </div>
-          <Row>
-            <Col>
-              <p className="Loginforgot-password">
-                ลืม
-                <Link to="/Forgetpassword">
-                  <a href="#"> รหัสผ่าน?</a>
-                </Link>
-              </p>
-            </Col>
-          </Row>
         </Form>
       </div>
     </div>

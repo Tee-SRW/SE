@@ -281,7 +281,7 @@ export default function Profilecompanyform(props) {
             // src={URL.createObjectURL(selectedImage)} {selectedImage && ()}
             // className="img-fluid rounded-circle image"
             // alt="Profile Admin"
-            src="/images/ProfileCEO.jpg"
+            src="/images/postfreelance/cp.jpg"
             className="img-fluid rounded-circle image"
             // alt="Profile Admin"
             valuesProfilecompany={valuesProfilecompany.Profile__company__image}
