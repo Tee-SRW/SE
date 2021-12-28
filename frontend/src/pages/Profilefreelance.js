@@ -2,10 +2,14 @@ import React from 'react';
 import ProfileFreelanceform from '../components/Profile/ProfileFreelanceform';
 
 
-function Profilefreelance() {
+function Profilefreelance(props) {
+    const userWorkSelectID = (workSelected) => {
+        props.onUpdateDataWorkID(workSelected)
+    }
+
     return (
         <>
-            <ProfileFreelanceform />
+            <ProfileFreelanceform userWorkSelectID={userWorkSelectID} />
         </>
     );
 }

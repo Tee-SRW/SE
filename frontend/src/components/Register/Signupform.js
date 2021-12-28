@@ -1,17 +1,16 @@
-/* eslint-disable react/jsx-no-undef */
 import React, { useState } from "react";
 import "./Signupform.css";
 import Form from "react-bootstrap/Form";
-// import InputGroup from "react-bootstrap/InputGroup";
 import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
 import IconButton from "@material-ui/core/IconButton";
-// import InputLabel from "@material-ui/core/InputLabel";
 import Visibility from "@material-ui/icons/Visibility";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
+// import InputLabel from "@material-ui/core/InputLabel";
+// import InputGroup from "react-bootstrap/InputGroup";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 // import Input from "@material-ui/core/Input";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -19,7 +18,7 @@ import { useHistory } from 'react-router-dom';
 import axios from '../../api/axios-signup';
 
 
-export default function Signupform(props) {
+export default function Signupform() {
   const history = useHistory();
   const [valuesSignup, setvaluesSignup] = React.useState({
     firstname: "",
@@ -207,7 +206,6 @@ export default function Signupform(props) {
             <Button
               type="submit"
               className="btn btn-lg color spacing-top10"
-            // onClick={()=> history.push("/")}
             >
               สมัครสมาชิก
             </Button>
@@ -217,7 +215,7 @@ export default function Signupform(props) {
               <p className="Loginforgot-password">
                 ลืม
                 <Link to="/Forgetpassword">
-                  <a href="#"> รหัสผ่าน?</a>
+                   รหัสผ่าน?
                 </Link>
               </p>
             </Col>

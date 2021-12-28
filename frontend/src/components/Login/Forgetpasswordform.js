@@ -65,7 +65,7 @@ export default function Forgetpasswordform() {
             <Col>
               <p className="forgotpasswordform-password">
                 <Link to="/Login">
-                  <a href="#"> กลับหน้าเข้าสู่ระบบ</a>
+                  กลับหน้าเข้าสู่ระบบ
                 </Link>
               </p>
             </Col>

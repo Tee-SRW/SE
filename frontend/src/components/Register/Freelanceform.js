@@ -9,9 +9,13 @@ import axios from '../../api/axios-signup';
 import DataUser from "../../DataUser/DataUser";
 
 
-export default function Freelance() {
-  const {userID, userType} = useContext(DataUser)
+export default function Freelance(props) {
+  const userData = useContext(DataUser)
   const history = useHistory();
+
+  const userTypeUpgrade = {
+    userType:2
+  }
 
   const [valuesSignupfreelance, setvaluesSignupfreelance] = React.useState({
     firstname: "",
@@ -28,6 +32,7 @@ export default function Freelance() {
   };
 
   const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -38,7 +43,7 @@ export default function Freelance() {
     event.preventDefault();
 
     const signUptoFreelance = {
-      "id": userID,                        
+      "id": userData.userID,                        
       "firstname": valuesSignupfreelance.firstname,
       "lastname": valuesSignupfreelance.lastname,
       "email": valuesSignupfreelance.email,
@@ -62,6 +67,8 @@ export default function Freelance() {
       }).catch(err => {
         alert("***สมัครเป็นฟรีแลนซ์ไม่สำเร็จ***")
       })
+
+      props.userTypeUpgrade(userTypeUpgrade)
   };
   return (
     <div className="Signupform-outer">
@@ -192,16 +199,6 @@ export default function Freelance() {
               สมัครสมาชิก
             </Button>
           </div>
-          <Row>
-            <Col>
-              <p className="Loginforgot-password">
-                ลืม
-                <Link to="/Forgetpassword">
-                  <a href="#"> รหัสผ่าน?</a>
-                </Link>
-              </p>
-            </Col>
-          </Row>
         </Form>
       </div>
     </div>

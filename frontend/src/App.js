@@ -56,12 +56,17 @@ function App() {
 
   const updateDataUser = (dataUser) => {
     // console.log(dataUser)
-    console.log("Receive Data")
+    console.log("Receive Data : ", dataUser.id, " and ", dataUser.type)
     setUserID(dataUser.id)
     setUserType(dataUser.type)
-    setUserSelectWorkID(dataUser.workID)
-    
   }
+
+  const onUpdateDataWorkID = (selectWorkID) => {
+    // console.log(dataUser)
+    console.log("Receive WorkID : ", selectWorkID.workID)
+    setUserSelectWorkID(selectWorkID.workID)
+  }
+
 
   return (
 
@@ -79,7 +84,7 @@ function App() {
             <Switch>
               {/* Home Path*/}
               <Route path="/" exact>
-                <Home onUpdateDataUser={updateDataUser} />
+                <Home onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Content to show next page   */}
               </Route>
 
               {/* Login Path*/}
@@ -93,12 +98,18 @@ function App() {
               <Route path="/ChooseCreate" component={ChooseCreate} />
               <Route path="/sign-up" component={SignUp} />
               <Route path="/sign-up-company" component={SignUpcompany} />
-              <Route path="/Freelance" component={Freelance} />
+              <Route path="/Freelance">
+                <Freelance onUpdateDataUser={updateDataUser} />
+              </Route>
 
               {/* Profile Path*/}
               <Route path="/Profile" component={Profile} />
-              <Route path="/Profilefreelance" component={Profilefreelance} />
-              <Route path="/Profilecompany" component={Profilecompany} />
+              <Route path="/Profilefreelance">
+                <Profilefreelance onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
+              <Route path="/Profilecompany">
+                <Profilecompany onUpdateDataWorkID={onUpdateDataWorkID} />  {/*   Get WorkID from Profile to Editwork   */}
+              </Route>
 
               {/* Edit-Profile Path*/}
               <Route path="/Editprofile" component={Editprofile} />
@@ -114,8 +125,8 @@ function App() {
               <Route path="/CreateworkCompany" component={CreateWorkCompany} />
 
               {/* Edit-Work Path */}
-              <Route path="/EditWorkFreelance" component={EditWorkFreelance} />
-              <Route path="/EditWorkCompany" component={EditWorkCompany} />
+              <Route path="/EditWorkFreelance"component={EditWorkFreelance} />
+              <Route path="/EditWorkCompany"component={EditWorkCompany} />
             </Switch>
           </div>
           <Footer />

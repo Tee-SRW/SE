@@ -6,7 +6,7 @@ import HeroSection from '../components/HomeHeroSection/HeroSection';
 function Home(props) {
 
   const userWorkSelectID = (workSelected) => {
-    props.onUpdateDataUser(workSelected)
+    props.onUpdateDataWorkID(workSelected)
   }
   return (
     <>

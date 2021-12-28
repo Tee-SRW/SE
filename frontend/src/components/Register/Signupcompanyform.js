@@ -5,19 +5,13 @@ import { Row, Col } from "react-grid-system";
 import Button from "react-bootstrap/Button";
 import { Link, useHistory } from "react-router-dom";
 import InputMask from "react-input-mask";
-// import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import Input from "@material-ui/core/Input";
 import axios from '../../api/axios-signup';
 
-export default function Signupcompanyform(props) {
+export default function Signupcompanyform() {
   const history = useHistory();
-
-
 
   const [valuesSignupcompany, setvaluesSignupcompany] = React.useState({
     companyname: "",
@@ -50,7 +44,7 @@ export default function Signupcompanyform(props) {
 
   const [validated, setValidated] = useState(false);
 
-  const baseUsl = "http://203.170.190.226:8080"
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -68,6 +62,7 @@ export default function Signupcompanyform(props) {
     const company = {
       "companyname": valuesSignupcompany.companyname,
       "companyemail": valuesSignupcompany.email,
+      "companyphone": valuesSignupcompany.phone,
       "address": valuesSignupcompany.address,
       "subdistrict": valuesSignupcompany.subdistrict,
       "district": valuesSignupcompany.district,
@@ -75,7 +70,7 @@ export default function Signupcompanyform(props) {
       "postcode": valuesSignupcompany.postcode,
       "password": valuesSignupcompany.password
     };
-
+    if (validated === true) {
     axios.post(`/createcompany`, company)
       .then(res => {
         console.log(company);
@@ -88,9 +83,9 @@ export default function Signupcompanyform(props) {
           alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
         }
       }).catch(err => {
-        alert("***สมัครบริษัทสมาขิกไม่สำเร็จ***")
+        alert("***สมัครบริษัทสมาขิกไม่สำเร็จ err***")
       })
-
+    }
   };
 
 

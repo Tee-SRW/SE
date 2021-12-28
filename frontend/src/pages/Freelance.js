@@ -1,10 +1,13 @@
 import React from 'react';
 import Freelanceform from '../components/Register/Freelanceform'
 
-function Freelance() {
+function Freelance(props) {
+  const userTypeUpgrade = (userTypeUpgrade) => {
+    props.onUpdateDataUser(userTypeUpgrade)
+  }
   return (
     <>
-      <Freelanceform />
+      <Freelanceform userTypeUpgrade={userTypeUpgrade}/>
     </>
     
   ); 

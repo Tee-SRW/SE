@@ -1,27 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Editprofileform.css";
 import Form from "react-bootstrap/Form";
 import InputMask from "react-input-mask";
 import { useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { Row, Col } from "react-grid-system";
-import axios from '../../api/axios-login';
+import axios from "../../api/axios-login";
+import DataUser from "../../DataUser/DataUser";
 
 export default function EditprofileFreelance(props) {
-  const [valuesEditprofilefreelance, setvaluesEditprofilefreelance] = React.useState({
-    id: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    phone: "",
-    profile_user: "",
-    line: "",
-    facebook: "",
-    instagram: "",
-  });
+  const history = useHistory();
+  const dataUser = useContext(DataUser);
+  const [valuesEditprofilefreelance, setvaluesEditprofilefreelance] =
+    React.useState({
+      id: dataUser.userID,
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      profile_user: "",
+      line: "",
+      facebook: "",
+      instagram: "",
+    });
   const handlevaluesEditprofilefreelanceChange = (prop) => (event) => {
-    setvaluesEditprofilefreelance({ ...valuesEditprofilefreelance, [prop]: event.target.value });
+    setvaluesEditprofilefreelance({
+      ...valuesEditprofilefreelance,
+      [prop]: event.target.value,
+    });
   };
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
@@ -33,44 +39,47 @@ export default function EditprofileFreelance(props) {
     setValidated(true);
     event.preventDefault();
 
-    const editprofilefreelance = {
-      "id": valuesEditprofilefreelance.id,
-      "firstname": valuesEditprofilefreelance.firstname,
-      "lastname": valuesEditprofilefreelance.lastname,
-      "email": valuesEditprofilefreelance.email,
-      "password": valuesEditprofilefreelance.password,
-      "phone": valuesEditprofilefreelance.phone,
-      "profile_user": valuesEditprofilefreelance.profile_user,
-      "line": valuesEditprofilefreelance.line,
-      "facebook": valuesEditprofilefreelance.facebook,
-      "instagram": valuesEditprofilefreelance.instagram,
-    };
-    axios
-      .put(`/updatefreelance`,  editprofilefreelance )
-      .then((res) => {
-        console.log(editprofilefreelance);
-      });
-      if(form.checkValidity() === true) {
-        history.push("/Profilefreelance")
-      }
+    axios.put(`/updatefreelance`, valuesEditprofilefreelance).then((res) => {
+      console.log(valuesEditprofilefreelance);
+      console.log(res);
+      console.log(res.data);
+    });
+    if (form.checkValidity() === true) {
+      history.push("/Profilefreelance");
+    }
   };
-  const history = useHistory();
+  const sendUserID = {
+    id: dataUser.userID,
+  };
+  useEffect(() => {
+    axios.post(`/getupdatefreelance`, sendUserID).then((res) => {
+      console.log(sendUserID);
+      console.log(res);
+      console.log(res.data);
+      let beforeEditto = {
+        id: dataUser.userID,
+        firstname: res.data.firstname,
+        lastname: res.data.lastname,
+        email: res.data.email,
+        phone: res.data.phone,
+        profile_user: res.data.profileuser,
+        line: res.data.line,
+        facebook: res.data.facebook,
+        instagram: res.data.instagram,
+      };
+      setvaluesEditprofilefreelance(beforeEditto);
+    });
+  }, []);
+  console.log(valuesEditprofilefreelance);
   return (
     <div className="Editprofileform-outer">
       <div className="Editprofileform-inner">
         <h3>โปรไฟล์ของฉัน</h3>
         <div className="d-grid2">
-          <img
-            src=" "
-            className="img-fluid rounded-circle "
-            alt=""
-          ></img>
+          <img src=" " className="img-fluid rounded-circle " alt=""></img>
         </div>
         <div className="d-grid2 spacing-top btn-fontblack ">
-          <button
-            type="submit"
-            className="btn btn-lg bottomprofileprofile "
-          >
+          <button type="submit" className="btn btn-lg bottomprofileprofile ">
             แก้ไขโปรไฟล์
           </button>
         </div>
@@ -189,15 +198,10 @@ export default function EditprofileFreelance(props) {
             </Form.Group>
           </Row>
           <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10" >
+            <Button type="submit" className="btn btn-lg color spacing-top10">
               บันทึก
             </Button>
           </div>
-          {/* <div className="d-grid gap-2 btn-color">
-            <Button type="submit" className="btn btn-lg color spacing-top10 "onClick={() => history.push("/Profilefreelance")} >
-              ย้อนกลับ
-            </Button>
-          </div> */}
         </Form>
       </div>
     </div>
