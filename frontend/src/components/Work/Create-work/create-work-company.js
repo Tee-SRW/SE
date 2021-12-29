@@ -73,7 +73,7 @@ export default function CreateWorkCompany(props) {
       console.log(res.data);
       if (res.data === "Complete!") {
         alert("สร้างงานของคุณสำเร็จ");
-        history.push("/Profilefreelance");
+        history.push("/Profilecompany");
       }
     });
   };
@@ -275,7 +275,7 @@ export default function CreateWorkCompany(props) {
           <Col>
             <Button
               className="btn color2 shadow1 spacing-top10"
-              onClick={() => history.push("/Profile")}
+              onClick={() => history.push("/Profilecompany")}
             >
               ยกเลิก
             </Button>

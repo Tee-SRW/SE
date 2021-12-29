@@ -271,6 +271,7 @@
         }
         
         .bottom__profileform {
+            margin-bottom: 20px;
             font-weight: bold;
             display: flex;
             font-size: 13px;
