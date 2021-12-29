@@ -79,7 +79,7 @@ export default function EditprofileFreelance(props) {
           <img src=" " className="img-fluid rounded-circle " alt=""></img>
         </div>
         <div className="d-grid2 spacing-top btn-fontblack ">
-          <button type="submit" className="btn btn-lg bottomprofileprofile ">
+          <button type="submit" className="btn btn-lg bottom__profileform ">
             แก้ไขโปรไฟล์
           </button>
         </div>

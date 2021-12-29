@@ -82,7 +82,7 @@ export default function EditprofileCompanyform(props) {
         <div className="d-grid2 gap-2 spacing-top btn-fontblack">
           <button
             type="submit"
-            className="btn btn-lg color bottomprofileprofile"
+            className="btn btn-lg color bottom__profileform"
           >
             แก้ไขโปรไฟล์
           </button>
