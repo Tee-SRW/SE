@@ -52,7 +52,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					image: "images/postfreelance/" + Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/design.jpeg",
 					path: "/WorkFreelance"
 				}
@@ -86,7 +86,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					image: "images/postfreelance/" + Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/market.png",
 					path: "/WorkFreelance"
 				}
@@ -120,7 +120,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					image: "images/postfreelance/" + Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/programming.jpeg",
 					path: "/WorkFreelance"
 				}
@@ -147,7 +147,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_work_min,
-					image:  "images/postfreelance/"+Item.image_work_post_company,
+					image: "images/postfreelance/" + Item.image_work_post_company,
 					srcwork: selectedMenu.workType === 1 ? "images/postfreelance/design.jpeg"
 						: selectedMenu.workType === 2 ? "images/postfreelance/market.png"
 							: selectedMenu.workType === 3 ? "images/postfreelance/programming.jpeg" : null,
@@ -178,7 +178,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image:  "images/postfreelance/"+Item.image_work_post_freelance,
+					image: Item.image_work_post_freelance,
 					srcwork: selectedMenu.workType === 1 ? "images/postfreelance/design.jpeg"
 						: selectedMenu.workType === 2 ? "images/postfreelance/market.png"
 							: selectedMenu.workType === 3 ? "images/postfreelance/programming.jpeg" : null,
@@ -193,49 +193,49 @@ const Contents = (props) => {
 
 	let showContent = <></>
 	if (selectedMenu.selectedId === 1 || selectedMenu.selectedId === 0) {
-		showContent = 
-		<div className="cards__wrapper">
-			<ul className="cards__items">
-				{showWorkFreelance.map((Item, index) => {
-					return (
-						<>
-							<li className="cards__item" key={index}>
-								<Link
-									className="cards__item__link"
-									to={Item.path}
-									onClick={() => handleClickWork(Item.work_post_id)}
-								>
-									<figure
-										className="cards__item__pic-wrap"
-										data-category={Item.fullName}
+		showContent =
+			<div className="cards__wrapper">
+				<ul className="cards__items">
+					{showWorkFreelance.map((Item, index) => {
+						return (
+							<>
+								<li className="cards__item" key={index}>
+									<Link
+										className="cards__item__link"
+										to={Item.path}
+										onClick={() => handleClickWork(Item.work_post_id)}
 									>
-										<img
-											className="cards__item__img"
-											// src={Item.srcwork}	Default image job
-											src={Item.image}
-											alt={String(Item.work_post_id)}
-										/>
-									</figure>
-									<div className="cards__item__info">
-										<h5 className="cards__item__text">
-											{Item.typeWorkName}
-										</h5>
-										<h5 className="cards__item__text">
-											{Item.nameWork}
-										</h5>
-										{/* <button type="button" value={Item.work_post_id} onClick={() => handleClickWork(Item.work_post_id)}>
+										<figure
+											className="cards__item__pic-wrap"
+											data-category={Item.fullName}
+										>
+											<img
+												className="cards__item__img"
+												// src={Item.srcwork}	Default image job
+												src={"images/postfreelance/" + Item.image}
+												alt={String(Item.work_post_id)}
+											/>
+										</figure>
+										<div className="cards__item__info">
+											<h5 className="cards__item__text">
+												{Item.typeWorkName}
+											</h5>
+											<h5 className="cards__item__text">
+												{Item.nameWork}
+											</h5>
+											{/* <button type="button" value={Item.work_post_id} onClick={() => handleClickWork(Item.work_post_id)}>
 										</button> */}
-									</div>
-									<h5 className="cards__item__text_price">
-										{"ราคา : "+Item.pricePostWork}
-									</h5>
-								</Link>
-							</li>
-						</>
-					);
-				})}
-			</ul>
-		</div>
+										</div>
+										<h5 className="cards__item__text_price">
+											{"ราคา : " + Item.pricePostWork}
+										</h5>
+									</Link>
+								</li>
+							</>
+						);
+					})}
+				</ul>
+			</div>
 	} else if (selectedMenu.selectedId === 2) {
 		showContent = <div className="cards__wrapper">
 			<ul className="cards__items">
@@ -268,7 +268,7 @@ const Contents = (props) => {
 										</h5>
 									</div>
 									<h5 className="cards__item__text_price">
-										{"เงินเดือนเริ่มต้น : "+Item.pricePostWork}
+										{"เงินเดือนเริ่มต้น : " + Item.pricePostWork}
 									</h5>
 								</Link>
 							</li>
@@ -282,12 +282,12 @@ const Contents = (props) => {
 	let donate = <></>
 	if (selectedMenu.workType === 0) {
 		donate =
-		<div className="space_img_donate">
-			<img
-				className="img_for_danate"
-				src="/images/Donate.png"
-			/>
-		</div>
+			<div className="space_img_donate">
+				<img
+					className="img_for_danate"
+					src="/images/Donate.png"
+				/>
+			</div>
 	}
 
 	return (

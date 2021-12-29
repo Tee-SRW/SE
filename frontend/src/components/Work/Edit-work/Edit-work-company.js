@@ -107,7 +107,7 @@ export default function EditWorkCompanyform(props) {
           priceworkmin: Item.priceworkmin,
           priceworkmax: Item.priceworkmax,
           education: Item.education,
-          imageworkpostcompany: "images/postfreelance/" + Item.imageworkpostcompany,
+          imageworkpostcompany: Item.imageworkpostcompany,
         }
       })
       setvaluesEditWcom(beforeEditto[0]);
@@ -121,7 +121,7 @@ export default function EditWorkCompanyform(props) {
   if (selected === false) {
     showImage =
       <img
-        src={valuesEditWcom.imageworkpostfreelance}
+        src={"images/postfreelance/" + valuesEditWcom.imageworkpostfreelance}
         className="img-fluid"
         alt="Thumb"
       />

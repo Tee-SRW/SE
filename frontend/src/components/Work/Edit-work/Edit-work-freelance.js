@@ -101,7 +101,7 @@ export default function EditWorkFreelanceform(props) {
           detailwork: Item.detail_work,
           pricepostwork: Item.price_post_work,
           namework: Item.name_work,
-          imageworkpostfreelance: "images/postfreelance/" + Item.image_work_post_freelance
+          imageworkpostfreelance: Item.image_work_post_freelance
         };
       })
       setvaluesEditWfl(beforeEditto[0]);
@@ -120,7 +120,7 @@ export default function EditWorkFreelanceform(props) {
   if (selected === false) {
     showImage =
       <img
-        src={valuesEditWfl.imageworkpostfreelance}
+        src={"images/postfreelance/" + valuesEditWfl.imageworkpostfreelance}
         className="img-fluid"
         alt="Thumb"
       />

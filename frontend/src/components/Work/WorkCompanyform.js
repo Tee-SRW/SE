@@ -36,7 +36,7 @@ export default function WorkFreelanceform() {
             priceworkmax: Item.priceworkmax,
             education: Item.education,
             detailwork: Item.detailwork,
-            imageworkpostcompany: "images/postfreelance/" + Item.imageworkpostcompany,
+            imageworkpostcompany: Item.imageworkpostcompany,
           }
         })
         setvaluesWorkCom(beforeEdit)
@@ -63,7 +63,7 @@ export default function WorkFreelanceform() {
               </h3> */}
                   <img
                     className="work-image-set"
-                    src={item.imageworkpostcompany}
+                    src={ "images/postfreelance/" + item.imageworkpostcompany}
                     alt="work"
                   />
                 </div>

@@ -27,7 +27,7 @@ export default function WorkFreelanceform(props) {
           email: Item.email,
           facebook: Item.facebook,
           firstName: Item.firstName,
-          image_work_post_freelance: "images/postfreelance/" + Item.image_work_post_freelance,
+          image_work_post_freelance: Item.image_work_post_freelance,
           instagram: Item.instagram,
           lastName: Item.lastName,
           line: Item.line,
@@ -60,7 +60,7 @@ export default function WorkFreelanceform(props) {
                   </h3> */}
                   <img 
                     className="work-image-set"
-                    src={item.image_work_post_freelance}
+                    src={ "images/postfreelance/" + item.image_work_post_freelance}
                     alt="work"
                   />
                 </div>

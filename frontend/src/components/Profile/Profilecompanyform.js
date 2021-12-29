@@ -81,7 +81,7 @@ export default function Profilecompanyform(props) {
           typeWorkName: Item.type_work_name,
           nameWork: Item.name_work,
           pricePostWork: Item.price_work_min,
-          image: "images/postfreelance/" + Item.image_work_post_company,
+          image: Item.image_work_post_company,
           srcwork: "images/design.jpeg",
           path: "/WorkCompany"
         }
@@ -117,7 +117,7 @@ export default function Profilecompanyform(props) {
                         <img
                           className="cards__in_profile__item__img"
                           // src={Item.srcwork}	Default image job
-                          src={Item.image}
+                          src={"images/postfreelance/" + Item.image}
                           alt={String(Item.work_post_id)}
                         />
                       </figure>
@@ -174,7 +174,7 @@ export default function Profilecompanyform(props) {
                         <img
                           className="cards__in_profile__item__img"
                           // src={Item.srcwork}	Default image job
-                          src={Item.image}
+                          src={"images/postfreelance/" + Item.image}
                           alt={String(Item.work_post_id)}
                         />
                       </figure>
@@ -231,7 +231,7 @@ export default function Profilecompanyform(props) {
                         <img
                           className="cards__in_profile__item__img"
                           // src={Item.srcwork}	Default image job
-                          src={Item.image}
+                          src={"images/postfreelance/" + Item.image}
                           alt={String(Item.work_post_id)}
                         />
                       </figure>
