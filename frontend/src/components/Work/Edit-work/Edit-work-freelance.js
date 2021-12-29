@@ -57,25 +57,25 @@ export default function EditWorkFreelanceform(props) {
     setValidated(true);
     
 
-    // const putupdatepostfreelance = {
-    //   userid: userData.userID,
-    //   workpostid: userData.userSelectWorkID,
-    //   typeWorknumber: "",
-    //   namework: "",
-    //   detailwork: "",
-    //   pricepostwork: "",
-    //   imageworkpostfreelance: ""
-    // }
+    const putupdatepostfreelance = {
+      userid: Number(valuesEditWfl.userid),
+      workpostid: Number(valuesEditWfl.workpostid),
+      typeWorknumber: Number(valuesEditWfl.typeWorknumber),
+      namework: valuesEditWfl.namework,
+      detailwork: valuesEditWfl.detailwork,
+      pricepostwork: valuesEditWfl.pricepostwork,
+      imageworkpostfreelance: valuesEditWfl.imageworkpostfreelance
+    }
 
-    // axios.put(`/updatepostfreelance`, valuesEditWfl).then((res) => {
-    //   console.log(valuesEditWfl);
-    //   console.log(res);
-    //   console.log(res.data);
-    //   if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
-    //     alert("แก้ไขการสร้างงานของคุณสำเร็จ");
-    //     history.push("/Profilefreelance");
-    //   }
-    // });
+    axios.put(`/updatepostfreelance`, putupdatepostfreelance).then((res) => {
+      console.log(putupdatepostfreelance);
+      console.log(res);
+      console.log(res.data);
+      if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
+        alert("แก้ไขการสร้างงานของคุณสำเร็จ");
+        history.push("/Profilefreelance");
+      }
+    });
 
 
   };
