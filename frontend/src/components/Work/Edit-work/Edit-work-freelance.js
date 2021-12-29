@@ -12,12 +12,14 @@ export default function EditWorkFreelanceform(props) {
   const history = useHistory();
 
   let url = "";
-
+  const [selected, setSelected] = useState(false);
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
+    setSelected(true)
     url = e.target.files[0].name;
     console.log(url);
   };
+
   const [selectedImage, setSelectedImage] = useState();
 
   // This function will be triggered when the file field change
@@ -42,8 +44,10 @@ export default function EditWorkFreelanceform(props) {
   });
 
   const handlevaluesEditWflChange = (prop) => (event) => {
-    setvaluesEditWfl({ ...valuesEditWfl
-      , [prop]: event.target.value });
+    setvaluesEditWfl({
+      ...valuesEditWfl
+      , [prop]: event.target.value
+    });
   };
 
   const [validated, setValidated] = useState(false);
@@ -55,7 +59,7 @@ export default function EditWorkFreelanceform(props) {
       event.stopPropagation();
     }
     setValidated(true);
-    
+
 
     const putupdatepostfreelance = {
       userid: Number(valuesEditWfl.userid),
@@ -92,12 +96,12 @@ export default function EditWorkFreelanceform(props) {
           userid: userData.userID,
           workpostid: userData.userSelectWorkID,
           typeWorknumber: Item.type_work_name === "Graphic & Design" ? "1"
-                        :  Item.type_work_name === "Marketing" ?        "2"
-                        :  Item.type_work_name === "Programming" ?      "3" : null,
-          detailwork:  Item.detail_work,
-          pricepostwork:  Item.price_post_work,
-          namework:  Item.name_work,
-          imageworkpostfreelance: "images/postfreelance/" +  Item.image_work_post_freelance
+            : Item.type_work_name === "Marketing" ? "2"
+              : Item.type_work_name === "Programming" ? "3" : null,
+          detailwork: Item.detail_work,
+          pricepostwork: Item.price_post_work,
+          namework: Item.name_work,
+          imageworkpostfreelance: "images/postfreelance/" + Item.image_work_post_freelance
         };
       })
       setvaluesEditWfl(beforeEditto[0]);
@@ -106,11 +110,28 @@ export default function EditWorkFreelanceform(props) {
       console.log(beforeEditto);
       console.log("--------beforce--------");
     });
-    
+
   }, []);
   console.log("--------valuesEditWfl--------");
   console.log(valuesEditWfl);
   console.log("--------valuesEditWfl--------");
+
+  let showImage = <></>
+  if (selected === false) {
+    showImage =
+    <img
+      src={valuesEditWfl.imageworkpostfreelance}
+      className="img-fluid"
+      alt="Thumb"
+    />
+  } else {
+    showImage =
+    <img
+      src={URL.createObjectURL(selectedImage)}
+      className="img-fluid"
+      alt="Thumb"
+    />
+  }
 
 
   return (
@@ -201,18 +222,13 @@ export default function EditWorkFreelanceform(props) {
           value={url}
         >
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} />
+          <Form.Control type="file" onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">
           <div className="box-image">
-            {selectedImage && (
-              <img
-                src={URL.editObjectURL(selectedImage)}
-                className="img-fluid"
-                alt="Thumb"
-              />
-            )}
+            {showImage}
+            
           </div>
         </div>
 
