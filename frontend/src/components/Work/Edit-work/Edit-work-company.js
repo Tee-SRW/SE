@@ -121,7 +121,7 @@ export default function EditWorkCompanyform(props) {
   if (selected === false) {
     showImage =
       <img
-        src={"images/postfreelance/" + valuesEditWcom.imageworkpostfreelance}
+        src={"images/postfreelance/" + valuesEditWcom.imageworkpostcompany}
         className="img-fluid"
         alt="Thumb"
       />
