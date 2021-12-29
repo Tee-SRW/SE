@@ -108,7 +108,7 @@
         }
         
         .board__setting {
-            margin-top: 80px;
+            margin-top: 50px;
             /* margin-top: 10px;
             margin-bottom: 30px; */
         }
@@ -271,7 +271,7 @@
         }
         
         .bottom__profileform {
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             font-weight: bold;
             display: flex;
             font-size: 13px;
