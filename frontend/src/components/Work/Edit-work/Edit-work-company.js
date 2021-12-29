@@ -76,11 +76,13 @@ export default function EditWorkCompanyform(props) {
   };
 
   const [selectedImage, setSelectedImage] = useState();
+  const [selected, setSelected] = useState(false);
 
   let url = "";
 
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
+    setSelected(true)
     url = e.target.files[0].name
     console.log(url);
   }
@@ -115,6 +117,22 @@ export default function EditWorkCompanyform(props) {
   console.log("after");
   console.log(valuesEditWcom);
 
+  let showImage = <></>
+  if (selected === false) {
+    showImage =
+    <img
+      src={valuesEditWcom.imageworkpostfreelance}
+      className="img-fluid"
+      alt="Thumb"
+    />
+  } else {
+    showImage =
+    <img
+      src={URL.createObjectURL(selectedImage)}
+      className="img-fluid"
+      alt="Thumb"
+    />
+  }
 
   return (
     <div className="edit-work-outer">
@@ -305,18 +323,13 @@ export default function EditWorkCompanyform(props) {
 
         <Form.Group controlId="formFileMultiple" className="mb-3" value={url}>
           <Form.Label>รูปผลงาน</Form.Label>
-          <Form.Control type="file" multiple onChange={geturl} />
+          <Form.Control type="file" onChange={geturl} />
         </Form.Group>
 
         <div className="border-list-pic">
           <div className="box-image">
-            {selectedImage && (
-              <img
-                src={URL.createObjectURL(selectedImage)}
-                className="img-fluid"
-                alt="Thumb"
-              />
-            )}
+          {showImage}
+
           </div>
         </div>
 
