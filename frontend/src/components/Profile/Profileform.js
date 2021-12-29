@@ -64,7 +64,7 @@ export default function Profileform(props) {
                 <button
                   className="btn bottom__profileform shadow"
                   type="submit"
-                  onClick={() => history.push("/Editprofilefreelance")}
+                  onClick={() => history.push("/Profile")}
                 >
                   แก้ไขโปรไฟล์
                 </button>

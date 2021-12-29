@@ -52,7 +52,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: "images/postfreelance/" + Item.image_work_post_freelance,
+					image: Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/design.jpeg",
 					path: "/WorkFreelance"
 				}
@@ -86,7 +86,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: "images/postfreelance/" + Item.image_work_post_freelance,
+					image: Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/market.png",
 					path: "/WorkFreelance"
 				}
@@ -120,7 +120,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_post_work,
-					image: "images/postfreelance/" + Item.image_work_post_freelance,
+					image: Item.image_work_post_freelance,
 					srcwork: "images/postfreelance/programming.jpeg",
 					path: "/WorkFreelance"
 				}
@@ -147,7 +147,7 @@ const Contents = (props) => {
 					typeWorkName: Item.type_work_name,
 					nameWork: Item.name_work,
 					pricePostWork: Item.price_work_min,
-					image: "images/postfreelance/" + Item.image_work_post_company,
+					image: Item.image_work_post_company,
 					srcwork: selectedMenu.workType === 1 ? "images/postfreelance/design.jpeg"
 						: selectedMenu.workType === 2 ? "images/postfreelance/market.png"
 							: selectedMenu.workType === 3 ? "images/postfreelance/programming.jpeg" : null,
@@ -255,7 +255,7 @@ const Contents = (props) => {
 										<img
 											className="cards__item__img"
 											// src={Item.srcwork}	Default image job
-											src={Item.image}
+											src={"images/postfreelance/" +Item.image}
 											alt={String(Item.work_post_id)}
 										/>
 									</figure>
