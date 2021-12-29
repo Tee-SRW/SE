@@ -29,8 +29,8 @@ export default function EditWorkFreelanceform(props) {
   // };
 
   const sendWorkID = {
-    // workpostid: userData.userSelectWorkID,
-    work_post_id: 1
+    workpostid: userData.userSelectWorkID,
+    // work_post_id: 1
   };
 
   const [valuesEditWfl, setvaluesEditWfl] = React.useState({
@@ -119,18 +119,18 @@ export default function EditWorkFreelanceform(props) {
   let showImage = <></>
   if (selected === false) {
     showImage =
-    <img
-      src={valuesEditWfl.imageworkpostfreelance}
-      className="img-fluid"
-      alt="Thumb"
-    />
+      <img
+        src={valuesEditWfl.imageworkpostfreelance}
+        className="img-fluid"
+        alt="Thumb"
+      />
   } else {
     showImage =
-    <img
-      src={URL.createObjectURL(selectedImage)}
-      className="img-fluid"
-      alt="Thumb"
-    />
+      <img
+        src={URL.createObjectURL(selectedImage)}
+        className="img-fluid"
+        alt="Thumb"
+      />
   }
 
 
@@ -228,7 +228,7 @@ export default function EditWorkFreelanceform(props) {
         <div className="border-list-pic">
           <div className="box-image">
             {showImage}
-            
+
           </div>
         </div>
 

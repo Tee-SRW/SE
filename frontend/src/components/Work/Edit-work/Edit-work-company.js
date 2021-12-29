@@ -120,18 +120,18 @@ export default function EditWorkCompanyform(props) {
   let showImage = <></>
   if (selected === false) {
     showImage =
-    <img
-      src={valuesEditWcom.imageworkpostfreelance}
-      className="img-fluid"
-      alt="Thumb"
-    />
+      <img
+        src={valuesEditWcom.imageworkpostfreelance}
+        className="img-fluid"
+        alt="Thumb"
+      />
   } else {
     showImage =
-    <img
-      src={URL.createObjectURL(selectedImage)}
-      className="img-fluid"
-      alt="Thumb"
-    />
+      <img
+        src={URL.createObjectURL(selectedImage)}
+        className="img-fluid"
+        alt="Thumb"
+      />
   }
 
   return (
@@ -328,7 +328,7 @@ export default function EditWorkCompanyform(props) {
 
         <div className="border-list-pic">
           <div className="box-image">
-          {showImage}
+            {showImage}
 
           </div>
         </div>
