@@ -15,37 +15,56 @@ export default function EditWorkCompanyform(props) {
   const sendWorkID = {
     workpostid: dataWork.userSelectWorkID,
   };
-  const sendComID = {
-    companyid: dataWork.userID,
-  };
-  const [valuesEditWcom, setvaluesEditWcom] = React.useState({
-    workpostid: dataWork.userID,
-    companyid: dataWork.userID,
-    typeworknumber: "",
-    namework: "",
-    detailwork: "",
-    position: "",
-    numperson: "",
-    priceworkmin: "",
-    priceworkmax: "",
-    education: "",
-    imageworkpostcompany: "",
-  });
+
+  const [valuesEditWcom, setvaluesEditWcom] = React.useState(
+    {
+      workpostid: dataWork.userSelectWorkID,
+      companyid: dataWork.userID,
+      typeworknumber: "",
+      namework: "",
+      detailwork: "",
+      position: "",
+      numperson: "",
+      priceworkmin: "",
+      priceworkmax: "",
+      education: "",
+      imageworkpostcompany: "",
+    }
+  );
   const handlevaluesEditWcomChange = (prop) => (event) => {
     setvaluesEditWcom({ ...valuesEditWcom, [prop]: event.target.value });
   };
 
   const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
+      console.log(valuesEditWcom.detailwork)
       event.preventDefault();
       event.stopPropagation();
+
     }
     setValidated(true);
+
     event.preventDefault();
-    axios.put(`/updateuser`, valuesEditWcom).then((res) => {
-      console.log(valuesEditWcom);
+
+    const putdata = {
+      workpostid: Number(valuesEditWcom.workpostid),
+      companyid: Number(valuesEditWcom.companyid),
+      typeworknumber: Number(valuesEditWcom.typeworknumber),
+      namework: valuesEditWcom.namework,
+      detailwork: valuesEditWcom.detailwork,
+      position: valuesEditWcom.position,
+      numperson: Number(valuesEditWcom.numperson),
+      priceworkmin: valuesEditWcom.priceworkmin,
+      priceworkmax: valuesEditWcom.priceworkmax,
+      education: valuesEditWcom.education,
+      imageworkpostcompany: valuesEditWcom.imageworkpostcompany
+    }
+
+    axios.put(`/updatepostcompany`, putdata).then((res) => {
+      console.log(putdata);
       console.log(res);
       console.log(res.data);
       if (res.data === "Complete" || res.data === "สำเร็จ" || res.data === "Complete!") {
@@ -56,7 +75,10 @@ export default function EditWorkCompanyform(props) {
 
   };
 
-  let url = ""
+  const [selectedImage, setSelectedImage] = useState();
+
+  let url = "";
+
   const geturl = (e) => {
     setSelectedImage(e.target.files[0]);
     url = e.target.files[0].name
@@ -71,11 +93,12 @@ export default function EditWorkCompanyform(props) {
 
       let beforeEditto = res.data.map(Item => {
         return {
-          id: dataWork.userID,
-          workpostid: Item.workpostid,
-          companyid: Item.companyid,
-          typeworknumber: Item.typeworknumber,
-          namework: Item.namework,
+          workpostid: dataWork.userSelectWorkID,
+          companyid: dataWork.userID,
+          typeworknumber: Item.typenamework === "Graphic & Design" ? "1"
+            : Item.typenamework === "Marketing" ? "2"
+              : Item.typenamework === "Programming" ? "3" : null,
+          namework: Item.workname,
           detailwork: Item.detailwork,
           position: Item.position,
           numperson: Item.numperson,
@@ -85,13 +108,13 @@ export default function EditWorkCompanyform(props) {
           imageworkpostcompany: "images/postfreelance/" + Item.imageworkpostcompany,
         }
       })
-      setvaluesEditWcom(beforeEditto);
+      setvaluesEditWcom(beforeEditto[0]);
     });
 
   }, []);
-
+  console.log("after");
   console.log(valuesEditWcom);
-  const [selectedImage, setSelectedImage] = useState();
+
 
   return (
     <div className="edit-work-outer">
@@ -104,7 +127,7 @@ export default function EditWorkCompanyform(props) {
           as={Col}
           md="4"
           controlId="validationCustom01"
-          value={Number(valuesEditWcom.typeworknumber)}
+          value={valuesEditWcom.typeworknumber}
           onChange={handlevaluesEditWcomChange("typeworknumber")}
         >
           <option>--------------</option>
@@ -127,7 +150,7 @@ export default function EditWorkCompanyform(props) {
               required
               type="text"
               placeholder="ชื่องาน"
-              name="workname"
+              name="namework"
               value={valuesEditWcom.namework}
               onChange={handlevaluesEditWcomChange("namework")}
             />
@@ -201,7 +224,7 @@ export default function EditWorkCompanyform(props) {
               <Form.Label>เงินเดือน</Form.Label>
 
               <Form.Control
-                required type="number"
+                required type="text"
                 placeholder="0.00"
                 name="priceworkmin"
                 value={valuesEditWcom.priceworkmin}
@@ -223,7 +246,7 @@ export default function EditWorkCompanyform(props) {
 
               <Form.Control
                 required
-                type="number"
+                type="text"
                 placeholder="0.00"
                 name="priceworkmax"
                 value={valuesEditWcom.priceworkmax}
@@ -289,7 +312,7 @@ export default function EditWorkCompanyform(props) {
           <div className="box-image">
             {selectedImage && (
               <img
-                src={URL.editObjectURL(selectedImage)}
+                src={URL.createObjectURL(selectedImage)}
                 className="img-fluid"
                 alt="Thumb"
               />
@@ -315,7 +338,6 @@ export default function EditWorkCompanyform(props) {
             </Button>
           </Col>
         </Row>
-
 
       </Form>
     </div>
